@@ -1,0 +1,15 @@
+services:
+  slither:
+    build:
+      context: ..
+      dockerfile: docker/slither/Dockerfile
+    volumes:
+      - ../:/work
+    working_dir: /work
+  mythril:
+    build:
+      context: ..
+      dockerfile: docker/mythril/Dockerfile
+    volumes:
+      - ../:/work
+    working_dir: /work
