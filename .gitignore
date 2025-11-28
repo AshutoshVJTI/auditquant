@@ -3,6 +3,7 @@ __pycache__/
 *.pyo
 *.pyd
 .venv/
+venv/
 .env
 backend/.analysis/
 node_modules/
