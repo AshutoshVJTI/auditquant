@@ -17,6 +17,14 @@ class Settings(BaseSettings):
     analysis_storage_path: str = Field(
         default="backend/.analysis", validation_alias="ANALYSIS_STORAGE_PATH"
     )
+    
+    # Multi-tool settings
+    enable_securify: bool = Field(default=True, validation_alias="ENABLE_SECURIFY")
+    enable_echidna: bool = Field(default=True, validation_alias="ENABLE_ECHIDNA")
+    enable_oyente: bool = Field(default=True, validation_alias="ENABLE_OYENTE")
+    echidna_test_limit: int = Field(default=50000, validation_alias="ECHIDNA_TEST_LIMIT")
+    echidna_timeout: int = Field(default=300, validation_alias="ECHIDNA_TIMEOUT")
+    oyente_timeout: int = Field(default=180, validation_alias="OYENTE_TIMEOUT")
 
 
 settings = Settings()

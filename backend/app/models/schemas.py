@@ -45,3 +45,17 @@ class HealthResponse(BaseModel):
     status: str
     service: str
     version: str
+
+
+class RemediationRequest(BaseModel):
+    analysis_id: str = Field(..., description="Analysis ID to pull finding from")
+    finding_id: str = Field(..., description="Finding ID to remediate (e.g., F-1, M-1)")
+    code_snippet: str | None = Field(None, description="Optional: vulnerable code snippet if not in store")
+
+
+class RemediationResponse(BaseModel):
+    finding_id: str
+    vulnerability_type: str
+    original_code: str
+    patched_code: str
+    explanation: str | None = None

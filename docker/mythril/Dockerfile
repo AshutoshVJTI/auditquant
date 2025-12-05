@@ -5,7 +5,10 @@ RUN apt-get update \
         build-essential \
         curl \
         git \
-    && pip install --no-cache-dir mythril==0.23.15 solc-select==1.0.4 \
+        python3-dev \
+        libffi-dev \
+    && pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir mythril solc-select \
     && solc-select install 0.8.20 \
     && solc-select use 0.8.20 \
     && apt-get clean \
