@@ -1,0 +1,5349 @@
+{
+  "version": "1.0",
+  "total_contracts": 100,
+  "target_distribution": {
+    "amm_dex": 25,
+    "lending": 25,
+    "vault_yield": 20,
+    "staking_rewards": 15,
+    "other": 15
+  },
+  "actual_distribution": {
+    "amm_dex": 25,
+    "lending": 25,
+    "vault_yield": 20,
+    "staking_rewards": 15,
+    "other": 15
+  },
+  "contracts": [
+    {
+      "id": "amm_dex_001",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/smart_billions.sol",
+      "dataset": "smartbugs",
+      "filename": "smart_billions.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 772,
+      "source_chars": 26708,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_001_smart_billions.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.413,
+        "all_scores": {
+          "amm_dex": 0.213,
+          "lending": 0.0,
+          "vault_yield": 0.373,
+          "staking_rewards": 0.0,
+          "token": 0.413,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "share",
+          "totalSupply",
+          "withdraw",
+          "Transfer",
+          "allowance"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.41333333333333333,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "share",
+          "totalSupply",
+          "withdraw",
+          "Transfer",
+          "allowance",
+          "ERC20",
+          "burn",
+          "swap",
+          "transfer",
+          "shares"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_002",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/lucky_doubler.sol",
+      "dataset": "smartbugs",
+      "filename": "lucky_doubler.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 192,
+      "source_chars": 5513,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 1.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Deposit",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "Deposit",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_003",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/access_control/incorrect_constructor_name1.sol",
+      "dataset": "smartbugs",
+      "filename": "incorrect_constructor_name1.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 35,
+      "source_chars": 712,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_003_incorrect_constructor_name1.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.8,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.8,
+          "staking_rewards": 0.0,
+          "token": 0.2,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "withdraw"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.8,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "withdraw"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_004",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "dataset": "smartbugs",
+      "filename": "0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 2470,
+      "source_chars": 96751,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_004_0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.695,
+        "all_scores": {
+          "amm_dex": 0.114,
+          "lending": 0.0,
+          "vault_yield": 0.038,
+          "staking_rewards": 0.0,
+          "token": 0.695,
+          "governance": 0.152,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "totalSupply",
+          "ERC721",
+          "withdraw",
+          "Erc20",
+          "Delegate"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.6952380952380952,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "totalSupply",
+          "ERC721",
+          "withdraw",
+          "Erc20",
+          "Delegate",
+          "Transfer",
+          "mint",
+          "allowance",
+          "ERC20",
+          "execute"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_005",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/king_of_the_ether_throne.sol",
+      "dataset": "smartbugs",
+      "filename": "king_of_the_ether_throne.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 183,
+      "source_chars": 6934,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_005_king_of_the_ether_throne.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 1.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "claim",
+          "Claim"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 1.0,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "claim",
+          "Claim"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_006",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/24.sol",
+      "dataset": "solidifi",
+      "filename": "24.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 748,
+      "source_chars": 32715,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_006_24.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_007",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/29.sol",
+      "dataset": "solidifi",
+      "filename": "29.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 317,
+      "source_chars": 9921,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_007_29.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "allowance",
+          "Allowance"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "allowance",
+          "Allowance"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_008",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/40.sol",
+      "dataset": "solidifi",
+      "filename": "40.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 470,
+      "source_chars": 15731,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_008_40.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.944,
+        "all_scores": {
+          "amm_dex": 0.056,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.944,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "totalSupply",
+          "erc20",
+          "Transfer",
+          "mint",
+          "allowance"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.9444444444444444,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "totalSupply",
+          "erc20",
+          "Transfer",
+          "mint",
+          "allowance",
+          "ERC20",
+          "burn",
+          "SWAP",
+          "transfer",
+          "approve"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_009",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/21.sol",
+      "dataset": "solidifi",
+      "filename": "21.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 354,
+      "source_chars": 14402,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_009_21.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.744,
+        "all_scores": {
+          "amm_dex": 0.093,
+          "lending": 0.0,
+          "vault_yield": 0.744,
+          "staking_rewards": 0.0,
+          "token": 0.163,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "withdraw",
+          "allowance",
+          "deposit",
+          "pair",
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.7441860465116279,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "withdraw",
+          "allowance",
+          "deposit",
+          "pair",
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_010",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/20.sol",
+      "dataset": "solidifi",
+      "filename": "20.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 313,
+      "source_chars": 9903,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_010_20.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.867,
+        "all_scores": {
+          "amm_dex": 0.867,
+          "lending": 0.0,
+          "vault_yield": 0.048,
+          "staking_rewards": 0.048,
+          "token": 0.036,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "withdraw",
+          "liquidity",
+          "swap",
+          "CLAIM",
+          "pool"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.8674698795180723,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "withdraw",
+          "liquidity",
+          "swap",
+          "CLAIM",
+          "pool",
+          "transfer",
+          "Pool",
+          "Liquidity"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_011",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/blackjack.sol",
+      "dataset": "smartbugs",
+      "filename": "blackjack.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 309,
+      "source_chars": 8537,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_011_blackjack.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_012",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/random_number_generator.sol",
+      "dataset": "smartbugs",
+      "filename": "random_number_generator.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 27,
+      "source_chars": 899,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_012_random_number_generator.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_013",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/etheraffle.sol",
+      "dataset": "smartbugs",
+      "filename": "etheraffle.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 175,
+      "source_chars": 5069,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_013_etheraffle.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_014",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/guess_the_random_number.sol",
+      "dataset": "smartbugs",
+      "filename": "guess_the_random_number.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 30,
+      "source_chars": 732,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_014_guess_the_random_number.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_015",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/lottery.sol",
+      "dataset": "smartbugs",
+      "filename": "lottery.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 69,
+      "source_chars": 1782,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_015_lottery.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_016",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/old_blockhash.sol",
+      "dataset": "smartbugs",
+      "filename": "old_blockhash.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 43,
+      "source_chars": 1337,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_016_old_blockhash.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_017",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_multifunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 28,
+      "source_chars": 578,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_017_integer_overflow_multitx_multifunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_018",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/timelock.sol",
+      "dataset": "smartbugs",
+      "filename": "timelock.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 33,
+      "source_chars": 847,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_018_timelock.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.615,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.615,
+          "staking_rewards": 0.0,
+          "token": 0.077,
+          "governance": 0.308,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.6153846153846154,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_019",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/tokensalechallenge.sol",
+      "dataset": "smartbugs",
+      "filename": "tokensalechallenge.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 36,
+      "source_chars": 1063,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_019_tokensalechallenge.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_020",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_onefunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 552,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_020_integer_overflow_multitx_onefunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_021",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_mapping_sym_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 19,
+      "source_chars": 453,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_021_integer_overflow_mapping_sym_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_022",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_benign_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_benign_1.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 20,
+      "source_chars": 498,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_022_integer_overflow_benign_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_023",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_1.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 626,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_023_integer_overflow_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "amm_dex_024",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/overflow_simple_add.sol",
+      "dataset": "smartbugs",
+      "filename": "overflow_simple_add.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 17,
+      "source_chars": 346,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_024_overflow_simple_add.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 1.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "amm_dex_025",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/token.sol",
+      "dataset": "smartbugs",
+      "filename": "token.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 31,
+      "source_chars": 736,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_025_token.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "totalSupply"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "totalSupply"
+        ]
+      }
+    },
+    {
+      "id": "lending_026",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/denial_of_service/list_dos.sol",
+      "dataset": "smartbugs",
+      "filename": "list_dos.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "denial_of_service"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 125,
+      "source_chars": 4903,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_026_list_dos.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 1.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "debt"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 1.0,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "debt"
+        ]
+      }
+    },
+    {
+      "id": "lending_027",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "dataset": "smartbugs",
+      "filename": "0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 377,
+      "source_chars": 12515,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_027_0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.667,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.133,
+          "vault_yield": 0.667,
+          "staking_rewards": 0.0,
+          "token": 0.2,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "Collateral",
+          "withdraw"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.6666666666666666,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "Collateral",
+          "withdraw"
+        ]
+      }
+    },
+    {
+      "id": "lending_028",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/18.sol",
+      "dataset": "solidifi",
+      "filename": "18.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 411,
+      "source_chars": 16975,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_028_18.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.459,
+        "all_scores": {
+          "amm_dex": 0.054,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.432,
+          "token": 0.459,
+          "governance": 0.054,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "mint",
+          "allowance",
+          "Mint"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.4594594594594595,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "mint",
+          "allowance",
+          "Mint",
+          "ERC20",
+          "execute",
+          "transfer",
+          "reward",
+          "Mint(address"
+        ]
+      }
+    },
+    {
+      "id": "lending_029",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/37.sol",
+      "dataset": "solidifi",
+      "filename": "37.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 230,
+      "source_chars": 8974,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_029_37.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.862,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.862,
+          "governance": 0.138,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "allowance",
+          "ERC20",
+          "execute"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.8620689655172413,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "allowance",
+          "ERC20",
+          "execute",
+          "transfer",
+          "approve"
+        ]
+      }
+    },
+    {
+      "id": "lending_030",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/48.sol",
+      "dataset": "solidifi",
+      "filename": "48.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 237,
+      "source_chars": 10280,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_030_48.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.862,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.862,
+          "governance": 0.138,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "allowance",
+          "ERC20",
+          "execute"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.8620689655172413,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "allowance",
+          "ERC20",
+          "execute",
+          "transfer",
+          "approve"
+        ]
+      }
+    },
+    {
+      "id": "lending_031",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/blackjack.sol",
+      "dataset": "smartbugs",
+      "filename": "blackjack.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 309,
+      "source_chars": 8537,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_031_blackjack.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_032",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/random_number_generator.sol",
+      "dataset": "smartbugs",
+      "filename": "random_number_generator.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 27,
+      "source_chars": 899,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_032_random_number_generator.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_033",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/etheraffle.sol",
+      "dataset": "smartbugs",
+      "filename": "etheraffle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 175,
+      "source_chars": 5069,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_033_etheraffle.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "lending_034",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/guess_the_random_number.sol",
+      "dataset": "smartbugs",
+      "filename": "guess_the_random_number.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 30,
+      "source_chars": 732,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_034_guess_the_random_number.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "lending_035",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/lottery.sol",
+      "dataset": "smartbugs",
+      "filename": "lottery.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 69,
+      "source_chars": 1782,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_035_lottery.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_036",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/old_blockhash.sol",
+      "dataset": "smartbugs",
+      "filename": "old_blockhash.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 43,
+      "source_chars": 1337,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_036_old_blockhash.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "lending_037",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_multifunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 28,
+      "source_chars": 578,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_037_integer_overflow_multitx_multifunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_038",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/timelock.sol",
+      "dataset": "smartbugs",
+      "filename": "timelock.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 33,
+      "source_chars": 847,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_038_timelock.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.615,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.615,
+          "staking_rewards": 0.0,
+          "token": 0.077,
+          "governance": 0.308,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.6153846153846154,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "lending_039",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/tokensalechallenge.sol",
+      "dataset": "smartbugs",
+      "filename": "tokensalechallenge.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 36,
+      "source_chars": 1063,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_039_tokensalechallenge.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "lending_040",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_onefunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 552,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_040_integer_overflow_multitx_onefunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_041",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_mapping_sym_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 19,
+      "source_chars": 453,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_041_integer_overflow_mapping_sym_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_042",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_benign_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_benign_1.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 20,
+      "source_chars": 498,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_042_integer_overflow_benign_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_043",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_1.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 626,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_043_integer_overflow_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_044",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/overflow_simple_add.sol",
+      "dataset": "smartbugs",
+      "filename": "overflow_simple_add.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 17,
+      "source_chars": 346,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_044_overflow_simple_add.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 1.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "lending_045",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/token.sol",
+      "dataset": "smartbugs",
+      "filename": "token.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 31,
+      "source_chars": 736,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_045_token.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "totalSupply"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "totalSupply"
+        ]
+      }
+    },
+    {
+      "id": "lending_046",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/BECToken.sol",
+      "dataset": "smartbugs",
+      "filename": "BECToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 307,
+      "source_chars": 9214,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_046_BECToken.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "allowance",
+          "ERC20",
+          "Approve"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "totalSupply",
+          "Transfer",
+          "allowance",
+          "ERC20",
+          "Approve",
+          "transfer",
+          "approve"
+        ]
+      }
+    },
+    {
+      "id": "lending_047",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_minimal.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_minimal.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 20,
+      "source_chars": 501,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_047_integer_overflow_minimal.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_048",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_add.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_add.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 20,
+      "source_chars": 466,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_048_integer_overflow_add.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_049",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/overflow_single_tx.sol",
+      "dataset": "smartbugs",
+      "filename": "overflow_single_tx.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 52,
+      "source_chars": 1415,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_049_overflow_single_tx.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "lending_050",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_mul.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_mul.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 20,
+      "source_chars": 493,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_050_integer_overflow_mul.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_051",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/reentrancy/0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol",
+      "dataset": "smartbugs",
+      "filename": "0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "reentrancy"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 77,
+      "source_chars": 1404,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_051_0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 1.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "Deposit"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_052",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/reentrancy/0x8c7777c45481dba411450c228cb692ac3d550344.sol",
+      "dataset": "smartbugs",
+      "filename": "0x8c7777c45481dba411450c228cb692ac3d550344.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "reentrancy"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 77,
+      "source_chars": 1405,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_052_0x8c7777c45481dba411450c228cb692ac3d550344.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 1.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "Deposit"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_053",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
+      "dataset": "smartbugs",
+      "filename": "0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 94,
+      "source_chars": 3058,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_053_0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.5,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.5,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.5,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "vault",
+          "execute"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.5,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "vault",
+          "execute"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_054",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+      "dataset": "smartbugs",
+      "filename": "0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 42,
+      "source_chars": 1063,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_054_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.941,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.941,
+          "staking_rewards": 0.0,
+          "token": 0.059,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "Vault",
+          "withdraw",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.9411764705882353,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "Vault",
+          "withdraw",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_055",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "dataset": "smartbugs",
+      "filename": "0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 42,
+      "source_chars": 1064,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_055_0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.941,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.941,
+          "staking_rewards": 0.0,
+          "token": 0.059,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "Vault",
+          "withdraw",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.9411764705882353,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "Vault",
+          "withdraw",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_056",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "dataset": "smartbugs",
+      "filename": "0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 148,
+      "source_chars": 4135,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_056_0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.444,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.444,
+          "staking_rewards": 0.0,
+          "token": 0.111,
+          "governance": 0.444,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "vault",
+          "execute"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.4444444444444444,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "vault",
+          "execute"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_057",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "dataset": "smartbugs",
+      "filename": "0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 42,
+      "source_chars": 1065,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_057_0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.941,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.941,
+          "staking_rewards": 0.0,
+          "token": 0.059,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "Vault",
+          "withdraw",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.9411764705882353,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "Vault",
+          "withdraw",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_058",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/blackjack.sol",
+      "dataset": "smartbugs",
+      "filename": "blackjack.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 309,
+      "source_chars": 8537,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_058_blackjack.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_059",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/random_number_generator.sol",
+      "dataset": "smartbugs",
+      "filename": "random_number_generator.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 27,
+      "source_chars": 899,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_059_random_number_generator.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_060",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/etheraffle.sol",
+      "dataset": "smartbugs",
+      "filename": "etheraffle.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 175,
+      "source_chars": 5069,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_060_etheraffle.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_061",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/guess_the_random_number.sol",
+      "dataset": "smartbugs",
+      "filename": "guess_the_random_number.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 30,
+      "source_chars": 732,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_061_guess_the_random_number.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_062",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/lottery.sol",
+      "dataset": "smartbugs",
+      "filename": "lottery.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 69,
+      "source_chars": 1782,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_062_lottery.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_063",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/old_blockhash.sol",
+      "dataset": "smartbugs",
+      "filename": "old_blockhash.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 43,
+      "source_chars": 1337,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_063_old_blockhash.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_064",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_multifunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 28,
+      "source_chars": 578,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_064_integer_overflow_multitx_multifunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_065",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/timelock.sol",
+      "dataset": "smartbugs",
+      "filename": "timelock.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 33,
+      "source_chars": 847,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_065_timelock.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.615,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.615,
+          "staking_rewards": 0.0,
+          "token": 0.077,
+          "governance": 0.308,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.6153846153846154,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_066",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/tokensalechallenge.sol",
+      "dataset": "smartbugs",
+      "filename": "tokensalechallenge.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 36,
+      "source_chars": 1063,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_066_tokensalechallenge.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "vault_yield_067",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_onefunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 552,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_067_integer_overflow_multitx_onefunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_068",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_mapping_sym_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 19,
+      "source_chars": 453,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_068_integer_overflow_mapping_sym_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_069",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_benign_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_benign_1.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 20,
+      "source_chars": 498,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_069_integer_overflow_benign_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "vault_yield_070",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_1.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 626,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_070_integer_overflow_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "staking_rewards_071",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/reentrancy/reentrancy_bonus.sol",
+      "dataset": "smartbugs",
+      "filename": "reentrancy_bonus.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "reentrancy"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 32,
+      "source_chars": 1035,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_071_reentrancy_bonus.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.5,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.5,
+          "token": 0.0,
+          "governance": 0.5,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "claim",
+          "execute"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.5,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "claim",
+          "execute"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_072",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/front_running/eth_tx_order_dependence_minimal.sol",
+      "dataset": "smartbugs",
+      "filename": "eth_tx_order_dependence_minimal.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "front_running"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 35,
+      "source_chars": 798,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_072_eth_tx_order_dependence_minimal.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.889,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.889,
+          "token": 0.111,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "reward"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.8888888888888888,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "reward"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_073",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/etherpot_lotto.sol",
+      "dataset": "smartbugs",
+      "filename": "etherpot_lotto.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 163,
+      "source_chars": 5709,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_073_etherpot_lotto.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "staking_rewards_074",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/unchecked_low_level_calls/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+      "dataset": "smartbugs",
+      "filename": "0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "unchecked_low_level_calls"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 21,
+      "source_chars": 490,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_074_0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "staking_rewards_075",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/42.sol",
+      "dataset": "solidifi",
+      "filename": "42.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 133,
+      "source_chars": 4052,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_075_42.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.889,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.889,
+          "token": 0.111,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "stake",
+          "reward",
+          "Staking",
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.8888888888888888,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "stake",
+          "reward",
+          "Staking",
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_076",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/25.sol",
+      "dataset": "solidifi",
+      "filename": "25.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 201,
+      "source_chars": 8225,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_076_25.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.508,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.508,
+          "staking_rewards": 0.444,
+          "token": 0.048,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "stake",
+          "withdraw",
+          "Withdraw",
+          "deposit",
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.5079365079365079,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "stake",
+          "withdraw",
+          "Withdraw",
+          "deposit",
+          "transfer",
+          "Deposit"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_077",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/35.sol",
+      "dataset": "solidifi",
+      "filename": "35.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 352,
+      "source_chars": 14369,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_077_35.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.783,
+        "all_scores": {
+          "amm_dex": 0.087,
+          "lending": 0.0,
+          "vault_yield": 0.783,
+          "staking_rewards": 0.0,
+          "token": 0.13,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "withdraw",
+          "dex",
+          "Withdraw",
+          "deposit",
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.782608695652174,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "withdraw",
+          "dex",
+          "Withdraw",
+          "deposit",
+          "transfer",
+          "Deposit",
+          "approve"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_078",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/17.sol",
+      "dataset": "solidifi",
+      "filename": "17.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 210,
+      "source_chars": 6068,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_078_17.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "totalSupply",
+          "Burn",
+          "Transfer",
+          "allowance",
+          "burn"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "totalSupply",
+          "Burn",
+          "Transfer",
+          "allowance",
+          "burn",
+          "transfer",
+          "approve"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_079",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/solidifi/contracts/33.sol",
+      "dataset": "solidifi",
+      "filename": "33.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 134,
+      "source_chars": 4129,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_079_33.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.889,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.889,
+          "token": 0.111,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "stake",
+          "reward",
+          "Staking",
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.8888888888888888,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "stake",
+          "reward",
+          "Staking",
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_080",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/blackjack.sol",
+      "dataset": "smartbugs",
+      "filename": "blackjack.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 309,
+      "source_chars": 8537,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_080_blackjack.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "staking_rewards_081",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/random_number_generator.sol",
+      "dataset": "smartbugs",
+      "filename": "random_number_generator.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 27,
+      "source_chars": 899,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_081_random_number_generator.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "staking_rewards_082",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/etheraffle.sol",
+      "dataset": "smartbugs",
+      "filename": "etheraffle.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 175,
+      "source_chars": 5069,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_082_etheraffle.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_083",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/guess_the_random_number.sol",
+      "dataset": "smartbugs",
+      "filename": "guess_the_random_number.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 30,
+      "source_chars": 732,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_083_guess_the_random_number.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "staking_rewards_084",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/lottery.sol",
+      "dataset": "smartbugs",
+      "filename": "lottery.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 69,
+      "source_chars": 1782,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_084_lottery.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "staking_rewards_085",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/old_blockhash.sol",
+      "dataset": "smartbugs",
+      "filename": "old_blockhash.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 43,
+      "source_chars": 1337,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_085_old_blockhash.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "other_086",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/blackjack.sol",
+      "dataset": "smartbugs",
+      "filename": "blackjack.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 309,
+      "source_chars": 8537,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_086_blackjack.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_087",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/random_number_generator.sol",
+      "dataset": "smartbugs",
+      "filename": "random_number_generator.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 27,
+      "source_chars": 899,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_087_random_number_generator.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_088",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/etheraffle.sol",
+      "dataset": "smartbugs",
+      "filename": "etheraffle.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 175,
+      "source_chars": 5069,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_088_etheraffle.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "other_089",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/guess_the_random_number.sol",
+      "dataset": "smartbugs",
+      "filename": "guess_the_random_number.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 30,
+      "source_chars": 732,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_089_guess_the_random_number.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "other_090",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/lottery.sol",
+      "dataset": "smartbugs",
+      "filename": "lottery.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 69,
+      "source_chars": 1782,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_090_lottery.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_091",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/bad_randomness/old_blockhash.sol",
+      "dataset": "smartbugs",
+      "filename": "old_blockhash.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 43,
+      "source_chars": 1337,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_091_old_blockhash.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "other_092",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_multifunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 28,
+      "source_chars": 578,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_092_integer_overflow_multitx_multifunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_093",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/timelock.sol",
+      "dataset": "smartbugs",
+      "filename": "timelock.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 33,
+      "source_chars": 847,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_093_timelock.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.615,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.615,
+          "staking_rewards": 0.0,
+          "token": 0.077,
+          "governance": 0.308,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.6153846153846154,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "TimeLock",
+          "withdraw",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "other_094",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/tokensalechallenge.sol",
+      "dataset": "smartbugs",
+      "filename": "tokensalechallenge.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 36,
+      "source_chars": 1063,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_094_tokensalechallenge.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "other_095",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_multitx_onefunc_feasible.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 552,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_095_integer_overflow_multitx_onefunc_feasible.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_096",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_mapping_sym_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 19,
+      "source_chars": 453,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_096_integer_overflow_mapping_sym_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_097",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_benign_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_benign_1.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 20,
+      "source_chars": 498,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_097_integer_overflow_benign_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_098",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/integer_overflow_1.sol",
+      "dataset": "smartbugs",
+      "filename": "integer_overflow_1.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 25,
+      "source_chars": 626,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_098_integer_overflow_1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "other_099",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/overflow_simple_add.sol",
+      "dataset": "smartbugs",
+      "filename": "overflow_simple_add.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 17,
+      "source_chars": 346,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_099_overflow_simple_add.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 1.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 1.0,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "other_100",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/smartbugs-curated/dataset/arithmetic/token.sol",
+      "dataset": "smartbugs",
+      "filename": "token.sol",
+      "defi_category": "other",
+      "defi_category_confidence": null,
+      "known_vulnerabilities": [
+        "arithmetic"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 31,
+      "source_chars": 736,
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_100_token.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 1.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "transfer",
+          "totalSupply"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 1.0,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "transfer",
+          "totalSupply"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,715 @@
+{
+  "total_classified": 100,
+  "category_distribution": {
+    "amm_dex": 1,
+    "lending": 1,
+    "vault_yield": 20,
+    "staking_rewards": 5,
+    "token": 32,
+    "governance": 0,
+    "other": 41
+  },
+  "agreement_rate": 0.22,
+  "results": [
+    {
+      "id": "amm_dex_001",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 0.41333333333333333,
+      "match": false
+    },
+    {
+      "id": "amm_dex_002",
+      "initial": "amm_dex",
+      "classified": "vault_yield",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_003",
+      "initial": "amm_dex",
+      "classified": "vault_yield",
+      "confidence": 0.8,
+      "match": false
+    },
+    {
+      "id": "amm_dex_004",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 0.6952380952380952,
+      "match": false
+    },
+    {
+      "id": "amm_dex_005",
+      "initial": "amm_dex",
+      "classified": "staking_rewards",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_006",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_007",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_008",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 0.9444444444444444,
+      "match": false
+    },
+    {
+      "id": "amm_dex_009",
+      "initial": "amm_dex",
+      "classified": "vault_yield",
+      "confidence": 0.7441860465116279,
+      "match": false
+    },
+    {
+      "id": "amm_dex_010",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.8674698795180723,
+      "match": true
+    },
+    {
+      "id": "amm_dex_011",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_012",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_013",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_014",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_015",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_016",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_017",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_018",
+      "initial": "amm_dex",
+      "classified": "vault_yield",
+      "confidence": 0.6153846153846154,
+      "match": false
+    },
+    {
+      "id": "amm_dex_019",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_020",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_021",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_022",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_023",
+      "initial": "amm_dex",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_024",
+      "initial": "amm_dex",
+      "classified": "vault_yield",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "amm_dex_025",
+      "initial": "amm_dex",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_026",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "lending_027",
+      "initial": "lending",
+      "classified": "vault_yield",
+      "confidence": 0.6666666666666666,
+      "match": false
+    },
+    {
+      "id": "lending_028",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 0.4594594594594595,
+      "match": false
+    },
+    {
+      "id": "lending_029",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 0.8620689655172413,
+      "match": false
+    },
+    {
+      "id": "lending_030",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 0.8620689655172413,
+      "match": false
+    },
+    {
+      "id": "lending_031",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_032",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_033",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_034",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_035",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_036",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_037",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_038",
+      "initial": "lending",
+      "classified": "vault_yield",
+      "confidence": 0.6153846153846154,
+      "match": false
+    },
+    {
+      "id": "lending_039",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_040",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_041",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_042",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_043",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_044",
+      "initial": "lending",
+      "classified": "vault_yield",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_045",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_046",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_047",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_048",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_049",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "lending_050",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_051",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "vault_yield_052",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "vault_yield_053",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 0.5,
+      "match": true
+    },
+    {
+      "id": "vault_yield_054",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 0.9411764705882353,
+      "match": true
+    },
+    {
+      "id": "vault_yield_055",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 0.9411764705882353,
+      "match": true
+    },
+    {
+      "id": "vault_yield_056",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 0.4444444444444444,
+      "match": true
+    },
+    {
+      "id": "vault_yield_057",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 0.9411764705882353,
+      "match": true
+    },
+    {
+      "id": "vault_yield_058",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_059",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_060",
+      "initial": "vault_yield",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_061",
+      "initial": "vault_yield",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_062",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_063",
+      "initial": "vault_yield",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_064",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_065",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 0.6153846153846154,
+      "match": true
+    },
+    {
+      "id": "vault_yield_066",
+      "initial": "vault_yield",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_067",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_068",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_069",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "vault_yield_070",
+      "initial": "vault_yield",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_071",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.5,
+      "match": true
+    },
+    {
+      "id": "staking_rewards_072",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.8888888888888888,
+      "match": true
+    },
+    {
+      "id": "staking_rewards_073",
+      "initial": "staking_rewards",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_074",
+      "initial": "staking_rewards",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_075",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.8888888888888888,
+      "match": true
+    },
+    {
+      "id": "staking_rewards_076",
+      "initial": "staking_rewards",
+      "classified": "vault_yield",
+      "confidence": 0.5079365079365079,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_077",
+      "initial": "staking_rewards",
+      "classified": "vault_yield",
+      "confidence": 0.782608695652174,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_078",
+      "initial": "staking_rewards",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_079",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.8888888888888888,
+      "match": true
+    },
+    {
+      "id": "staking_rewards_080",
+      "initial": "staking_rewards",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_081",
+      "initial": "staking_rewards",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_082",
+      "initial": "staking_rewards",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_083",
+      "initial": "staking_rewards",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_084",
+      "initial": "staking_rewards",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "staking_rewards_085",
+      "initial": "staking_rewards",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "other_086",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_087",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_088",
+      "initial": "other",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "other_089",
+      "initial": "other",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "other_090",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_091",
+      "initial": "other",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "other_092",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_093",
+      "initial": "other",
+      "classified": "vault_yield",
+      "confidence": 0.6153846153846154,
+      "match": false
+    },
+    {
+      "id": "other_094",
+      "initial": "other",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "other_095",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_096",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_097",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_098",
+      "initial": "other",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "other_099",
+      "initial": "other",
+      "classified": "vault_yield",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "other_100",
+      "initial": "other",
+      "classified": "token",
+      "confidence": 1.0,
+      "match": false
+    }
+  ]
+}
