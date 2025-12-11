@@ -1,0 +1,1364 @@
+{
+  "run_id": "20260210_185622",
+  "timestamp": "2026-02-10T18:56:22.804721",
+  "metrics": {
+    "total_contracts": 20,
+    "successful": 20,
+    "failed": 0,
+    "total_time_seconds": 2.0168886184692383,
+    "avg_time_per_contract": 0.10084443092346192,
+    "tool_metrics": {
+      "slither": {
+        "total_findings": 11,
+        "avg_time_ms": 1028.3,
+        "success_rate": 1.0
+      },
+      "securify": {
+        "total_findings": 9,
+        "avg_time_ms": 1072.5,
+        "success_rate": 1.0
+      },
+      "mythril": {
+        "total_findings": 8,
+        "avg_time_ms": 1101.25,
+        "success_rate": 1.0
+      },
+      "echidna": {
+        "total_findings": 10,
+        "avg_time_ms": 1138.0,
+        "success_rate": 1.0
+      },
+      "oyente": {
+        "total_findings": 9,
+        "avg_time_ms": 1065.25,
+        "success_rate": 1.0
+      }
+    },
+    "total_findings": 47,
+    "total_cross_validated": 0,
+    "total_llm_claims": 47,
+    "total_verified": 24,
+    "total_rejected": 23,
+    "overall_hallucination_rate": 0.48936170212765956,
+    "true_positives": 7,
+    "false_positives": 16,
+    "false_negatives": 0,
+    "precision": 0.30434782608695654,
+    "recall": 1.0,
+    "f1_score": 0.4666666666666667
+  },
+  "results": [
+    {
+      "contract_id": "amm_dex_001",
+      "filename": "smart_billions.sol",
+      "status": "completed",
+      "start_time": 1770749780.7826543,
+      "end_time": 1770749780.8837335,
+      "total_seconds": 0.10107922554016113,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1613,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 1559,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1753,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4885468930229917
+            }
+          ],
+          "time_ms": 1049,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 612,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.413,
+      "r_sast": 64.8748444475412,
+      "r_dast": 65.09803652894301,
+      "r_comp": 48.72940676232908,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_002",
+      "filename": "lucky_doubler.sol",
+      "status": "completed",
+      "start_time": 1770749780.883868,
+      "end_time": 1770749780.9845414,
+      "total_seconds": 0.10067343711853027,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1503,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.31999314750103725
+            }
+          ],
+          "time_ms": 423,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3989832731316517
+            }
+          ],
+          "time_ms": 795,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 905,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 424,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 59.993551607724385,
+      "r_dast": 22.59577110527561,
+      "r_comp": 49.03525318734473,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_003",
+      "filename": "incorrect_constructor_name1.sol",
+      "status": "completed",
+      "start_time": 1770749780.9846652,
+      "end_time": 1770749781.0852678,
+      "total_seconds": 0.10060262680053711,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "access_control",
+              "severity": "medium",
+              "confidence": 0.9986243742287162
+            }
+          ],
+          "time_ms": 1455,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 425,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "access_control",
+              "severity": "medium",
+              "confidence": 0.681999335256398
+            }
+          ],
+          "time_ms": 1504,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "access_control",
+              "severity": "high",
+              "confidence": 0.5639999044794141
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3965681528446988
+            }
+          ],
+          "time_ms": 1976,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "access_control",
+              "severity": "low",
+              "confidence": 0.7791657415915492
+            }
+          ],
+          "time_ms": 1798,
+          "success": true
+        }
+      },
+      "total_findings": 5,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.8,
+      "r_sast": 70.18087020676276,
+      "r_dast": 60.8250233789,
+      "r_comp": 17.732103975498184,
+      "llm_claims": 5,
+      "verified_claims": 3,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.4,
+      "ground_truth_vulns": [
+        "access_control"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_004",
+      "filename": "0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "status": "completed",
+      "start_time": 1770749781.0854254,
+      "end_time": 1770749781.185968,
+      "total_seconds": 0.10054254531860352,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "low",
+              "confidence": 0.6978997700219106
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5739684598801801
+            }
+          ],
+          "time_ms": 1732,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.783243221774559
+            }
+          ],
+          "time_ms": 1316,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "low",
+              "confidence": 0.5597903076393524
+            }
+          ],
+          "time_ms": 1007,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.8129695705795021
+            }
+          ],
+          "time_ms": 1658,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 688,
+          "success": true
+        }
+      },
+      "total_findings": 5,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.695,
+      "r_sast": 71.51485063987533,
+      "r_dast": 10.156054616128623,
+      "r_comp": 36.79967200950238,
+      "llm_claims": 5,
+      "verified_claims": 3,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.4,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_005",
+      "filename": "king_of_the_ether_throne.sol",
+      "status": "completed",
+      "start_time": 1770749781.1861417,
+      "end_time": 1770749781.2866685,
+      "total_seconds": 0.10052680969238281,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.9400004793900072
+            }
+          ],
+          "time_ms": 398,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.8424800370120239
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.31781068071288276
+            }
+          ],
+          "time_ms": 1581,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.5432487432528434
+            }
+          ],
+          "time_ms": 911,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 1746,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.8705523587930115
+            }
+          ],
+          "time_ms": 655,
+          "success": true
+        }
+      },
+      "total_findings": 5,
+      "cross_validated": 0,
+      "defi_category": "staking_rewards",
+      "classifier_confidence": 1.0,
+      "r_sast": 79.92835537682909,
+      "r_dast": 53.71224585862729,
+      "r_comp": 47.45899037405358,
+      "llm_claims": 5,
+      "verified_claims": 3,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.4,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_006",
+      "filename": "24.sol",
+      "status": "completed",
+      "start_time": 1770749781.2867932,
+      "end_time": 1770749781.3874907,
+      "total_seconds": 0.10069751739501953,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1556,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4652980332866974
+            }
+          ],
+          "time_ms": 1342,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 539,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5280509387673673
+            }
+          ],
+          "time_ms": 380,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1646,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 66.72489316587468,
+      "r_dast": 68.92307653163235,
+      "r_comp": 22.76706544053715,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_007",
+      "filename": "29.sol",
+      "status": "completed",
+      "start_time": 1770749781.387667,
+      "end_time": 1770749781.4885542,
+      "total_seconds": 0.10088729858398438,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 775,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 178,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1082,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 383,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5572038027368963
+            }
+          ],
+          "time_ms": 1120,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 58.54003130793169,
+      "r_dast": 25.383816682039217,
+      "r_comp": 37.75105967130247,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_008",
+      "filename": "40.sol",
+      "status": "completed",
+      "start_time": 1770749781.4886758,
+      "end_time": 1770749781.5892847,
+      "total_seconds": 0.10060882568359375,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1192,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 1271,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.37556071730869495
+            }
+          ],
+          "time_ms": 375,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 573,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4180523453175554
+            }
+          ],
+          "time_ms": 248,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.944,
+      "r_sast": 51.9528819128935,
+      "r_dast": 38.73499735974838,
+      "r_comp": 42.629135620851784,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_009",
+      "filename": "21.sol",
+      "status": "completed",
+      "start_time": 1770749781.5894663,
+      "end_time": 1770749781.6901295,
+      "total_seconds": 0.1006631851196289,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 566,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 611,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 167,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5878688356972381
+            }
+          ],
+          "time_ms": 604,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5297580097578365
+            }
+          ],
+          "time_ms": 1051,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.744,
+      "r_sast": 26.032359552577574,
+      "r_dast": 55.843856542605444,
+      "r_comp": 31.25407990995572,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_010",
+      "filename": "20.sol",
+      "status": "completed",
+      "start_time": 1770749781.6902695,
+      "end_time": 1770749781.7922091,
+      "total_seconds": 0.10193967819213867,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 320,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 798,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1123,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 826,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 942,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "amm_dex",
+      "classifier_confidence": 0.867,
+      "r_sast": 46.73401568630797,
+      "r_dast": 39.32110434623526,
+      "r_comp": 21.930445821509455,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_011",
+      "filename": "blackjack.sol",
+      "status": "completed",
+      "start_time": 1770749781.7923908,
+      "end_time": 1770749781.892973,
+      "total_seconds": 0.10058212280273438,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 628,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 1373,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1843,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.33268338896752603
+            }
+          ],
+          "time_ms": 1423,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1606,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 63.403583544987995,
+      "r_dast": 69.40704764255733,
+      "r_comp": 43.17932717632654,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_012",
+      "filename": "random_number_generator.sol",
+      "status": "completed",
+      "start_time": 1770749781.8932524,
+      "end_time": 1770749781.9939191,
+      "total_seconds": 0.10066676139831543,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3431991902294338
+            }
+          ],
+          "time_ms": 968,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 848,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 987,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4163547229473285
+            }
+          ],
+          "time_ms": 595,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1661,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 50.84854849176991,
+      "r_dast": 20.00918876965566,
+      "r_comp": 58.05046578259,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_013",
+      "filename": "etheraffle.sol",
+      "status": "completed",
+      "start_time": 1770749781.9941232,
+      "end_time": 1770749782.0946634,
+      "total_seconds": 0.1005401611328125,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 355,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 691,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1593,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 1367,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 377,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 71.55343869502076,
+      "r_dast": 34.79230099811065,
+      "r_comp": 23.679985606943223,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_014",
+      "filename": "guess_the_random_number.sol",
+      "status": "completed",
+      "start_time": 1770749782.0948002,
+      "end_time": 1770749782.1954787,
+      "total_seconds": 0.1006784439086914,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.505462481843727
+            }
+          ],
+          "time_ms": 1324,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 222,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1912,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 894,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1167,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 47.428325874233266,
+      "r_dast": 18.216704337307696,
+      "r_comp": 19.217654577723124,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_015",
+      "filename": "lottery.sol",
+      "status": "completed",
+      "start_time": 1770749782.19561,
+      "end_time": 1770749782.296393,
+      "total_seconds": 0.10078287124633789,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3774888295930403
+            }
+          ],
+          "time_ms": 1258,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5302748411884082
+            }
+          ],
+          "time_ms": 1232,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1082,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 453,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4270578505349097
+            }
+          ],
+          "time_ms": 1646,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 48.44782537295838,
+      "r_dast": 60.06450879077513,
+      "r_comp": 36.74264708910252,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_016",
+      "filename": "old_blockhash.sol",
+      "status": "completed",
+      "start_time": 1770749782.2965221,
+      "end_time": 1770749782.3972342,
+      "total_seconds": 0.10071206092834473,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1943,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4580052941391769
+            }
+          ],
+          "time_ms": 1886,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 746,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 1708,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1760,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 72.42577567610587,
+      "r_dast": 55.078055394038486,
+      "r_comp": 41.81148633344917,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_017",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1770749782.39755,
+      "end_time": 1770749782.4981759,
+      "total_seconds": 0.10062575340270996,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.795404433826802
+            }
+          ],
+          "time_ms": 494,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.997180297098433
+            }
+          ],
+          "time_ms": 1319,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.5569873210178292
+            }
+          ],
+          "time_ms": 1486,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.9474312144329435
+            }
+          ],
+          "time_ms": 1721,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.9209857160877785
+            }
+          ],
+          "time_ms": 1603,
+          "success": true
+        }
+      },
+      "total_findings": 5,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 56.159478918720986,
+      "r_dast": 24.141067669728002,
+      "r_comp": 44.94028121820747,
+      "llm_claims": 5,
+      "verified_claims": 3,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.4,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_018",
+      "filename": "timelock.sol",
+      "status": "completed",
+      "start_time": 1770749782.4983425,
+      "end_time": 1770749782.5988553,
+      "total_seconds": 0.10051274299621582,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 137,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 1503,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 329,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 1808,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.8108998224491939
+            }
+          ],
+          "time_ms": 450,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.615,
+      "r_sast": 53.00652857295573,
+      "r_dast": 31.557751424539763,
+      "r_comp": 52.0485333101054,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_019",
+      "filename": "tokensalechallenge.sol",
+      "status": "completed",
+      "start_time": 1770749782.598971,
+      "end_time": 1770749782.6995857,
+      "total_seconds": 0.10061478614807129,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.7552774243603504
+            }
+          ],
+          "time_ms": 1119,
+          "success": true
+        },
+        "securify": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5369405472504588
+            }
+          ],
+          "time_ms": 1728,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6605008433482431
+            }
+          ],
+          "time_ms": 1915,
+          "success": true
+        },
+        "echidna": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.9747857456257938
+            }
+          ],
+          "time_ms": 1122,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.9875456385613279
+            }
+          ],
+          "time_ms": 1000,
+          "success": true
+        }
+      },
+      "total_findings": 5,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 47.6838110871295,
+      "r_dast": 44.80424954874426,
+      "r_comp": 50.7561898808557,
+      "llm_claims": 5,
+      "verified_claims": 3,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.4,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_020",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1770749782.6996953,
+      "end_time": 1770749782.802647,
+      "total_seconds": 0.1029517650604248,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.560412116978757
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3003199535079649
+            }
+          ],
+          "time_ms": 1230,
+          "success": true
+        },
+        "securify": {
+          "findings": [],
+          "time_ms": 1144,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4420527040732656
+            }
+          ],
+          "time_ms": 876,
+          "success": true
+        },
+        "echidna": {
+          "findings": [],
+          "time_ms": 1569,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 851,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 56.15063893197415,
+      "r_dast": 69.21931826044657,
+      "r_comp": 40.209439389224485,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    }
+  ]
+}
