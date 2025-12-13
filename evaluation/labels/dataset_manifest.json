@@ -9,10 +9,10 @@
     "other": 15
   },
   "actual_distribution": {
-    "amm_dex": 25,
-    "lending": 25,
-    "vault_yield": 20,
-    "staking_rewards": 15,
+    "amm_dex": 47,
+    "lending": 56,
+    "vault_yield": 21,
+    "staking_rewards": 25,
     "other": 15
   },
   "contracts": [
@@ -47,11 +47,11 @@
           "other": 0.0
         },
         "detected_patterns": [
+          "approve",
+          "burn",
           "share",
-          "totalSupply",
           "withdraw",
-          "Transfer",
-          "allowance"
+          "Transfer"
         ]
       },
       "business_context": {
@@ -69,16 +69,16 @@
           "burn"
         ],
         "detected_patterns": [
+          "approve",
+          "burn",
           "share",
-          "totalSupply",
           "withdraw",
           "Transfer",
-          "allowance",
           "ERC20",
-          "burn",
-          "swap",
+          "shares",
           "transfer",
-          "shares"
+          "allowance",
+          "totalSupply"
         ]
       }
     },
@@ -113,8 +113,8 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "Deposit",
-          "deposit"
+          "deposit",
+          "Deposit"
         ]
       },
       "business_context": {
@@ -133,8 +133,8 @@
           "harvest"
         ],
         "detected_patterns": [
-          "Deposit",
-          "deposit"
+          "deposit",
+          "Deposit"
         ]
       }
     },
@@ -171,8 +171,8 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "withdraw"
+          "withdraw",
+          "transfer"
         ]
       },
       "business_context": {
@@ -191,8 +191,8 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "withdraw"
+          "withdraw",
+          "transfer"
         ]
       }
     },
@@ -229,11 +229,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "totalSupply",
-          "ERC721",
+          "execute",
+          "pair",
+          "approve",
           "withdraw",
-          "Erc20",
-          "Delegate"
+          "Transfer"
         ]
       },
       "business_context": {
@@ -251,16 +251,16 @@
           "burn"
         ],
         "detected_patterns": [
-          "totalSupply",
-          "ERC721",
+          "execute",
+          "pair",
+          "approve",
           "withdraw",
-          "Erc20",
-          "Delegate",
           "Transfer",
-          "mint",
-          "allowance",
           "ERC20",
-          "execute"
+          "mint",
+          "transfer",
+          "allowance",
+          "totalSupply"
         ]
       }
     },
@@ -407,9 +407,9 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
           "allowance",
-          "Allowance"
+          "Allowance",
+          "transfer"
         ]
       },
       "business_context": {
@@ -427,9 +427,9 @@
           "burn"
         ],
         "detected_patterns": [
-          "transfer",
           "allowance",
-          "Allowance"
+          "Allowance",
+          "transfer"
         ]
       }
     },
@@ -464,11 +464,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "totalSupply",
+          "approve",
+          "burn",
           "erc20",
-          "Transfer",
-          "mint",
-          "allowance"
+          "SWAP",
+          "Transfer"
         ]
       },
       "business_context": {
@@ -486,16 +486,16 @@
           "burn"
         ],
         "detected_patterns": [
-          "totalSupply",
-          "erc20",
-          "Transfer",
-          "mint",
-          "allowance",
-          "ERC20",
+          "approve",
           "burn",
+          "erc20",
           "SWAP",
+          "Transfer",
+          "ERC20",
+          "mint",
           "transfer",
-          "approve"
+          "allowance",
+          "totalSupply"
         ]
       }
     },
@@ -530,11 +530,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "withdraw",
-          "allowance",
-          "deposit",
           "pair",
-          "transfer"
+          "withdraw",
+          "transfer",
+          "allowance",
+          "deposit"
         ]
       },
       "business_context": {
@@ -553,11 +553,11 @@
           "harvest"
         ],
         "detected_patterns": [
-          "withdraw",
-          "allowance",
-          "deposit",
           "pair",
-          "transfer"
+          "withdraw",
+          "transfer",
+          "allowance",
+          "deposit"
         ]
       }
     },
@@ -592,11 +592,11 @@
           "other": 0.0
         },
         "detected_patterns": [
+          "pool",
+          "Liquidity",
           "withdraw",
           "liquidity",
-          "swap",
-          "CLAIM",
-          "pool"
+          "CLAIM"
         ]
       },
       "business_context": {
@@ -615,14 +615,14 @@
           "removeLiquidity"
         ],
         "detected_patterns": [
+          "pool",
+          "Liquidity",
           "withdraw",
           "liquidity",
-          "swap",
           "CLAIM",
-          "pool",
-          "transfer",
           "Pool",
-          "Liquidity"
+          "transfer",
+          "swap"
         ]
       }
     },
@@ -1000,10 +1000,10 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       },
       "business_context": {
@@ -1022,10 +1022,10 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       }
     },
@@ -1361,8 +1361,8 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "totalSupply"
+          "totalSupply",
+          "transfer"
         ]
       },
       "business_context": {
@@ -1380,8 +1380,8 @@
           "burn"
         ],
         "detected_patterns": [
-          "transfer",
-          "totalSupply"
+          "totalSupply",
+          "transfer"
         ]
       }
     },
@@ -1476,8 +1476,8 @@
         },
         "detected_patterns": [
           "transfer",
-          "Collateral",
-          "withdraw"
+          "withdraw",
+          "Collateral"
         ]
       },
       "business_context": {
@@ -1497,8 +1497,8 @@
         ],
         "detected_patterns": [
           "transfer",
-          "Collateral",
-          "withdraw"
+          "withdraw",
+          "Collateral"
         ]
       }
     },
@@ -1533,11 +1533,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "totalSupply",
-          "Transfer",
-          "mint",
-          "allowance",
-          "Mint"
+          "execute",
+          "approve",
+          "Mint(address",
+          "Mint",
+          "Transfer"
         ]
       },
       "business_context": {
@@ -1555,16 +1555,16 @@
           "burn"
         ],
         "detected_patterns": [
-          "totalSupply",
-          "Transfer",
-          "mint",
-          "allowance",
-          "Mint",
-          "ERC20",
           "execute",
+          "approve",
+          "Mint(address",
+          "Mint",
+          "Transfer",
+          "ERC20",
+          "mint",
           "transfer",
-          "reward",
-          "Mint(address"
+          "allowance",
+          "totalSupply"
         ]
       }
     },
@@ -1599,11 +1599,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "totalSupply",
+          "execute",
+          "approve",
           "Transfer",
-          "allowance",
           "ERC20",
-          "execute"
+          "allowance"
         ]
       },
       "business_context": {
@@ -1621,13 +1621,13 @@
           "burn"
         ],
         "detected_patterns": [
-          "totalSupply",
-          "Transfer",
-          "allowance",
-          "ERC20",
           "execute",
+          "approve",
+          "Transfer",
+          "ERC20",
+          "allowance",
           "transfer",
-          "approve"
+          "totalSupply"
         ]
       }
     },
@@ -1662,11 +1662,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "totalSupply",
+          "execute",
+          "approve",
           "Transfer",
-          "allowance",
           "ERC20",
-          "execute"
+          "allowance"
         ]
       },
       "business_context": {
@@ -1684,13 +1684,13 @@
           "burn"
         ],
         "detected_patterns": [
-          "totalSupply",
-          "Transfer",
-          "allowance",
-          "ERC20",
           "execute",
+          "approve",
+          "Transfer",
+          "ERC20",
+          "allowance",
           "transfer",
-          "approve"
+          "totalSupply"
         ]
       }
     },
@@ -2068,10 +2068,10 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       },
       "business_context": {
@@ -2090,10 +2090,10 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       }
     },
@@ -2429,8 +2429,8 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "totalSupply"
+          "totalSupply",
+          "transfer"
         ]
       },
       "business_context": {
@@ -2448,8 +2448,8 @@
           "burn"
         ],
         "detected_patterns": [
-          "transfer",
-          "totalSupply"
+          "totalSupply",
+          "transfer"
         ]
       }
     },
@@ -2486,11 +2486,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "totalSupply",
+          "approve",
           "Transfer",
-          "allowance",
           "ERC20",
-          "Approve"
+          "transfer",
+          "allowance"
         ]
       },
       "business_context": {
@@ -2508,13 +2508,13 @@
           "burn"
         ],
         "detected_patterns": [
-          "totalSupply",
+          "approve",
           "Transfer",
-          "allowance",
           "ERC20",
-          "Approve",
           "transfer",
-          "approve"
+          "allowance",
+          "Approve",
+          "totalSupply"
         ]
       }
     },
@@ -2851,8 +2851,8 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "vault",
-          "execute"
+          "execute",
+          "vault"
         ]
       },
       "business_context": {
@@ -2871,8 +2871,8 @@
           "harvest"
         ],
         "detected_patterns": [
-          "vault",
-          "execute"
+          "execute",
+          "vault"
         ]
       }
     },
@@ -2909,10 +2909,10 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "Vault",
           "withdraw",
-          "deposit"
+          "Vault",
+          "deposit",
+          "transfer"
         ]
       },
       "business_context": {
@@ -2931,10 +2931,10 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "Vault",
           "withdraw",
-          "deposit"
+          "Vault",
+          "deposit",
+          "transfer"
         ]
       }
     },
@@ -2971,10 +2971,10 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "Vault",
           "withdraw",
-          "deposit"
+          "Vault",
+          "deposit",
+          "transfer"
         ]
       },
       "business_context": {
@@ -2993,10 +2993,10 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "Vault",
           "withdraw",
-          "deposit"
+          "Vault",
+          "deposit",
+          "transfer"
         ]
       }
     },
@@ -3033,9 +3033,9 @@
           "other": 0.0
         },
         "detected_patterns": [
+          "execute",
           "transfer",
-          "vault",
-          "execute"
+          "vault"
         ]
       },
       "business_context": {
@@ -3054,9 +3054,9 @@
           "harvest"
         ],
         "detected_patterns": [
+          "execute",
           "transfer",
-          "vault",
-          "execute"
+          "vault"
         ]
       }
     },
@@ -3093,10 +3093,10 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "Vault",
           "withdraw",
-          "deposit"
+          "Vault",
+          "deposit",
+          "transfer"
         ]
       },
       "business_context": {
@@ -3115,10 +3115,10 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "Vault",
           "withdraw",
-          "deposit"
+          "Vault",
+          "deposit",
+          "transfer"
         ]
       }
     },
@@ -3496,10 +3496,10 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       },
       "business_context": {
@@ -3518,10 +3518,10 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       }
     },
@@ -3860,8 +3860,8 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "reward"
+          "reward",
+          "transfer"
         ]
       },
       "business_context": {
@@ -3881,8 +3881,8 @@
           "getReward"
         ],
         "detected_patterns": [
-          "transfer",
-          "reward"
+          "reward",
+          "transfer"
         ]
       }
     },
@@ -4012,8 +4012,8 @@
         },
         "detected_patterns": [
           "stake",
-          "reward",
           "Staking",
+          "reward",
           "transfer"
         ]
       },
@@ -4035,8 +4035,8 @@
         ],
         "detected_patterns": [
           "stake",
-          "reward",
           "Staking",
+          "reward",
           "transfer"
         ]
       }
@@ -4072,10 +4072,10 @@
           "other": 0.0
         },
         "detected_patterns": [
+          "Withdraw",
           "stake",
           "withdraw",
-          "Withdraw",
-          "deposit",
+          "Deposit",
           "transfer"
         ]
       },
@@ -4095,12 +4095,12 @@
           "harvest"
         ],
         "detected_patterns": [
+          "Withdraw",
           "stake",
           "withdraw",
-          "Withdraw",
-          "deposit",
+          "Deposit",
           "transfer",
-          "Deposit"
+          "deposit"
         ]
       }
     },
@@ -4135,11 +4135,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "withdraw",
-          "dex",
           "Withdraw",
-          "deposit",
-          "transfer"
+          "dex",
+          "approve",
+          "withdraw",
+          "Deposit"
         ]
       },
       "business_context": {
@@ -4158,13 +4158,13 @@
           "harvest"
         ],
         "detected_patterns": [
-          "withdraw",
-          "dex",
           "Withdraw",
-          "deposit",
-          "transfer",
+          "dex",
+          "approve",
+          "withdraw",
           "Deposit",
-          "approve"
+          "transfer",
+          "deposit"
         ]
       }
     },
@@ -4199,11 +4199,11 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "totalSupply",
-          "Burn",
+          "approve",
+          "burn",
           "Transfer",
           "allowance",
-          "burn"
+          "transfer"
         ]
       },
       "business_context": {
@@ -4221,13 +4221,13 @@
           "burn"
         ],
         "detected_patterns": [
-          "totalSupply",
-          "Burn",
+          "approve",
+          "burn",
           "Transfer",
           "allowance",
-          "burn",
           "transfer",
-          "approve"
+          "totalSupply",
+          "Burn"
         ]
       }
     },
@@ -4263,8 +4263,8 @@
         },
         "detected_patterns": [
           "stake",
-          "reward",
           "Staking",
+          "reward",
           "transfer"
         ]
       },
@@ -4286,8 +4286,8 @@
         ],
         "detected_patterns": [
           "stake",
-          "reward",
           "Staking",
+          "reward",
           "transfer"
         ]
       }
@@ -4960,10 +4960,10 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       },
       "business_context": {
@@ -4982,10 +4982,10 @@
           "harvest"
         ],
         "detected_patterns": [
-          "transfer",
-          "TimeLock",
           "withdraw",
-          "deposit"
+          "deposit",
+          "TimeLock",
+          "transfer"
         ]
       }
     },
@@ -5321,8 +5321,8 @@
           "other": 0.0
         },
         "detected_patterns": [
-          "transfer",
-          "totalSupply"
+          "totalSupply",
+          "transfer"
         ]
       },
       "business_context": {
@@ -5340,10 +5340,4131 @@
           "burn"
         ],
         "detected_patterns": [
+          "totalSupply",
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/UniswapV3Pool.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_01_UniswapV3Pool.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "UniswapV3Pool.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 870,
+      "source_chars": 35501,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.911,
+        "all_scores": {
+          "amm_dex": 0.911,
+          "lending": 0.065,
+          "vault_yield": 0.011,
+          "staking_rewards": 0.0,
+          "token": 0.014,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "burn",
+          "Mint",
+          "token1"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.9105691056910569,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "burn",
+          "Mint",
+          "token1",
+          "withdraw",
+          "liquidity",
+          "mint",
+          "Oracle",
+          "mint(\n        address"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/UniswapV3Factory.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_02_UniswapV3Factory.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "UniswapV3Factory.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 74,
+      "source_chars": 2848,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "token1",
+          "Uniswap",
+          "token0",
+          "pool"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "token1",
+          "Uniswap",
+          "token0",
+          "pool"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_03",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/UniswapV3PoolDeployer.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_03_UniswapV3PoolDeployer.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "UniswapV3PoolDeployer.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 39,
+      "source_chars": 1408,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "Uniswap",
+          "swap"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "Uniswap",
+          "swap"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_04",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/libraries/LiquidityMath.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_04_LiquidityMath.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "LiquidityMath.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 18,
+      "source_chars": 622,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "liquidity"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "liquidity"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_05",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/libraries/SwapMath.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_05_SwapMath.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "SwapMath.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 99,
+      "source_chars": 4633,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "liquidity",
+          "swap"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "liquidity",
+          "swap"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_06",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/interfaces/IUniswapV3PoolDeployer.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_06_IUniswapV3PoolDeployer.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "IUniswapV3PoolDeployer.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 27,
+      "source_chars": 1300,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "Uniswap",
+          "swap"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "Uniswap",
+          "swap"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_07",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/interfaces/IUniswapV3Pool.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_07_IUniswapV3Pool.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "IUniswapV3Pool.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 25,
+      "source_chars": 809,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.978,
+        "all_scores": {
+          "amm_dex": 0.978,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.022,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Uniswap",
+          "ERC20",
+          "pool"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.9777777777777777,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "Uniswap",
+          "ERC20",
+          "pool"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_08",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/interfaces/IUniswapV3Factory.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_08_IUniswapV3Factory.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "IUniswapV3Factory.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 79,
+      "source_chars": 4040,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "pair",
+          "token0",
+          "token1",
+          "Uniswap"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "pair",
+          "token0",
+          "token1",
+          "Uniswap",
+          "swap"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_09",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/interfaces/pool/IUniswapV3PoolImmutables.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_09_IUniswapV3PoolImmutables.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "IUniswapV3PoolImmutables.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 36,
+      "source_chars": 1811,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "liquidity",
+          "Pool"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "token0",
+          "token1",
+          "liquidity",
+          "Pool"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_10",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/uniswap-v3/contracts/interfaces/pool/IUniswapV3PoolOwnerActions.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_10_IUniswapV3PoolOwnerActions.sol",
+      "dataset": "code4rena/uniswap-v3",
+      "filename": "IUniswapV3PoolOwnerActions.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 24,
+      "source_chars": 1188,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From uniswap-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.929,
+        "all_scores": {
+          "amm_dex": 0.929,
+          "lending": 0.0,
+          "vault_yield": 0.071,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "share",
+          "token1",
+          "pool",
+          "token0"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.9285714285714286,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "share",
+          "token1",
+          "pool",
+          "token0"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/misc/AaveOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_01_AaveOracle.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "AaveOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 147,
+      "source_chars": 5067,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.875,
+        "all_scores": {
+          "amm_dex": 0.125,
+          "lending": 0.875,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Aave",
+          "pool",
+          "oracle"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.875,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Aave",
+          "pool",
+          "oracle"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IDelegationToken.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_02_IDelegationToken.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IDelegationToken.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 16,
+      "source_chars": 388,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "governance",
+        "confidence": 0.667,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.333,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.667,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "delegate",
+          "Aave",
+          "Delegate"
+        ]
+      },
+      "business_context": {
+        "category": "governance",
+        "confidence": 0.6666666666666666,
+        "description": "Governance / DAO",
+        "assets_at_risk": "Protocol control, treasury funds",
+        "attack_vectors": [
+          "Flash loan governance attacks",
+          "Proposal manipulation"
+        ],
+        "critical_functions": [
+          "propose",
+          "vote",
+          "execute"
+        ],
+        "detected_patterns": [
+          "delegate",
+          "Aave",
+          "Delegate"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_03",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IPoolDataProvider.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_03_IPoolDataProvider.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IPoolDataProvider.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 244,
+      "source_chars": 8981,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.605,
+        "all_scores": {
+          "amm_dex": 0.605,
+          "lending": 0.368,
+          "vault_yield": 0.022,
+          "staking_rewards": 0.0,
+          "token": 0.005,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "liquidationThreshold",
+          "pool",
+          "strategy",
+          "debt",
+          "collateral"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.6054054054054054,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "liquidationThreshold",
+          "pool",
+          "strategy",
+          "debt",
+          "collateral",
+          "Aave",
+          "reserves",
+          "borrow",
+          "liquidity",
+          "reserve"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_04",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IScaledBalanceToken.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_04_IScaledBalanceToken.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IScaledBalanceToken.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 73,
+      "source_chars": 2740,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.651,
+        "all_scores": {
+          "amm_dex": 0.651,
+          "lending": 0.186,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.163,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "burn",
+          "debt",
+          "Mint",
+          "Aave",
+          "liquidity"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.6511627906976745,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "burn",
+          "debt",
+          "Mint",
+          "Aave",
+          "liquidity",
+          "reserve",
+          "mint",
           "transfer",
+          "Burn",
+          "Mint(\n    address"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_05",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IInitializableDebtToken.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_05_IInitializableDebtToken.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IInitializableDebtToken.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 53,
+      "source_chars": 1931,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.6,
+        "all_scores": {
+          "amm_dex": 0.4,
+          "lending": 0.6,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Aave",
+          "pool",
+          "aToken",
+          "debt"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.6,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Aave",
+          "pool",
+          "aToken",
+          "debt"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_06",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/ISequencerOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_06_ISequencerOracle.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "ISequencerOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 30,
+      "source_chars": 982,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 1.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Aave",
+          "oracle"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 1.0,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Aave",
+          "oracle"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_07",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IPoolAddressesProviderRegistry.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_07_IPoolAddressesProviderRegistry.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IPoolAddressesProviderRegistry.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 61,
+      "source_chars": 2428,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.667,
+        "all_scores": {
+          "amm_dex": 0.333,
+          "lending": 0.667,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Aave",
+          "Pool"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.6666666666666666,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Aave",
+          "Pool"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_08",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IPriceOracleSentinel.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_08_IPriceOracleSentinel.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IPriceOracleSentinel.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 68,
+      "source_chars": 2198,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 1.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Aave",
+          "oracle",
+          "borrow",
+          "liquidation"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 1.0,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Aave",
+          "oracle",
+          "borrow",
+          "liquidation"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_09",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IPoolConfigurator.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_09_IPoolConfigurator.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IPoolConfigurator.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 487,
+      "source_chars": 19304,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.513,
+        "all_scores": {
+          "amm_dex": 0.513,
+          "lending": 0.449,
+          "vault_yield": 0.032,
+          "staking_rewards": 0.0,
+          "token": 0.007,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "liquidators",
+          "liquidationThreshold",
+          "repay",
+          "strategy",
+          "debt"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.512549537648613,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "liquidators",
+          "liquidationThreshold",
+          "repay",
+          "strategy",
+          "debt",
+          "collateral",
+          "Aave",
+          "borrow",
+          "reserve",
+          "mint"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_aave-v3_10",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/aave-v3/contracts/interfaces/IAaveOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_aave-v3_10_IAaveOracle.sol",
+      "dataset": "code4rena/aave-v3",
+      "filename": "IAaveOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "oracle",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 72,
+      "source_chars": 2394,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From aave-v3 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 1.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Aave",
+          "Oracle",
+          "oracle"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 1.0,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Aave",
+          "Oracle",
+          "oracle"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_compound-v2_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/compound-v2/contracts/SimplePriceOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_compound-v2_01_SimplePriceOracle.sol",
+      "dataset": "code4rena/compound-v2",
+      "filename": "SimplePriceOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "oracle",
+        "reentrancy",
+        "governance"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 45,
+      "source_chars": 1629,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From compound-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 1.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "cToken",
+          "oracle",
+          "CToken"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 1.0,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "cToken",
+          "oracle",
+          "CToken"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_compound-v2_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/compound-v2/contracts/CToken.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_compound-v2_02_CToken.sol",
+      "dataset": "code4rena/compound-v2",
+      "filename": "CToken.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "oracle",
+        "reentrancy",
+        "governance"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 1157,
+      "source_chars": 49183,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From compound-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.779,
+        "all_scores": {
+          "amm_dex": 0.134,
+          "lending": 0.779,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.076,
+          "governance": 0.011,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "approve",
+          "CToken",
+          "cToken",
+          "liquidity",
+          "reserve"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.7787114845938375,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "approve",
+          "CToken",
+          "cToken",
+          "liquidity",
+          "reserve",
+          "liquidated",
+          "Transfer",
+          "liquidator",
+          "repay",
+          "debt"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_compound-v2_03",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/compound-v2/contracts/PriceOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_compound-v2_03_PriceOracle.sol",
+      "dataset": "code4rena/compound-v2",
+      "filename": "PriceOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "oracle",
+        "reentrancy",
+        "governance"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 18,
+      "source_chars": 593,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From compound-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 1.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "cToken",
+          "CToken"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 1.0,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "cToken",
+          "CToken"
+        ]
+      }
+    },
+    {
+      "id": "defi_vault_yield_yearn-vaults_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/yearn-vaults/contracts/BaseStrategy.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_vault_yield_yearn-vaults_01_BaseStrategy.sol",
+      "dataset": "code4rena/yearn-vaults",
+      "filename": "BaseStrategy.sol",
+      "defi_category": "vault_yield",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "share_manipulation",
+        "flash_loan"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 996,
+      "source_chars": 38101,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "vault_yield",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From yearn-vaults protocol"
+      },
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.851,
+        "all_scores": {
+          "amm_dex": 0.004,
+          "lending": 0.076,
+          "vault_yield": 0.851,
+          "staking_rewards": 0.059,
+          "token": 0.009,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "yield",
+          "approve",
+          "liquidation",
+          "reserve",
+          "Liquidate"
+        ]
+      },
+      "business_context": {
+        "category": "vault_yield",
+        "confidence": 0.8514225500526871,
+        "description": "Vault / Yield Aggregator",
+        "assets_at_risk": "Deposited user funds, yield earnings",
+        "attack_vectors": [
+          "Share price manipulation",
+          "Reentrancy on withdraw",
+          "Strategy exploits"
+        ],
+        "critical_functions": [
+          "deposit",
+          "withdraw",
+          "harvest"
+        ],
+        "detected_patterns": [
+          "yield",
+          "approve",
+          "liquidation",
+          "reserve",
+          "Liquidate",
+          "yearn",
+          "Strategy",
+          "rewards",
+          "harvest",
+          "debt"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/vlCvxExtraRewardDistribution.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_01_vlCvxExtraRewardDistribution.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "vlCvxExtraRewardDistribution.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 189,
+      "source_chars": 8121,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.952,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.032,
+          "staking_rewards": 0.952,
+          "token": 0.016,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "share",
+          "claim",
+          "ERC20",
+          "rewards",
+          "Rewards"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.9523809523809523,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "share",
+          "claim",
+          "ERC20",
+          "rewards",
+          "Rewards"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/RewardFactory.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_02_RewardFactory.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "RewardFactory.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 100,
+      "source_chars": 3875,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.541,
+        "all_scores": {
+          "amm_dex": 0.541,
+          "lending": 0.0,
+          "vault_yield": 0.054,
+          "staking_rewards": 0.378,
+          "token": 0.027,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "ERC20",
+          "Reward",
+          "Pool",
+          "deposit"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.5405405405405406,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "ERC20",
+          "Reward",
+          "Pool",
+          "deposit",
+          "reward"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_03",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/CvxStakingProxyV2.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_03_CvxStakingProxyV2.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "CvxStakingProxyV2.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 200,
+      "source_chars": 6283,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.696,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.278,
+          "staking_rewards": 0.696,
+          "token": 0.026,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "convex",
+          "unstake",
+          "approve",
+          "stake",
+          "claim"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.6956521739130435,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "convex",
+          "unstake",
+          "approve",
+          "stake",
+          "claim",
+          "withdraw",
+          "ERC20",
+          "rewards",
+          "deposit",
+          "reward"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_04",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/CvxStakingProxy.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_04_CvxStakingProxy.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "CvxStakingProxy.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 180,
+      "source_chars": 5636,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.696,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.278,
+          "staking_rewards": 0.696,
+          "token": 0.026,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "convex",
+          "unstake",
+          "approve",
+          "stake",
+          "claim"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.6956521739130435,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "convex",
+          "unstake",
+          "approve",
+          "stake",
+          "claim",
+          "withdraw",
+          "ERC20",
+          "rewards",
+          "deposit",
+          "reward"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_05",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/ExtraRewardStashV2.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_05_ExtraRewardStashV2.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "ExtraRewardStashV2.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 226,
+      "source_chars": 9106,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.704,
+        "all_scores": {
+          "amm_dex": 0.085,
+          "lending": 0.0,
+          "vault_yield": 0.197,
+          "staking_rewards": 0.704,
+          "token": 0.014,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "poolInfo",
+          "claim",
+          "withdraw",
+          "ERC20"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.704225352112676,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "pool",
+          "poolInfo",
+          "claim",
+          "withdraw",
+          "ERC20",
+          "rewards",
+          "deposit",
+          "reward",
+          "staking"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_06",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/VirtualBalanceRewardPool.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_06_VirtualBalanceRewardPool.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "VirtualBalanceRewardPool.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 216,
+      "source_chars": 7041,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.907,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.053,
+          "staking_rewards": 0.907,
+          "token": 0.04,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "rewardPerToken",
+          "stake",
+          "withdraw",
+          "CLAIM",
+          "ERC20"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.9066666666666666,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "rewardPerToken",
+          "stake",
+          "withdraw",
+          "CLAIM",
+          "ERC20",
+          "totalSupply",
+          "rewards",
+          "reward",
+          "rewardRate"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_07",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/PoolRewardHook.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_07_PoolRewardHook.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "PoolRewardHook.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 85,
+      "source_chars": 2897,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.538,
+        "all_scores": {
+          "amm_dex": 0.385,
+          "lending": 0.0,
+          "vault_yield": 0.077,
+          "staking_rewards": 0.538,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "convex",
+          "pool",
+          "claim",
+          "rewards",
+          "reward"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.5384615384615384,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "convex",
+          "pool",
+          "claim",
+          "rewards",
+          "reward"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_08",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/RewardHook.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_08_RewardHook.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "RewardHook.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 37,
+      "source_chars": 841,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.667,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.667,
+          "token": 0.333,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "ERC20",
+          "Reward"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.6666666666666666,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "ERC20",
+          "Reward"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_09",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/ChefRewardHook.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_09_ChefRewardHook.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "ChefRewardHook.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 63,
+      "source_chars": 1966,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.444,
+        "all_scores": {
+          "amm_dex": 0.148,
+          "lending": 0.0,
+          "vault_yield": 0.296,
+          "staking_rewards": 0.444,
+          "token": 0.111,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "approve",
+          "claim",
+          "ERC20",
+          "rewards"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.4444444444444444,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "pool",
+          "approve",
+          "claim",
+          "ERC20",
+          "rewards",
+          "deposit",
+          "reward"
+        ]
+      }
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_10",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/convex-staking/contracts/contracts/ExtraRewardStashV1.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_10_ExtraRewardStashV1.sol",
+      "dataset": "code4rena/convex-staking",
+      "filename": "ExtraRewardStashV1.sol",
+      "defi_category": "staking_rewards",
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 154,
+      "source_chars": 5931,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "staking_rewards",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From convex-staking protocol"
+      },
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.737,
+        "all_scores": {
+          "amm_dex": 0.105,
+          "lending": 0.0,
+          "vault_yield": 0.14,
+          "staking_rewards": 0.737,
+          "token": 0.018,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "poolInfo",
+          "claim",
+          "withdraw",
+          "ERC20"
+        ]
+      },
+      "business_context": {
+        "category": "staking_rewards",
+        "confidence": 0.7368421052631579,
+        "description": "Staking / Rewards Distribution",
+        "assets_at_risk": "Staked tokens, reward pool",
+        "attack_vectors": [
+          "Reward inflation",
+          "Unauthorized claims",
+          "Reentrancy"
+        ],
+        "critical_functions": [
+          "stake",
+          "unstake",
+          "claim",
+          "getReward"
+        ],
+        "detected_patterns": [
+          "pool",
+          "poolInfo",
+          "claim",
+          "withdraw",
+          "ERC20",
+          "deposit",
+          "reward"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_curve-stableswap_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/curve-stableswap/contracts/testing/aERC20.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_curve-stableswap_01_aERC20.sol",
+      "dataset": "code4rena/curve-stableswap",
+      "filename": "aERC20.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 153,
+      "source_chars": 4484,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From curve-stableswap protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.582,
+        "all_scores": {
+          "amm_dex": 0.582,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.418,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "approve",
+          "mint(address",
+          "Transfer",
+          "mint"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.5818181818181818,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "approve",
+          "mint(address",
+          "Transfer",
+          "mint",
+          "transfer",
+          "allowance",
           "totalSupply"
         ]
       }
+    },
+    {
+      "id": "defi_amm_dex_curve-stableswap_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/curve-stableswap/contracts/testing/AaveLendingPoolMock.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_curve-stableswap_02_AaveLendingPoolMock.sol",
+      "dataset": "code4rena/curve-stableswap",
+      "filename": "AaveLendingPoolMock.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [
+        "reentrancy",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 42,
+      "source_chars": 1394,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From curve-stableswap protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.316,
+        "all_scores": {
+          "amm_dex": 0.316,
+          "lending": 0.316,
+          "vault_yield": 0.211,
+          "staking_rewards": 0.105,
+          "token": 0.053,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "mint(address",
+          "withdraw",
+          "aToken",
+          "reserve",
+          "mint"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.3157894736842105,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "mint(address",
+          "withdraw",
+          "aToken",
+          "reserve",
+          "mint",
+          "rewards",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/WeightedPoolProtocolFees.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_01_WeightedPoolProtocolFees.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "WeightedPoolProtocolFees.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 361,
+      "source_chars": 16937,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.711,
+        "all_scores": {
+          "amm_dex": 0.711,
+          "lending": 0.016,
+          "vault_yield": 0.269,
+          "staking_rewards": 0.0,
+          "token": 0.004,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "yield",
+          "debt",
+          "Vault",
+          "balancer"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.7114624505928854,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "yield",
+          "debt",
+          "Vault",
+          "balancer",
+          "mint",
+          "swap"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/BaseWeightedPool.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_02_BaseWeightedPool.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "BaseWeightedPool.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 480,
+      "source_chars": 18811,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.65,
+        "all_scores": {
+          "amm_dex": 0.65,
+          "lending": 0.0,
+          "vault_yield": 0.163,
+          "staking_rewards": 0.0,
+          "token": 0.187,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "Vault",
+          "balancer",
+          "totalSupply",
+          "Swap"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.6504065040650406,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "Vault",
+          "balancer",
+          "totalSupply",
+          "Swap",
+          "swap",
+          "vault"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_03",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/WeightedPoolFactory.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_03_WeightedPoolFactory.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "WeightedPoolFactory.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 79,
+      "source_chars": 2696,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.5,
+        "all_scores": {
+          "amm_dex": 0.5,
+          "lending": 0.0,
+          "vault_yield": 0.5,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "vault",
+          "pool",
+          "balancer"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.5,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "vault",
+          "pool",
+          "balancer"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_04",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/WeightedPool.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_04_WeightedPool.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "WeightedPool.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 417,
+      "source_chars": 17773,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.544,
+        "all_scores": {
+          "amm_dex": 0.544,
+          "lending": 0.064,
+          "vault_yield": 0.352,
+          "staking_rewards": 0.0,
+          "token": 0.04,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "yield",
+          "YIELD",
+          "debt",
+          "Vault",
+          "balancer"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.544,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "yield",
+          "YIELD",
+          "debt",
+          "Vault",
+          "balancer",
+          "SWAP",
+          "Pool",
+          "totalSupply",
+          "swap",
+          "vault"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_05",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/lbp/LiquidityBootstrappingPoolSettings.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_05_LiquidityBootstrappingPoolSettings.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "LiquidityBootstrappingPoolSettings.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 372,
+      "source_chars": 14408,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.842,
+        "all_scores": {
+          "amm_dex": 0.842,
+          "lending": 0.0,
+          "vault_yield": 0.158,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "Liquidity",
+          "balancer",
+          "Pool",
+          "Swap"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.8421052631578947,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "Liquidity",
+          "balancer",
+          "Pool",
+          "Swap",
+          "swap",
+          "vault"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_06",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/lbp/LiquidityBootstrappingPoolStorageLib.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_06_LiquidityBootstrappingPoolStorageLib.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "LiquidityBootstrappingPoolStorageLib.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 164,
+      "source_chars": 7133,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 1.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "swap",
+          "balancer"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 1.0,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "swap",
+          "balancer"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_07",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/lbp/LiquidityBootstrappingPool.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_07_LiquidityBootstrappingPool.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "LiquidityBootstrappingPool.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 341,
+      "source_chars": 13349,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.738,
+        "all_scores": {
+          "amm_dex": 0.738,
+          "lending": 0.0,
+          "vault_yield": 0.154,
+          "staking_rewards": 0.0,
+          "token": 0.108,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "burn",
+          "Liquidity",
+          "liquidity",
+          "balancer"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.7384615384615385,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "burn",
+          "Liquidity",
+          "liquidity",
+          "balancer",
+          "mint",
+          "totalSupply",
+          "Swap",
+          "swap",
+          "vault"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_08",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/lbp/LiquidityBootstrappingPoolFactory.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_08_LiquidityBootstrappingPoolFactory.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "LiquidityBootstrappingPoolFactory.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 75,
+      "source_chars": 2396,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.5,
+        "all_scores": {
+          "amm_dex": 0.5,
+          "lending": 0.0,
+          "vault_yield": 0.5,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "vault",
+          "pool",
+          "balancer"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.5,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "vault",
+          "pool",
+          "balancer"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_09",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/managed/ManagedPoolAddRemoveTokenLib.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_09_ManagedPoolAddRemoveTokenLib.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "ManagedPoolAddRemoveTokenLib.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 226,
+      "source_chars": 12931,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.645,
+        "all_scores": {
+          "amm_dex": 0.645,
+          "lending": 0.0,
+          "vault_yield": 0.344,
+          "staking_rewards": 0.0,
+          "token": 0.011,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "Vault",
+          "balancer",
+          "ERC20",
+          "Pool"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.6451612903225806,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "Vault",
+          "balancer",
+          "ERC20",
+          "Pool",
+          "deposit",
+          "swap",
+          "vault"
+        ]
+      }
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_10",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/balancer-v2/pkg/pool-weighted/contracts/managed/ManagedPoolAmmLib.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_10_ManagedPoolAmmLib.sol",
+      "dataset": "code4rena/balancer-v2",
+      "filename": "ManagedPoolAmmLib.sol",
+      "defi_category": "amm_dex",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 283,
+      "source_chars": 11308,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "amm_dex",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From balancer-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.765,
+        "all_scores": {
+          "amm_dex": 0.765,
+          "lending": 0.0,
+          "vault_yield": 0.118,
+          "staking_rewards": 0.0,
+          "token": 0.118,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "Vault",
+          "balancer",
+          "totalSupply",
+          "swap"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.7647058823529411,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "pool",
+          "Vault",
+          "balancer",
+          "totalSupply",
+          "swap"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/PToken.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_01_PToken.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "PToken.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 147,
+      "source_chars": 5340,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.571,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.143,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.286,
+          "token": 0.571,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "approve",
+          "collateral",
+          "claim",
+          "Claim",
+          "Transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.5714285714285714,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "approve",
+          "collateral",
+          "claim",
+          "Claim",
+          "Transfer",
+          "transfer",
+          "allowance",
+          "totalSupply"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/test/JunkETokenUpgrade.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_02_JunkETokenUpgrade.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "JunkETokenUpgrade.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 15,
+      "source_chars": 308,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_03",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/oracles/WBTCOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_03_WBTCOracle.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "WBTCOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 55,
+      "source_chars": 2286,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_04",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/oracles/WSTETHOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_04_WSTETHOracle.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "WSTETHOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 59,
+      "source_chars": 2124,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 1.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "oracle"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 1.0,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "oracle"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_05",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/oracles/chainlinkBasedOracle.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_05_chainlinkBasedOracle.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "chainlinkBasedOracle.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 55,
+      "source_chars": 2309,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_06",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/modules/EToken.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_06_EToken.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "EToken.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 388,
+      "source_chars": 16843,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.407,
+        "all_scores": {
+          "amm_dex": 0.407,
+          "lending": 0.271,
+          "vault_yield": 0.136,
+          "staking_rewards": 0.0,
+          "token": 0.186,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Withdraw",
+          "repay",
+          "approve",
+          "burn",
+          "debt"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.4067796610169492,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "Withdraw",
+          "repay",
+          "approve",
+          "burn",
+          "debt",
+          "Mint",
+          "withdraw",
+          "reserves",
+          "borrow",
+          "Transfer"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_07",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/modules/DToken.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_07_DToken.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "DToken.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 241,
+      "source_chars": 10299,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.686,
+        "all_scores": {
+          "amm_dex": 0.114,
+          "lending": 0.686,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.2,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "pool",
+          "repay",
+          "Debt",
+          "borrow",
+          "Transfer"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.6857142857142857,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "pool",
+          "repay",
+          "Debt",
+          "borrow",
+          "Transfer",
+          "allowance",
+          "totalSupply"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_euler-finance_08",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/euler-finance/contracts/modules/Liquidation.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_euler-finance_08_Liquidation.sol",
+      "dataset": "sherlock/euler-finance",
+      "filename": "Liquidation.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [
+        "flash_loan",
+        "donation_attack",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "source_lines": 289,
+      "source_chars": 12261,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From euler-finance protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.85,
+        "all_scores": {
+          "amm_dex": 0.045,
+          "lending": 0.85,
+          "vault_yield": 0.105,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "yield",
+          "repay",
+          "liquidation",
+          "debt",
+          "collateral"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.849624060150376,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "yield",
+          "repay",
+          "liquidation",
+          "debt",
+          "collateral",
+          "reserves",
+          "liquidity",
+          "reserve",
+          "Liquidate",
+          "Liquidation"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_01",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/liquidators/NotionalV2ManualLiquidator.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_01_NotionalV2ManualLiquidator.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "NotionalV2ManualLiquidator.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 284,
+      "source_chars": 9113,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.8,
+        "all_scores": {
+          "amm_dex": 0.047,
+          "lending": 0.8,
+          "vault_yield": 0.094,
+          "staking_rewards": 0.0,
+          "token": 0.059,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "liquidateLocalCurrency",
+          "compound",
+          "withdraw",
+          "ERC20",
+          "ERC1155"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.8,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "liquidateLocalCurrency",
+          "compound",
+          "withdraw",
+          "ERC20",
+          "ERC1155",
+          "transfer",
+          "liquidateAccount",
+          "uniswap"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_02",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/liquidators/NotionalV2BaseLiquidator.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_02_NotionalV2BaseLiquidator.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "NotionalV2BaseLiquidator.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 349,
+      "source_chars": 12212,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.826,
+        "all_scores": {
+          "amm_dex": 0.011,
+          "lending": 0.826,
+          "vault_yield": 0.121,
+          "staking_rewards": 0.0,
+          "token": 0.041,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Withdraw",
+          "repay",
+          "compound",
+          "approve",
+          "lend"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.8264462809917356,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Withdraw",
+          "repay",
+          "compound",
+          "approve",
+          "lend",
+          "collateral",
+          "cToken",
+          "DEX",
+          "withdraw",
+          "erc20"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_03",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/liquidators/NotionalV2FlashLiquidatorBase.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_03_NotionalV2FlashLiquidatorBase.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "NotionalV2FlashLiquidatorBase.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 164,
+      "source_chars": 6037,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.87,
+        "all_scores": {
+          "amm_dex": 0.075,
+          "lending": 0.87,
+          "vault_yield": 0.025,
+          "staking_rewards": 0.0,
+          "token": 0.031,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "dex",
+          "pool",
+          "compound",
+          "LiquidationType",
+          "Mint"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.8695652173913043,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "dex",
+          "pool",
+          "compound",
+          "LiquidationType",
+          "Mint",
+          "Transfer",
+          "ERC20",
+          "transfer",
+          "aave",
+          "deposit"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_04",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/liquidators/NotionalV2FlashLiquidator.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_04_NotionalV2FlashLiquidator.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "NotionalV2FlashLiquidator.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 117,
+      "source_chars": 3916,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.471,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.471,
+          "vault_yield": 0.471,
+          "staking_rewards": 0.0,
+          "token": 0.059,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "Lend",
+          "withdraw",
+          "Borrow",
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.47058823529411764,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "Lend",
+          "withdraw",
+          "Borrow",
+          "transfer"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_05",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/liquidators/NotionalV2LiquidatorStorageLayoutV1.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_05_NotionalV2LiquidatorStorageLayoutV1.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "NotionalV2LiquidatorStorageLayoutV1.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 9,
+      "source_chars": 238,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.0,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.0,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": []
+      },
+      "business_context": {
+        "category": "other",
+        "confidence": 1.0,
+        "description": "Generic Smart Contract",
+        "assets_at_risk": "Contract-held funds",
+        "attack_vectors": [
+          "Reentrancy",
+          "Access control bypass"
+        ],
+        "critical_functions": [],
+        "detected_patterns": []
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_06",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/patchfix/MigrateCTokens.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_06_MigrateCTokens.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "MigrateCTokens.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 127,
+      "source_chars": 5477,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.541,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.541,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.351,
+          "governance": 0.108,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "compound",
+          "cToken",
+          "Mint",
+          "delegate",
+          "ERC20"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.5405405405405406,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "compound",
+          "cToken",
+          "Mint",
+          "delegate",
+          "ERC20",
+          "mint",
+          "Approve"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_07",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/actions/LiquidatefCashAction.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_07_LiquidatefCashAction.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "LiquidatefCashAction.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 256,
+      "source_chars": 9690,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.986,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.986,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.0,
+          "token": 0.014,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "collateral",
+          "transfer",
+          "liquidation",
+          "LiquidatefCash"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.9864864864864865,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "collateral",
+          "transfer",
+          "liquidation",
+          "LiquidatefCash"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_08",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/actions/nTokenRedeemAction.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_08_nTokenRedeemAction.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "nTokenRedeemAction.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 373,
+      "source_chars": 16057,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.615,
+        "all_scores": {
+          "amm_dex": 0.615,
+          "lending": 0.0,
+          "vault_yield": 0.256,
+          "staking_rewards": 0.051,
+          "token": 0.077,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "share",
+          "claim",
+          "withdraw",
+          "liquidity",
+          "removeLiquidity"
+        ]
+      },
+      "business_context": {
+        "category": "amm_dex",
+        "confidence": 0.6153846153846154,
+        "description": "Automated Market Maker / Decentralized Exchange",
+        "assets_at_risk": "Liquidity pool reserves, user swap funds",
+        "attack_vectors": [
+          "Reserve manipulation",
+          "Sandwich attacks",
+          "Oracle manipulation"
+        ],
+        "critical_functions": [
+          "swap",
+          "addLiquidity",
+          "removeLiquidity"
+        ],
+        "detected_patterns": [
+          "share",
+          "claim",
+          "withdraw",
+          "liquidity",
+          "removeLiquidity",
+          "totalSupply"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_09",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/actions/nTokenAction.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_09_nTokenAction.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "nTokenAction.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 308,
+      "source_chars": 12202,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.486,
+        "all_scores": {
+          "amm_dex": 0.0,
+          "lending": 0.343,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.171,
+          "token": 0.486,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "approve",
+          "debt",
+          "collateral",
+          "claim",
+          "Transfer"
+        ]
+      },
+      "business_context": {
+        "category": "token",
+        "confidence": 0.4857142857142857,
+        "description": "Token Contract",
+        "assets_at_risk": "Token balances",
+        "attack_vectors": [
+          "Unauthorized minting",
+          "Transfer manipulation"
+        ],
+        "critical_functions": [
+          "transfer",
+          "mint",
+          "burn"
+        ],
+        "detected_patterns": [
+          "approve",
+          "debt",
+          "collateral",
+          "claim",
+          "Transfer",
+          "ERC20",
+          "transfer",
+          "allowance",
+          "Approve",
+          "totalSupply"
+        ]
+      }
+    },
+    {
+      "id": "defi_lending_notional-v2_10",
+      "original_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/defi/notional-v2/contracts/external/actions/LiquidateCurrencyAction.sol",
+      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/defi_lending_notional-v2_10_LiquidateCurrencyAction.sol",
+      "dataset": "sherlock/notional-v2",
+      "filename": "LiquidateCurrencyAction.sol",
+      "defi_category": "lending",
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "source_lines": 437,
+      "source_chars": 15925,
+      "is_real_defi": true,
+      "manual_labels": {
+        "confirmed_category": "lending",
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": "From notional-v2 protocol"
+      },
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.947,
+        "all_scores": {
+          "amm_dex": 0.038,
+          "lending": 0.947,
+          "vault_yield": 0.0,
+          "staking_rewards": 0.008,
+          "token": 0.008,
+          "governance": 0.0,
+          "other": 0.0
+        },
+        "detected_patterns": [
+          "liquidation",
+          "collateral",
+          "claim",
+          "liquidity",
+          "transfer"
+        ]
+      },
+      "business_context": {
+        "category": "lending",
+        "confidence": 0.9465648854961832,
+        "description": "Lending/Borrowing Protocol",
+        "assets_at_risk": "Deposited collateral, borrowed assets, protocol reserves",
+        "attack_vectors": [
+          "Liquidation bypass",
+          "Bad debt accumulation",
+          "Oracle attacks"
+        ],
+        "critical_functions": [
+          "borrow",
+          "repay",
+          "liquidate",
+          "deposit"
+        ],
+        "detected_patterns": [
+          "liquidation",
+          "collateral",
+          "claim",
+          "liquidity",
+          "transfer",
+          "LiquidateCurrency"
+        ]
+      }
     }
-  ]
+  ],
+  "defi_contracts_added": 64
 }

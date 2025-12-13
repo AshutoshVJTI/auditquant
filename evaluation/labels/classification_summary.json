@@ -1,15 +1,15 @@
 {
-  "total_classified": 100,
+  "total_classified": 164,
   "category_distribution": {
-    "amm_dex": 1,
-    "lending": 1,
-    "vault_yield": 20,
-    "staking_rewards": 5,
-    "token": 32,
-    "governance": 0,
-    "other": 41
+    "amm_dex": 29,
+    "lending": 20,
+    "vault_yield": 21,
+    "staking_rewards": 14,
+    "token": 34,
+    "governance": 1,
+    "other": 45
   },
-  "agreement_rate": 0.22,
+  "agreement_rate": 0.4451219512195122,
   "results": [
     {
       "id": "amm_dex_001",
@@ -710,6 +710,454 @@
       "classified": "token",
       "confidence": 1.0,
       "match": false
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_01",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.9105691056910569,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_02",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_03",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_04",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_05",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_06",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_07",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.9777777777777777,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_08",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_09",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_10",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.9285714285714286,
+      "match": true
+    },
+    {
+      "id": "defi_lending_aave-v3_01",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.875,
+      "match": true
+    },
+    {
+      "id": "defi_lending_aave-v3_02",
+      "initial": "lending",
+      "classified": "governance",
+      "confidence": 0.6666666666666666,
+      "match": false
+    },
+    {
+      "id": "defi_lending_aave-v3_03",
+      "initial": "lending",
+      "classified": "amm_dex",
+      "confidence": 0.6054054054054054,
+      "match": false
+    },
+    {
+      "id": "defi_lending_aave-v3_04",
+      "initial": "lending",
+      "classified": "amm_dex",
+      "confidence": 0.6511627906976745,
+      "match": false
+    },
+    {
+      "id": "defi_lending_aave-v3_05",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.6,
+      "match": true
+    },
+    {
+      "id": "defi_lending_aave-v3_06",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_lending_aave-v3_07",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.6666666666666666,
+      "match": true
+    },
+    {
+      "id": "defi_lending_aave-v3_08",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_lending_aave-v3_09",
+      "initial": "lending",
+      "classified": "amm_dex",
+      "confidence": 0.512549537648613,
+      "match": false
+    },
+    {
+      "id": "defi_lending_aave-v3_10",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_lending_compound-v2_01",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_lending_compound-v2_02",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.7787114845938375,
+      "match": true
+    },
+    {
+      "id": "defi_lending_compound-v2_03",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_vault_yield_yearn-vaults_01",
+      "initial": "vault_yield",
+      "classified": "vault_yield",
+      "confidence": 0.8514225500526871,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_01",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.9523809523809523,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_02",
+      "initial": "staking_rewards",
+      "classified": "amm_dex",
+      "confidence": 0.5405405405405406,
+      "match": false
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_03",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.6956521739130435,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_04",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.6956521739130435,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_05",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.704225352112676,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_06",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.9066666666666666,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_07",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.5384615384615384,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_08",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.6666666666666666,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_09",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.4444444444444444,
+      "match": true
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_10",
+      "initial": "staking_rewards",
+      "classified": "staking_rewards",
+      "confidence": 0.7368421052631579,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_curve-stableswap_01",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.5818181818181818,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_curve-stableswap_02",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.3157894736842105,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_01",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.7114624505928854,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_02",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.6504065040650406,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_03",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.5,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_04",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.544,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_05",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.8421052631578947,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_06",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_07",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.7384615384615385,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_08",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.5,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_09",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.6451612903225806,
+      "match": true
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_10",
+      "initial": "amm_dex",
+      "classified": "amm_dex",
+      "confidence": 0.7647058823529411,
+      "match": true
+    },
+    {
+      "id": "defi_lending_euler-finance_01",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 0.5714285714285714,
+      "match": false
+    },
+    {
+      "id": "defi_lending_euler-finance_02",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "defi_lending_euler-finance_03",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "defi_lending_euler-finance_04",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 1.0,
+      "match": true
+    },
+    {
+      "id": "defi_lending_euler-finance_05",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "defi_lending_euler-finance_06",
+      "initial": "lending",
+      "classified": "amm_dex",
+      "confidence": 0.4067796610169492,
+      "match": false
+    },
+    {
+      "id": "defi_lending_euler-finance_07",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.6857142857142857,
+      "match": true
+    },
+    {
+      "id": "defi_lending_euler-finance_08",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.849624060150376,
+      "match": true
+    },
+    {
+      "id": "defi_lending_notional-v2_01",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.8,
+      "match": true
+    },
+    {
+      "id": "defi_lending_notional-v2_02",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.8264462809917356,
+      "match": true
+    },
+    {
+      "id": "defi_lending_notional-v2_03",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.8695652173913043,
+      "match": true
+    },
+    {
+      "id": "defi_lending_notional-v2_04",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.47058823529411764,
+      "match": true
+    },
+    {
+      "id": "defi_lending_notional-v2_05",
+      "initial": "lending",
+      "classified": "other",
+      "confidence": 1.0,
+      "match": false
+    },
+    {
+      "id": "defi_lending_notional-v2_06",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.5405405405405406,
+      "match": true
+    },
+    {
+      "id": "defi_lending_notional-v2_07",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.9864864864864865,
+      "match": true
+    },
+    {
+      "id": "defi_lending_notional-v2_08",
+      "initial": "lending",
+      "classified": "amm_dex",
+      "confidence": 0.6153846153846154,
+      "match": false
+    },
+    {
+      "id": "defi_lending_notional-v2_09",
+      "initial": "lending",
+      "classified": "token",
+      "confidence": 0.4857142857142857,
+      "match": false
+    },
+    {
+      "id": "defi_lending_notional-v2_10",
+      "initial": "lending",
+      "classified": "lending",
+      "confidence": 0.9465648854961832,
+      "match": true
     }
   ]
 }
