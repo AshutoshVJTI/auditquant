@@ -72,7 +72,9 @@ def parse_mythril_output(payload: dict) -> list[MythrilFinding]:
     return findings
 
 
-async def run_mythril(compose_path: str, solidity_path: Path) -> list[MythrilFinding]:
+async def run_mythril(
+    compose_path: str, solidity_path: Path, timeout: int = 300
+) -> list[MythrilFinding]:
     """Run Mythril in Docker and return parsed findings."""
     project_root = Path(__file__).resolve().parents[3]
     compose_file = Path(compose_path)
@@ -102,7 +104,12 @@ async def run_mythril(compose_path: str, solidity_path: Path) -> list[MythrilFin
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
     )
-    stdout, stderr = await process.communicate()
+    try:
+        stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=timeout)
+    except asyncio.TimeoutError:
+        process.kill()
+        raise RuntimeError(f"Mythril timed out after {timeout}s")
+
     if process.returncode != 0:
         raise RuntimeError(
             f"Mythril failed with exit code {process.returncode}: {stderr.decode().strip()}"

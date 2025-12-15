@@ -8,23 +8,30 @@ interface DashboardProps {
 export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps) {
   const [dragging, setDragging] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleUpload = async (file: File) => {
+    if (uploading) return;
+    setUploading(true);
     setStatus("Uploading and queueing analysis...");
-    const form = new FormData();
-    form.append("file", file);
-    const response = await fetch(`${apiBase}/api/analyze`, {
-      method: "POST",
-      body: form
-    });
-    if (!response.ok) {
+    try {
+      const form = new FormData();
+      form.append("file", file);
+      const response = await fetch(`${apiBase}/api/analyze`, {
+        method: "POST",
+        body: form
+      });
+      if (!response.ok) {
+        const payload = await response.json();
+        throw new Error(payload.detail || "Upload failed");
+      }
       const payload = await response.json();
-      throw new Error(payload.detail || "Upload failed");
+      onAnalysisQueued(payload.analysis_id);
+      setStatus("Queued. Redirecting to results...");
+    } finally {
+      setUploading(false);
     }
-    const payload = await response.json();
-    onAnalysisQueued(payload.analysis_id);
-    setStatus("Queued. Redirecting to results...");
   };
 
   return (
@@ -58,7 +65,8 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
           validation.
         </p>
         <button
-          className="mt-6 rounded-full bg-sky-500 px-6 py-2 text-sm font-semibold text-white"
+          className="mt-6 rounded-full bg-sky-500 px-6 py-2 text-sm font-semibold text-white disabled:opacity-50"
+          disabled={uploading}
           onClick={() => inputRef.current?.click()}
         >
           Select File
@@ -68,11 +76,13 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
           type="file"
           accept=".sol"
           className="hidden"
+          disabled={uploading}
           onChange={(event) => {
             const file = event.target.files?.[0];
             if (file) {
               handleUpload(file).catch((err) => setStatus(err.message));
             }
+            event.target.value = "";
           }}
         />
         {status && <p className="mt-4 text-xs text-slate-400">{status}</p>}

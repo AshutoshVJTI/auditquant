@@ -1,5 +1,4 @@
 services:
-  # Static Analysis - Fast, broad coverage
   slither:
     build:
       context: ..
@@ -7,39 +6,10 @@ services:
     volumes:
       - ../:/work
     working_dir: /work
-
-  # Static Analysis - Semantic patterns  
-  securify:
-    build:
-      context: ..
-      dockerfile: docker/securify/Dockerfile
-    volumes:
-      - ../:/work
-    working_dir: /work
-
-  # Dynamic Analysis - Symbolic execution (precise)
   mythril:
     build:
       context: ..
       dockerfile: docker/mythril/Dockerfile
-    volumes:
-      - ../:/work
-    working_dir: /work
-
-  # Dynamic Analysis - Fuzzing (property-based)
-  echidna:
-    build:
-      context: ..
-      dockerfile: docker/echidna/Dockerfile
-    volumes:
-      - ../:/work
-    working_dir: /work
-
-  # Baseline Comparator - Symbolic execution (legacy)
-  oyente:
-    build:
-      context: ..
-      dockerfile: docker/oyente/Dockerfile
     volumes:
       - ../:/work
     working_dir: /work

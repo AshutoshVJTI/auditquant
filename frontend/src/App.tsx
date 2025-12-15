@@ -1,9 +1,7 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Dashboard from "./components/Dashboard";
 import Results from "./components/Results";
 import Remediation from "./components/Remediation";
-import ErrorBoundary from "./components/ErrorBoundary";
-import type { AnalysisPayload } from "./types/analysis";
 
 const tabs = ["Dashboard", "Results", "Remediation"] as const;
 
@@ -12,12 +10,18 @@ export type TabName = (typeof tabs)[number];
 export default function App() {
   const [active, setActive] = useState<TabName>("Dashboard");
   const [analysisId, setAnalysisId] = useState<string | null>(null);
-  const [analysisData, setAnalysisData] = useState<AnalysisPayload | null>(null);
+  const [analysisData, setAnalysisData] = useState<any>(null);
 
   const apiBase = useMemo(
     () => import.meta.env.VITE_API_URL || "http://localhost:8000",
     []
   );
+
+  const onData = useCallback((payload: any) => setAnalysisData(payload), []);
+  const onAnalysisQueued = useCallback((id: string) => {
+    setAnalysisId(id);
+    setActive("Results");
+  }, []);
 
   return (
     <div className="min-h-screen px-6 py-10">
@@ -56,29 +60,24 @@ export default function App() {
         ))}
       </nav>
 
-      <ErrorBoundary>
-        {active === "Dashboard" && (
-          <Dashboard
-            apiBase={apiBase}
-            onAnalysisQueued={(id) => {
-              setAnalysisId(id);
-              setActive("Results");
-            }}
-          />
-        )}
+      {active === "Dashboard" && (
+        <Dashboard
+          apiBase={apiBase}
+          onAnalysisQueued={onAnalysisQueued}
+        />
+      )}
 
-        {active === "Results" && (
-          <Results
-            apiBase={apiBase}
-            analysisId={analysisId}
-            data={analysisData}
-            onData={(payload) => setAnalysisData(payload)}
-            onNext={() => setActive("Remediation")}
-          />
-        )}
+      {active === "Results" && (
+        <Results
+          apiBase={apiBase}
+          analysisId={analysisId}
+          data={analysisData}
+          onData={onData}
+          onNext={() => setActive("Remediation")}
+        />
+      )}
 
-        {active === "Remediation" && <Remediation data={analysisData} />}
-      </ErrorBoundary>
+      {active === "Remediation" && <Remediation data={analysisData} />}
     </div>
   );
 }

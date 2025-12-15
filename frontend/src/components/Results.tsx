@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface ResultsProps {
   apiBase: string;
@@ -25,36 +25,50 @@ function Gauge({ value, label }: { value: number; label: string }) {
 export default function Results({ apiBase, analysisId, data, onData, onNext }: ResultsProps) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const onDataRef = useRef(onData);
+  onDataRef.current = onData;
 
   useEffect(() => {
     if (!analysisId) return;
 
-    let active = true;
+    let cancelled = false;
+    let attempts = 0;
+    const POLL_INTERVAL_MS = 5000; // 5 seconds — avoid hammering the API
+    const MAX_ATTEMPTS = 90; // ~7.5 min, aligned with backend 7‑min timeout
+
     const poll = async () => {
+      attempts++;
       setLoading(true);
       try {
         const response = await fetch(`${apiBase}/api/analysis/${analysisId}`);
         const payload = await response.json();
-        if (!active) return;
-        onData(payload);
+        if (cancelled) return;
+        onDataRef.current(payload);
         if (payload.status === "completed" || payload.status === "failed") {
           setLoading(false);
           return;
         }
-        setTimeout(poll, 2000);
+        if (attempts >= MAX_ATTEMPTS) {
+          setError(
+            "Analysis timed out. Check backend logs and Docker (Slither/Mythril). Refresh to see if status updated."
+          );
+          setLoading(false);
+          return;
+        }
+        setTimeout(poll, POLL_INTERVAL_MS);
       } catch (err: any) {
-        if (active) setError(err.message);
+        if (!cancelled) setError(err.message);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
     poll();
 
     return () => {
-      active = false;
+      cancelled = true;
     };
-  }, [analysisId, apiBase, onData]);
+  }, [analysisId, apiBase]);
 
   if (!analysisId) {
     return (

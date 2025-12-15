@@ -2,6 +2,10 @@
 
 This directory contains the end-to-end pipeline for fine-tuning CodeT5 to remediate Solidity vulnerabilities using SmartBugs Curated and SolidiFI benchmarks.
 
+## Running on Google Colab (GPU or TPU)
+
+For **Colab GPU** (recommended) or **Colab TPU**, see **[COLAB.md](./COLAB.md)**. Use `colab_train.py` from the repo root after cloning and running `download_datasets.py` and `prepare_data.py`. Prefer GPU unless you specifically need TPU.
+
 ## Prerequisites
 
 - Python 3.11+

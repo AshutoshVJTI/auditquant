@@ -43,7 +43,9 @@ def parse_slither_output(payload: dict) -> list[SlitherFinding]:
     return findings
 
 
-async def run_slither(compose_path: str, solidity_path: Path) -> list[SlitherFinding]:
+async def run_slither(
+    compose_path: str, solidity_path: Path, timeout: int = 120
+) -> list[SlitherFinding]:
     """Run Slither in Docker and return parsed findings."""
     project_root = Path(__file__).resolve().parents[3]
     compose_file = Path(compose_path)
@@ -70,7 +72,12 @@ async def run_slither(compose_path: str, solidity_path: Path) -> list[SlitherFin
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
     )
-    stdout, stderr = await process.communicate()
+    try:
+        stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=timeout)
+    except asyncio.TimeoutError:
+        process.kill()
+        raise RuntimeError(f"Slither timed out after {timeout}s")
+
     if process.returncode != 0:
         raise RuntimeError(
             f"Slither failed with exit code {process.returncode}: {stderr.decode().strip()}"

@@ -75,13 +75,24 @@ class LLMClient:
         )
         return (response.output_text or "").strip()
 
+    _LLM_CALL_TIMEOUT = 60.0
+
     async def validate_vulnerability_async(self, finding: dict, code_context: str) -> bool:
-        return await asyncio.to_thread(self.validate_vulnerability, finding, code_context)
+        return await asyncio.wait_for(
+            asyncio.to_thread(self.validate_vulnerability, finding, code_context),
+            timeout=self._LLM_CALL_TIMEOUT,
+        )
 
     async def classify_financial_impact_async(
         self, vuln_type: str, contract_context: str
     ) -> float | None:
-        return await asyncio.to_thread(self.classify_financial_impact, vuln_type, contract_context)
+        return await asyncio.wait_for(
+            asyncio.to_thread(self.classify_financial_impact, vuln_type, contract_context),
+            timeout=self._LLM_CALL_TIMEOUT,
+        )
 
     async def generate_summary_async(self, findings: list[dict]) -> str:
-        return await asyncio.to_thread(self.generate_summary, findings)
+        return await asyncio.wait_for(
+            asyncio.to_thread(self.generate_summary, findings),
+            timeout=self._LLM_CALL_TIMEOUT,
+        )
