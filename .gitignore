@@ -9,3 +9,5 @@ backend/.analysis/
 node_modules/
 frontend/dist/
 .DS_Store
+
+codet5-solidity-repair.zip
