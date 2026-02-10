@@ -24,8 +24,6 @@ class DeFiCategory(str, Enum):
     LENDING = "lending"
     VAULT_YIELD = "vault_yield"
     STAKING_REWARDS = "staking_rewards"
-    TOKEN = "token"
-    GOVERNANCE = "governance"
     OTHER = "other"
 
 
@@ -56,16 +54,6 @@ CATEGORY_PATTERNS: dict[DeFiCategory, list[str]] = {
         r"\bemission\b", r"\brewardRate\b", r"\brewardPerToken\b",
         r"\bStaking\b", r"\bMasterChef\b", r"\bfarm\b",
         r"\bpendingReward\b", r"\buserInfo\b", r"\bpoolInfo\b",
-    ],
-    DeFiCategory.TOKEN: [
-        r"\bERC20\b", r"\bERC721\b", r"\bERC1155\b",
-        r"\btransfer\b", r"\bapprove\b", r"\ballowance\b",
-        r"\bmint\b", r"\bburn\b", r"\btotalSupply\b",
-    ],
-    DeFiCategory.GOVERNANCE: [
-        r"\bproposal\b", r"\bvote\b", r"\bgovernor\b", r"\bquorum\b",
-        r"\bdelegate\b", r"\btimelock\b", r"\bexecute\b",
-        r"\bGovernor\b", r"\bDAO\b", r"\bSnapshot\b",
     ],
 }
 
@@ -152,10 +140,9 @@ def classify_contract(source_code: str) -> ClassificationResult:
         for pattern in patterns:
             matches = re.findall(pattern, source_code, re.IGNORECASE)
             if matches:
-                # Weight by number of matches
-                score_add = len(matches) * (2.0 if category != DeFiCategory.TOKEN else 0.5)
+                score_add = len(matches) * 2.0
                 scores[category] += score_add
-                detected_patterns.extend(matches[:3])  # Keep top 3 matches
+                detected_patterns.extend(matches[:3])
     
     # Normalize scores
     total_score = sum(scores.values())
@@ -212,18 +199,6 @@ def get_business_context(
             "assets_at_risk": "Staked tokens, reward pool",
             "attack_vectors": ["Reward inflation", "Unauthorized claims", "Reentrancy"],
             "critical_functions": ["stake", "unstake", "claim", "getReward"],
-        },
-        DeFiCategory.TOKEN: {
-            "description": "Token Contract",
-            "assets_at_risk": "Token balances",
-            "attack_vectors": ["Unauthorized minting", "Transfer manipulation"],
-            "critical_functions": ["transfer", "mint", "burn"],
-        },
-        DeFiCategory.GOVERNANCE: {
-            "description": "Governance / DAO",
-            "assets_at_risk": "Protocol control, treasury funds",
-            "attack_vectors": ["Flash loan governance attacks", "Proposal manipulation"],
-            "critical_functions": ["propose", "vote", "execute"],
         },
         DeFiCategory.OTHER: {
             "description": "Generic Smart Contract",

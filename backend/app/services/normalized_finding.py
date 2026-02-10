@@ -14,15 +14,13 @@ from typing import Any
 class ToolSource(str, Enum):
     SLITHER = "slither"
     MYTHRIL = "mythril"
-    SECURIFY = "securify"
-    ECHIDNA = "echidna"
     OYENTE = "oyente"
 
 
 class AnalysisType(str, Enum):
     STATIC = "static"
     SYMBOLIC = "symbolic"
-    FUZZING = "fuzzing"
+    BYTECODE = "bytecode"
 
 
 class Severity(str, Enum):

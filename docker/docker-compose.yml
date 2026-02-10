@@ -1,5 +1,8 @@
+# AuditQuant Docker Compose — Analysis Tools
+# Build: docker compose -f docker/docker-compose.yml build
+# Run:   docker compose -f docker/docker-compose.yml up -d
 services:
-  # Static Analysis - Fast, broad coverage
+  # Static Analysis — AST-level analysis (fast, broad coverage)
   slither:
     build:
       context: ..
@@ -8,16 +11,7 @@ services:
       - ../:/work
     working_dir: /work
 
-  # Static Analysis - Semantic patterns  
-  securify:
-    build:
-      context: ..
-      dockerfile: docker/securify/Dockerfile
-    volumes:
-      - ../:/work
-    working_dir: /work
-
-  # Dynamic Analysis - Symbolic execution (precise)
+  # Dynamic Analysis — Symbolic execution (precise, proves exploitability)
   mythril:
     build:
       context: ..
@@ -26,17 +20,11 @@ services:
       - ../:/work
     working_dir: /work
 
-  # Dynamic Analysis - Fuzzing (property-based)
-  echidna:
-    build:
-      context: ..
-      dockerfile: docker/echidna/Dockerfile
-    volumes:
-      - ../:/work
-    working_dir: /work
-
-  # Baseline Comparator - Symbolic execution (legacy)
+  # Bytecode Analysis — Compiled bytecode analysis (low-level flaws)
   oyente:
+    # Oyente depends on legacy prebuilt linux/amd64 binaries (geth, solc).
+    # Force amd64 so it works on Apple Silicon via emulation.
+    platform: linux/amd64
     build:
       context: ..
       dockerfile: docker/oyente/Dockerfile

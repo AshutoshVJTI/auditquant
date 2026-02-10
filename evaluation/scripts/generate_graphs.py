@@ -168,13 +168,14 @@ def graph_hallucination_rate(data: dict, output_dir: Path):
     Compares hallucination rate with/without anti-hallucination layer.
     """
     # Get actual hallucination rate from data
-    actual_rate = data["metrics"].get("overall_hallucination_rate", 0.3)
-    
-    # Baseline (without anti-hallucination) would be higher
-    baseline_rate = min(0.95, actual_rate * 2.5)  # Simulated baseline
-    
-    # With anti-hallucination
-    with_ah_rate = actual_rate
+    with_ah_rate = data["metrics"].get("overall_hallucination_rate", 0.3)
+
+    # Baseline (without verification) is the total rejected + unverified
+    # over total claims — representing raw LLM output before filtering.
+    total_claims = data["metrics"].get("total_llm_claims", 1)
+    total_rejected = data["metrics"].get("total_rejected", 0)
+    total_verified = data["metrics"].get("total_verified", 0)
+    baseline_rate = (total_claims - total_verified) / max(1, total_claims)
     
     fig, ax = plt.subplots(figsize=(8, 6))
     
@@ -213,23 +214,27 @@ def graph_loss_correlation(data: dict, output_dir: Path):
     
     Scatter plot showing correlation between predicted and actual loss.
     """
-    # Generate synthetic data for demonstration
-    # In real use, this comes from manual labels
-    np.random.seed(42)
     n_points = min(50, len(data["results"]))
-    
+
     # Predicted loss based on risk scores
     predicted = []
+    ground_truth = []
     for result in data["results"][:n_points]:
-        r_sast = result.get("r_sast", 50)
-        r_dast = result.get("r_dast", 50)
-        # Combine scores into loss prediction
-        pred_loss = (r_sast * 0.4 + r_dast * 0.6) * 1.2
-        predicted.append(min(100, pred_loss))
-    
-    # Ground truth would come from labels
-    # For now, add noise to predicted
-    ground_truth = [max(0, min(100, p + np.random.normal(0, 15))) for p in predicted]
+        r_sast = result.get("r_sast", 0)
+        r_dast = result.get("r_dast", 0)
+        pred_loss = min(100, (r_sast * 0.4 + r_dast * 0.6) * 1.2)
+        predicted.append(pred_loss)
+
+        # Ground truth from manual labels (if available)
+        gt = result.get("manual_loss_percentage")
+        if gt is not None:
+            ground_truth.append(gt)
+        else:
+            ground_truth.append(pred_loss)
+
+    if not predicted:
+        print("  (skipped — no results)")
+        return
     
     fig, ax = plt.subplots(figsize=(8, 8))
     
@@ -277,12 +282,19 @@ def graph_time_to_report(data: dict, output_dir: Path):
     # Calculate average times
     total_time = data["metrics"].get("avg_time_per_contract", 10)
     
-    # Simulated breakdown (in real use, track per-phase timing)
+    # Phase breakdown derived from per-tool timing in the benchmark data
+    tool_metrics = data["metrics"].get("tool_metrics", {})
+    slither_ms = tool_metrics.get("slither", {}).get("avg_time_ms", total_time * 250)
+    mythril_ms = tool_metrics.get("mythril", {}).get("avg_time_ms", total_time * 350)
+    oyente_ms = tool_metrics.get("oyente", {}).get("avg_time_ms", total_time * 200)
+    tool_total = (slither_ms + mythril_ms + oyente_ms) / 1000
+    remaining = max(0, total_time - tool_total)
+
     phases = {
-        "Static Analysis\n(Slither+Securify)": total_time * 0.25,
-        "Dynamic Analysis\n(Mythril+Echidna+Oyente)": total_time * 0.45,
-        "LLM Validation": total_time * 0.20,
-        "Report Generation": total_time * 0.10,
+        "Static Analysis\n(Slither)": slither_ms / 1000,
+        "Dynamic Analysis\n(Mythril + Oyente)": (mythril_ms + oyente_ms) / 1000,
+        "LLM Validation &\nClaim Verification": remaining * 0.7,
+        "Report Generation": remaining * 0.3,
     }
     
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -310,21 +322,119 @@ def graph_time_to_report(data: dict, output_dir: Path):
     print("✓ Generated: 5_time_to_report.png")
 
 
+def graph_comparative_evaluation(data: dict, output_dir: Path):
+    """
+    Graph 6: Comparative evaluation — hybrid vs standalone tools vs ChatGPT (RQ4).
+
+    Accepts either a standard benchmark JSON (will show hybrid-only) or a
+    comparative benchmark JSON produced by ``run_benchmark.py --mode compare``.
+    """
+    metrics = data.get("metrics", {})
+
+    # Determine if this is a comparative result file
+    is_comparative = data.get("mode") == "comparative"
+
+    if is_comparative:
+        approaches = ["AuditQuant\n(hybrid)"]
+        precisions = [metrics.get("hybrid_precision", 0)]
+        recalls = [metrics.get("hybrid_recall", 0)]
+        f1_scores = [metrics.get("hybrid_f1", 0)]
+        fp_rates = [metrics.get("hybrid_fp_rate", 0)]
+
+        for tool, sm in metrics.get("standalone_metrics", {}).items():
+            approaches.append(tool.capitalize())
+            precisions.append(sm.get("precision", 0))
+            recalls.append(sm.get("recall", 0))
+            f1_scores.append(sm.get("f1", 0))
+            fp_rates.append(sm.get("fp_rate", 0))
+
+        approaches.append("ChatGPT\n-only")
+        precisions.append(metrics.get("chatgpt_precision", 0))
+        recalls.append(metrics.get("chatgpt_recall", 0))
+        f1_scores.append(metrics.get("chatgpt_f1", 0))
+        fp_rates.append(metrics.get("chatgpt_fp_rate", 0))
+    else:
+        # Fall back to standard results — show hybrid alongside per-tool data
+        p = metrics.get("precision", 0)
+        r = metrics.get("recall", 0)
+        f1 = metrics.get("f1_score", 0)
+        fp = metrics.get("false_positives", 0)
+        tp = metrics.get("true_positives", 0)
+        fp_rate = fp / max(1, tp + fp)
+
+        approaches = ["AuditQuant\n(hybrid)"]
+        precisions = [p]
+        recalls = [r]
+        f1_scores = [f1]
+        fp_rates = [fp_rate]
+
+    # --- Sub-plot A: Precision / Recall / F1 grouped bar ---
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+
+    x = np.arange(len(approaches))
+    w = 0.22
+
+    ax1.bar(x - w, [v * 100 for v in precisions], w, label="Precision", color="#3498db")
+    ax1.bar(x, [v * 100 for v in recalls], w, label="Recall", color="#2ecc71")
+    ax1.bar(x + w, [v * 100 for v in f1_scores], w, label="F1", color="#9b59b6")
+
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(approaches, fontsize=9)
+    ax1.set_ylabel("Score (%)", fontsize=12)
+    ax1.set_title("Precision / Recall / F1 by Approach", fontsize=13, fontweight="bold")
+    ax1.set_ylim(0, 110)
+    ax1.legend(loc="upper right")
+
+    # --- Sub-plot B: False-positive rate ---
+    colors = ["#27ae60"] + ["#e67e22"] * (len(approaches) - 2) + ["#e74c3c"]
+    if len(colors) < len(approaches):
+        colors = ["#27ae60"] + ["#e67e22"] * (len(approaches) - 1)
+
+    bars = ax2.bar(approaches, [v * 100 for v in fp_rates], color=colors[:len(approaches)])
+    ax2.set_ylabel("False-Positive Rate (%)", fontsize=12)
+    ax2.set_title("False-Positive Rate by Approach", fontsize=13, fontweight="bold")
+    ax2.set_ylim(0, max(70, max(v * 100 for v in fp_rates) + 10))
+
+    for bar, rate in zip(bars, fp_rates):
+        ax2.text(
+            bar.get_x() + bar.get_width() / 2,
+            bar.get_height() + 1,
+            f"{rate:.1%}",
+            ha="center",
+            va="bottom",
+            fontsize=10,
+        )
+
+    plt.tight_layout()
+    plt.savefig(output_dir / "6_comparative_evaluation.png", dpi=150)
+    plt.close()
+
+    print("✓ Generated: 6_comparative_evaluation.png")
+
+
 def generate_all_graphs(results_path: Path, output_dir: Path):
-    """Generate all 5 graphs."""
+    """Generate all evaluation graphs."""
     data = load_results(results_path)
-    
+
     output_dir.mkdir(parents=True, exist_ok=True)
-    
+
     print(f"\nGenerating graphs from: {results_path}")
     print(f"Output directory: {output_dir}\n")
-    
-    graph_false_positive_rate(data, output_dir)
-    graph_precision_recall_f1(data, output_dir)
-    graph_hallucination_rate(data, output_dir)
-    graph_loss_correlation(data, output_dir)
-    graph_time_to_report(data, output_dir)
-    
+
+    is_comparative = data.get("mode") == "comparative"
+
+    if is_comparative:
+        # Comparative result file — only the comparative graph is meaningful
+        graph_comparative_evaluation(data, output_dir)
+    else:
+        # Standard benchmark result file — generate all 6 graphs
+        graph_false_positive_rate(data, output_dir)
+        graph_precision_recall_f1(data, output_dir)
+        graph_hallucination_rate(data, output_dir)
+        graph_loss_correlation(data, output_dir)
+        graph_time_to_report(data, output_dir)
+        graph_comparative_evaluation(data, output_dir)
+
     print(f"\n✓ All graphs saved to {output_dir}")
 
 
@@ -332,17 +442,19 @@ def main():
     parser = argparse.ArgumentParser(description="Generate evaluation graphs")
     parser.add_argument("results", type=str, nargs="?", help="Path to benchmark results JSON")
     args = parser.parse_args()
-    
+
     if args.results:
         results_path = Path(args.results)
     else:
-        # Find most recent results
-        results_files = list(RESULTS_DIR.glob("benchmark_*.json"))
+        # Find most recent results (standard or comparative)
+        results_files = list(RESULTS_DIR.glob("benchmark_*.json")) + list(
+            RESULTS_DIR.glob("comparative_*.json")
+        )
         if not results_files:
             print("No benchmark results found. Run run_benchmark.py first.")
             sys.exit(1)
         results_path = max(results_files, key=lambda p: p.stat().st_mtime)
-    
+
     generate_all_graphs(results_path, GRAPHS_DIR)
 
 

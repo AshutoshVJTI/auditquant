@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import logging
 from dataclasses import dataclass
 from pathlib import Path
 from threading import Lock
 import re
 
+logger = logging.getLogger(__name__)
 
 _DEFAULT_MODEL_PATH = Path(__file__).resolve().parent / "models" / "codet5-solidity-repair"
 
@@ -36,8 +38,20 @@ class CodeT5Remediator:
         self._initialized = True
 
     def _resolve_model_name(self) -> str:
-        if self.config.fine_tuned_path.exists():
+        """Use fine-tuned checkpoint if weight files are present, otherwise
+        fall back to the Hugging Face base model (``Salesforce/codet5-base``)
+        which will be downloaded automatically on first use."""
+        weight_files = ("model.safetensors", "pytorch_model.bin")
+        if self.config.fine_tuned_path.exists() and any(
+            (self.config.fine_tuned_path / f).exists() for f in weight_files
+        ):
+            logger.info("Loading fine-tuned CodeT5 from %s", self.config.fine_tuned_path)
             return str(self.config.fine_tuned_path)
+        logger.info(
+            "Fine-tuned weights not found at %s — downloading base model '%s' from Hugging Face",
+            self.config.fine_tuned_path,
+            self.config.model_name,
+        )
         return self.config.model_name
 
     def _lazy_load(self) -> None:
@@ -51,9 +65,17 @@ class CodeT5Remediator:
                 "Install with: pip install transformers torch"
             ) from exc
 
-        model_name = self._resolve_model_name()
-        self._tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self._model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+        try:
+            model_name = self._resolve_model_name()
+            self._tokenizer = AutoTokenizer.from_pretrained(model_name)
+            self._model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+        except Exception:
+            # Reset singleton so a future attempt (e.g. after fine-tuning)
+            # can re-initialise successfully.
+            with self._lock:
+                CodeT5Remediator._instance = None
+                self._initialized = False
+            raise
 
     def _post_process(self, text: str) -> str:
         text = text.strip()

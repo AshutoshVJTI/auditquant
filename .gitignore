@@ -11,3 +11,11 @@ frontend/dist/
 .DS_Store
 
 codet5-solidity-repair.zip
+
+# Large model weights (downloaded or fine-tuned)
+*.safetensors
+*.bin
+!requirements*.txt
+
+# Cloned vulnerability database repos (re-fetchable)
+backend/remediation/training/repos/

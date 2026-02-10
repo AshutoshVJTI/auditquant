@@ -28,7 +28,7 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
       }
       const payload = await response.json();
       onAnalysisQueued(payload.analysis_id);
-      setStatus("Queued. Redirecting to results...");
+      setStatus(`Queued (${(payload.enabled_tools || []).join(", ")}). Redirecting...`);
     } finally {
       setUploading(false);
     }
@@ -59,17 +59,17 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
         <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
           Drop Solidity File
         </p>
-        <h2 className="mt-3 text-2xl font-semibold">Start a New Audit Run</h2>
+        <h2 className="mt-3 text-2xl font-semibold">Upload Zone</h2>
         <p className="mt-3 text-sm text-slate-300">
-          Upload a single .sol file to run Slither, RiskQuant scoring, and AI
-          validation.
+          Upload a .sol file to run Slither (static), Mythril (symbolic), and
+          Oyente (bytecode) with cross-tool validation.
         </p>
         <button
           className="mt-6 rounded-full bg-sky-500 px-6 py-2 text-sm font-semibold text-white disabled:opacity-50"
           disabled={uploading}
           onClick={() => inputRef.current?.click()}
         >
-          Select File
+          Start New Analysis
         </button>
         <input
           ref={inputRef}
@@ -91,14 +91,15 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
       <div className="card rounded-3xl p-6">
         <h3 className="text-lg font-semibold">Operational Checklist</h3>
         <ul className="mt-4 space-y-3 text-sm text-slate-300">
-          <li>1. Slither static scan and JSON parsing.</li>
-          <li>2. RiskQuant vectors: R_SAST, R_DAST, R_COMP.</li>
-          <li>3. GPT-4o validation and financial impact buckets.</li>
-          <li>4. Remediation staging (CodeT5 placeholder).</li>
+          <li>1. Slither — AST-level static analysis.</li>
+          <li>2. Mythril — Symbolic execution (dynamic).</li>
+          <li>3. Oyente — Bytecode analysis.</li>
+          <li>4. Cross-tool validation & normalized findings.</li>
+          <li>5. LLM summarisation & claim verification.</li>
+          <li>6. Business risk rubric & risk scores.</li>
         </ul>
         <div className="mt-6 rounded-2xl border border-slate-700 bg-slate-900/60 p-4 text-xs text-slate-400">
-          Tip: keep the Docker Slither service built and running for the fastest
-          turnarounds.
+          Build tools: docker compose -f docker/docker-compose.yml build slither mythril oyente
         </div>
       </div>
     </section>

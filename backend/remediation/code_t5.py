@@ -1,7 +1,17 @@
-"""Remediation via fine-tuned CodeT5. Uses backend/remediation/models/codet5-solidity-repair when present."""
+"""
+Remediation via CodeT5.
+
+Uses a fine-tuned checkpoint at ``backend/remediation/models/codet5-solidity-repair``
+when present.  Otherwise falls back to the Hugging Face base model
+(``Salesforce/codet5-base``) which is downloaded automatically on first use.
+"""
 from __future__ import annotations
 
+import logging
+
 from remediation.codet5_model import CodeT5Remediator
+
+logger = logging.getLogger(__name__)
 
 _remediator: CodeT5Remediator | None = None
 
@@ -11,26 +21,22 @@ def _get_remediator() -> CodeT5Remediator | None:
     if _remediator is None:
         try:
             _remediator = CodeT5Remediator()
-            if not _remediator.config.fine_tuned_path.exists():
-                _remediator = None
-        except Exception:
+        except Exception as exc:
+            logger.warning("Failed to initialise CodeT5 remediator: %s", exc)
             _remediator = None
     return _remediator
 
 
 def generate_patch(vulnerable_code: str, vuln_type: str) -> str:
-    """Generate a remediation patch using the fine-tuned CodeT5 model (or placeholder if unavailable)."""
+    """Generate a remediation patch using CodeT5 (fine-tuned or base model)."""
     remediator = _get_remediator()
     if remediator is not None:
         try:
             return remediator.generate_patch(vulnerable_code, vuln_type)
-        except Exception:
-            pass
-    # Fallback when model missing or inference fails
+        except Exception as exc:
+            logger.warning("CodeT5 inference failed: %s", exc)
     return (
-        "// CodeT5 model unavailable or inference failed.\n"
-        f"// Vulnerability type: {vuln_type}\n"
-        "// Review and fix manually.\n\n"
-        "// --- vulnerable code ---\n"
+        "// CodeT5 inference failed — review and fix manually.\n"
+        f"// Vulnerability type: {vuln_type}\n\n"
         f"{vulnerable_code}"
     )

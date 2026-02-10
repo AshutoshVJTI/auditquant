@@ -1,11 +1,11 @@
 """
 Oyente Runner
 
-Symbolic execution tool for smart contract analysis (baseline comparator).
+Bytecode analysis tool for smart contract analysis.
 https://github.com/enzymefinance/oyente
 
-Note: Oyente is an older tool, used primarily as a baseline for comparison
-with modern tools. It supports a limited set of vulnerability patterns.
+Oyente analyzes the compiled bytecode directly, catching compiler-level
+bugs and low-level flaws that AST-level tools miss.
 """
 from __future__ import annotations
 
@@ -110,10 +110,10 @@ def parse_oyente_output(output: str, contract_file: str) -> list[NormalizedFindi
                     NormalizedFinding(
                         id=f"OYE-{finding_id}",
                         tool=ToolSource.OYENTE,
-                        analysis_type=AnalysisType.SYMBOLIC,
+                        analysis_type=AnalysisType.BYTECODE,
                         vulnerability_type=normalize_vuln_type(vuln_type),
                         title=f"Oyente: {_format_vuln_name(vuln_name)}",
-                        description=f"Oyente symbolic execution detected {_format_vuln_name(vuln_name)} vulnerability",
+                        description=f"Oyente bytecode analysis detected {_format_vuln_name(vuln_name)} vulnerability",
                         severity=_get_oyente_severity(vuln_type),
                         severity_score=_get_oyente_severity_score(vuln_type),
                         confidence=0.7,  # Oyente has moderate confidence
@@ -151,7 +151,7 @@ def _parse_oyente_json(payload: dict, contract_file: str) -> list[NormalizedFind
                 NormalizedFinding(
                     id=f"OYE-{finding_id}",
                     tool=ToolSource.OYENTE,
-                    analysis_type=AnalysisType.SYMBOLIC,
+                    analysis_type=AnalysisType.BYTECODE,
                     vulnerability_type=normalize_vuln_type(vuln_type),
                     title=f"Oyente: {_format_vuln_name(vuln_name)}",
                     description=f"Oyente detected {_format_vuln_name(vuln_name)} in {contract_name}",

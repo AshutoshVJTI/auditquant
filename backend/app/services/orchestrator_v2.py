@@ -1,19 +1,16 @@
 """
-AuditQuant Orchestrator V2
+AuditQuant Orchestrator
 
-Enhanced orchestrator that integrates:
-1. Multi-tool analysis (5 tools: Slither, Securify, Mythril, Echidna, Oyente)
-2. DeFi contract classification for business context
-3. Anti-hallucination verification layer
-4. Enhanced RiskQuant with multi-tool inputs
+Unified orchestrator implementing the full AuditQuant pipeline:
 
-Pipeline:
-1. Input contract → 5 Audit tools (parallel) → Normalize outputs
-2. Tool output → DeFi classification → Business context
-3. Normalized findings → LLM summary (structured fields)
-4. LLM output → Anti-hallucination check → Verified findings
-5. Verified findings → RiskQuant → Final scores
-6. Optional: CodeT5 remediation
+  Smart Contract
+    → Audit Tools (Slither, Mythril, Oyente — parallel)
+    → Aggregation & Normalisation
+    → LLM Summarisation (structured fields)
+    → Claim Verification (anti-hallucination)
+    → Manual Business Risk Rubric
+    → LLM Risk Estimation (loss-bucket comparison)
+    → Remediation (CodeT5 patches)
 """
 from __future__ import annotations
 
@@ -25,7 +22,12 @@ from pathlib import Path
 from typing import Any
 
 from app.config import settings
-from app.models.schemas import AnalysisResult, Finding, RiskScores
+from app.models.schemas import (
+    AnalysisResult,
+    Finding,
+    RemediationPatch,
+    RiskScores,
+)
 from app.services.anti_hallucination import (
     AntiHallucinationVerifier,
     LLMClaim,
@@ -43,125 +45,136 @@ from app.services.multi_tool_orchestrator import (
     MultiToolResult,
     get_finding_stats,
 )
-from app.services.normalized_finding import NormalizedFinding, Severity
+from app.services.normalized_finding import AnalysisType, NormalizedFinding, Severity
 from app.services.store import store
+from app.services.swc_knowledge import get_swc_knowledge_base
 from llm.client import LLMClient, LLMConfig
+from remediation.code_t5 import generate_patch
+from riskquant.business_risk_rubric import (
+    BusinessRiskReport,
+    RubricScores,
+    compare_rubric_vs_llm,
+    compute_business_risk_rubric,
+)
 from riskquant.complexity import estimate_cyclomatic_complexity
 from riskquant.engine import compute_r_comp, compute_r_dast, compute_r_sast
+from riskquant.financial import compute_loss_percentage, map_loss_percentage
 
 
 @dataclass
 class EnhancedAnalysisResult:
-    """Extended analysis result with multi-tool and verification data."""
+    """Full analysis result produced by the unified pipeline."""
+
     analysis_id: str
     filename: str
     created_at: datetime
     status: str
-    
+
     # DeFi classification
     defi_category: str | None = None
     defi_confidence: float = 0.0
     business_context: dict[str, Any] = field(default_factory=dict)
-    
-    # Risk scores (unchanged formula, but more inputs)
+
+    # Risk scores (R_SAST, R_DAST, R_COMP)
     scores: RiskScores | None = None
-    
+
     # Multi-tool findings
     total_findings: int = 0
     cross_validated_count: int = 0
     findings: list[Finding] = field(default_factory=list)
-    
+
     # Anti-hallucination results
     verification_status: str = "pending"
     hallucination_rate: float = 0.0
     verified_findings: list[Finding] = field(default_factory=list)
-    
+
     # Tool execution stats
     tool_stats: dict[str, Any] = field(default_factory=dict)
-    
-    # LLM outputs
+
+    # Business risk rubric (RQ3)
+    business_risk_report: dict[str, Any] = field(default_factory=dict)
+
+    # LLM summary
     summary: str | None = None
-    
+
+    # Remediation patches
+    remediation: list[RemediationPatch] = field(default_factory=list)
+
+    # Financial loss percentage (L_perc)
+    loss_percentage: float = 0.0
+
     # Error handling
     error: str | None = None
 
 
-class OrchestratorV2:
+class Orchestrator:
     """
-    Enhanced orchestrator with multi-tool support and anti-hallucination.
+    Unified orchestrator implementing the full AuditQuant pipeline.
     """
-    
+
     def __init__(
         self,
-        enable_securify: bool = True,
-        enable_echidna: bool = True,
         enable_oyente: bool = True,
         enable_llm_validation: bool = True,
         require_dynamic_proof: bool = True,
     ):
         self.multi_tool = MultiToolOrchestrator(
-            compose_path=settings.slither_compose_path,
-            enable_securify=enable_securify,
-            enable_echidna=enable_echidna,
+            compose_path=settings.docker_compose_path or settings.slither_compose_path,
             enable_oyente=enable_oyente,
         )
         self.verifier = AntiHallucinationVerifier(
             require_dynamic_proof=require_dynamic_proof,
         )
         self.enable_llm_validation = enable_llm_validation
-        
-        # LLM client
+
         if settings.openai_api_key:
-            self.llm = LLMClient(LLMConfig(
-                api_key=settings.openai_api_key,
-                model=settings.openai_model,
-            ))
+            self.llm = LLMClient(
+                LLMConfig(
+                    api_key=settings.openai_api_key,
+                    model=settings.openai_model,
+                    base_url=settings.openai_base_url,
+                )
+            )
         else:
             self.llm = None
-    
+
     async def analyze(
         self,
         file_path: Path,
         analysis_id: str | None = None,
     ) -> EnhancedAnalysisResult:
-        """
-        Run the complete enhanced analysis pipeline.
-        """
+        """Run the complete AuditQuant pipeline."""
         analysis_id = analysis_id or str(uuid.uuid4())
         created_at = datetime.utcnow()
-        
-        # Store initial state
+
         if not store.get(analysis_id):
             store.create(analysis_id, file_path.name)
-        
+
         try:
-            # Step 1: Read source code
+            # ── Step 1: Read source code ─────────────────────────────
             source_code = file_path.read_text(encoding="utf-8")
-            
-            # Step 2: DeFi classification (fast, sync)
+
+            # ── Step 2: DeFi classification ──────────────────────────
             classification = classify_contract(source_code)
             business_context = get_business_context(classification)
-            
-            # Step 3: Multi-tool analysis (parallel, async)
+
+            # ── Step 3: Multi-tool analysis (parallel) ───────────────
             tool_result = await self.multi_tool.analyze(file_path, analysis_id)
-            
-            # Step 4: Convert findings to legacy format + enhance
+
+            # ── Step 4: Convert & enhance findings ───────────────────
             findings = self._convert_findings(tool_result, classification)
-            
-            # Step 5: LLM validation and summary (if enabled)
+
+            # ── Step 5: LLM summarisation + claim verification ───────
             verified_findings = findings
-            verification_report = {}
+            verification_report: dict[str, Any] = {}
             summary = None
-            
+
             if self.llm and self.enable_llm_validation:
-                # Generate LLM summary
                 summary, claims = await self._generate_verified_summary(
                     tool_result.all_findings,
                     classification,
                     source_code,
                 )
-                
-                # Verify claims
                 if claims:
                     expected_losses = self._get_expected_losses(classification)
                     verification_report = self.verifier.verify_summary(
@@ -169,21 +182,32 @@ class OrchestratorV2:
                         tool_result.all_findings,
                         expected_losses,
                     )
-                    
-                    # Filter to verified findings only
                     if verification_report.get("overall_status") != "rejected":
                         verified_findings = self._filter_verified_findings(
                             findings,
                             verification_report,
                         )
-            
-            # Step 6: Compute risk scores using all tool data
-            scores = self._compute_enhanced_scores(
+
+            # ── Step 6: Compute risk scores ──────────────────────────
+            scores = self._compute_risk_scores(
                 tool_result,
                 classification,
                 source_code,
             )
-            
+
+            # ── Step 7: Business risk rubric ─────────────────────────
+            business_risk_report = self._compute_business_risk(
+                tool_result,
+                classification,
+                verified_findings,
+            )
+
+            # ── Step 8: Financial loss percentage (L_perc) ───────────
+            loss_pct = self._compute_loss_percentage(verified_findings)
+
+            # ── Step 9: Remediation patches ──────────────────────────
+            patches = self._generate_remediation(source_code, verified_findings)
+
             result = EnhancedAnalysisResult(
                 analysis_id=analysis_id,
                 filename=file_path.name,
@@ -196,18 +220,24 @@ class OrchestratorV2:
                 total_findings=len(findings),
                 cross_validated_count=len(tool_result.cross_validated),
                 findings=findings,
-                verification_status=verification_report.get("overall_status", "skipped"),
-                hallucination_rate=verification_report.get("hallucination_rate", 0.0),
+                verification_status=verification_report.get(
+                    "overall_status", "skipped"
+                ),
+                hallucination_rate=verification_report.get(
+                    "hallucination_rate", 0.0
+                ),
                 verified_findings=verified_findings,
                 tool_stats=get_finding_stats(tool_result),
+                business_risk_report=business_risk_report,
                 summary=summary,
+                remediation=patches,
+                loss_percentage=loss_pct,
             )
-            
-            # Update store with legacy format
+
+            # Persist to legacy store
             self._update_store(analysis_id, result)
-            
             return result
-            
+
         except Exception as exc:
             result = EnhancedAnalysisResult(
                 analysis_id=analysis_id,
@@ -217,24 +247,22 @@ class OrchestratorV2:
                 error=str(exc),
             )
             return result
-    
+
+    # ------------------------------------------------------------------
+    # Internal helpers
+    # ------------------------------------------------------------------
+
     def _convert_findings(
         self,
         tool_result: MultiToolResult,
         classification: ClassificationResult,
     ) -> list[Finding]:
-        """Convert normalized findings to legacy Finding format."""
         findings: list[Finding] = []
-        
         for nf in tool_result.all_findings:
-            # Get loss percentage based on DeFi category
             loss_pct = classification.get_loss_impact(nf.vulnerability_type)
-            
-            # Check if cross-validated
             is_cross_validated = any(
                 cv.id == nf.id for cv in tool_result.cross_validated
             )
-            
             finding = Finding(
                 id=nf.id,
                 title=nf.title,
@@ -255,53 +283,60 @@ class OrchestratorV2:
                 },
             )
             findings.append(finding)
-        
         return findings
-    
+
     async def _generate_verified_summary(
         self,
         findings: list[NormalizedFinding],
         classification: ClassificationResult,
         source_code: str,
     ) -> tuple[str, list[LLMClaim]]:
-        """Generate LLM summary with structured output for verification."""
         if not self.llm:
             return "", []
-        
-        # Build context-aware prompt
+
         business_ctx = get_business_context(classification)
-        
         findings_text = "\n".join(
             f"- [{f.tool.value}] {f.title}: {f.description} "
             f"(Severity: {f.severity.value}, Reachable: {f.is_reachable})"
-            for f in findings[:15]  # Limit to avoid token overflow
+            for f in findings[:15]
         )
-        
+
+        # Enrich prompt with authoritative SWC knowledge
+        swc_kb = get_swc_knowledge_base()
+        finding_types = [f.vulnerability_type for f in findings[:15]]
+        swc_ids = [f.swc_id for f in findings[:15]]
+        swc_context = swc_kb.get_context_for_findings(finding_types, swc_ids)
+
         prompt = f"""You are a smart contract security auditor analyzing a {business_ctx['description']}.
 
 Contract Category: {classification.primary_category.value}
 Assets at Risk: {business_ctx['assets_at_risk']}
-Known Attack Vectors for this category: {', '.join(business_ctx['attack_vectors'])}
+Known Attack Vectors: {', '.join(business_ctx['attack_vectors'])}
 
 Tool Findings:
 {findings_text}
 
-For each REAL vulnerability (ignore false positives), provide a structured analysis:
+{swc_context}
+For each REAL vulnerability (ignore false positives), provide:
 
-VULNERABILITY: <vulnerability type>
+VULNERABILITY: <type>
 LOCATION: <file:line or function name>
-EXPLOITABLE: <yes/no - only say yes if tools provided proof>
+EXPLOITABLE: <yes/no — only yes if tools provided proof>
 LOSS_PERCENTAGE: <0-100 based on category and severity>
-EXPLANATION: <brief explanation of the risk>
+DESCRIPTION: <what the vulnerability is and why it exists — use the SWC description above for accuracy>
+EXPLOIT_SCENARIO: <step-by-step attack scenario — ground this in the SWC reference>
+TECHNICAL_IMPACT: <code-level technical consequences>
+FIX_RECOMMENDATION: <specific, actionable remediation steps — use the SWC remediation guidance above>
 
 Rules:
-- Only report vulnerabilities that tools actually found
+- Only report vulnerabilities actually found by tools
 - Do not invent new vulnerabilities not in the tool output
-- EXPLOITABLE=yes requires proof from Mythril, Echidna, or Oyente
-- Loss percentage should match the DeFi category (e.g., reentrancy in AMM = 100%)
+- EXPLOITABLE=yes requires proof from Mythril or Oyente
+- Loss percentage should match the DeFi category
+- Base your DESCRIPTION and FIX_RECOMMENDATION on the SWC reference when available
 
 Summary:"""
-        
+
         try:
             summary = await self.llm.generate_summary_async(
                 [{"prompt": prompt, "findings": [f.to_dict() for f in findings]}]
@@ -310,113 +345,186 @@ Summary:"""
             return summary, claims
         except Exception:
             return "", []
-    
+
     def _get_expected_losses(
         self,
         classification: ClassificationResult,
     ) -> dict[str, float]:
-        """Get expected loss percentages for vulnerability types in this category."""
         from app.services.defi_classifier import CATEGORY_LOSS_IMPACT
-        
-        expected = {}
+
+        expected: dict[str, float] = {}
         for (cat, vuln), loss in CATEGORY_LOSS_IMPACT.items():
             if cat == classification.primary_category:
                 expected[vuln] = loss
-        
         return expected
-    
+
     def _filter_verified_findings(
         self,
         findings: list[Finding],
         verification_report: dict[str, Any],
     ) -> list[Finding]:
-        """Filter findings to only those verified by anti-hallucination check."""
-        verified_vulns = set()
-        
+        verified_vulns: set[str] = set()
         for claim_result in verification_report.get("per_claim_results", []):
             if claim_result.get("status") in ("verified", "needs_review"):
                 if claim_result.get("vulnerability_type"):
                     verified_vulns.add(claim_result["vulnerability_type"].lower())
-        
+
         if not verified_vulns:
-            # If no verified claims, return all findings with dynamic proof
             return [
-                f for f in findings
-                if f.metadata.get("has_exploit_proof") or f.metadata.get("cross_validated")
+                f
+                for f in findings
+                if f.metadata.get("has_exploit_proof")
+                or f.metadata.get("cross_validated")
             ]
-        
+
         return [
-            f for f in findings
+            f
+            for f in findings
             if f.metadata.get("vulnerability_type", "").lower() in verified_vulns
             or f.metadata.get("has_exploit_proof")
         ]
-    
-    def _compute_enhanced_scores(
+
+    def _compute_risk_scores(
         self,
         tool_result: MultiToolResult,
         classification: ClassificationResult,
         source_code: str,
     ) -> RiskScores:
         """
-        Compute risk scores using multi-tool data.
-        
-        Uses same formulas from the report:
-        - R_SAST: Static Density Score (now aggregates Slither + Securify)
-        - R_DAST: Dynamic Certainty Score (now aggregates Mythril + Echidna + Oyente)
-        - R_COMP: Complexity Risk Score (unchanged)
+        R_SAST — Static Density Score   (Slither)
+        R_DAST — Dynamic Certainty Score (Mythril + Oyente)
+        R_COMP — Complexity Risk Score
         """
-        from app.services.normalized_finding import AnalysisType, ToolSource
-        
-        # Separate static vs dynamic findings
         static_findings = [
-            f for f in tool_result.all_findings
+            f
+            for f in tool_result.all_findings
             if f.analysis_type == AnalysisType.STATIC
         ]
         dynamic_findings = [
-            f for f in tool_result.all_findings
-            if f.analysis_type in (AnalysisType.SYMBOLIC, AnalysisType.FUZZING)
+            f
+            for f in tool_result.all_findings
+            if f.analysis_type in (AnalysisType.SYMBOLIC, AnalysisType.BYTECODE)
         ]
-        
-        # R_SAST: Aggregate static tool findings
-        sast_issues = [
-            (f.severity.value, f"{f.confidence:.0%}".replace("%", ""))
-            for f in static_findings
-        ]
-        # Convert confidence percentage string to category
-        sast_issues_converted = []
-        for impact, conf_str in sast_issues:
+
+        # R_SAST = min(100, Σ(W_impact × W_confidence))
+        sast_issues: list[tuple[str, str]] = []
+        for f in static_findings:
             try:
-                conf_val = int(conf_str) if conf_str else 50
-                conf_cat = "High" if conf_val >= 80 else "Medium" if conf_val >= 50 else "Low"
+                conf_val = int(f"{f.confidence:.0%}".replace("%", ""))
+                conf_cat = (
+                    "High" if conf_val >= 80 else "Medium" if conf_val >= 50 else "Low"
+                )
             except ValueError:
                 conf_cat = "Medium"
-            sast_issues_converted.append((impact, conf_cat))
-        
-        r_sast = compute_r_sast(sast_issues_converted)
-        
-        # R_DAST: Aggregate dynamic tool findings
+            sast_issues.append((f.severity.value, conf_cat))
+        r_sast = compute_r_sast(sast_issues)
+
+        # R_DAST = max(S_base × I_reachable)
         dast_severities = [
-            (f.severity_score, f.is_reachable)
-            for f in dynamic_findings
+            (f.severity_score, f.is_reachable) for f in dynamic_findings
         ]
         r_dast = compute_r_dast(dast_severities)
-        
-        # Boost R_DAST if we have cross-validated findings with exploit proof
+
+        # Boost R_DAST if cross-validated findings have exploit proof
         if any(f.has_exploit_proof for f in tool_result.cross_validated):
             r_dast = min(100.0, r_dast * 1.2)
-        
-        # R_COMP: Complexity (unchanged)
+
+        # R_COMP = 100 / (1 + e^{-0.2 × (CC - 20)})
         cc = estimate_cyclomatic_complexity(source_code)
         r_comp = compute_r_comp(cc)
-        
+
         return RiskScores(r_sast=r_sast, r_dast=r_dast, r_comp=r_comp)
-    
+
+    def _compute_business_risk(
+        self,
+        tool_result: MultiToolResult,
+        classification: ClassificationResult,
+        findings: list[Finding],
+    ) -> dict[str, Any]:
+        """
+        Compute the 4-part business risk rubric for each finding and
+        compare rubric scores against LLM loss-bucket predictions.
+
+        Rubric dimensions (each 0-5):
+          1. Exploitability   — base from vuln type, boosted by dynamic proof
+          2. Financial Impact  — derived from loss percentage bucket
+          3. Exposure          — based on DeFi category
+          4. Evidence Strength — cross-tool consensus & dynamic proof
+        """
+        defi_cat = classification.primary_category.value
+        total_tools_run = len(tool_result.tool_results)
+        cross_validated_ids = {cv.id for cv in tool_result.cross_validated}
+
+        report = BusinessRiskReport()
+
+        for finding in findings:
+            vuln_type = finding.metadata.get("vulnerability_type", finding.title)
+            has_proof = finding.metadata.get("has_exploit_proof", False)
+            is_reachable = finding.metadata.get("is_reachable", False)
+            is_cv = finding.metadata.get("cross_validated", False) or (
+                finding.id in cross_validated_ids
+            )
+
+            matched_tools: set[str] = set()
+            vuln_key = vuln_type.lower().replace("_", "-")
+            for nf in tool_result.all_findings:
+                if vuln_key in nf.vulnerability_type.lower().replace("_", "-"):
+                    matched_tools.add(nf.tool.value)
+
+            rubric = compute_business_risk_rubric(
+                vulnerability_type=vuln_type,
+                loss_percentage=finding.loss_percentage,
+                defi_category=defi_cat,
+                tools_reporting=len(matched_tools),
+                total_tools_run=total_tools_run,
+                is_cross_validated=is_cv,
+                has_exploit_proof=has_proof,
+                is_reachable=is_reachable,
+            )
+            comparison = compare_rubric_vs_llm(
+                vulnerability_type=vuln_type,
+                rubric=rubric,
+                llm_loss_percentage=finding.loss_percentage,
+            )
+            report.per_finding.append(comparison)
+
+        return report.to_dict()
+
+    def _compute_loss_percentage(self, findings: list[Finding]) -> float:
+        """
+        Compute L_perc = (Σ(V_vuln × P_drain)) / TVL_projected × 100
+        """
+        vulns: list[tuple[str, float]] = []
+        for f in findings:
+            vuln_type = f.metadata.get("vulnerability_type", f.title)
+            vulns.append((vuln_type, 1.0))
+        return compute_loss_percentage(vulns)
+
+    def _generate_remediation(
+        self,
+        source_code: str,
+        findings: list[Finding],
+    ) -> list[RemediationPatch]:
+        """Generate CodeT5 patches for validated findings."""
+        patches: list[RemediationPatch] = []
+        for finding in findings:
+            patch_code = generate_patch(source_code, finding.title)
+            patches.append(
+                RemediationPatch(
+                    finding_id=finding.id,
+                    vuln_type=finding.title,
+                    original=source_code,
+                    patch=patch_code,
+                    explanation=f"Auto-generated patch for {finding.title} vulnerability.",
+                )
+            )
+        return patches
+
     def _update_store(
         self,
         analysis_id: str,
         result: EnhancedAnalysisResult,
     ) -> None:
-        """Update the legacy store with enhanced result."""
         legacy_result = AnalysisResult(
             analysis_id=result.analysis_id,
             filename=result.filename,
@@ -424,20 +532,19 @@ Summary:"""
             status=result.status,
             scores=result.scores,
             findings=result.verified_findings or result.findings,
+            remediation=result.remediation,
             summary=result.summary,
             error=result.error,
         )
         store.update(analysis_id, legacy_result)
 
 
-async def run_analysis_v2(
+async def run_analysis(
     file_path: Path,
     analysis_id: str | None = None,
 ) -> EnhancedAnalysisResult:
-    """Convenience function to run enhanced analysis."""
-    orchestrator = OrchestratorV2(
-        enable_securify=settings.enable_securify,
-        enable_echidna=settings.enable_echidna,
+    """Convenience function to run the full AuditQuant pipeline."""
+    orchestrator = Orchestrator(
         enable_oyente=settings.enable_oyente,
     )
     return await orchestrator.analyze(file_path, analysis_id)

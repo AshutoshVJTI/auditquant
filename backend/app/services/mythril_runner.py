@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 from dataclasses import dataclass
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 
 SEVERITY_SCORES = {
@@ -110,10 +113,22 @@ async def run_mythril(
         process.kill()
         raise RuntimeError(f"Mythril timed out after {timeout}s")
 
-    if process.returncode != 0:
-        raise RuntimeError(
-            f"Mythril failed with exit code {process.returncode}: {stderr.decode().strip()}"
-        )
+    out_dec = stdout.decode().strip()
+    err_dec = stderr.decode().strip()
 
-    payload = json.loads(stdout.decode())
+    try:
+        payload = json.loads(stdout.decode())
+    except json.JSONDecodeError:
+        payload = None
+
+    # Mythril can exit 1 even when it produced valid JSON with issues (e.g. findings found).
+    if process.returncode != 0 and (not payload or not payload.get("success")):
+        msg = f"Mythril failed with exit code {process.returncode}: {err_dec or out_dec}"
+        logger.warning("Mythril failed. stdout: %s | stderr: %s", out_dec[:2000], err_dec[:2000])
+        raise RuntimeError(msg)
+
+    if not payload:
+        raise RuntimeError("Mythril produced no JSON output")
+    if not payload.get("success") and payload.get("error"):
+        logger.warning("Mythril reported error in JSON: %s", payload.get("error", "")[:500])
     return parse_mythril_output(payload)

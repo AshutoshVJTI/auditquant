@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.10-slim
 
 # Install solc directly to avoid solc-select 403 errors in Docker/CI.
 ARG TARGETARCH
@@ -12,7 +12,8 @@ RUN case "${TARGETARCH}" in \
         build-essential \
         curl \
         git \
-    && pip install --no-cache-dir mythril==0.23.15 \
+    # Install Mythril and let it manage its own Python 3.10-compatible dependencies
+    && pip install --no-cache-dir "mythril==0.23.15" \
     && curl -fSL "https://binaries.soliditylang.org/linux-${SOLC_ARCH}/solc-linux-${SOLC_ARCH}-v${SOLC_VERSION}" -o /usr/local/bin/solc \
     && chmod +x /usr/local/bin/solc \
     && apt-get clean \

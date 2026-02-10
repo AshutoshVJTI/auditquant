@@ -19,6 +19,7 @@ from app.services.normalized_finding import (
     NormalizedFinding,
     ToolSource,
 )
+from app.services.swc_knowledge import get_swc_knowledge_base
 
 
 class VerificationStatus(str, Enum):
@@ -49,6 +50,11 @@ class LLMClaim:
     is_exploitable: bool = False
     loss_percentage: float | None = None
     explanation: str = ""
+    # Structured fields (RQ2 — 4-field LLM summary)
+    description: str = ""
+    exploit_scenario: str = ""
+    technical_impact: str = ""
+    fix_recommendation: str = ""
 
 
 class AntiHallucinationVerifier:
@@ -79,15 +85,18 @@ class AntiHallucinationVerifier:
         category_expected_loss: float | None = None,
     ) -> VerificationResult:
         """
-        Verify a single LLM claim against tool findings.
+        Verify a single LLM claim against tool findings and the SWC
+        knowledge base.
         """
         issues: list[str] = []
         supporting_tools: list[str] = []
         has_dynamic_proof = False
-        
+
+        swc_kb = get_swc_knowledge_base()
+
         # Find matching findings
         matching_findings = self._find_matching_findings(claim, findings)
-        
+
         if not matching_findings:
             return VerificationResult(
                 status=VerificationStatus.REJECTED,
@@ -95,23 +104,58 @@ class AntiHallucinationVerifier:
                 evidence_summary="No tool found this vulnerability type",
                 issues=["LLM claimed vulnerability not detected by any tool"],
             )
-        
+
+        # SWC validation: check that the claimed vuln type exists in SWC
+        if claim.vulnerability_type and swc_kb.is_loaded:
+            if not swc_kb.is_known_vulnerability(claim.vulnerability_type):
+                issues.append(
+                    f"Vulnerability type '{claim.vulnerability_type}' not recognised in SWC registry"
+                )
+
+        # SWC validation: if LLM describes an exploit scenario, verify it
+        # contains keywords characteristic of this vulnerability type
+        if claim.exploit_scenario and claim.vulnerability_type and swc_kb.is_loaded:
+            expected_kw = swc_kb.get_known_exploit_keywords(claim.vulnerability_type)
+            if expected_kw:
+                scenario_lower = claim.exploit_scenario.lower()
+                hits = sum(1 for kw in expected_kw if kw in scenario_lower)
+                if hits == 0:
+                    issues.append(
+                        "Exploit scenario does not reference any expected SWC keywords"
+                    )
+
+        # SWC validation: if LLM recommends a fix, check alignment with
+        # SWC remediation guidance
+        if claim.fix_recommendation and claim.vulnerability_type and swc_kb.is_loaded:
+            swc_entry = swc_kb.get_by_vuln_type(claim.vulnerability_type)
+            if swc_entry and swc_entry.get("remediation"):
+                rem_lower = swc_entry["remediation"].lower()
+                fix_lower = claim.fix_recommendation.lower()
+                # Basic semantic overlap check (at least 2 common non-stop words)
+                rem_words = set(rem_lower.split()) - {"the", "a", "to", "and", "of", "is", "in", "for", "with", "be", "that"}
+                fix_words = set(fix_lower.split()) - {"the", "a", "to", "and", "of", "is", "in", "for", "with", "be", "that"}
+                common = rem_words & fix_words
+                if len(common) < 2:
+                    issues.append(
+                        "Fix recommendation does not align with SWC remediation guidance"
+                    )
+
         # Check tool agreement
         tools_reporting = set(f.tool for f in matching_findings)
         supporting_tools = [t.value for t in tools_reporting]
-        
+
         if len(tools_reporting) < self.min_tool_agreement:
             issues.append(f"Only {len(tools_reporting)} tool(s) reported this; minimum {self.min_tool_agreement} required")
-        
+
         # Check for dynamic proof if claim is about exploitability
         dynamic_findings = [
             f for f in matching_findings
-            if f.analysis_type in (AnalysisType.SYMBOLIC, AnalysisType.FUZZING)
+            if f.analysis_type in (AnalysisType.SYMBOLIC, AnalysisType.BYTECODE)
         ]
-        
+
         if dynamic_findings:
             has_dynamic_proof = any(f.has_exploit_proof for f in dynamic_findings)
-        
+
         if claim.is_exploitable and self.require_dynamic_proof:
             if not has_dynamic_proof:
                 return VerificationResult(
@@ -122,7 +166,7 @@ class AntiHallucinationVerifier:
                     supporting_tools=supporting_tools,
                     has_dynamic_proof=False,
                 )
-        
+
         # Check location consistency
         if claim.location:
             location_match = any(
@@ -131,7 +175,7 @@ class AntiHallucinationVerifier:
             )
             if not location_match:
                 issues.append("Claimed location does not match any tool finding")
-        
+
         # Check loss percentage if provided
         if claim.loss_percentage is not None and category_expected_loss is not None:
             variance = abs(claim.loss_percentage - category_expected_loss)
@@ -140,22 +184,26 @@ class AntiHallucinationVerifier:
                     f"Loss % ({claim.loss_percentage}%) differs significantly from "
                     f"category baseline ({category_expected_loss}%)"
                 )
-        
+
         # Calculate confidence
         base_confidence = 0.5
-        
+
         # Boost for multiple tools
         base_confidence += min(0.2, len(tools_reporting) * 0.1)
-        
+
         # Boost for dynamic proof
         if has_dynamic_proof:
             base_confidence += 0.25
-        
+
+        # Boost if SWC knowledge confirms the vuln type
+        if claim.vulnerability_type and swc_kb.is_known_vulnerability(claim.vulnerability_type):
+            base_confidence += 0.05
+
         # Reduce for issues
         base_confidence -= len(issues) * 0.1
-        
+
         confidence = max(0.0, min(1.0, base_confidence))
-        
+
         # Determine status
         if not issues:
             status = VerificationStatus.VERIFIED
@@ -163,14 +211,14 @@ class AntiHallucinationVerifier:
             status = VerificationStatus.NEEDS_REVIEW
         else:
             status = VerificationStatus.UNVERIFIED
-        
+
         # Build evidence summary
         evidence_parts = [
             f"Found by {len(tools_reporting)} tool(s): {', '.join(supporting_tools)}",
         ]
         if has_dynamic_proof:
             evidence_parts.append("Has dynamic exploit proof")
-        
+
         return VerificationResult(
             status=status,
             confidence=confidence,
@@ -297,54 +345,74 @@ class AntiHallucinationVerifier:
 def extract_claims_from_llm_output(llm_output: str) -> list[LLMClaim]:
     """
     Parse structured claims from LLM output.
-    
-    Expected format (flexible):
+
+    Expected format (flexible, supports both legacy and rich 5-field output):
     - VULNERABILITY: <type>
     - LOCATION: <file:line or function>
     - EXPLOITABLE: <yes/no>
     - LOSS_PERCENTAGE: <0-100>
+    - DESCRIPTION: <detailed vulnerability description>
+    - EXPLOIT_SCENARIO: <step-by-step exploit path>
+    - TECHNICAL_IMPACT: <code-level impact>
+    - FIX_RECOMMENDATION: <remediation guidance>
     """
     import re
-    
+
     claims: list[LLMClaim] = []
-    
+
     # Split into sections if multiple vulnerabilities
     sections = re.split(r'\n(?=VULNERABILITY:|Finding \d+:|##)', llm_output)
-    
+
+    # Helper to extract a possibly multi-line field value that ends when the
+    # next uppercase FIELD_NAME: header appears (or at end-of-section).
+    def _extract_field(pattern: str, text: str) -> str:
+        m = re.search(pattern + r'[:\s]+([^\n]+(?:\n(?![A-Z_]{3,}:)[^\n]+)*)', text, re.IGNORECASE)
+        return m.group(1).strip() if m else ""
+
     for section in sections:
         claim = LLMClaim(claim_type="vulnerability")
-        
+
         # Extract vulnerability type
         vuln_match = re.search(r'VULNERABILITY[:\s]+([^\n]+)', section, re.IGNORECASE)
         if vuln_match:
             claim.vulnerability_type = vuln_match.group(1).strip()
-        
+
         # Extract location
         loc_match = re.search(r'LOCATION[:\s]+([^\n]+)', section, re.IGNORECASE)
         if loc_match:
             claim.location = loc_match.group(1).strip()
-        
+
         # Extract function name
         func_match = re.search(r'FUNCTION[:\s]+([^\n]+)', section, re.IGNORECASE)
         if func_match:
             claim.function_name = func_match.group(1).strip()
-        
+
         # Extract exploitability
         exploit_match = re.search(r'EXPLOITABLE[:\s]+(yes|true|1)', section, re.IGNORECASE)
         if exploit_match:
             claim.is_exploitable = True
-        
+
         # Extract loss percentage
         loss_match = re.search(r'LOSS[_\s]?PERCENTAGE[:\s]+(\d+(?:\.\d+)?)', section, re.IGNORECASE)
         if loss_match:
             claim.loss_percentage = float(loss_match.group(1))
-        
-        # Extract explanation
-        expl_match = re.search(r'EXPLANATION[:\s]+([^\n]+(?:\n(?![A-Z_]+:)[^\n]+)*)', section, re.IGNORECASE)
-        if expl_match:
-            claim.explanation = expl_match.group(1).strip()
-        
+
+        # Legacy single-line explanation (kept for backward compat)
+        claim.explanation = _extract_field("EXPLANATION", section)
+
+        # Structured fields (report § LLM Summarisation)
+        claim.description = _extract_field("DESCRIPTION", section)
+        claim.exploit_scenario = _extract_field("EXPLOIT_SCENARIO", section)
+        claim.technical_impact = _extract_field("TECHNICAL_IMPACT", section)
+        claim.fix_recommendation = _extract_field("FIX_RECOMMENDATION", section)
+
+        # Fall back: if the rich DESCRIPTION field was populated but the
+        # legacy EXPLANATION was not, copy it over so downstream consumers
+        # that only read ``explanation`` still get content.
+        if not claim.explanation and claim.description:
+            claim.explanation = claim.description
+
         if claim.vulnerability_type:
             claims.append(claim)
-    
+
     return claims

@@ -33,25 +33,34 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
 
     let cancelled = false;
     let attempts = 0;
-    const POLL_INTERVAL_MS = 5000; // 5 seconds — avoid hammering the API
-    const MAX_ATTEMPTS = 90; // ~7.5 min, aligned with backend 7‑min timeout
+    const POLL_INTERVAL_MS = 5000;
+    const MAX_ATTEMPTS = 90;
 
     const poll = async () => {
       attempts++;
       setLoading(true);
       try {
         const response = await fetch(`${apiBase}/api/analysis/${analysisId}`);
+        if (response.status === 202) {
+          if (cancelled) return;
+          onDataRef.current({ status: "pending" });
+          setTimeout(poll, POLL_INTERVAL_MS);
+          return;
+        }
         const payload = await response.json();
         if (cancelled) return;
         onDataRef.current(payload);
-        if (payload.status === "completed" || payload.status === "failed") {
+        if (response.ok && payload.status === "completed") {
+          setLoading(false);
+          return;
+        }
+        if (!response.ok) {
+          setError(payload.detail || `Request failed: ${response.status}`);
           setLoading(false);
           return;
         }
         if (attempts >= MAX_ATTEMPTS) {
-          setError(
-            "Analysis timed out. Check backend logs and Docker (Slither/Mythril). Refresh to see if status updated."
-          );
+          setError("Analysis timed out. Check backend logs and Docker.");
           setLoading(false);
           return;
         }
@@ -64,10 +73,7 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
     };
 
     poll();
-
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, [analysisId, apiBase]);
 
   if (!analysisId) {
@@ -88,8 +94,9 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
     );
   }
 
-  const scores = data?.scores || { r_sast: 0, r_dast: 0, r_comp: 0 };
   const findings = data?.findings || [];
+  const totalFindings = data?.total_findings ?? findings.length;
+  const toolResults = data?.tool_results || [];
 
   return (
     <section className="space-y-6">
@@ -99,7 +106,7 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
           <p className="text-sm text-slate-400">
             {loading
               ? "Analysis running..."
-              : `Analysis status: ${data?.status || "queued"}`}
+              : `Status: ${data?.status ?? "queued"}${data?.total_execution_time_ms != null ? ` · ${(data.total_execution_time_ms / 1000).toFixed(1)}s` : ""}`}
           </p>
         </div>
         <button
@@ -110,16 +117,63 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
         </button>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <Gauge value={scores.r_sast} label="R_SAST" />
-        <Gauge value={scores.r_dast} label="R_DAST" />
-        <Gauge value={scores.r_comp} label="R_COMP" />
-      </div>
+      {/* R_SAST, R_DAST, R_COMP radial gauges */}
+      {data?.scores && (
+        <div className="grid gap-4 md:grid-cols-3">
+          <Gauge value={data.scores.r_sast ?? 0} label="R_SAST — Static Density" />
+          <Gauge value={data.scores.r_dast ?? 0} label="R_DAST — Dynamic Certainty" />
+          <Gauge value={data.scores.r_comp ?? 0} label="R_COMP — Complexity Risk" />
+        </div>
+      )}
 
+      {/* Per-tool results */}
+      {toolResults.length > 0 && (
+        <div className="card rounded-3xl p-6">
+          <h3 className="text-lg font-semibold">Tool Results</h3>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            {toolResults.map((tr: any) => (
+              <div
+                key={tr.tool}
+                className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4"
+              >
+                <p className="font-medium capitalize text-white">{tr.tool}</p>
+                <p className="mt-1 text-2xl font-semibold text-sky-300">{tr.finding_count}</p>
+                <p className="text-xs text-slate-400">
+                  {(tr.execution_time_ms / 1000).toFixed(1)}s
+                  {tr.error ? ` · ${tr.error.slice(0, 30)}…` : ""}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Verification status */}
+      {data?.verification && (
+        <div className="card rounded-3xl p-6">
+          <h3 className="text-lg font-semibold">Claim Verification</h3>
+          <div className="mt-3 flex flex-wrap gap-4 text-sm">
+            <span className="rounded-full border border-slate-700 px-3 py-1">
+              Status: <strong className="text-white">{data.verification.status}</strong>
+            </span>
+            <span className="rounded-full border border-slate-700 px-3 py-1">
+              Hallucination Rate:{" "}
+              <strong className="text-white">
+                {(data.verification.hallucination_rate * 100).toFixed(1)}%
+              </strong>
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Vulnerability list — AI-validated conclusions */}
       <div className="card rounded-3xl p-6">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold">Validated Findings</h3>
-          <span className="text-xs text-slate-400">{findings.length} issues</span>
+          <span className="text-xs text-slate-400">
+            {totalFindings} total
+            {data?.cross_validated_count != null ? ` · ${data.cross_validated_count} cross-validated` : ""}
+          </span>
         </div>
         <div className="mt-4 space-y-3">
           {findings.map((finding: any) => (
@@ -132,28 +186,33 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
                   {finding.title}
                 </h4>
                 <div className="flex gap-2 text-xs text-slate-300">
-                  <span className="rounded-full border border-slate-700 px-2 py-1">
-                    Impact: {finding.impact}
+                  <span className="rounded-full border border-slate-700 px-2 py-1 capitalize">
+                    {finding.source}
                   </span>
                   <span className="rounded-full border border-slate-700 px-2 py-1">
-                    Confidence: {finding.confidence}
+                    {finding.impact}
+                  </span>
+                  <span className="rounded-full border border-slate-700 px-2 py-1">
+                    {finding.confidence} conf
                   </span>
                 </div>
               </div>
               <p className="mt-2 text-xs text-slate-300">{finding.description}</p>
               <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-400">
-                <span>Loss: {finding.loss_percentage ?? "N/A"}%</span>
-                <span>Location: {finding.location ?? "Unknown"}</span>
-                <span>Source: {finding.source}</span>
+                {finding.location != null && <span>Location: {finding.location}</span>}
+                {finding.loss_percentage != null && (
+                  <span>Loss: {finding.loss_percentage}%</span>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Executive summary */}
       <div className="card rounded-3xl p-6 text-sm text-slate-300">
         <h3 className="text-lg font-semibold text-white">Executive Summary</h3>
-        <p className="mt-3">
+        <p className="mt-3 whitespace-pre-wrap">
           {data?.summary || "Summary will appear when analysis completes."}
         </p>
       </div>

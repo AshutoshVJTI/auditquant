@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 from dataclasses import dataclass
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -78,10 +81,20 @@ async def run_slither(
         process.kill()
         raise RuntimeError(f"Slither timed out after {timeout}s")
 
-    if process.returncode != 0:
-        raise RuntimeError(
-            f"Slither failed with exit code {process.returncode}: {stderr.decode().strip()}"
-        )
+    out_dec = stdout.decode().strip()
+    err_dec = stderr.decode().strip()
 
-    payload = json.loads(stdout.decode())
+    try:
+        payload = json.loads(stdout.decode())
+    except json.JSONDecodeError:
+        payload = None
+
+    # Slither can exit 255 even when it produced valid JSON with findings (e.g. detectors ran).
+    if process.returncode != 0 and (not payload or not payload.get("success")):
+        msg = f"Slither failed with exit code {process.returncode}: {err_dec or out_dec}"
+        logger.warning("Slither failed. stdout: %s | stderr: %s", out_dec[:2000], err_dec[:2000])
+        raise RuntimeError(msg)
+
+    if not payload:
+        raise RuntimeError("Slither produced no JSON output")
     return parse_slither_output(payload)

@@ -10,86 +10,50 @@ from openai import OpenAI
 class LLMConfig:
     api_key: str | None
     model: str
+    base_url: str | None = None
 
 
 class LLMClient:
+    """
+    LLM client for the AuditQuant pipeline.
+
+    The LLM is applied only after tool aggregation to generate structured
+    summaries (vulnerability description, exploit scenario, technical
+    impact, fix recommendation).  Claim verification is handled
+    separately by the AntiHallucinationVerifier.
+    """
+
     def __init__(self, config: LLMConfig):
         self.config = config
-        self.client = OpenAI(api_key=config.api_key) if config.api_key else None
+        if config.api_key:
+            kwargs: dict = {"api_key": config.api_key}
+            if config.base_url:
+                kwargs["base_url"] = config.base_url
+            self.client = OpenAI(**kwargs)
+        else:
+            self.client = None
 
     def _require_client(self) -> OpenAI:
         if not self.client:
             raise RuntimeError("OpenAI API key not configured")
         return self.client
 
-    def validate_vulnerability(self, finding: dict, code_context: str) -> bool:
-        if not self.client:
-            return True
-        prompt = (
-            "You are a lead smart contract auditor. "
-            "Determine if the following finding is a real vulnerability or a false positive. "
-            "Reply with ONLY 'YES' or 'NO'.\n\n"
-            f"Finding: {finding}\n\n"
-            f"Code context:\n{code_context}\n"
-        )
-        response = self._require_client().responses.create(
-            model=self.config.model,
-            input=prompt,
-        )
-        text = (response.output_text or "").strip().upper()
-        return text.startswith("YES")
-
-    def classify_financial_impact(self, vuln_type: str, contract_context: str) -> float | None:
-        if not self.client:
-            return None
-        prompt = (
-            "Act as a lead auditor. "
-            "Vulnerability: "
-            f"{vuln_type}. "
-            "Context: "
-            f"{contract_context}. "
-            "Task: Estimate the percentage of funds at risk (0-100%). "
-            "Output format: LOSS_PERCENTAGE: <number>."
-        )
-        response = self._require_client().responses.create(
-            model=self.config.model,
-            input=prompt,
-        )
-        text = (response.output_text or "").strip()
-        for token in text.replace("%", "").split():
-            if token.isdigit():
-                return float(token)
-        return None
-
     def generate_summary(self, findings: list[dict]) -> str:
-        if not self.client:
-            return "Summary unavailable (OpenAI API key not configured)."
         prompt = (
             "Summarize the following audit findings in 5-7 sentences. "
             "Include overall risk posture and the most critical issues.\n\n"
             f"Findings: {findings}"
         )
-        response = self._require_client().responses.create(
+        response = self._require_client().chat.completions.create(
             model=self.config.model,
-            input=prompt,
+            messages=[
+                {"role": "system", "content": "You are a senior smart contract security auditor writing concise executive summaries."},
+                {"role": "user", "content": prompt},
+            ],
         )
-        return (response.output_text or "").strip()
+        return (response.choices[0].message.content or "").strip()
 
     _LLM_CALL_TIMEOUT = 60.0
-
-    async def validate_vulnerability_async(self, finding: dict, code_context: str) -> bool:
-        return await asyncio.wait_for(
-            asyncio.to_thread(self.validate_vulnerability, finding, code_context),
-            timeout=self._LLM_CALL_TIMEOUT,
-        )
-
-    async def classify_financial_impact_async(
-        self, vuln_type: str, contract_context: str
-    ) -> float | None:
-        return await asyncio.wait_for(
-            asyncio.to_thread(self.classify_financial_impact, vuln_type, contract_context),
-            timeout=self._LLM_CALL_TIMEOUT,
-        )
 
     async def generate_summary_async(self, findings: list[dict]) -> str:
         return await asyncio.wait_for(
