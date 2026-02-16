@@ -1,9 +1,4 @@
-"""
-Mythril Adapter
-
-Converts Mythril output to normalized findings.
-"""
-from __future__ import annotations
+# Converts raw Mythril findings into NormalizedFinding objects.
 
 from app.services.normalized_finding import (
     AnalysisType,
@@ -17,7 +12,6 @@ from app.services.normalized_finding import (
 from app.services.mythril_runner import MythrilFinding
 
 
-# Mythril severity mapping
 MYTHRIL_SEVERITY_MAP = {
     "High": Severity.HIGH,
     "Medium": Severity.MEDIUM,
@@ -26,14 +20,12 @@ MYTHRIL_SEVERITY_MAP = {
 
 
 def mythril_to_normalized(findings: list[MythrilFinding]) -> list[NormalizedFinding]:
-    """Convert Mythril findings to normalized format."""
     normalized: list[NormalizedFinding] = []
     
     for idx, finding in enumerate(findings, start=1):
         location = _parse_mythril_location(finding.location)
         severity = MYTHRIL_SEVERITY_MAP.get(finding.severity, Severity.MEDIUM)
         
-        # Build exploit trace if available
         exploit_trace = None
         if finding.exploit_trace:
             exploit_trace = ExploitTrace(
@@ -65,13 +57,10 @@ def mythril_to_normalized(findings: list[MythrilFinding]) -> list[NormalizedFind
 
 
 def _parse_mythril_location(location_str: str | None) -> Location | None:
-    """Parse Mythril location string to Location object."""
     if not location_str:
         return None
     
     location = Location()
-    
-    # Mythril formats: "sourceMap:123:45" or "line:42"
     if location_str.startswith("line:"):
         try:
             location.line_start = int(location_str.split(":")[1])

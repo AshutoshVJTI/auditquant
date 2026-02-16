@@ -1,16 +1,6 @@
 """
-Multi-Tool Orchestrator
-
-Runs the three analysis tools in parallel and aggregates results into a
-unified normalized schema.  Enables cross-tool validation and
-anti-hallucination checks.
-
-Tools:
-  - Slither  (static / AST-level)
-  - Mythril  (dynamic / symbolic execution)
-  - Oyente   (bytecode analysis)
+Runs Slither, Mythril, and Oyente in parallel and merges their outputs.
 """
-from __future__ import annotations
 
 import asyncio
 import uuid
@@ -37,7 +27,6 @@ from app.services.mythril_adapter import mythril_to_normalized
 
 @dataclass
 class ToolResult:
-    """Result from a single tool run."""
     tool: ToolSource
     findings: list[NormalizedFinding] = field(default_factory=list)
     error: str | None = None
@@ -46,7 +35,6 @@ class ToolResult:
 
 @dataclass
 class MultiToolResult:
-    """Aggregated results from all tools."""
     analysis_id: str
     filename: str
     tool_results: dict[ToolSource, ToolResult] = field(default_factory=dict)
@@ -64,14 +52,6 @@ class MultiToolResult:
 
 
 class MultiToolOrchestrator:
-    """
-    Orchestrates the three analysis tools and aggregates findings.
-
-    Tool Categories:
-      - STATIC:   Slither  (AST-level, fast, broad coverage)
-      - SYMBOLIC: Mythril  (symbolic execution, proves exploitability)
-      - BYTECODE: Oyente   (compiled bytecode, low-level flaws)
-    """
 
     def __init__(
         self,
@@ -92,13 +72,11 @@ class MultiToolOrchestrator:
         file_path: Path,
         analysis_id: str | None = None,
     ) -> MultiToolResult:
-        """Run all enabled tools and aggregate results."""
         analysis_id = analysis_id or str(uuid.uuid4())
 
         import time
         start_time = time.time()
 
-        # Always run Slither and Mythril; Oyente is optional
         tasks = {
             ToolSource.SLITHER: self._run_slither(file_path),
             ToolSource.MYTHRIL: self._run_mythril(file_path),
@@ -127,10 +105,6 @@ class MultiToolOrchestrator:
             cross_validated=cross_validated,
             total_execution_time_ms=total_time,
         )
-
-    # ------------------------------------------------------------------
-    # Internal helpers
-    # ------------------------------------------------------------------
 
     async def _wrap_tool_run(self, tool: ToolSource, coro) -> ToolResult:
         import time
@@ -168,13 +142,8 @@ class MultiToolOrchestrator:
         self,
         findings: list[NormalizedFinding],
     ) -> list[NormalizedFinding]:
-        """
-        Cross-validate findings across tools.
-
-        A finding is cross-validated when two or more tools report the same
-        vulnerability type.  When that happens the confidence level is
-        automatically boosted.
-        """
+        """If 2+ tools report the same vuln type, boost confidence."""
+        # FIXME: should probably also consider location overlap, not just type
         by_vuln_type: dict[str, list[NormalizedFinding]] = {}
         for f in findings:
             key = f.vulnerability_type
@@ -228,7 +197,6 @@ class MultiToolOrchestrator:
 
 
 def get_finding_stats(result: MultiToolResult) -> dict[str, Any]:
-    """Get statistics about the analysis run."""
     by_tool = {}
     for tool, tr in result.tool_results.items():
         by_tool[tool.value] = {

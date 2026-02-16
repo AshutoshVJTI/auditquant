@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from riskquant.engine import compute_r_comp, compute_r_dast, compute_r_sast
 
 

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Dict, Optional
@@ -9,6 +7,7 @@ from app.models.schemas import AnalysisResult
 
 @dataclass
 class AnalysisStore:
+    """In-memory for now. TODO: swap with sqlite or something persistent."""
     analyses: Dict[str, AnalysisResult] = field(default_factory=dict)
 
     def create(self, analysis_id: str, filename: str) -> AnalysisResult:

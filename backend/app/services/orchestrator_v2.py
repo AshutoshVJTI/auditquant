@@ -1,18 +1,7 @@
 """
-AuditQuant Orchestrator
-
-Unified orchestrator implementing the full AuditQuant pipeline:
-
-  Smart Contract
-    → Audit Tools (Slither, Mythril, Oyente — parallel)
-    → Aggregation & Normalisation
-    → LLM Summarisation (structured fields)
-    → Claim Verification (anti-hallucination)
-    → Manual Business Risk Rubric
-    → LLM Risk Estimation (loss-bucket comparison)
-    → Remediation (CodeT5 patches)
+Main orchestrator for the AuditQuant analysis pipeline.
+Ties together tool runners, LLM summarization, verification, and risk scoring.
 """
-from __future__ import annotations
 
 import asyncio
 import uuid
@@ -63,54 +52,36 @@ from riskquant.financial import compute_loss_percentage, map_loss_percentage
 
 @dataclass
 class EnhancedAnalysisResult:
-    """Full analysis result produced by the unified pipeline."""
+    """Everything the pipeline produces for a single contract analysis."""
 
     analysis_id: str
     filename: str
     created_at: datetime
     status: str
 
-    # DeFi classification
     defi_category: str | None = None
     defi_confidence: float = 0.0
     business_context: dict[str, Any] = field(default_factory=dict)
 
-    # Risk scores (R_SAST, R_DAST, R_COMP)
     scores: RiskScores | None = None
 
-    # Multi-tool findings
     total_findings: int = 0
     cross_validated_count: int = 0
     findings: list[Finding] = field(default_factory=list)
 
-    # Anti-hallucination results
     verification_status: str = "pending"
     hallucination_rate: float = 0.0
     verified_findings: list[Finding] = field(default_factory=list)
 
-    # Tool execution stats
     tool_stats: dict[str, Any] = field(default_factory=dict)
-
-    # Business risk rubric (RQ3)
     business_risk_report: dict[str, Any] = field(default_factory=dict)
-
-    # LLM summary
     summary: str | None = None
-
-    # Remediation patches
     remediation: list[RemediationPatch] = field(default_factory=list)
-
-    # Financial loss percentage (L_perc)
     loss_percentage: float = 0.0
-
-    # Error handling
     error: str | None = None
 
 
 class Orchestrator:
-    """
-    Unified orchestrator implementing the full AuditQuant pipeline.
-    """
 
     def __init__(
         self,
@@ -143,7 +114,7 @@ class Orchestrator:
         file_path: Path,
         analysis_id: str | None = None,
     ) -> EnhancedAnalysisResult:
-        """Run the complete AuditQuant pipeline."""
+        """Run the full pipeline on a single .sol file."""
         analysis_id = analysis_id or str(uuid.uuid4())
         created_at = datetime.utcnow()
 
@@ -151,20 +122,17 @@ class Orchestrator:
             store.create(analysis_id, file_path.name)
 
         try:
-            # ── Step 1: Read source code ─────────────────────────────
             source_code = file_path.read_text(encoding="utf-8")
 
-            # ── Step 2: DeFi classification ──────────────────────────
+            # classify the contract so risk scoring has business context
             classification = classify_contract(source_code)
             business_context = get_business_context(classification)
 
-            # ── Step 3: Multi-tool analysis (parallel) ───────────────
+            # run all tools in parallel
             tool_result = await self.multi_tool.analyze(file_path, analysis_id)
-
-            # ── Step 4: Convert & enhance findings ───────────────────
             findings = self._convert_findings(tool_result, classification)
 
-            # ── Step 5: LLM summarisation + claim verification ───────
+            # LLM summary + verification
             verified_findings = findings
             verification_report: dict[str, Any] = {}
             summary = None
@@ -188,24 +156,11 @@ class Orchestrator:
                             verification_report,
                         )
 
-            # ── Step 6: Compute risk scores ──────────────────────────
-            scores = self._compute_risk_scores(
-                tool_result,
-                classification,
-                source_code,
-            )
-
-            # ── Step 7: Business risk rubric ─────────────────────────
+            scores = self._compute_risk_scores(tool_result, classification, source_code)
             business_risk_report = self._compute_business_risk(
-                tool_result,
-                classification,
-                verified_findings,
+                tool_result, classification, verified_findings,
             )
-
-            # ── Step 8: Financial loss percentage (L_perc) ───────────
             loss_pct = self._compute_loss_percentage(verified_findings)
-
-            # ── Step 9: Remediation patches ──────────────────────────
             patches = self._generate_remediation(source_code, verified_findings)
 
             result = EnhancedAnalysisResult(
@@ -234,7 +189,6 @@ class Orchestrator:
                 loss_percentage=loss_pct,
             )
 
-            # Persist to legacy store
             self._update_store(analysis_id, result)
             return result
 
@@ -247,10 +201,6 @@ class Orchestrator:
                 error=str(exc),
             )
             return result
-
-    # ------------------------------------------------------------------
-    # Internal helpers
-    # ------------------------------------------------------------------
 
     def _convert_findings(
         self,
@@ -390,11 +340,6 @@ Summary:"""
         classification: ClassificationResult,
         source_code: str,
     ) -> RiskScores:
-        """
-        R_SAST — Static Density Score   (Slither)
-        R_DAST — Dynamic Certainty Score (Mythril + Oyente)
-        R_COMP — Complexity Risk Score
-        """
         static_findings = [
             f
             for f in tool_result.all_findings
@@ -406,7 +351,6 @@ Summary:"""
             if f.analysis_type in (AnalysisType.SYMBOLIC, AnalysisType.BYTECODE)
         ]
 
-        # R_SAST = min(100, Σ(W_impact × W_confidence))
         sast_issues: list[tuple[str, str]] = []
         for f in static_findings:
             try:
@@ -419,17 +363,15 @@ Summary:"""
             sast_issues.append((f.severity.value, conf_cat))
         r_sast = compute_r_sast(sast_issues)
 
-        # R_DAST = max(S_base × I_reachable)
         dast_severities = [
             (f.severity_score, f.is_reachable) for f in dynamic_findings
         ]
         r_dast = compute_r_dast(dast_severities)
 
-        # Boost R_DAST if cross-validated findings have exploit proof
+        # bump R_DAST when cross-validated findings include an exploit proof
         if any(f.has_exploit_proof for f in tool_result.cross_validated):
             r_dast = min(100.0, r_dast * 1.2)
 
-        # R_COMP = 100 / (1 + e^{-0.2 × (CC - 20)})
         cc = estimate_cyclomatic_complexity(source_code)
         r_comp = compute_r_comp(cc)
 
@@ -441,16 +383,7 @@ Summary:"""
         classification: ClassificationResult,
         findings: list[Finding],
     ) -> dict[str, Any]:
-        """
-        Compute the 4-part business risk rubric for each finding and
-        compare rubric scores against LLM loss-bucket predictions.
-
-        Rubric dimensions (each 0-5):
-          1. Exploitability   — base from vuln type, boosted by dynamic proof
-          2. Financial Impact  — derived from loss percentage bucket
-          3. Exposure          — based on DeFi category
-          4. Evidence Strength — cross-tool consensus & dynamic proof
-        """
+        """Score each finding on a 4-part rubric and compare vs LLM loss bucket."""
         defi_cat = classification.primary_category.value
         total_tools_run = len(tool_result.tool_results)
         cross_validated_ids = {cv.id for cv in tool_result.cross_validated}
@@ -491,9 +424,6 @@ Summary:"""
         return report.to_dict()
 
     def _compute_loss_percentage(self, findings: list[Finding]) -> float:
-        """
-        Compute L_perc = (Σ(V_vuln × P_drain)) / TVL_projected × 100
-        """
         vulns: list[tuple[str, float]] = []
         for f in findings:
             vuln_type = f.metadata.get("vulnerability_type", f.title)
@@ -505,7 +435,6 @@ Summary:"""
         source_code: str,
         findings: list[Finding],
     ) -> list[RemediationPatch]:
-        """Generate CodeT5 patches for validated findings."""
         patches: list[RemediationPatch] = []
         for finding in findings:
             patch_code = generate_patch(source_code, finding.title)
@@ -543,7 +472,6 @@ async def run_analysis(
     file_path: Path,
     analysis_id: str | None = None,
 ) -> EnhancedAnalysisResult:
-    """Convenience function to run the full AuditQuant pipeline."""
     orchestrator = Orchestrator(
         enable_oyente=settings.enable_oyente,
     )

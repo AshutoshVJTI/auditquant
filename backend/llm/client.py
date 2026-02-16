@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import asyncio
 from dataclasses import dataclass
 
@@ -14,14 +12,6 @@ class LLMConfig:
 
 
 class LLMClient:
-    """
-    LLM client for the AuditQuant pipeline.
-
-    The LLM is applied only after tool aggregation to generate structured
-    summaries (vulnerability description, exploit scenario, technical
-    impact, fix recommendation).  Claim verification is handled
-    separately by the AntiHallucinationVerifier.
-    """
 
     def __init__(self, config: LLMConfig):
         self.config = config

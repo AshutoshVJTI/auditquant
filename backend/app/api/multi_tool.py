@@ -1,13 +1,3 @@
-"""
-AuditQuant API
-
-Endpoints for the unified analysis pipeline:
-  1. Upload & analyse (Slither, Mythril, Oyente)
-  2. Get results (risk scores, verified findings, summary, remediation)
-  3. Business risk rubric
-"""
-from __future__ import annotations
-
 import asyncio
 import uuid
 from pathlib import Path
@@ -25,14 +15,11 @@ from app.models.schemas import (
 )
 from app.services.orchestrator_v2 import EnhancedAnalysisResult, Orchestrator
 
-router = APIRouter(prefix="/api", tags=["AuditQuant Analysis"])
+router = APIRouter(prefix="/api", tags=["analysis"])
 
-# ─── In-memory store for async analysis results ──────────────────────────
-
+# in-memory -- will lose data on restart, but fine for demo purposes
 _analysis_store: dict[str, EnhancedAnalysisResult | str] = {}
 
-
-# ─── Response models ─────────────────────────────────────────────────────
 
 class AnalysisQueuedResponse(BaseModel):
     analysis_id: str
@@ -70,8 +57,6 @@ class AnalysisResponse(BaseModel):
     error: str | None = None
 
 
-# ─── Endpoints ───────────────────────────────────────────────────────────
-
 @router.get("/health", response_model=HealthResponse)
 async def health():
     return HealthResponse(
@@ -83,16 +68,7 @@ async def health():
 
 @router.post("/analyze", response_model=AnalysisQueuedResponse)
 async def analyze(file: UploadFile = File(...)) -> AnalysisQueuedResponse:
-    """
-    Upload a .sol file and start the full AuditQuant pipeline.
-
-    The pipeline runs Slither (static / AST), Mythril (symbolic execution),
-    and Oyente (bytecode analysis) in parallel, then aggregates, verifies
-    with an LLM, computes risk scores, and generates remediation patches.
-
-    Returns immediately with an analysis_id.  Poll GET /api/analysis/{id}
-    for results.
-    """
+    """Upload a .sol file. Returns analysis_id; poll GET /api/analysis/{id} for results."""
     if not file.filename or not file.filename.endswith(".sol"):
         raise HTTPException(status_code=400, detail="Only .sol files are supported")
 
@@ -123,13 +99,6 @@ async def analyze(file: UploadFile = File(...)) -> AnalysisQueuedResponse:
 
 @router.get("/analysis/{analysis_id}", response_model=AnalysisResponse)
 async def get_analysis(analysis_id: str) -> AnalysisResponse:
-    """
-    Get results of an analysis.
-
-    Returns risk scores (R_SAST, R_DAST, R_COMP), verified findings,
-    LLM summary, verification status, remediation patches, and business
-    risk data.
-    """
     stored = _analysis_store.get(analysis_id)
 
     if stored is None:
@@ -143,7 +112,6 @@ async def get_analysis(analysis_id: str) -> AnalysisResponse:
 
     result: EnhancedAnalysisResult = stored
 
-    # Build per-tool summary
     tool_summaries: list[ToolResultSummary] = []
     stats = result.tool_stats or {}
     for tool_name, tool_data in stats.get("by_tool", {}).items():
@@ -180,15 +148,6 @@ async def get_analysis(analysis_id: str) -> AnalysisResponse:
 
 @router.get("/analysis/{analysis_id}/business-risk")
 async def get_business_risk(analysis_id: str) -> dict[str, Any]:
-    """
-    Get the 4-part business risk rubric for all findings.
-
-    Rubric dimensions (each 0-5, aggregated to 0-100):
-      1. Exploitability
-      2. Financial Impact
-      3. Exposure
-      4. Evidence Strength
-    """
     stored = _analysis_store.get(analysis_id)
 
     if stored is None:
@@ -204,10 +163,8 @@ async def get_business_risk(analysis_id: str) -> dict[str, Any]:
     }
 
 
-# ─── Background task ─────────────────────────────────────────────────────
-
 async def _run_analysis(file_path: Path, analysis_id: str) -> None:
-    """Background task running the full pipeline."""
+    """Background task: runs the full pipeline and stores the result."""
     try:
         orchestrator = Orchestrator(
             enable_oyente=settings.enable_oyente,

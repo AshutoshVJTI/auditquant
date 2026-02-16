@@ -1,9 +1,5 @@
-"""
-Normalized Finding Schema
+# Shared data structures for findings that all tool adapters convert into.
 
-Common schema for all analysis tools to enable cross-tool validation
-and unified pipeline processing.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -42,7 +38,6 @@ SEVERITY_SCORES = {
 
 @dataclass
 class Location:
-    """Normalized source location."""
     filename: str | None = None
     line_start: int | None = None
     line_end: int | None = None
@@ -66,7 +61,6 @@ class Location:
 
 @dataclass
 class ExploitTrace:
-    """Normalized exploit trace/proof from dynamic tools."""
     steps: list[dict[str, Any]] = field(default_factory=list)
     input_sequence: list[str] = field(default_factory=list)
     transaction_data: list[dict[str, Any]] = field(default_factory=list)
@@ -78,50 +72,31 @@ class ExploitTrace:
 
 @dataclass
 class NormalizedFinding:
-    """
-    Common schema for vulnerability findings across all tools.
-    
-    This enables:
-    - Cross-tool validation (same vuln found by multiple tools)
-    - Anti-hallucination checks (dynamic proof required for exploit claims)
-    - Unified scoring and reporting
-    """
-    # Core identification
+    """Unified finding that all tool adapters produce."""
     id: str
     tool: ToolSource
     analysis_type: AnalysisType
-    
-    # Vulnerability details
-    vulnerability_type: str  # e.g., "reentrancy", "integer-overflow", "access-control"
+
+    vulnerability_type: str  # e.g. "reentrancy", "access-control"
     title: str
     description: str
-    
-    # Severity assessment
+
     severity: Severity
     severity_score: float
-    confidence: float  # 0.0 - 1.0
-    
-    # Location info
+    confidence: float  # 0.0-1.0
+
     location: Location | None = None
-    
-    # Evidence (critical for anti-hallucination)
     exploit_trace: ExploitTrace | None = None
-    swc_id: str | None = None  # Smart Contract Weakness Classification
-    cwe_id: str | None = None  # Common Weakness Enumeration
-    
-    # Exploitability flags
-    is_reachable: bool = False  # Proven reachable by dynamic analysis
-    has_exploit_proof: bool = False  # Has concrete exploit trace
-    
-    # Raw data for debugging
+    swc_id: str | None = None
+    cwe_id: str | None = None
+    is_reachable: bool = False
+    has_exploit_proof: bool = False
     raw: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self):
-        # Auto-set severity score if not provided
         if self.severity_score == 0.0:
             self.severity_score = SEVERITY_SCORES.get(self.severity, 0.0)
         
-        # Auto-detect exploit proof
         if self.exploit_trace and self.exploit_trace.has_proof:
             self.has_exploit_proof = True
             self.is_reachable = True
@@ -145,9 +120,8 @@ class NormalizedFinding:
         }
 
 
-# Vulnerability type normalization mapping
+# maps tool-specific vuln names to canonical types
 VULN_TYPE_ALIASES = {
-    # Reentrancy variants
     "reentrancy": "reentrancy",
     "reentrancy-eth": "reentrancy",
     "reentrancy-no-eth": "reentrancy",
@@ -155,37 +129,25 @@ VULN_TYPE_ALIASES = {
     "reentrancy-events": "reentrancy",
     "external-call": "reentrancy",
     "dao": "reentrancy",
-    
-    # Access control
     "access-control": "access-control",
     "unprotected-function": "access-control",
     "tx-origin": "access-control",
     "suicidal": "access-control",
     "arbitrary-send": "access-control",
-    
-    # Integer issues
     "integer-overflow": "integer-overflow",
     "integer-underflow": "integer-overflow",
     "overflow": "integer-overflow",
     "underflow": "integer-overflow",
-    
-    # Unchecked operations
     "unchecked-return": "unchecked-return",
     "unchecked-call": "unchecked-return",
     "unchecked-lowlevel": "unchecked-return",
     "unchecked-send": "unchecked-return",
-    
-    # Timestamp/randomness
     "timestamp": "timestamp-dependency",
     "block-timestamp": "timestamp-dependency",
     "weak-prng": "timestamp-dependency",
-    
-    # Denial of service
     "dos": "denial-of-service",
     "denial-of-service": "denial-of-service",
     "gas-limit": "denial-of-service",
-    
-    # Front-running
     "front-running": "front-running",
     "transaction-order-dependency": "front-running",
     "tod": "front-running",
@@ -193,6 +155,5 @@ VULN_TYPE_ALIASES = {
 
 
 def normalize_vuln_type(raw_type: str) -> str:
-    """Normalize vulnerability type across different tools."""
     key = raw_type.lower().strip().replace(" ", "-").replace("_", "-")
     return VULN_TYPE_ALIASES.get(key, key)

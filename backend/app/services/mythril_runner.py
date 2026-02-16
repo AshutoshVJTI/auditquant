@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import asyncio
 import json
 import logging
@@ -78,7 +76,6 @@ def parse_mythril_output(payload: dict) -> list[MythrilFinding]:
 async def run_mythril(
     compose_path: str, solidity_path: Path, timeout: int = 300
 ) -> list[MythrilFinding]:
-    """Run Mythril in Docker and return parsed findings."""
     project_root = Path(__file__).resolve().parents[3]
     compose_file = Path(compose_path)
     if not compose_file.is_absolute():
@@ -121,7 +118,7 @@ async def run_mythril(
     except json.JSONDecodeError:
         payload = None
 
-    # Mythril can exit 1 even when it produced valid JSON with issues (e.g. findings found).
+    # mythril can exit 1 even when it found issues (valid JSON)
     if process.returncode != 0 and (not payload or not payload.get("success")):
         msg = f"Mythril failed with exit code {process.returncode}: {err_dec or out_dec}"
         logger.warning("Mythril failed. stdout: %s | stderr: %s", out_dec[:2000], err_dec[:2000])

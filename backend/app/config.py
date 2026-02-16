@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -15,15 +13,12 @@ class Settings(BaseSettings):
     docker_compose_path: str = Field(
         default="docker/docker-compose.yml", validation_alias="DOCKER_COMPOSE_PATH"
     )
-    # Legacy alias kept for backward compatibility with existing .env files
-    slither_compose_path: str = Field(
+    slither_compose_path: str = Field(  # kept for old .env files
         default="docker/docker-compose.yml", validation_alias="SLITHER_COMPOSE_PATH"
     )
     analysis_storage_path: str = Field(
         default="backend/.analysis", validation_alias="ANALYSIS_STORAGE_PATH"
     )
-    
-    # Multi-tool settings
     enable_oyente: bool = Field(default=True, validation_alias="ENABLE_OYENTE")
     oyente_timeout: int = Field(default=180, validation_alias="OYENTE_TIMEOUT")
 

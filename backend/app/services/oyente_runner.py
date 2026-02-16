@@ -1,13 +1,4 @@
-"""
-Oyente Runner
-
-Bytecode analysis tool for smart contract analysis.
-https://github.com/enzymefinance/oyente
-
-Oyente analyzes the compiled bytecode directly, catching compiler-level
-bugs and low-level flaws that AST-level tools miss.
-"""
-from __future__ import annotations
+# Runs Oyente in Docker and parses its output into normalized findings.
 
 import asyncio
 import json
@@ -52,22 +43,10 @@ OYENTE_SWC_MAP = {
 
 
 def parse_oyente_output(output: str, contract_file: str) -> list[NormalizedFinding]:
-    """
-    Parse Oyente output into normalized findings.
-    
-    Oyente outputs text-based results. We parse both JSON (if available)
-    and the text output format.
-    
-    Text format example:
-    ============ Results ===========
-    INFO:root:contract <ContractName>:
-    INFO:symExec:   Callstack Depth Attack Vulnerability: True
-    INFO:symExec:   Re-Entrancy Vulnerability: False
-    """
+    """Try JSON first, fall back to text parsing."""
     findings: list[NormalizedFinding] = []
     finding_id = 0
     
-    # Try JSON parsing first
     try:
         json_match = re.search(r'\{[\s\S]*\}', output)
         if json_match:
@@ -76,10 +55,7 @@ def parse_oyente_output(output: str, contract_file: str) -> list[NormalizedFindi
     except json.JSONDecodeError:
         pass
     
-    # Fall back to text parsing
     current_contract = None
-    
-    # Pattern to match vulnerability lines
     vuln_pattern = re.compile(
         r'(Callstack Depth Attack|Re-Entrancy|Time.?[Dd]ependency|'
         r'Integer Overflow|Integer Underflow|Assertion Failure|'
@@ -90,13 +66,11 @@ def parse_oyente_output(output: str, contract_file: str) -> list[NormalizedFindi
     contract_pattern = re.compile(r'contract\s+(\w+):', re.IGNORECASE)
     
     for line in output.split('\n'):
-        # Check for contract name
         contract_match = contract_pattern.search(line)
         if contract_match:
             current_contract = contract_match.group(1)
             continue
-        
-        # Check for vulnerability
+
         vuln_match = vuln_pattern.search(line)
         if vuln_match:
             vuln_name = vuln_match.group(1).lower().replace(" ", "_").replace("-", "_")
@@ -116,14 +90,14 @@ def parse_oyente_output(output: str, contract_file: str) -> list[NormalizedFindi
                         description=f"Oyente bytecode analysis detected {_format_vuln_name(vuln_name)} vulnerability",
                         severity=_get_oyente_severity(vuln_type),
                         severity_score=_get_oyente_severity_score(vuln_type),
-                        confidence=0.7,  # Oyente has moderate confidence
+                        confidence=0.7,  # TODO: tune this
                         location=Location(
                             filename=contract_file,
                             contract_name=current_contract,
                         ),
                         swc_id=OYENTE_SWC_MAP.get(vuln_type),
-                        is_reachable=True,  # Symbolic execution proves reachability
-                        has_exploit_proof=False,  # Oyente doesn't provide traces
+                        is_reachable=True,
+                        has_exploit_proof=False,  # oyente doesnt give traces
                         raw={"line": line, "vuln_name": vuln_name},
                     )
                 )
@@ -132,7 +106,6 @@ def parse_oyente_output(output: str, contract_file: str) -> list[NormalizedFindi
 
 
 def _parse_oyente_json(payload: dict, contract_file: str) -> list[NormalizedFinding]:
-    """Parse Oyente JSON output format."""
     findings: list[NormalizedFinding] = []
     finding_id = 0
     
@@ -173,10 +146,7 @@ def _parse_oyente_json(payload: dict, contract_file: str) -> list[NormalizedFind
 
 
 def _normalize_oyente_vuln(vuln_name: str) -> str:
-    """Normalize Oyente vulnerability names."""
     key = vuln_name.lower().replace(" ", "_").replace("-", "_")
-    
-    # Handle common variations
     if "callstack" in key:
         return "callstack"
     if "reentr" in key:
@@ -198,12 +168,10 @@ def _normalize_oyente_vuln(vuln_name: str) -> str:
 
 
 def _format_vuln_name(vuln_name: str) -> str:
-    """Format vulnerability name for display."""
     return vuln_name.replace("_", " ").title()
 
 
 def _get_oyente_severity(vuln_type: str) -> Severity:
-    """Get severity level for Oyente vulnerability type."""
     high_severity = {"reentrancy", "integer_overflow", "integer_underflow", "parity_multisig_bug_2"}
     medium_severity = {"money_concurrency", "time_dependency"}
     
@@ -215,7 +183,6 @@ def _get_oyente_severity(vuln_type: str) -> Severity:
 
 
 def _get_oyente_severity_score(vuln_type: str) -> float:
-    """Get severity score for Oyente vulnerability type."""
     scores = {
         "reentrancy": 90.0,
         "integer_overflow": 80.0,
@@ -234,14 +201,6 @@ async def run_oyente(
     solidity_path: Path,
     timeout: int = 180,
 ) -> list[NormalizedFinding]:
-    """
-    Run Oyente in Docker and return normalized findings.
-    
-    Args:
-        compose_path: Path to docker-compose.yml
-        solidity_path: Path to Solidity file to analyze
-        timeout: Timeout in seconds (default: 180)
-    """
     project_root = Path(__file__).resolve().parents[3]
     compose_file = Path(compose_path)
     if not compose_file.is_absolute():
@@ -279,10 +238,8 @@ async def run_oyente(
         await process.communicate()
         raise RuntimeError(f"Oyente timed out after {timeout} seconds")
     
-    # Oyente returns 0 on success, non-zero on errors
     if process.returncode != 0:
         stderr_text = stderr.decode().strip()
-        # Check if it's a real error vs just findings
         if "error" in stderr_text.lower() and "solc" in stderr_text.lower():
             raise RuntimeError(f"Oyente compilation failed: {stderr_text}")
 

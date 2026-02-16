@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from datetime import datetime
 from typing import Any
 
@@ -7,8 +5,8 @@ from pydantic import BaseModel, Field
 
 
 class AnalysisCreateResponse(BaseModel):
-    analysis_id: str = Field(..., description="Unique analysis identifier")
-    status: str = Field(..., description="Queued status")
+    analysis_id: str
+    status: str
 
 
 class RiskScores(BaseModel):
@@ -57,9 +55,9 @@ class HealthResponse(BaseModel):
 
 
 class RemediationRequest(BaseModel):
-    analysis_id: str = Field(..., description="Analysis ID to pull finding from")
-    finding_id: str = Field(..., description="Finding ID to remediate (e.g., F-1, M-1)")
-    code_snippet: str | None = Field(None, description="Optional: vulnerable code snippet if not in store")
+    analysis_id: str
+    finding_id: str
+    code_snippet: str | None = None
 
 
 class RemediationResponse(BaseModel):

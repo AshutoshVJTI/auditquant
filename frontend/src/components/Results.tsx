@@ -117,7 +117,6 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
         </button>
       </div>
 
-      {/* R_SAST, R_DAST, R_COMP radial gauges */}
       {data?.scores && (
         <div className="grid gap-4 md:grid-cols-3">
           <Gauge value={data.scores.r_sast ?? 0} label="R_SAST — Static Density" />
@@ -126,7 +125,6 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
         </div>
       )}
 
-      {/* Per-tool results */}
       {toolResults.length > 0 && (
         <div className="card rounded-3xl p-6">
           <h3 className="text-lg font-semibold">Tool Results</h3>
@@ -148,7 +146,6 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
         </div>
       )}
 
-      {/* Verification status */}
       {data?.verification && (
         <div className="card rounded-3xl p-6">
           <h3 className="text-lg font-semibold">Claim Verification</h3>
@@ -166,7 +163,6 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
         </div>
       )}
 
-      {/* Vulnerability list — AI-validated conclusions */}
       <div className="card rounded-3xl p-6">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold">Validated Findings</h3>
@@ -209,7 +205,6 @@ export default function Results({ apiBase, analysisId, data, onData, onNext }: R
         </div>
       </div>
 
-      {/* Executive summary */}
       <div className="card rounded-3xl p-6 text-sm text-slate-300">
         <h3 className="text-lg font-semibold text-white">Executive Summary</h3>
         <p className="mt-3 whitespace-pre-wrap">

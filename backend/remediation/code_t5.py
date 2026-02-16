@@ -1,11 +1,4 @@
-"""
-Remediation via CodeT5.
-
-Uses a fine-tuned checkpoint at ``backend/remediation/models/codet5-solidity-repair``
-when present.  Otherwise falls back to the Hugging Face base model
-(``Salesforce/codet5-base``) which is downloaded automatically on first use.
-"""
-from __future__ import annotations
+# CodeT5 patch generation -- tries local fine-tuned model first, falls back to base.
 
 import logging
 
@@ -28,7 +21,6 @@ def _get_remediator() -> CodeT5Remediator | None:
 
 
 def generate_patch(vulnerable_code: str, vuln_type: str) -> str:
-    """Generate a remediation patch using CodeT5 (fine-tuned or base model)."""
     remediator = _get_remediator()
     if remediator is not None:
         try:

@@ -1,12 +1,6 @@
-"""
-SWC Knowledge Base — loads and indexes vulnerability knowledge from the
-SWC Registry and DeFiVulnLabs for use by the LLM summarisation prompt and
-the anti-hallucination verifier.
+# Loads swc_context.json and provides lookups by SWC-ID or vuln type name.
+# Used by the LLM prompt builder and the anti-hallucination verifier.
 
-The underlying data is produced by
-``backend/remediation/training/fetch_databases.py`` →
-``backend/remediation/training/data/swc_context.json``.
-"""
 from __future__ import annotations
 
 import json
@@ -24,9 +18,6 @@ _CONTEXT_PATH = (
     / "swc_context.json"
 )
 
-# Mapping from common tool-reported vulnerability names to SWC IDs.
-# Slither and Mythril already emit SWC IDs for many findings; this table
-# fills in the gaps for the rest.
 _VULN_TO_SWC: dict[str, str] = {
     "reentrancy": "SWC-107",
     "reentrancy-eth": "SWC-107",
@@ -67,7 +58,6 @@ _VULN_TO_SWC: dict[str, str] = {
 
 
 class SWCKnowledgeBase:
-    """Loads swc_context.json and provides look-ups by SWC ID or vuln type."""
 
     def __init__(self, context_path: Path | None = None) -> None:
         self._by_swc: dict[str, dict[str, Any]] = {}
@@ -106,11 +96,9 @@ class SWCKnowledgeBase:
         entry = self._by_type.get(key)
         if entry:
             return entry
-        # Try mapping table
         mapped_swc = _VULN_TO_SWC.get(key)
         if mapped_swc:
             return self._by_swc.get(mapped_swc.upper())
-        # Substring search as fallback
         for k, v in self._by_type.items():
             if key in k or k in key:
                 return v
@@ -121,14 +109,10 @@ class SWCKnowledgeBase:
         finding_types: list[str],
         swc_ids: list[str | None] | None = None,
     ) -> str:
-        """Build a prompt snippet with SWC context for the given finding types.
-
-        Returns a string ready to be injected into an LLM prompt.
-        """
+        """Build a prompt snippet with SWC reference info for these findings."""
         seen: set[str] = set()
         parts: list[str] = []
 
-        # Try SWC IDs first (most precise)
         if swc_ids:
             for sid in swc_ids:
                 if not sid or sid.upper() in seen:
@@ -138,7 +122,6 @@ class SWCKnowledgeBase:
                     seen.add(sid.upper())
                     parts.append(self._format_entry(entry))
 
-        # Then try vuln type names
         for vtype in finding_types:
             entry = self.get_by_vuln_type(vtype)
             if entry and entry.get("swc_id", "").upper() not in seen:
@@ -154,12 +137,9 @@ class SWCKnowledgeBase:
         )
 
     def is_known_vulnerability(self, vuln_type: str) -> bool:
-        """Return True if the vulnerability type is recognised in the SWC registry."""
         return self.get_by_vuln_type(vuln_type) is not None
 
     def get_known_exploit_keywords(self, vuln_type: str) -> list[str]:
-        """Return characteristic keywords from the SWC description that should
-        appear in a legitimate exploit scenario for this vulnerability type."""
         entry = self.get_by_vuln_type(vuln_type)
         if not entry:
             return []
@@ -188,7 +168,6 @@ class SWCKnowledgeBase:
         return "\n".join(lines)
 
 
-# Module-level singleton so imports are cheap after first load
 _instance: SWCKnowledgeBase | None = None
 
 

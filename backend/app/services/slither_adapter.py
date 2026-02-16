@@ -1,9 +1,4 @@
-"""
-Slither Adapter
-
-Converts Slither output to normalized findings.
-"""
-from __future__ import annotations
+# Converts raw Slither output to NormalizedFinding objects.
 
 from app.services.normalized_finding import (
     AnalysisType,
@@ -16,7 +11,6 @@ from app.services.normalized_finding import (
 from app.services.slither_runner import SlitherFinding
 
 
-# Slither severity mapping
 SLITHER_SEVERITY_MAP = {
     "High": Severity.HIGH,
     "Medium": Severity.MEDIUM,
@@ -25,7 +19,6 @@ SLITHER_SEVERITY_MAP = {
     "Optimization": Severity.INFO,
 }
 
-# Slither check to SWC mapping
 SLITHER_SWC_MAP = {
     "reentrancy-eth": "SWC-107",
     "reentrancy-no-eth": "SWC-107",
@@ -43,7 +36,6 @@ SLITHER_SWC_MAP = {
     "locked-ether": "SWC-132",
 }
 
-# Confidence to float mapping
 CONFIDENCE_MAP = {
     "High": 0.95,
     "Medium": 0.75,
@@ -52,7 +44,6 @@ CONFIDENCE_MAP = {
 
 
 def slither_to_normalized(findings: list[SlitherFinding]) -> list[NormalizedFinding]:
-    """Convert Slither findings to normalized format."""
     normalized: list[NormalizedFinding] = []
     
     for idx, finding in enumerate(findings, start=1):
@@ -73,7 +64,7 @@ def slither_to_normalized(findings: list[SlitherFinding]) -> list[NormalizedFind
                 confidence=confidence,
                 location=location,
                 swc_id=SLITHER_SWC_MAP.get(finding.title.lower()),
-                is_reachable=False,  # Static analysis can't prove reachability
+                is_reachable=False,
                 has_exploit_proof=False,
                 raw=finding.raw,
             )
@@ -83,13 +74,10 @@ def slither_to_normalized(findings: list[SlitherFinding]) -> list[NormalizedFind
 
 
 def _parse_slither_location(location_str: str | None) -> Location | None:
-    """Parse Slither location string to Location object."""
     if not location_str:
         return None
     
     location = Location()
-    
-    # Format: filename:start:length
     parts = location_str.split(":")
     if len(parts) >= 1:
         location.filename = parts[0]

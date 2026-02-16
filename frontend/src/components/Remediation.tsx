@@ -60,7 +60,6 @@ export default function Remediation({ data }: { data: any }) {
         </div>
       )}
 
-      {/* Diff Viewer — side-by-side comparison with green additions */}
       <div className="card rounded-3xl p-5">
         <h3 className="text-lg font-semibold">Diff Viewer</h3>
         <p className="text-xs text-slate-400">
@@ -81,7 +80,6 @@ export default function Remediation({ data }: { data: any }) {
           />
         </div>
 
-        {/* Natural language explanation */}
         {explanation && (
           <div className="mt-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-xs text-emerald-200">
             {explanation}

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from app.services.slither_runner import parse_slither_output
 
 

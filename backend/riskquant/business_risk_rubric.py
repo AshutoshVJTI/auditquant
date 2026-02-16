@@ -1,21 +1,6 @@
-"""
-Business Risk Rubric
+# 4-part business risk rubric (Exploitability, Financial Impact, Exposure,
+# Evidence Strength).  Each dimension is 0-5, aggregated to 0-100.
 
-Manual-style rubric for business-aware risk scoring of smart contract
-vulnerabilities, particularly in DeFi applications.
-
-The rubric has four dimensions, each scored 0-5:
-  1. Exploitability     — how easy is it to exploit?
-  2. Financial Impact   — how much value can be lost?
-  3. Exposure           — how exposed is this DeFi category?
-  4. Evidence Strength  — how strong is the cross-tool consensus?
-
-The four sub-scores are aggregated into a single 0-100 Business Risk Score.
-
-This deterministic rubric is then compared against the LLM loss-bucket
-predictions (10%, 50%, 100%) so we can measure consensus and flag
-disagreements.
-"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -23,13 +8,8 @@ from enum import Enum
 from typing import Any
 
 
-# ---------------------------------------------------------------------------
-# Rubric score dataclass
-# ---------------------------------------------------------------------------
-
 @dataclass
 class RubricScores:
-    """Individual dimension scores (0-5 each) and the derived 0-100 score."""
     exploitability: float = 0.0
     financial_impact: float = 0.0
     exposure: float = 0.0
@@ -37,18 +17,7 @@ class RubricScores:
 
     @property
     def business_risk_score(self) -> float:
-        """
-        Weighted aggregation to 0-100 scale.
-
-        Weights reflect audit practice:
-          - Financial Impact  35%  (most important for DeFi)
-          - Exploitability    30%
-          - Exposure          20%
-          - Evidence Strength 15%
-
-        Each dimension is first normalised to 0-1 (divide by 5), then the
-        weighted sum is scaled to 0-100.
-        """
+        """Weighted aggregation to 0-100."""
         weights = {
             "exploitability": 0.30,
             "financial_impact": 0.35,
@@ -73,12 +42,8 @@ class RubricScores:
         }
 
 
-# ---------------------------------------------------------------------------
-# LLM loss-bucket comparison
-# ---------------------------------------------------------------------------
 
 class LossAgreement(str, Enum):
-    """Degree of consensus between rubric and LLM prediction."""
     STRONG = "strong"        # Both agree on severity band
     MODERATE = "moderate"    # Within one band
     WEAK = "weak"            # Two bands apart
@@ -86,29 +51,13 @@ class LossAgreement(str, Enum):
 
 
 class LossBucket(str, Enum):
-    """
-    Discrete loss-bucket categories used in the research proposal.
-
-    These map continuous loss percentages into the three canonical buckets
-    referenced in the paper (10 %, 50 %, 100 %) plus a "negligible" tier.
-    """
-    NEGLIGIBLE = "negligible"   # ≤ 5 % — informational / low-risk
-    LOW_10 = "~10%"             # 6-25 % — limited fund loss
-    MEDIUM_50 = "~50%"          # 26-74 % — significant fund loss
-    HIGH_100 = "~100%"          # 75-100 % — total fund loss / protocol drain
+    NEGLIGIBLE = "negligible"
+    LOW_10 = "~10%"
+    MEDIUM_50 = "~50%"
+    HIGH_100 = "~100%"
 
 
 def classify_loss_bucket(loss_percentage: float | None) -> LossBucket:
-    """
-    Map a continuous loss percentage (0-100) to a discrete loss bucket.
-
-    | Loss %   | Bucket        | Interpretation                |
-    |----------|---------------|-------------------------------|
-    | 0-5      | NEGLIGIBLE    | Informational                 |
-    | 6-25     | ~10 %         | Limited, recoverable loss     |
-    | 26-74    | ~50 %         | Significant partial loss      |
-    | 75-100   | ~100 %        | Total / near-total drain      |
-    """
     if loss_percentage is None or loss_percentage <= 5:
         return LossBucket.NEGLIGIBLE
     if loss_percentage <= 25:
@@ -119,7 +68,6 @@ def classify_loss_bucket(loss_percentage: float | None) -> LossBucket:
 
 
 def _bucket_order(bucket: LossBucket) -> int:
-    """Numeric rank for bucket distance calculations."""
     return {
         LossBucket.NEGLIGIBLE: 0,
         LossBucket.LOW_10: 1,
@@ -130,7 +78,6 @@ def _bucket_order(bucket: LossBucket) -> int:
 
 @dataclass
 class RubricLLMComparison:
-    """Side-by-side comparison of the rubric score and the LLM loss prediction."""
     vulnerability_type: str
     rubric_scores: RubricScores
     rubric_risk_score: float
@@ -139,7 +86,6 @@ class RubricLLMComparison:
     llm_severity_band: str
     agreement: LossAgreement
     notes: str = ""
-    # Discrete loss buckets (RQ3 — 10 %/50 %/100 % classification)
     rubric_loss_bucket: str = ""
     llm_loss_bucket: str = ""
     bucket_agreement: bool = False
@@ -160,11 +106,6 @@ class RubricLLMComparison:
         }
 
 
-# ---------------------------------------------------------------------------
-# 1. Exploitability  (0-5)
-# ---------------------------------------------------------------------------
-
-# Maps normalised vulnerability types to a base exploitability rating.
 _EXPLOITABILITY_BASE: dict[str, float] = {
     "reentrancy": 5.0,
     "access-control": 5.0,
@@ -185,12 +126,6 @@ def score_exploitability(
     has_exploit_proof: bool = False,
     is_reachable: bool = False,
 ) -> float:
-    """
-    Rate exploitability 0-5.
-
-    Base score from the vulnerability type, then boosted if dynamic tools
-    prove reachability or provide an exploit trace.
-    """
     key = vulnerability_type.lower().replace("_", "-")
     base = _EXPLOITABILITY_BASE.get(key, 2.0)
 
@@ -202,24 +137,8 @@ def score_exploitability(
     return round(base, 1)
 
 
-# ---------------------------------------------------------------------------
-# 2. Financial Impact  (0-5)
-# ---------------------------------------------------------------------------
-
-# Loss percentage thresholds mapped to 0-5 rating.
 def score_financial_impact(loss_percentage: float | None) -> float:
-    """
-    Convert an estimated loss percentage (0-100) to a 0-5 impact score.
-
-    | Loss %     | Score |
-    |------------|-------|
-    | 80-100     | 5     |
-    | 60-79      | 4     |
-    | 40-59      | 3     |
-    | 20-39      | 2     |
-    | 1-19       | 1     |
-    | 0 / None   | 0     |
-    """
+    """Map loss percentage to 0-5 impact score."""
     if loss_percentage is None or loss_percentage <= 0:
         return 0.0
     if loss_percentage >= 80:
@@ -233,33 +152,18 @@ def score_financial_impact(loss_percentage: float | None) -> float:
     return 1.0
 
 
-# ---------------------------------------------------------------------------
-# 3. Exposure  (0-5)  — based on DeFi category
-# ---------------------------------------------------------------------------
-
-# Categories that handle user funds in high-value pools are more exposed.
 _CATEGORY_EXPOSURE: dict[str, float] = {
-    "amm_dex": 5.0,       # Massive TVL, constantly attacked
-    "lending": 5.0,        # Oracle-dependent, high-value collateral
-    "vault_yield": 4.0,    # Share-price manipulation surface
-    "staking_rewards": 3.5, # Reward inflation but smaller pools
+    "amm_dex": 5.0,
+    "lending": 5.0,
+    "vault_yield": 4.0,
+    "staking_rewards": 3.5,
     "other": 2.0,
 }
 
 
 def score_exposure(defi_category: str) -> float:
-    """
-    Rate exposure 0-5 based on the DeFi category.
-
-    AMMs and lending protocols have the highest exposure due to large
-    liquidity pools and complex interaction surfaces.
-    """
     return _CATEGORY_EXPOSURE.get(defi_category.lower(), 2.0)
 
-
-# ---------------------------------------------------------------------------
-# 4. Evidence Strength  (0-5)  — cross-tool consensus
-# ---------------------------------------------------------------------------
 
 def score_evidence_strength(
     tools_reporting: int,
@@ -267,17 +171,6 @@ def score_evidence_strength(
     is_cross_validated: bool = False,
     has_dynamic_proof: bool = False,
 ) -> float:
-    """
-    Rate evidence strength 0-5 based on how many tools agree.
-
-    | Condition                          | Score |
-    |------------------------------------|-------|
-    | Cross-validated + dynamic proof    | 5     |
-    | Cross-validated (no dynamic proof) | 4     |
-    | 2+ tools, not formally validated   | 3     |
-    | 1 tool only                        | 1.5   |
-    | 0 tools (LLM-only)                | 0     |
-    """
     if tools_reporting == 0:
         return 0.0
 
@@ -287,13 +180,8 @@ def score_evidence_strength(
         return 4.0
     if tools_reporting >= 2:
         return 3.0
-    # Single tool — penalise but don't zero out
     return 1.5
 
-
-# ---------------------------------------------------------------------------
-# Full rubric computation
-# ---------------------------------------------------------------------------
 
 def compute_business_risk_rubric(
     vulnerability_type: str,
@@ -305,12 +193,6 @@ def compute_business_risk_rubric(
     has_exploit_proof: bool = False,
     is_reachable: bool = False,
 ) -> RubricScores:
-    """
-    Compute the full 4-part business risk rubric for one vulnerability.
-
-    Returns a ``RubricScores`` instance whose ``.business_risk_score``
-    property gives the aggregated 0-100 score.
-    """
     return RubricScores(
         exploitability=score_exploitability(
             vulnerability_type,
@@ -328,12 +210,7 @@ def compute_business_risk_rubric(
     )
 
 
-# ---------------------------------------------------------------------------
-# Severity band helpers
-# ---------------------------------------------------------------------------
-
 def _risk_to_band(score: float) -> str:
-    """Convert a 0-100 risk score to a severity band label."""
     if score >= 75:
         return "critical"
     if score >= 50:
@@ -346,7 +223,6 @@ def _risk_to_band(score: float) -> str:
 
 
 def _loss_pct_to_band(loss: float | None) -> str:
-    """Convert an LLM loss-bucket percentage to a severity band."""
     if loss is None:
         return "unknown"
     if loss >= 75:
@@ -367,27 +243,11 @@ def _band_distance(band_a: str, band_b: str) -> int:
     return abs(_BAND_ORDER.get(band_a, 0) - _BAND_ORDER.get(band_b, 0))
 
 
-# ---------------------------------------------------------------------------
-# Rubric-vs-LLM comparison for a single finding
-# ---------------------------------------------------------------------------
-
 def compare_rubric_vs_llm(
     vulnerability_type: str,
     rubric: RubricScores,
     llm_loss_percentage: float | None,
 ) -> RubricLLMComparison:
-    """
-    Compare the deterministic rubric score with the LLM loss prediction.
-
-    Agreement levels (severity-band comparison):
-      - STRONG:   same severity band
-      - MODERATE: one band apart
-      - WEAK:     two bands apart
-      - DISAGREE: three+ bands apart
-
-    Also classifies both sides into discrete loss buckets (~10 %, ~50 %,
-    ~100 %) so the paper can report bucket-level consensus.
-    """
     rubric_band = _risk_to_band(rubric.business_risk_score)
     llm_band = _loss_pct_to_band(llm_loss_percentage)
 
@@ -409,7 +269,6 @@ def compare_rubric_vs_llm(
         agreement = LossAgreement.DISAGREE
         notes = "Rubric and LLM strongly disagree — manual review recommended"
 
-    # Discrete loss-bucket classification (RQ3)
     rubric_bucket = classify_loss_bucket(rubric.business_risk_score)
     llm_bucket = classify_loss_bucket(llm_loss_percentage)
     bucket_agree = rubric_bucket == llm_bucket
@@ -429,13 +288,8 @@ def compare_rubric_vs_llm(
     )
 
 
-# ---------------------------------------------------------------------------
-# Aggregate comparison across all findings
-# ---------------------------------------------------------------------------
-
 @dataclass
 class BusinessRiskReport:
-    """Full business risk assessment for a contract."""
     per_finding: list[RubricLLMComparison] = field(default_factory=list)
 
     @property
@@ -474,12 +328,6 @@ class BusinessRiskReport:
 
     @property
     def high_severity_consensus_rate(self) -> float:
-        """
-        Consensus rate considering only high/critical-band findings.
-
-        For high-impact vulnerabilities like reentrancy or access control
-        bypass, the rubric and LLM should agree most strongly.
-        """
         high_findings = [
             c for c in self.per_finding
             if c.rubric_severity_band in ("high", "critical")
@@ -492,25 +340,18 @@ class BusinessRiskReport:
         )
         return round(agree / len(high_findings), 4)
 
-    # ------------------------------------------------------------------
-    # Loss-bucket consensus metrics (RQ3 — 10 %/50 %/100 % buckets)
-    # ------------------------------------------------------------------
-
     @property
     def bucket_agreement_count(self) -> int:
-        """Number of findings where rubric and LLM land in the same loss bucket."""
         return sum(1 for c in self.per_finding if c.bucket_agreement)
 
     @property
     def bucket_agreement_rate(self) -> float:
-        """Fraction of findings where rubric and LLM agree on loss bucket."""
         if not self.per_finding:
             return 0.0
         return round(self.bucket_agreement_count / len(self.per_finding), 4)
 
     @property
     def high_severity_bucket_agreement_rate(self) -> float:
-        """Bucket agreement rate for high/critical-band findings only."""
         high_findings = [
             c for c in self.per_finding
             if c.rubric_severity_band in ("high", "critical")
@@ -522,11 +363,6 @@ class BusinessRiskReport:
 
     @property
     def bucket_distribution(self) -> dict[str, dict[str, int]]:
-        """
-        Distribution of findings across loss buckets for both rubric and LLM.
-
-        Returns ``{"rubric": {"~10%": N, ...}, "llm": {"~10%": N, ...}}``.
-        """
         rubric_dist: dict[str, int] = {}
         llm_dist: dict[str, int] = {}
         for c in self.per_finding:

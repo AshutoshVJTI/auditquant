@@ -1,12 +1,9 @@
-from __future__ import annotations
-
 from unittest.mock import MagicMock
 
 from llm.client import LLMClient, LLMConfig
 
 
 def _make_fake_client(output_text: str) -> MagicMock:
-    """Create a mock OpenAI client that returns *output_text* for completions."""
     choice = MagicMock()
     choice.message.content = output_text
 

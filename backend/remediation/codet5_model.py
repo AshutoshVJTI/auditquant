@@ -38,9 +38,7 @@ class CodeT5Remediator:
         self._initialized = True
 
     def _resolve_model_name(self) -> str:
-        """Use fine-tuned checkpoint if weight files are present, otherwise
-        fall back to the Hugging Face base model (``Salesforce/codet5-base``)
-        which will be downloaded automatically on first use."""
+        """Use fine-tuned model if available, otherwise fall back to HF base model."""
         weight_files = ("model.safetensors", "pytorch_model.bin")
         if self.config.fine_tuned_path.exists() and any(
             (self.config.fine_tuned_path / f).exists() for f in weight_files
@@ -70,8 +68,7 @@ class CodeT5Remediator:
             self._tokenizer = AutoTokenizer.from_pretrained(model_name)
             self._model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
         except Exception:
-            # Reset singleton so a future attempt (e.g. after fine-tuning)
-            # can re-initialise successfully.
+            # reset singleton so next attempt can retry
             with self._lock:
                 CodeT5Remediator._instance = None
                 self._initialized = False

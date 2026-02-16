@@ -1,17 +1,5 @@
-"""
-DeFi Contract Classifier
-
-Classifies contracts into DeFi application categories to enable
-business-context-aware risk assessment.
-
-Categories:
-- AMM/DEX: Reserve manipulation, reentrancy, oracle misuse
-- Lending: Liquidation bypass, bad debt, oracle attacks
-- Vault/Yield: Share price manipulation, reentrancy
-- Staking/Rewards: Reward inflation, access control drains
-- Other: Generic contracts
-"""
-from __future__ import annotations
+# Classifies contracts into DeFi categories (AMM, Lending, Vault, Staking, etc.)
+# so that the risk scoring can adjust for business context.
 
 import re
 from dataclasses import dataclass
@@ -27,7 +15,6 @@ class DeFiCategory(str, Enum):
     OTHER = "other"
 
 
-# Keywords and patterns for each category
 CATEGORY_PATTERNS: dict[DeFiCategory, list[str]] = {
     DeFiCategory.AMM_DEX: [
         r"\bswap\b", r"\bpair\b", r"\bliquidity\b", r"\breserve[s]?\b",
@@ -57,29 +44,22 @@ CATEGORY_PATTERNS: dict[DeFiCategory, list[str]] = {
     ],
 }
 
-# Business impact mapping per category + vulnerability type
+# expected loss % per (category, vuln_type) pair
 CATEGORY_LOSS_IMPACT: dict[tuple[DeFiCategory, str], float] = {
-    # AMM/DEX vulnerabilities
     (DeFiCategory.AMM_DEX, "reentrancy"): 100.0,
     (DeFiCategory.AMM_DEX, "access-control"): 100.0,
     (DeFiCategory.AMM_DEX, "oracle"): 80.0,
     (DeFiCategory.AMM_DEX, "integer-overflow"): 50.0,
     (DeFiCategory.AMM_DEX, "front-running"): 30.0,
-    
-    # Lending vulnerabilities
     (DeFiCategory.LENDING, "reentrancy"): 100.0,
-    (DeFiCategory.LENDING, "oracle"): 100.0,  # Oracle attacks can drain lending pools
+    (DeFiCategory.LENDING, "oracle"): 100.0,
     (DeFiCategory.LENDING, "access-control"): 100.0,
     (DeFiCategory.LENDING, "integer-overflow"): 70.0,
     (DeFiCategory.LENDING, "liquidation"): 80.0,
-    
-    # Vault vulnerabilities
     (DeFiCategory.VAULT_YIELD, "reentrancy"): 100.0,
     (DeFiCategory.VAULT_YIELD, "share-manipulation"): 100.0,
     (DeFiCategory.VAULT_YIELD, "access-control"): 100.0,
     (DeFiCategory.VAULT_YIELD, "integer-overflow"): 60.0,
-    
-    # Staking vulnerabilities
     (DeFiCategory.STAKING_REWARDS, "reentrancy"): 100.0,
     (DeFiCategory.STAKING_REWARDS, "reward-inflation"): 80.0,
     (DeFiCategory.STAKING_REWARDS, "access-control"): 100.0,
@@ -89,28 +69,23 @@ CATEGORY_LOSS_IMPACT: dict[tuple[DeFiCategory, str], float] = {
 
 @dataclass
 class ClassificationResult:
-    """Result of DeFi contract classification."""
     primary_category: DeFiCategory
     confidence: float
     all_scores: dict[DeFiCategory, float]
     detected_patterns: list[str]
     
     def get_loss_impact(self, vulnerability_type: str) -> float | None:
-        """Get expected loss % for a vulnerability type in this category."""
-        # Normalize vulnerability type
         vuln_key = vulnerability_type.lower().replace("_", "-")
         
-        # Try exact match first
         key = (self.primary_category, vuln_key)
         if key in CATEGORY_LOSS_IMPACT:
             return CATEGORY_LOSS_IMPACT[key]
         
-        # Try partial match
         for (cat, vuln), loss in CATEGORY_LOSS_IMPACT.items():
             if cat == self.primary_category and vuln in vuln_key:
                 return loss
         
-        # Default based on vulnerability type alone
+        # fallback defaults
         default_losses = {
             "reentrancy": 100.0,
             "access-control": 100.0,
@@ -125,14 +100,7 @@ class ClassificationResult:
 
 
 def classify_contract(source_code: str) -> ClassificationResult:
-    """
-    Classify a smart contract into a DeFi category.
-    
-    Uses pattern matching on function names, variable names, and imports
-    to determine the contract type.
-    """
-    source_lower = source_code.lower()
-    
+    """Classify a contract into a DeFi category using regex pattern matching."""
     scores: dict[DeFiCategory, float] = {cat: 0.0 for cat in DeFiCategory}
     detected_patterns: list[str] = []
     
@@ -144,17 +112,14 @@ def classify_contract(source_code: str) -> ClassificationResult:
                 scores[category] += score_add
                 detected_patterns.extend(matches[:3])
     
-    # Normalize scores
     total_score = sum(scores.values())
     if total_score > 0:
         for cat in scores:
             scores[cat] /= total_score
     
-    # Get primary category
     primary = max(scores, key=lambda c: scores[c])
     confidence = scores[primary]
     
-    # If confidence is too low, fall back to OTHER
     if confidence < 0.15:
         primary = DeFiCategory.OTHER
         confidence = 1.0 - sum(s for s in scores.values())
@@ -167,14 +132,8 @@ def classify_contract(source_code: str) -> ClassificationResult:
     )
 
 
-def get_business_context(
-    classification: ClassificationResult,
-) -> dict[str, Any]:
-    """
-    Get business context description for the classified contract.
-    
-    Used to provide context to the LLM for better risk assessment.
-    """
+def get_business_context(classification: ClassificationResult) -> dict[str, Any]:
+    """Return a context dict describing the DeFi category for the LLM prompt."""
     context_templates = {
         DeFiCategory.AMM_DEX: {
             "description": "Automated Market Maker / Decentralized Exchange",
