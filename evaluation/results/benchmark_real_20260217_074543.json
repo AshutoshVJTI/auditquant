@@ -1,0 +1,186 @@
+{
+  "run_id": "20260217_074543",
+  "timestamp": "2026-02-17T07:45:58.649335",
+  "mode": "real",
+  "metrics": {
+    "total_contracts": 3,
+    "successful": 3,
+    "failed": 0,
+    "total_time_seconds": 4.4392454624176025,
+    "avg_time_per_contract": 1.4797484874725342,
+    "tool_metrics": {
+      "slither": {
+        "total_findings": 0,
+        "avg_time_ms": 753.3299922943115,
+        "success_rate": 1.0,
+        "error_count": 0
+      },
+      "mythril": {
+        "total_findings": 0,
+        "avg_time_ms": 1471.8422094980876,
+        "success_rate": 1.0,
+        "error_count": 0
+      },
+      "oyente": {
+        "total_findings": 0,
+        "avg_time_ms": 633.5976123809814,
+        "success_rate": 1.0,
+        "error_count": 0
+      }
+    },
+    "total_findings": 0,
+    "total_cross_validated": 0,
+    "total_llm_claims": 0,
+    "total_verified": 0,
+    "total_rejected": 0,
+    "overall_hallucination_rate": 0.0,
+    "true_positives": 0,
+    "false_positives": 0,
+    "false_negatives": 1,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0
+  },
+  "results": [
+    {
+      "contract_id": "amm_dex_001",
+      "filename": "smart_billions.sol",
+      "status": "completed",
+      "start_time": 1771314343.320933,
+      "end_time": 1771314345.0481658,
+      "total_seconds": 1.7272326946258545,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 967.0238494873047,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1724.327802658081,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 873.0120658874512,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.413,
+      "r_sast": 0.0,
+      "r_dast": 0.0,
+      "r_comp": 99.66982523823002,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "",
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "business_risk_score": 8.000000000000002,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_002",
+      "filename": "lucky_doubler.sol",
+      "status": "completed",
+      "start_time": 1771314348.9852722,
+      "end_time": 1771314350.309577,
+      "total_seconds": 1.3243048191070557,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 637.0532512664795,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1316.1640167236328,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 506.9098472595215,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 0.0,
+      "r_dast": 0.0,
+      "r_comp": 47.751519031227964,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "",
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "business_risk_score": 16.000000000000004,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_003",
+      "filename": "incorrect_constructor_name1.sol",
+      "status": "completed",
+      "start_time": 1771314353.869188,
+      "end_time": 1771314355.256896,
+      "total_seconds": 1.3877079486846924,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 655.9128761291504,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1375.0348091125488,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 520.8709239959717,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.8,
+      "r_sast": 0.0,
+      "r_dast": 0.0,
+      "r_comp": 15.976214683446132,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "",
+      "ground_truth_vulns": [
+        "access_control"
+      ],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "business_risk_score": 16.000000000000004,
+      "error": ""
+    }
+  ]
+}

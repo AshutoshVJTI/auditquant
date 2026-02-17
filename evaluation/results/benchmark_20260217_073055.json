@@ -1,0 +1,5236 @@
+{
+  "run_id": "20260217_073055",
+  "timestamp": "2026-02-17T07:31:39.127458",
+  "metrics": {
+    "total_contracts": 100,
+    "successful": 100,
+    "failed": 0,
+    "total_time_seconds": 10.119939088821411,
+    "avg_time_per_contract": 0.10119939088821411,
+    "tool_metrics": {
+      "slither": {
+        "total_findings": 67,
+        "avg_time_ms": 1101.21,
+        "success_rate": 1.0
+      },
+      "mythril": {
+        "total_findings": 50,
+        "avg_time_ms": 1014.6,
+        "success_rate": 1.0
+      },
+      "oyente": {
+        "total_findings": 49,
+        "avg_time_ms": 957.69,
+        "success_rate": 1.0
+      }
+    },
+    "total_findings": 166,
+    "total_cross_validated": 0,
+    "total_llm_claims": 166,
+    "total_verified": 83,
+    "total_rejected": 83,
+    "overall_hallucination_rate": 0.5,
+    "true_positives": 55,
+    "false_positives": 42,
+    "false_negatives": 0,
+    "precision": 0.5670103092783505,
+    "recall": 1.0,
+    "f1_score": 0.7236842105263158
+  },
+  "results": [
+    {
+      "contract_id": "amm_dex_001",
+      "filename": "smart_billions.sol",
+      "status": "completed",
+      "start_time": 1771313489.000732,
+      "end_time": 1771313489.101907,
+      "total_seconds": 0.10117506980895996,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1216,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1771,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1500,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.413,
+      "r_sast": 46.12225789545428,
+      "r_dast": 46.6768037868292,
+      "r_comp": 59.97912598139045,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_002",
+      "filename": "lucky_doubler.sol",
+      "status": "completed",
+      "start_time": 1771313489.101962,
+      "end_time": 1771313489.203239,
+      "total_seconds": 0.10127687454223633,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5573883419744406
+            }
+          ],
+          "time_ms": 687,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1566,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1082,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 56.61086672529997,
+      "r_dast": 69.84021796729502,
+      "r_comp": 59.40689477236774,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_003",
+      "filename": "incorrect_constructor_name1.sol",
+      "status": "completed",
+      "start_time": 1771313489.203321,
+      "end_time": 1771313489.303788,
+      "total_seconds": 0.10046696662902832,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "access_control",
+              "severity": "high",
+              "confidence": 0.901136562259331
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5333346960731605
+            }
+          ],
+          "time_ms": 1582,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "access_control",
+              "severity": "high",
+              "confidence": 0.7481337480007001
+            }
+          ],
+          "time_ms": 1391,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 957,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.8,
+      "r_sast": 35.603870447875224,
+      "r_dast": 53.494276686751455,
+      "r_comp": 15.441065313742765,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "access_control"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_004",
+      "filename": "0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "status": "completed",
+      "start_time": 1771313489.303831,
+      "end_time": 1771313489.4049962,
+      "total_seconds": 0.1011650562286377,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "low",
+              "confidence": 0.9288121358805248
+            }
+          ],
+          "time_ms": 253,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.6810490854510545
+            }
+          ],
+          "time_ms": 1339,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 698,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.695,
+      "r_sast": 52.21590032581965,
+      "r_dast": 49.906101861175095,
+      "r_comp": 41.409155530471,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_005",
+      "filename": "king_of_the_ether_throne.sol",
+      "status": "completed",
+      "start_time": 1771313489.4050481,
+      "end_time": 1771313489.5062442,
+      "total_seconds": 0.1011960506439209,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.8345490273907653
+            }
+          ],
+          "time_ms": 896,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "low",
+              "confidence": 0.8272872158888334
+            }
+          ],
+          "time_ms": 733,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.32866919427859614
+            }
+          ],
+          "time_ms": 1244,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "staking_rewards",
+      "classifier_confidence": 1.0,
+      "r_sast": 43.551975026568684,
+      "r_dast": 37.60462478767316,
+      "r_comp": 35.488583036290734,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_006",
+      "filename": "24.sol",
+      "status": "completed",
+      "start_time": 1771313489.5063019,
+      "end_time": 1771313489.607519,
+      "total_seconds": 0.10121703147888184,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3887117981559302
+            }
+          ],
+          "time_ms": 1694,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1305,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3684941949934215
+            }
+          ],
+          "time_ms": 955,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 75.73646644905949,
+      "r_dast": 52.350576209247706,
+      "r_comp": 36.66600831153556,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_007",
+      "filename": "29.sol",
+      "status": "completed",
+      "start_time": 1771313489.607584,
+      "end_time": 1771313489.708843,
+      "total_seconds": 0.10125899314880371,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1486,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 541,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3019607941984229
+            }
+          ],
+          "time_ms": 116,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 78.0604883270579,
+      "r_dast": 27.77980205381926,
+      "r_comp": 43.555276612918746,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_008",
+      "filename": "40.sol",
+      "status": "completed",
+      "start_time": 1771313489.70893,
+      "end_time": 1771313489.809788,
+      "total_seconds": 0.10085797309875488,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1193,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1383,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 140,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.944,
+      "r_sast": 29.96243380024297,
+      "r_dast": 42.11688764761265,
+      "r_comp": 40.980024705966734,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_009",
+      "filename": "21.sol",
+      "status": "completed",
+      "start_time": 1771313489.809833,
+      "end_time": 1771313489.9109719,
+      "total_seconds": 0.10113883018493652,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1655,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5864877061904179
+            }
+          ],
+          "time_ms": 594,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 458,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.744,
+      "r_sast": 42.97185955870462,
+      "r_dast": 54.07918029262012,
+      "r_comp": 52.3804621959186,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_010",
+      "filename": "20.sol",
+      "status": "completed",
+      "start_time": 1771313489.911024,
+      "end_time": 1771313490.0122392,
+      "total_seconds": 0.10121512413024902,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1810,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4924142373832878
+            }
+          ],
+          "time_ms": 205,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 805,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "amm_dex",
+      "classifier_confidence": 0.867,
+      "r_sast": 37.44930182681513,
+      "r_dast": 50.53723941861231,
+      "r_comp": 38.78581967211009,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_011",
+      "filename": "blackjack.sol",
+      "status": "completed",
+      "start_time": 1771313490.0123599,
+      "end_time": 1771313490.1135411,
+      "total_seconds": 0.1011812686920166,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1062,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1505,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 509,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 63.9059844399462,
+      "r_dast": 35.746572697340675,
+      "r_comp": 36.97966649402527,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_012",
+      "filename": "random_number_generator.sol",
+      "status": "completed",
+      "start_time": 1771313490.113587,
+      "end_time": 1771313490.214847,
+      "total_seconds": 0.10126018524169922,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 889,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1766,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1557,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 57.95882181058312,
+      "r_dast": 55.025199838222804,
+      "r_comp": 58.025928837623134,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_013",
+      "filename": "etheraffle.sol",
+      "status": "completed",
+      "start_time": 1771313490.2148879,
+      "end_time": 1771313490.3160682,
+      "total_seconds": 0.1011803150177002,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1921,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1826,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 861,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 33.99084112136812,
+      "r_dast": 63.934133237300166,
+      "r_comp": 42.41092978509465,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_014",
+      "filename": "guess_the_random_number.sol",
+      "status": "completed",
+      "start_time": 1771313490.316137,
+      "end_time": 1771313490.417314,
+      "total_seconds": 0.10117697715759277,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1777,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 659,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1773,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 23.206767154825684,
+      "r_dast": 36.98427192505133,
+      "r_comp": 22.63214082793054,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_015",
+      "filename": "lottery.sol",
+      "status": "completed",
+      "start_time": 1771313490.4173598,
+      "end_time": 1771313490.5185542,
+      "total_seconds": 0.10119438171386719,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 558,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3859734177667878
+            }
+          ],
+          "time_ms": 576,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1353,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 33.00390813505193,
+      "r_dast": 69.27303276390654,
+      "r_comp": 57.26508050075163,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_016",
+      "filename": "old_blockhash.sol",
+      "status": "completed",
+      "start_time": 1771313490.5186172,
+      "end_time": 1771313490.619888,
+      "total_seconds": 0.10127091407775879,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1785,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.348570292944879
+            }
+          ],
+          "time_ms": 1351,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 571,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 47.94210104479365,
+      "r_dast": 46.587385478514506,
+      "r_comp": 19.934035381552818,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_017",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313490.6199858,
+      "end_time": 1771313490.721177,
+      "total_seconds": 0.10119128227233887,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.9422092498122963
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3845202116422519
+            }
+          ],
+          "time_ms": 1218,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6896936076261919
+            }
+          ],
+          "time_ms": 585,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4566279472373334
+            }
+          ],
+          "time_ms": 785,
+          "success": true
+        }
+      },
+      "total_findings": 4,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 47.68564774136155,
+      "r_dast": 47.44791707665886,
+      "r_comp": 41.33131455814756,
+      "llm_claims": 4,
+      "verified_claims": 2,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_018",
+      "filename": "timelock.sol",
+      "status": "completed",
+      "start_time": 1771313490.72123,
+      "end_time": 1771313490.822434,
+      "total_seconds": 0.10120391845703125,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.9852656379873639
+            }
+          ],
+          "time_ms": 1615,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.9520851264120194
+            }
+          ],
+          "time_ms": 568,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.9794193250219401
+            }
+          ],
+          "time_ms": 1938,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.615,
+      "r_sast": 30.937872651068865,
+      "r_dast": 26.525296979479467,
+      "r_comp": 19.017347373059014,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_019",
+      "filename": "tokensalechallenge.sol",
+      "status": "completed",
+      "start_time": 1771313490.822481,
+      "end_time": 1771313490.9237509,
+      "total_seconds": 0.10126996040344238,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.7920854194226756
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5933166714966078
+            }
+          ],
+          "time_ms": 1410,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.9921755245461006
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5681878160852338
+            }
+          ],
+          "time_ms": 682,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3279415107411278
+            }
+          ],
+          "time_ms": 241,
+          "success": true
+        }
+      },
+      "total_findings": 5,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 22.538773234333163,
+      "r_dast": 68.16345848342033,
+      "r_comp": 21.091093441279735,
+      "llm_claims": 5,
+      "verified_claims": 3,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.4,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_020",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313490.9238322,
+      "end_time": 1771313491.025034,
+      "total_seconds": 0.10120177268981934,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1154,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.6142032779311035
+            }
+          ],
+          "time_ms": 1709,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.8327657932169696
+            }
+          ],
+          "time_ms": 360,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 20.965642888882904,
+      "r_dast": 60.06797299702239,
+      "r_comp": 18.377310633758942,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_021",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "status": "completed",
+      "start_time": 1771313491.025097,
+      "end_time": 1771313491.126293,
+      "total_seconds": 0.1011960506439209,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.9226137451154994
+            }
+          ],
+          "time_ms": 1532,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5842436962298777
+            }
+          ],
+          "time_ms": 139,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.5235657011152941
+            }
+          ],
+          "time_ms": 487,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 21.41636174310474,
+      "r_dast": 62.56793669594597,
+      "r_comp": 52.461393723386955,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_022",
+      "filename": "integer_overflow_benign_1.sol",
+      "status": "completed",
+      "start_time": 1771313491.1263602,
+      "end_time": 1771313491.227545,
+      "total_seconds": 0.10118484497070312,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.9150503066571317
+            }
+          ],
+          "time_ms": 275,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.718610737425952
+            }
+          ],
+          "time_ms": 249,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5465587347999451
+            }
+          ],
+          "time_ms": 1608,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 58.55744334332961,
+      "r_dast": 60.626820193014595,
+      "r_comp": 59.56382816681498,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_023",
+      "filename": "integer_overflow_1.sol",
+      "status": "completed",
+      "start_time": 1771313491.227602,
+      "end_time": 1771313491.3287969,
+      "total_seconds": 0.10119485855102539,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.8282475274151468
+            }
+          ],
+          "time_ms": 1964,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5325455796373504
+            }
+          ],
+          "time_ms": 544,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.6638750379233809
+            }
+          ],
+          "time_ms": 1702,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 65.80374758757526,
+      "r_dast": 67.62413944507644,
+      "r_comp": 51.35177173960405,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_024",
+      "filename": "overflow_simple_add.sol",
+      "status": "completed",
+      "start_time": 1771313491.328852,
+      "end_time": 1771313491.4300532,
+      "total_seconds": 0.10120129585266113,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6864667406388594
+            }
+          ],
+          "time_ms": 947,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6442751163086282
+            }
+          ],
+          "time_ms": 528,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1199,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 28.31409414941549,
+      "r_dast": 41.55893416949174,
+      "r_comp": 59.41135997373408,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_025",
+      "filename": "token.sol",
+      "status": "completed",
+      "start_time": 1771313491.430175,
+      "end_time": 1771313491.530745,
+      "total_seconds": 0.1005699634552002,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.845767554324702
+            }
+          ],
+          "time_ms": 1625,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1523,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 797,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 66.110675132678,
+      "r_dast": 48.105092495300646,
+      "r_comp": 40.865574289300646,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_026",
+      "filename": "list_dos.sol",
+      "status": "completed",
+      "start_time": 1771313491.530794,
+      "end_time": 1771313491.6321568,
+      "total_seconds": 0.10136294364929199,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "denial_of_service",
+              "severity": "medium",
+              "confidence": 0.8877736522935346
+            }
+          ],
+          "time_ms": 1121,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 229,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "denial_of_service",
+              "severity": "high",
+              "confidence": 0.8785726478629872
+            }
+          ],
+          "time_ms": 1480,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "lending",
+      "classifier_confidence": 1.0,
+      "r_sast": 72.69048149426726,
+      "r_dast": 46.91217624537642,
+      "r_comp": 49.84877577162163,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "denial_of_service"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_027",
+      "filename": "0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "status": "completed",
+      "start_time": 1771313491.6322281,
+      "end_time": 1771313491.736185,
+      "total_seconds": 0.10395693778991699,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "low",
+              "confidence": 0.6948102208295656
+            }
+          ],
+          "time_ms": 1273,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4952367301685413
+            }
+          ],
+          "time_ms": 230,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.8517972098555191
+            }
+          ],
+          "time_ms": 466,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.667,
+      "r_sast": 21.02419617788637,
+      "r_dast": 27.190207798350045,
+      "r_comp": 22.053418845492168,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_028",
+      "filename": "18.sol",
+      "status": "completed",
+      "start_time": 1771313491.7362251,
+      "end_time": 1771313491.8374,
+      "total_seconds": 0.10117483139038086,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1424,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5065955684030389
+            }
+          ],
+          "time_ms": 800,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 763,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.459,
+      "r_sast": 77.67779915919745,
+      "r_dast": 45.97152772524756,
+      "r_comp": 45.54876576319327,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_029",
+      "filename": "37.sol",
+      "status": "completed",
+      "start_time": 1771313491.837436,
+      "end_time": 1771313491.9386098,
+      "total_seconds": 0.10117387771606445,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1553,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 479,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1472,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.862,
+      "r_sast": 60.91157322452031,
+      "r_dast": 33.489456289432894,
+      "r_comp": 21.67147602258703,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_030",
+      "filename": "48.sol",
+      "status": "completed",
+      "start_time": 1771313491.938644,
+      "end_time": 1771313492.039835,
+      "total_seconds": 0.10119104385375977,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1363,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 934,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1740,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.862,
+      "r_sast": 47.740050629947525,
+      "r_dast": 33.59048981166609,
+      "r_comp": 43.12938942117954,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_031",
+      "filename": "blackjack.sol",
+      "status": "completed",
+      "start_time": 1771313492.039903,
+      "end_time": 1771313492.141092,
+      "total_seconds": 0.10118913650512695,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1516,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 991,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 350,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 73.3081274490448,
+      "r_dast": 64.60744651063624,
+      "r_comp": 25.716579119324983,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_032",
+      "filename": "random_number_generator.sol",
+      "status": "completed",
+      "start_time": 1771313492.141202,
+      "end_time": 1771313492.242141,
+      "total_seconds": 0.10093903541564941,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 101,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 827,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 606,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 37.64919018809933,
+      "r_dast": 41.32573000982423,
+      "r_comp": 42.10571610101741,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_033",
+      "filename": "etheraffle.sol",
+      "status": "completed",
+      "start_time": 1771313492.242214,
+      "end_time": 1771313492.343395,
+      "total_seconds": 0.1011810302734375,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1054,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 705,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1816,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 25.929519754899047,
+      "r_dast": 27.439349918605707,
+      "r_comp": 18.62661046516142,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_034",
+      "filename": "guess_the_random_number.sol",
+      "status": "completed",
+      "start_time": 1771313492.3435252,
+      "end_time": 1771313492.4447281,
+      "total_seconds": 0.10120296478271484,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 626,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 922,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 708,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 44.42878661566888,
+      "r_dast": 69.67612838643154,
+      "r_comp": 47.300885218573875,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_035",
+      "filename": "lottery.sol",
+      "status": "completed",
+      "start_time": 1771313492.444814,
+      "end_time": 1771313492.546071,
+      "total_seconds": 0.1012570858001709,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1909,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1970,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 491,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 52.84262218526385,
+      "r_dast": 59.10769579112556,
+      "r_comp": 38.572510018108346,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_036",
+      "filename": "old_blockhash.sol",
+      "status": "completed",
+      "start_time": 1771313492.546176,
+      "end_time": 1771313492.647325,
+      "total_seconds": 0.10114908218383789,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.45093915126017114
+            }
+          ],
+          "time_ms": 252,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 280,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1501,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 45.09966812168166,
+      "r_dast": 12.733711700168811,
+      "r_comp": 21.038880065880747,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_037",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313492.647369,
+      "end_time": 1771313492.748545,
+      "total_seconds": 0.10117602348327637,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.9828974007776569
+            }
+          ],
+          "time_ms": 1512,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 189,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1705,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 71.50920220626082,
+      "r_dast": 62.25276424670212,
+      "r_comp": 56.13356635912488,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_038",
+      "filename": "timelock.sol",
+      "status": "completed",
+      "start_time": 1771313492.748597,
+      "end_time": 1771313492.8488371,
+      "total_seconds": 0.10024023056030273,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6133936443837681
+            }
+          ],
+          "time_ms": 1984,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.5331501761175468
+            }
+          ],
+          "time_ms": 1951,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.9673051383651509
+            }
+          ],
+          "time_ms": 610,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.615,
+      "r_sast": 66.56434427447385,
+      "r_dast": 33.75662428951688,
+      "r_comp": 29.483635451292468,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_039",
+      "filename": "tokensalechallenge.sol",
+      "status": "completed",
+      "start_time": 1771313492.8489048,
+      "end_time": 1771313492.9502678,
+      "total_seconds": 0.10136294364929199,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.6540498007039541
+            }
+          ],
+          "time_ms": 753,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.7829944673514682
+            }
+          ],
+          "time_ms": 940,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.8566908968863467
+            }
+          ],
+          "time_ms": 1555,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 34.71590822977278,
+      "r_dast": 47.392149660531366,
+      "r_comp": 30.833741374346776,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_040",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313492.9503381,
+      "end_time": 1771313493.0515919,
+      "total_seconds": 0.10125374794006348,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1774,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.8876550543870122
+            }
+          ],
+          "time_ms": 848,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.6274170656488572
+            }
+          ],
+          "time_ms": 907,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 60.53270149108837,
+      "r_dast": 60.75500574155316,
+      "r_comp": 32.92001237592439,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_041",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "status": "completed",
+      "start_time": 1771313493.051722,
+      "end_time": 1771313493.15291,
+      "total_seconds": 0.10118794441223145,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.8433026199885681
+            }
+          ],
+          "time_ms": 1098,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5114206042781813
+            }
+          ],
+          "time_ms": 1740,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 498,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 39.46022100636934,
+      "r_dast": 32.03861648018489,
+      "r_comp": 54.424417972817245,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_042",
+      "filename": "integer_overflow_benign_1.sol",
+      "status": "completed",
+      "start_time": 1771313493.15296,
+      "end_time": 1771313493.254155,
+      "total_seconds": 0.10119485855102539,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.8127773616158631
+            }
+          ],
+          "time_ms": 287,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.8164249781752342
+            }
+          ],
+          "time_ms": 810,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.7004452953785498
+            }
+          ],
+          "time_ms": 189,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 38.962782137281785,
+      "r_dast": 45.50444681927474,
+      "r_comp": 55.881463812503995,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_043",
+      "filename": "integer_overflow_1.sol",
+      "status": "completed",
+      "start_time": 1771313493.254207,
+      "end_time": 1771313493.355514,
+      "total_seconds": 0.10130715370178223,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.7981575846992764
+            }
+          ],
+          "time_ms": 1992,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1541,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 661,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 53.17901164399872,
+      "r_dast": 39.0563626003518,
+      "r_comp": 51.519293870525686,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_044",
+      "filename": "overflow_simple_add.sol",
+      "status": "completed",
+      "start_time": 1771313493.355594,
+      "end_time": 1771313493.4568489,
+      "total_seconds": 0.10125494003295898,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.5550632478376789
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3728475023295718
+            }
+          ],
+          "time_ms": 924,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 233,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4203381424412691
+            }
+          ],
+          "time_ms": 1987,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 43.54574965133462,
+      "r_dast": 14.150777946434694,
+      "r_comp": 59.66066480643432,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_045",
+      "filename": "token.sol",
+      "status": "completed",
+      "start_time": 1771313493.456919,
+      "end_time": 1771313493.558115,
+      "total_seconds": 0.1011960506439209,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.9284843240152053
+            }
+          ],
+          "time_ms": 349,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.6981583675638005
+            }
+          ],
+          "time_ms": 1671,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5473442660672616
+            }
+          ],
+          "time_ms": 365,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 60.10307615492244,
+      "r_dast": 48.97820179783745,
+      "r_comp": 49.71206768272056,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_046",
+      "filename": "BECToken.sol",
+      "status": "completed",
+      "start_time": 1771313493.5581598,
+      "end_time": 1771313493.659358,
+      "total_seconds": 0.10119819641113281,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.8405243145125956
+            }
+          ],
+          "time_ms": 517,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.5764427945538462
+            }
+          ],
+          "time_ms": 1791,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.9138390188392106
+            }
+          ],
+          "time_ms": 1773,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 59.922168931376504,
+      "r_dast": 43.13857656966925,
+      "r_comp": 50.19491397893879,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_047",
+      "filename": "integer_overflow_minimal.sol",
+      "status": "completed",
+      "start_time": 1771313493.6594,
+      "end_time": 1771313493.760569,
+      "total_seconds": 0.10116910934448242,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.6358146696924815
+            }
+          ],
+          "time_ms": 583,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.5735808977273699
+            }
+          ],
+          "time_ms": 1145,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.5066879413275305
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5040369064158399
+            }
+          ],
+          "time_ms": 1922,
+          "success": true
+        }
+      },
+      "total_findings": 4,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 63.54138030715933,
+      "r_dast": 29.056990354250175,
+      "r_comp": 45.6506251258474,
+      "llm_claims": 4,
+      "verified_claims": 2,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_048",
+      "filename": "integer_overflow_add.sol",
+      "status": "completed",
+      "start_time": 1771313493.7606132,
+      "end_time": 1771313493.861886,
+      "total_seconds": 0.1012728214263916,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.8734860341700659
+            }
+          ],
+          "time_ms": 715,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.695066382560791
+            }
+          ],
+          "time_ms": 1697,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1398,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 22.228203356166507,
+      "r_dast": 22.259112829872308,
+      "r_comp": 38.27342060343458,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_049",
+      "filename": "overflow_single_tx.sol",
+      "status": "completed",
+      "start_time": 1771313493.861949,
+      "end_time": 1771313493.9631,
+      "total_seconds": 0.1011509895324707,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.5051659991694797
+            }
+          ],
+          "time_ms": 825,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3312736048105815
+            }
+          ],
+          "time_ms": 1739,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6333859600228278
+            }
+          ],
+          "time_ms": 159,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 70.46887302413535,
+      "r_dast": 17.670801732689984,
+      "r_comp": 43.25170423290267,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "lending_050",
+      "filename": "integer_overflow_mul.sol",
+      "status": "completed",
+      "start_time": 1771313493.963142,
+      "end_time": 1771313494.064325,
+      "total_seconds": 0.10118317604064941,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.9076396919801768
+            }
+          ],
+          "time_ms": 394,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1361,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1875,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 71.43111654039825,
+      "r_dast": 52.074691371703516,
+      "r_comp": 20.188237419317755,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_051",
+      "filename": "0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol",
+      "status": "completed",
+      "start_time": 1771313494.064377,
+      "end_time": 1771313494.1655629,
+      "total_seconds": 0.10118579864501953,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "reentrancy",
+              "severity": "high",
+              "confidence": 0.8134252539017335
+            }
+          ],
+          "time_ms": 644,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "reentrancy",
+              "severity": "medium",
+              "confidence": 0.5632689332072691
+            }
+          ],
+          "time_ms": 1313,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.48431378824872207
+            }
+          ],
+          "time_ms": 846,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 60.04580027455331,
+      "r_dast": 41.769327194670666,
+      "r_comp": 19.234040873449054,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "reentrancy"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_052",
+      "filename": "0x8c7777c45481dba411450c228cb692ac3d550344.sol",
+      "status": "completed",
+      "start_time": 1771313494.165625,
+      "end_time": 1771313494.2668328,
+      "total_seconds": 0.10120773315429688,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "reentrancy",
+              "severity": "low",
+              "confidence": 0.6137682198230481
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3974678340151858
+            }
+          ],
+          "time_ms": 662,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1149,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 111,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 21.05072271096996,
+      "r_dast": 28.69524222187526,
+      "r_comp": 44.77236448255283,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "reentrancy"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_053",
+      "filename": "0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
+      "status": "completed",
+      "start_time": 1771313494.266895,
+      "end_time": 1771313494.368036,
+      "total_seconds": 0.10114097595214844,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.8614323922167033
+            }
+          ],
+          "time_ms": 1697,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1116,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.6076867210854936
+            }
+          ],
+          "time_ms": 1727,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.5,
+      "r_sast": 73.84622497612699,
+      "r_dast": 13.389603777898259,
+      "r_comp": 59.186409546678334,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_054",
+      "filename": "0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+      "status": "completed",
+      "start_time": 1771313494.3681102,
+      "end_time": 1771313494.469331,
+      "total_seconds": 0.10122084617614746,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.9249694636219571
+            }
+          ],
+          "time_ms": 1557,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.5007726892775655
+            }
+          ],
+          "time_ms": 439,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.5230567615234614
+            }
+          ],
+          "time_ms": 981,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.941,
+      "r_sast": 32.54447399966894,
+      "r_dast": 63.978818082634405,
+      "r_comp": 35.40057060543279,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_055",
+      "filename": "0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "status": "completed",
+      "start_time": 1771313494.469409,
+      "end_time": 1771313494.570569,
+      "total_seconds": 0.10116004943847656,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4069622316647995
+            }
+          ],
+          "time_ms": 439,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.5882656738399455
+            }
+          ],
+          "time_ms": 1198,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 873,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.941,
+      "r_sast": 56.048227256414044,
+      "r_dast": 11.331303548788725,
+      "r_comp": 43.956723960059975,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_056",
+      "filename": "0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "status": "completed",
+      "start_time": 1771313494.570611,
+      "end_time": 1771313494.6720798,
+      "total_seconds": 0.10146880149841309,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.5096724877024829
+            }
+          ],
+          "time_ms": 1050,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 358,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.8238531177727955
+            }
+          ],
+          "time_ms": 280,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.444,
+      "r_sast": 39.14039370863617,
+      "r_dast": 58.83612952144915,
+      "r_comp": 41.89290614421551,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_057",
+      "filename": "0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "status": "completed",
+      "start_time": 1771313494.672178,
+      "end_time": 1771313494.773379,
+      "total_seconds": 0.10120105743408203,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.6249542985662168
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.44700118591922283
+            }
+          ],
+          "time_ms": 155,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "medium",
+              "confidence": 0.6781210783856242
+            }
+          ],
+          "time_ms": 147,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.586571214966771
+            }
+          ],
+          "time_ms": 1294,
+          "success": true
+        }
+      },
+      "total_findings": 4,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.941,
+      "r_sast": 66.10605943613018,
+      "r_dast": 24.44896353146774,
+      "r_comp": 25.470148245158086,
+      "llm_claims": 4,
+      "verified_claims": 2,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_058",
+      "filename": "blackjack.sol",
+      "status": "completed",
+      "start_time": 1771313494.7734249,
+      "end_time": 1771313494.874656,
+      "total_seconds": 0.10123109817504883,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 565,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1535,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3120336435299049
+            }
+          ],
+          "time_ms": 807,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 36.28787561452907,
+      "r_dast": 30.153294331567416,
+      "r_comp": 19.53489564223002,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_059",
+      "filename": "random_number_generator.sol",
+      "status": "completed",
+      "start_time": 1771313494.8747442,
+      "end_time": 1771313494.975789,
+      "total_seconds": 0.10104489326477051,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1190,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 881,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 114,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 62.69108705907113,
+      "r_dast": 65.42707453587022,
+      "r_comp": 47.22367453287772,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_060",
+      "filename": "etheraffle.sol",
+      "status": "completed",
+      "start_time": 1771313494.975892,
+      "end_time": 1771313495.07711,
+      "total_seconds": 0.10121798515319824,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 183,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.40025015413339066
+            }
+          ],
+          "time_ms": 1853,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 380,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 45.82134241656162,
+      "r_dast": 52.65467122175483,
+      "r_comp": 29.24834316841702,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_061",
+      "filename": "guess_the_random_number.sol",
+      "status": "completed",
+      "start_time": 1771313495.077173,
+      "end_time": 1771313495.178365,
+      "total_seconds": 0.10119199752807617,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 632,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4488230225398088
+            }
+          ],
+          "time_ms": 1744,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4082996944540719
+            }
+          ],
+          "time_ms": 1759,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 76.28458465966727,
+      "r_dast": 49.89417949596979,
+      "r_comp": 50.13156308769167,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_062",
+      "filename": "lottery.sol",
+      "status": "completed",
+      "start_time": 1771313495.178418,
+      "end_time": 1771313495.2796721,
+      "total_seconds": 0.10125422477722168,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1520,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 247,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 420,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 76.7404026779393,
+      "r_dast": 15.716798648519074,
+      "r_comp": 18.149452908088236,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_063",
+      "filename": "old_blockhash.sol",
+      "status": "completed",
+      "start_time": 1771313495.279776,
+      "end_time": 1771313495.380961,
+      "total_seconds": 0.10118484497070312,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 440,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1026,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.42157402618472095
+            }
+          ],
+          "time_ms": 1162,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 61.17777369805981,
+      "r_dast": 39.5525345948827,
+      "r_comp": 29.120684489723565,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_064",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313495.381005,
+      "end_time": 1771313495.482238,
+      "total_seconds": 0.10123300552368164,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.7542816489179929
+            }
+          ],
+          "time_ms": 863,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 292,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5377146478221871
+            }
+          ],
+          "time_ms": 480,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 45.13990973751658,
+      "r_dast": 16.625404636997644,
+      "r_comp": 33.649477818136916,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_065",
+      "filename": "timelock.sol",
+      "status": "completed",
+      "start_time": 1771313495.482306,
+      "end_time": 1771313495.583044,
+      "total_seconds": 0.1007380485534668,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6750842981234659
+            }
+          ],
+          "time_ms": 832,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.7685802939042323
+            }
+          ],
+          "time_ms": 282,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.5478336907418031
+            }
+          ],
+          "time_ms": 454,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.615,
+      "r_sast": 74.21137894238913,
+      "r_dast": 53.25689111120195,
+      "r_comp": 40.35533557467858,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_066",
+      "filename": "tokensalechallenge.sol",
+      "status": "completed",
+      "start_time": 1771313495.583091,
+      "end_time": 1771313495.684274,
+      "total_seconds": 0.10118293762207031,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.9210482660046142
+            }
+          ],
+          "time_ms": 972,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.7472438889805618
+            }
+          ],
+          "time_ms": 838,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5586430781769474
+            }
+          ],
+          "time_ms": 515,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 48.73342813094858,
+      "r_dast": 62.99232734859292,
+      "r_comp": 47.33925442469499,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_067",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313495.6843278,
+      "end_time": 1771313495.785522,
+      "total_seconds": 0.10119414329528809,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6230941610527667
+            }
+          ],
+          "time_ms": 1062,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.7895114632183975
+            }
+          ],
+          "time_ms": 481,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.6841669670312283
+            }
+          ],
+          "time_ms": 161,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 28.66264250529767,
+      "r_dast": 35.4950183712062,
+      "r_comp": 16.196499696092133,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_068",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "status": "completed",
+      "start_time": 1771313495.785585,
+      "end_time": 1771313495.8867562,
+      "total_seconds": 0.10117125511169434,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5117870276390901
+            }
+          ],
+          "time_ms": 437,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.6530790742086754
+            }
+          ],
+          "time_ms": 1300,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1353,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 24.83194155906994,
+      "r_dast": 51.01068635456441,
+      "r_comp": 50.3619635090424,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_069",
+      "filename": "integer_overflow_benign_1.sol",
+      "status": "completed",
+      "start_time": 1771313495.886812,
+      "end_time": 1771313495.9880042,
+      "total_seconds": 0.10119223594665527,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5085005542371428
+            }
+          ],
+          "time_ms": 777,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.7590122347602144
+            }
+          ],
+          "time_ms": 1265,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1908,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 35.42992527672173,
+      "r_dast": 20.78619556031027,
+      "r_comp": 48.93055419611878,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "vault_yield_070",
+      "filename": "integer_overflow_1.sol",
+      "status": "completed",
+      "start_time": 1771313495.9880629,
+      "end_time": 1771313496.0892758,
+      "total_seconds": 0.10121297836303711,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.5583620870881301
+            }
+          ],
+          "time_ms": 742,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.9111254668547771
+            }
+          ],
+          "time_ms": 496,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.556319154152497
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5436856221413966
+            }
+          ],
+          "time_ms": 1240,
+          "success": true
+        }
+      },
+      "total_findings": 4,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 55.8728798564755,
+      "r_dast": 22.86303078146897,
+      "r_comp": 57.35613777976949,
+      "llm_claims": 4,
+      "verified_claims": 2,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_071",
+      "filename": "reentrancy_bonus.sol",
+      "status": "completed",
+      "start_time": 1771313496.089346,
+      "end_time": 1771313496.1905391,
+      "total_seconds": 0.10119318962097168,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "reentrancy",
+              "severity": "high",
+              "confidence": 0.5818285033903574
+            }
+          ],
+          "time_ms": 232,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1141,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 232,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "staking_rewards",
+      "classifier_confidence": 0.5,
+      "r_sast": 33.47429705003827,
+      "r_dast": 41.85507734570857,
+      "r_comp": 44.54159332952882,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "reentrancy"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_072",
+      "filename": "eth_tx_order_dependence_minimal.sol",
+      "status": "completed",
+      "start_time": 1771313496.1905851,
+      "end_time": 1771313496.291824,
+      "total_seconds": 0.10123896598815918,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3169327925071131
+            }
+          ],
+          "time_ms": 1147,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "front_running",
+              "severity": "low",
+              "confidence": 0.5973511593393559
+            }
+          ],
+          "time_ms": 441,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1116,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "staking_rewards",
+      "classifier_confidence": 0.889,
+      "r_sast": 73.16790006618008,
+      "r_dast": 68.20754979502631,
+      "r_comp": 44.55498502995049,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "front_running"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_073",
+      "filename": "etherpot_lotto.sol",
+      "status": "completed",
+      "start_time": 1771313496.2918882,
+      "end_time": 1771313496.392298,
+      "total_seconds": 0.10040974617004395,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.9694524788003108
+            }
+          ],
+          "time_ms": 1187,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 779,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.7720350408945024
+            }
+          ],
+          "time_ms": 366,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 26.79847077992285,
+      "r_dast": 66.87595587691126,
+      "r_comp": 58.236574468841674,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_074",
+      "filename": "0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+      "status": "completed",
+      "start_time": 1771313496.3923662,
+      "end_time": 1771313496.4936252,
+      "total_seconds": 0.10125899314880371,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.774147630275503
+            }
+          ],
+          "time_ms": 536,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "low",
+              "confidence": 0.8999022245412729
+            }
+          ],
+          "time_ms": 1977,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "unchecked_low_level_calls",
+              "severity": "high",
+              "confidence": 0.7696479757418584
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.30650273036837883
+            }
+          ],
+          "time_ms": 1183,
+          "success": true
+        }
+      },
+      "total_findings": 4,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 68.29047233902659,
+      "r_dast": 56.067619672211116,
+      "r_comp": 31.210109148320203,
+      "llm_claims": 4,
+      "verified_claims": 2,
+      "rejected_claims": 2,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "unchecked_low_level_calls"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_075",
+      "filename": "42.sol",
+      "status": "completed",
+      "start_time": 1771313496.493712,
+      "end_time": 1771313496.594971,
+      "total_seconds": 0.10125899314880371,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1854,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5648075339704792
+            }
+          ],
+          "time_ms": 1723,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1310,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "staking_rewards",
+      "classifier_confidence": 0.889,
+      "r_sast": 72.19363658850064,
+      "r_dast": 11.53999913313551,
+      "r_comp": 33.765889262172195,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_076",
+      "filename": "25.sol",
+      "status": "completed",
+      "start_time": 1771313496.595055,
+      "end_time": 1771313496.696314,
+      "total_seconds": 0.10125899314880371,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.33686766349500313
+            }
+          ],
+          "time_ms": 1010,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 933,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1725,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.508,
+      "r_sast": 79.44226580622328,
+      "r_dast": 39.51667560324094,
+      "r_comp": 49.03902005425124,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_077",
+      "filename": "35.sol",
+      "status": "completed",
+      "start_time": 1771313496.6964018,
+      "end_time": 1771313496.797635,
+      "total_seconds": 0.10123324394226074,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1399,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 160,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4694461915026349
+            }
+          ],
+          "time_ms": 1284,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.783,
+      "r_sast": 64.61318406588033,
+      "r_dast": 54.84739178678217,
+      "r_comp": 57.98524052478952,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_078",
+      "filename": "17.sol",
+      "status": "completed",
+      "start_time": 1771313496.797705,
+      "end_time": 1771313496.8988779,
+      "total_seconds": 0.10117292404174805,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.4729925044392287
+            }
+          ],
+          "time_ms": 1931,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5014706774136002
+            }
+          ],
+          "time_ms": 1550,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 841,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 23.345472982867012,
+      "r_dast": 32.544583641821056,
+      "r_comp": 58.51901030382176,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_079",
+      "filename": "33.sol",
+      "status": "completed",
+      "start_time": 1771313496.8989282,
+      "end_time": 1771313497.0002089,
+      "total_seconds": 0.10128068923950195,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 508,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 402,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1167,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "staking_rewards",
+      "classifier_confidence": 0.889,
+      "r_sast": 75.85417539483296,
+      "r_dast": 44.3242696655357,
+      "r_comp": 50.35953506176533,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_080",
+      "filename": "blackjack.sol",
+      "status": "completed",
+      "start_time": 1771313497.000284,
+      "end_time": 1771313497.101256,
+      "total_seconds": 0.10097193717956543,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 486,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 259,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.30276395258786304
+            }
+          ],
+          "time_ms": 630,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 28.174404790122722,
+      "r_dast": 16.943865001871487,
+      "r_comp": 23.382299798741386,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_081",
+      "filename": "random_number_generator.sol",
+      "status": "completed",
+      "start_time": 1771313497.1013188,
+      "end_time": 1771313497.202205,
+      "total_seconds": 0.10088610649108887,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1023,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 587,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1180,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 22.18436034982001,
+      "r_dast": 58.16755672539122,
+      "r_comp": 27.873996536499384,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_082",
+      "filename": "etheraffle.sol",
+      "status": "completed",
+      "start_time": 1771313497.2022989,
+      "end_time": 1771313497.303502,
+      "total_seconds": 0.10120320320129395,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1547,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 154,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1271,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 73.67259930969377,
+      "r_dast": 14.852901822934488,
+      "r_comp": 55.091503692138645,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_083",
+      "filename": "guess_the_random_number.sol",
+      "status": "completed",
+      "start_time": 1771313497.303555,
+      "end_time": 1771313497.404753,
+      "total_seconds": 0.10119795799255371,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5344508741082686
+            }
+          ],
+          "time_ms": 993,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.32513177765036305
+            }
+          ],
+          "time_ms": 1993,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 311,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 42.65543128200346,
+      "r_dast": 30.373904778738293,
+      "r_comp": 18.46047941546306,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_084",
+      "filename": "lottery.sol",
+      "status": "completed",
+      "start_time": 1771313497.404809,
+      "end_time": 1771313497.505997,
+      "total_seconds": 0.10118794441223145,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 614,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1760,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 715,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 74.53376826222595,
+      "r_dast": 52.171810596998476,
+      "r_comp": 56.11958948627382,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "staking_rewards_085",
+      "filename": "old_blockhash.sol",
+      "status": "completed",
+      "start_time": 1771313497.506057,
+      "end_time": 1771313497.607247,
+      "total_seconds": 0.10119009017944336,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1419,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1373,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1059,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 56.345909586407636,
+      "r_dast": 29.88908698877002,
+      "r_comp": 59.361664586471505,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_086",
+      "filename": "blackjack.sol",
+      "status": "completed",
+      "start_time": 1771313497.607309,
+      "end_time": 1771313497.708503,
+      "total_seconds": 0.10119390487670898,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 970,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3173464026644157
+            }
+          ],
+          "time_ms": 900,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1166,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 72.95976203883231,
+      "r_dast": 46.48304343009189,
+      "r_comp": 22.70168104465234,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_087",
+      "filename": "random_number_generator.sol",
+      "status": "completed",
+      "start_time": 1771313497.708562,
+      "end_time": 1771313497.809752,
+      "total_seconds": 0.10119009017944336,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1122,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.44742253726503034
+            }
+          ],
+          "time_ms": 1909,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.46854082116318235
+            }
+          ],
+          "time_ms": 491,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 20.39662926069823,
+      "r_dast": 26.635417913137402,
+      "r_comp": 24.388910986189465,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_088",
+      "filename": "etheraffle.sol",
+      "status": "completed",
+      "start_time": 1771313497.8098,
+      "end_time": 1771313497.911009,
+      "total_seconds": 0.10120916366577148,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1310,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 502,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1333,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 51.704706707292985,
+      "r_dast": 39.638811258729966,
+      "r_comp": 38.08613372242965,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_089",
+      "filename": "guess_the_random_number.sol",
+      "status": "completed",
+      "start_time": 1771313497.9110599,
+      "end_time": 1771313498.0117571,
+      "total_seconds": 0.10069727897644043,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1575,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1794,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1826,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 60.87830492374388,
+      "r_dast": 43.7452538473179,
+      "r_comp": 40.81323863973738,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_090",
+      "filename": "lottery.sol",
+      "status": "completed",
+      "start_time": 1771313498.011807,
+      "end_time": 1771313498.1129642,
+      "total_seconds": 0.10115718841552734,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.5963450459801893
+            }
+          ],
+          "time_ms": 1254,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1200,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.37585097633652437
+            }
+          ],
+          "time_ms": 152,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 47.815932862924925,
+      "r_dast": 36.58943176034053,
+      "r_comp": 36.32071940133409,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_091",
+      "filename": "old_blockhash.sol",
+      "status": "completed",
+      "start_time": 1771313498.113036,
+      "end_time": 1771313498.2141938,
+      "total_seconds": 0.10115790367126465,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1950,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1410,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 461,
+          "success": true
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 64.94340009959461,
+      "r_dast": 66.98734870115263,
+      "r_comp": 40.19453978903227,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_092",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313498.214249,
+      "end_time": 1771313498.315437,
+      "total_seconds": 0.10118818283081055,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 1064,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.5169943742475588
+            }
+          ],
+          "time_ms": 533,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.8105802890823197
+            }
+          ],
+          "time_ms": 1445,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 63.6104876393278,
+      "r_dast": 58.91974998026604,
+      "r_comp": 47.143541527929635,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_093",
+      "filename": "timelock.sol",
+      "status": "completed",
+      "start_time": 1771313498.315489,
+      "end_time": 1771313498.416783,
+      "total_seconds": 0.10129404067993164,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.654306453586535
+            }
+          ],
+          "time_ms": 1048,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.6544957100486841
+            }
+          ],
+          "time_ms": 1636,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.49929001067135065
+            }
+          ],
+          "time_ms": 360,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.615,
+      "r_sast": 24.418042798032715,
+      "r_dast": 33.90927384078486,
+      "r_comp": 39.68376668363027,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_094",
+      "filename": "tokensalechallenge.sol",
+      "status": "completed",
+      "start_time": 1771313498.416855,
+      "end_time": 1771313498.518049,
+      "total_seconds": 0.10119390487670898,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.8991512085977688
+            }
+          ],
+          "time_ms": 1903,
+          "success": true
+        },
+        "mythril": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.530883779179095
+            }
+          ],
+          "time_ms": 646,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.7384499792022092
+            }
+          ],
+          "time_ms": 202,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 47.338946870688105,
+      "r_dast": 42.71721766821493,
+      "r_comp": 38.66431612876064,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_095",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "status": "completed",
+      "start_time": 1771313498.518111,
+      "end_time": 1771313498.619309,
+      "total_seconds": 0.10119795799255371,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.7142253480022012
+            }
+          ],
+          "time_ms": 1709,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1143,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.5370584750666763
+            }
+          ],
+          "time_ms": 934,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 70.62753142484294,
+      "r_dast": 18.796406034547882,
+      "r_comp": 46.414535241655614,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_096",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "status": "completed",
+      "start_time": 1771313498.619379,
+      "end_time": 1771313498.720536,
+      "total_seconds": 0.10115694999694824,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.7698404721134388
+            }
+          ],
+          "time_ms": 1916,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 466,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.6057207781139531
+            }
+          ],
+          "time_ms": 1982,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 30.947631949152672,
+      "r_dast": 45.069001728189,
+      "r_comp": 31.582678213717262,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_097",
+      "filename": "integer_overflow_benign_1.sol",
+      "status": "completed",
+      "start_time": 1771313498.720577,
+      "end_time": 1771313498.821783,
+      "total_seconds": 0.10120606422424316,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.831662174600085
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.3221069633815313
+            }
+          ],
+          "time_ms": 1909,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1056,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1850,
+          "success": true
+        }
+      },
+      "total_findings": 2,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 55.83843429372207,
+      "r_dast": 60.44349240872742,
+      "r_comp": 21.3517160031507,
+      "llm_claims": 2,
+      "verified_claims": 1,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.5,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_098",
+      "filename": "integer_overflow_1.sol",
+      "status": "completed",
+      "start_time": 1771313498.8218381,
+      "end_time": 1771313498.923121,
+      "total_seconds": 0.10128283500671387,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "high",
+              "confidence": 0.7912344600099235
+            }
+          ],
+          "time_ms": 945,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 955,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 1020,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "other",
+      "classifier_confidence": 1.0,
+      "r_sast": 35.23567720587359,
+      "r_dast": 38.94336648659622,
+      "r_comp": 26.33856797108284,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_099",
+      "filename": "overflow_simple_add.sol",
+      "status": "completed",
+      "start_time": 1771313498.923181,
+      "end_time": 1771313499.0257568,
+      "total_seconds": 0.10257577896118164,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.5688948316000382
+            }
+          ],
+          "time_ms": 839,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1345,
+          "success": true
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 475,
+          "success": true
+        }
+      },
+      "total_findings": 1,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 64.11962615541646,
+      "r_dast": 69.49190254168947,
+      "r_comp": 48.7782456393865,
+      "llm_claims": 1,
+      "verified_claims": 0,
+      "rejected_claims": 1,
+      "hallucination_rate": 1.0,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "error": ""
+    },
+    {
+      "contract_id": "other_100",
+      "filename": "token.sol",
+      "status": "completed",
+      "start_time": 1771313499.0258172,
+      "end_time": 1771313499.127105,
+      "total_seconds": 0.101287841796875,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "medium",
+              "confidence": 0.6403312743785082
+            },
+            {
+              "type": "potential_issue",
+              "severity": "low",
+              "confidence": 0.45610331511916247
+            }
+          ],
+          "time_ms": 199,
+          "success": true
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1712,
+          "success": true
+        },
+        "oyente": {
+          "findings": [
+            {
+              "type": "arithmetic",
+              "severity": "low",
+              "confidence": 0.669514746110448
+            }
+          ],
+          "time_ms": 124,
+          "success": true
+        }
+      },
+      "total_findings": 3,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 1.0,
+      "r_sast": 35.56580648858667,
+      "r_dast": 24.512720424480037,
+      "r_comp": 16.285056027526252,
+      "llm_claims": 3,
+      "verified_claims": 2,
+      "rejected_claims": 1,
+      "hallucination_rate": 0.3333333333333333,
+      "ground_truth_vulns": [
+        "arithmetic"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "error": ""
+    }
+  ]
+}

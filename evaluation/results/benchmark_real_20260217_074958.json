@@ -1,0 +1,568 @@
+{
+  "run_id": "20260217_074958",
+  "timestamp": "2026-02-17T07:50:42.327703",
+  "mode": "real",
+  "metrics": {
+    "total_contracts": 3,
+    "successful": 3,
+    "failed": 0,
+    "total_time_seconds": 32.5132839679718,
+    "avg_time_per_contract": 10.837761322657267,
+    "tool_metrics": {
+      "slither": {
+        "total_findings": 38,
+        "avg_time_ms": 914.4655068715414,
+        "success_rate": 1.0,
+        "error_count": 0
+      },
+      "mythril": {
+        "total_findings": 0,
+        "avg_time_ms": 2252.3930072784424,
+        "success_rate": 1.0,
+        "error_count": 0
+      },
+      "oyente": {
+        "total_findings": 0,
+        "avg_time_ms": 601.7386118570963,
+        "success_rate": 1.0,
+        "error_count": 0
+      }
+    },
+    "total_findings": 38,
+    "total_cross_validated": 0,
+    "total_llm_claims": 7,
+    "total_verified": 7,
+    "total_rejected": 0,
+    "overall_hallucination_rate": 0.0,
+    "true_positives": 0,
+    "false_positives": 0,
+    "false_negatives": 1,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0
+  },
+  "results": [
+    {
+      "contract_id": "amm_dex_001",
+      "filename": "smart_billions.sol",
+      "status": "completed",
+      "start_time": 1771314598.459914,
+      "end_time": 1771314613.062753,
+      "total_seconds": 14.60283899307251,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "controlled-array-length",
+              "severity": "High",
+              "confidence": 0.7,
+              "title": "controlled-array-length",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) contract sets array length with a user-controlled value:\n\t- dividends.push(0) (evaluation/datasets/selected/amm_dex_",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "controlled-array-length",
+              "severity": "High",
+              "confidence": 0.7,
+              "title": "controlled-array-length",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) contract sets array length with a user-controlled value:\n\t- dividends.push(0) (evaluation/datasets/selected/amm_dex_",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "controlled-array-length",
+              "severity": "High",
+              "confidence": 0.7,
+              "title": "controlled-array-length",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) contract sets array length with a user-controlled value:\n\t- dividends.push(0) (evaluation/datasets/selected/amm_dex_",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "divide-before-multiply",
+              "severity": "Medium",
+              "confidence": 0.7,
+              "title": "divide-before-multiply",
+              "description": "SmartBillions.commitDividend(address) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#459-478) performs a multiplication on the result of a division:\n\t- share = balances[_who] * 0xfffffff",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:15843",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "divide-before-multiply",
+              "severity": "Medium",
+              "confidence": 0.7,
+              "title": "divide-before-multiply",
+              "description": "SmartBillions.invest(address) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#399-431) performs a multiplication on the result of a division:\n\t- walletBalance += (investing * 5 / 100) * 2",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:13022",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "erc20-interface",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "erc20-interface",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) has incorrect ERC20 function interface:ERC20Basic.transfer(address,uint256) (evaluation/datasets/selected/amm_dex_00",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "erc20-interface",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "erc20-interface",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) has incorrect ERC20 function interface:BasicToken.transfer(address,uint256) (evaluation/datasets/selected/amm_dex_00",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "erc20-interface",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "erc20-interface",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) has incorrect ERC20 function interface:StandardToken.approve(address,uint256) (evaluation/datasets/selected/amm_dex_",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "erc20-interface",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "erc20-interface",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) has incorrect ERC20 function interface:ERC20.approve(address,uint256) (evaluation/datasets/selected/amm_dex_001_smar",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "erc20-interface",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "erc20-interface",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) has incorrect ERC20 function interface:StandardToken.transferFrom(address,address,uint256) (evaluation/datasets/sele",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "erc20-interface",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "erc20-interface",
+              "description": "SmartBillions (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#118-771) has incorrect ERC20 function interface:ERC20.transferFrom(address,address,uint256) (evaluation/datasets/selected/amm",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.betOf(address) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#513-535) uses a dangerous strict equality:\n\t- hash == 0x1000000 (evaluation/datasets/selected/amm_dex_001_smar",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:17585",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.won() (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#540-591) uses a dangerous strict equality:\n\t- hash == 0x1000000 (evaluation/datasets/selected/amm_dex_001_smart_billion",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:18465",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.won() (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#540-591) uses a dangerous strict equality:\n\t- (player.value == 0) || (player.blockNum == 1) (evaluation/datasets/select",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:18465",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.addHashes(uint256) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#672-689) uses a dangerous strict equality:\n\t- require(bool)(hashFirst == 0 && _sadd > 0 && _sadd <= hashes",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:23236",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.betPrize(SmartBillions.Bet,uint24) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#482-508) uses a dangerous strict equality:\n\t- (hit & 0xF00000) == 0 (evaluation/datasets/s",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:16607",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.won() (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#540-591) uses a dangerous strict equality:\n\t- player.blockNum == 0 (evaluation/datasets/selected/amm_dex_001_smart_bill",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:18465",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.putHash() (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#735-756) uses a dangerous strict equality:\n\t- lastb == 0 || block.number <= lastb + 10 (evaluation/datasets/selecte",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:25767",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-equality",
+              "severity": "Medium",
+              "confidence": 0.9,
+              "title": "incorrect-equality",
+              "description": "SmartBillions.betOf(address) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#513-535) uses a dangerous strict equality:\n\t- (player.value == 0) || (player.blockNum <= 1) || (block.number <",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:17585",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "shadowing-local",
+              "severity": "Low",
+              "confidence": 0.9,
+              "title": "shadowing-local",
+              "description": "ERC20.allowance(address,address).owner (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#32) shadows:\n\t- ERC20Basic.owner (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#23) (s",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:872",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "events-access",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "events-access",
+              "description": "SmartBillions.changeOwner(address) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#267-272) should emit an event for: \n\t- owner = _who (evaluation/datasets/selected/amm_dex_001_smart_bill",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:9048",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "events-access",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "events-access",
+              "description": "SmartBillions.changeAnimator(address) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#278-283) should emit an event for: \n\t- animator = _who (evaluation/datasets/selected/amm_dex_001_smar",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:9332",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "events-maths",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "events-maths",
+              "description": "SmartBillions.setBetMax(uint256) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#298-300) should emit an event for: \n\t- hashBetMax = _maxsum (evaluation/datasets/selected/amm_dex_001_smar",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:9913",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "events-maths",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "events-maths",
+              "description": "SmartBillions.setInvestStart(uint256) (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#289-292) should emit an event for: \n\t- investStart = _when (evaluation/datasets/selected/amm_dex_001_",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:9630",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "cache-array-length",
+              "severity": "Optimization",
+              "confidence": 0.9,
+              "title": "cache-array-length",
+              "description": "Loop condition n < hashes.length (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#681) should use cached array length instead of referencing `length` member of the storage array.\n ",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:23551",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "constable-states",
+              "severity": "Optimization",
+              "confidence": 0.9,
+              "title": "constable-states",
+              "description": "SmartBillions.investBalanceMax (evaluation/datasets/selected/amm_dex_001_smart_billions.sol#144) should be constant \n",
+              "location": "evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4949",
+              "swc_id": null,
+              "has_exploit_proof": false
+            }
+          ],
+          "time_ms": 1420.4778671264648,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 4250.0269412994385,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 811.9268417358398,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 26,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.413,
+      "r_sast": 100.0,
+      "r_dast": 0.0,
+      "r_comp": 99.66982523823002,
+      "llm_claims": 7,
+      "verified_claims": 7,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "Based on the tool findings provided, here is the analysis of real vulnerabilities that may exist in the token DeFi contract:\n\n### Vulnerability 1\nVULNERABILITY: controlled-array-length  \nLOCATION: evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003  \nEXPLOITABLE: no  \nLOSS_PERCENTAGE: 0  \nDESCRIPTION: The contract uses a controlled array length, which could lead to vulnerabilities if not properly validated during dynamic array operations. However, further context is required to determine exploitability.\n\n### Vulnerability 2\nVULNERABILITY: divide-before-multiply  \nLOCATION: evaluation/datasets/selected/amm_dex_001_smart_billions.sol:15843  \nEXPLOITABLE: no  \nLOSS_PERCENTAGE: 0  \nDESCRIPTION: The contract performs division before multiplication, which can lead to precision loss or undesired outcomes. However, the specific context surrounding the operations does not demonstrate immediate exploitability.\n\n### Vulnerability 3\nVULNERABILITY: divide-before-multiply  \nLOCATION: evaluation/datasets/selected/amm_dex_001_smart_billions.sol:13022  \nEXPLOITABLE: no  \nLOSS_PERCENTAGE: 0  \nDESCRIPTION: Similar to the previous finding, this division before multiplication could potentially result in integer mismatches, but it does not indicate an exploitable situation.\n\n### Vulnerability 4\nVULNERABILITY: erc20-interface  \nLOCATION: evaluation/datasets/selected/amm_dex_001_smart_billions.sol:4003  \nEXPLOITABLE: no  \nLOSS_PERCENTAGE: 0  \nDESCRIPTION: The contract has inconsistencies with the ERC20 interface implementation. These may lead to unexpected behavior or failures when interacting with other contracts that expect standard ERC20 functionality, but are not outright exploitable.\n\n### Vulnerability 5\nVULNERABILITY: incorrect-equality  \nLOCATION: evaluation/datasets/selected/amm_dex_001_smart_billions.sol:17585  \nEXPLOITABLE: no  \nLOSS_PERCENTAGE: 0  \nDESCRIPTION: The code contains incorrect equality checks which could lead to logical errors during operation. Further context is needed to determine if this can lead to an exploit.\n\n### Vulnerability 6\nVULNERABILITY: incorrect-equality  \nLOCATION: evaluation/datasets/selected/amm_dex_001_smart_billions.sol:18465  \nEXPLOITABLE: no  \nLOSS_PERCENTAGE: 0  \nDESCRIPTION: As with the previous incorrect equality finding, this could result in faulty logical branches in contract execution without clear evidence of exploitable conditions.\n\n### Vulnerability 7\nVULNERABILITY: incorrect-equality  \nLOCATION: evaluation/datasets/selected/amm_dex_001_smart_billions.sol:23236  \nEXPLOITABLE: no  \nLOSS_PERCENTAGE: 0  \nDESCRIPTION: This incorrect equality check could affect contract logic but does not indicate that an exploit exists based on current findings.\n\n### Summary\nOverall, while several findings indicated issues such as controlled array lengths, divide before multiply, and incorrect equality checks, none of the vulnerabilities demonstrated clear proof of exploitability based on the findings provided. Further analysis, including dynamic analysis and manual review, may be required to ascertain the potential risk from these vulnerabilities.",
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "business_risk_score": 41.0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_002",
+      "filename": "lucky_doubler.sol",
+      "status": "completed",
+      "start_time": 1771314617.13679,
+      "end_time": 1771314633.785949,
+      "total_seconds": 16.64915895462036,
+      "tool_results": {
+        "slither": {
+          "findings": [
+            {
+              "type": "controlled-array-length",
+              "severity": "High",
+              "confidence": 0.7,
+              "title": "controlled-array-length",
+              "description": "LuckyDoubler (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#11-191) contract sets array length with a user-controlled value:\n\t- entries.push(Entry(msg.sender,dValue,(dValue * (multiplier)",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:312",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "controlled-array-length",
+              "severity": "High",
+              "confidence": 0.7,
+              "title": "controlled-array-length",
+              "description": "LuckyDoubler (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#11-191) contract sets array length with a user-controlled value:\n\t- unpaidEntries.push(entries.length - 1) (evaluation/datasets",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:312",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "weak-prng",
+              "severity": "High",
+              "confidence": 0.7,
+              "title": "weak-prng",
+              "description": "LuckyDoubler.rand(uint256) (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#127-133) uses a weak PRNG: \"uint256((uint256(hashVal) / factor)) % max (evaluation/datasets/selected/amm_dex_002_",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3506",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "unchecked-send",
+              "severity": "Medium",
+              "confidence": 0.7,
+              "title": "unchecked-send",
+              "description": "LuckyDoubler.join() (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#67-122) ignores return value by theEntry.entryAddress.send(payout) (evaluation/datasets/selected/amm_dex_002_lucky_doubl",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1653",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "unchecked-send",
+              "severity": "Medium",
+              "confidence": 0.7,
+              "title": "unchecked-send",
+              "description": "LuckyDoubler.join() (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#67-122) ignores return value by owner.send(fees) (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#119)\n",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1653",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "unchecked-send",
+              "severity": "Medium",
+              "confidence": 0.7,
+              "title": "unchecked-send",
+              "description": "LuckyDoubler.join() (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#67-122) ignores return value by msg.sender.send(msg.value - 1000000000000000000) (evaluation/datasets/selected/amm_dex_0",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1653",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "unchecked-send",
+              "severity": "Medium",
+              "confidence": 0.7,
+              "title": "unchecked-send",
+              "description": "LuckyDoubler.init() (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#57-65) ignores return value by msg.sender.send(msg.value) (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#60",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1493",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "events-access",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "events-access",
+              "description": "LuckyDoubler.changeOwner(address) (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#137-139) should emit an event for: \n\t- owner = newOwner (evaluation/datasets/selected/amm_dex_002_lucky_do",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3837",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "events-maths",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "events-maths",
+              "description": "LuckyDoubler.changeMultiplier(uint256) (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#141-145) should emit an event for: \n\t- multiplier = multi (evaluation/datasets/selected/amm_dex_002_l",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3925",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "events-maths",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "events-maths",
+              "description": "LuckyDoubler.changeFee(uint256) (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#147-151) should emit an event for: \n\t- fee = newFee (evaluation/datasets/selected/amm_dex_002_lucky_doubler.",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:4062",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "missing-zero-check",
+              "severity": "Low",
+              "confidence": 0.7,
+              "title": "missing-zero-check",
+              "description": "LuckyDoubler.changeOwner(address).newOwner (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#137) lacks a zero-check on :\n\t\t- owner = newOwner (evaluation/datasets/selected/amm_dex_002_lucky",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3858",
+              "swc_id": null,
+              "has_exploit_proof": false
+            },
+            {
+              "type": "incorrect-modifier",
+              "severity": "Low",
+              "confidence": 0.9,
+              "title": "incorrect-modifier",
+              "description": "Modifier LuckyDoubler.onlyowner() (evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol#37) does not always execute _; or revert\n",
+              "location": "evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1157",
+              "swc_id": null,
+              "has_exploit_proof": false
+            }
+          ],
+          "time_ms": 718.1479930877686,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1252.817153930664,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 486.1900806427002,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 12,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 100.0,
+      "r_dast": 0.0,
+      "r_comp": 47.751519031227964,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "Based on the provided tool findings for the vault_yield DeFi contract, here is the analysis of the identified vulnerabilities:\n\n1. **VULNERABILITY**: controlled-array-length  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:312  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: The array's length is controlled by user input, which could lead to out-of-bounds access if not properly validated.\n\n2. **VULNERABILITY**: weak-prng  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3506  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: The contract uses a weak pseudo-random number generator, resulting in predictable outcomes. This could lead to exploitation but lacks direct proof of an exploit.\n\n3. **VULNERABILITY**: unchecked-send  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1653  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: The contract performs a `send` operation without checking the return value, which could lead to failed transactions without proper handling. \n\n4. **VULNERABILITY**: unchecked-send  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1493  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: Similar to the previous instance, this location also performs a `send` without returning value checks.\n\n5. **VULNERABILITY**: events-access  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3837  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: The contract might face issues related to how events are accessed and processed, but this does not indicate a direct vulnerability.\n\n6. **VULNERABILITY**: events-maths  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3925  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: There are potential issues with how mathematical operations are handled in events, but this does not present an exploitable risk.\n\n7. **VULNERABILITY**: events-maths  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:4062  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: Similar to the previous `events-maths` finding, without direct evidence of exploitation.\n\n8. **VULNERABILITY**: missing-zero-check  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:3858  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: The contract fails to check for zero values in certain operations, which could lead to unintended behavior, but does not indicate a direct exploit risk.\n\n9. **VULNERABILITY**: incorrect-modifier  \n   **LOCATION**: evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol:1157  \n   **EXPLOITABLE**: no  \n   **LOSS_PERCENTAGE**: 0  \n   **DESCRIPTION**: There is a misimplementation of a modifier which could lead to unauthorized access but lacks evidence of an exploit.\n\n**Summary:**  \nAll findings related to actual vulnerabilities do not present direct exploits or loss percentages, pointing towards potential weaknesses and areas for improvement, but not confirmed exploitability or financial loss risk.",
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "business_risk_score": 49.0,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_003",
+      "filename": "incorrect_constructor_name1.sol",
+      "status": "completed",
+      "start_time": 1771314637.702854,
+      "end_time": 1771314638.96414,
+      "total_seconds": 1.2612860202789307,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 604.7706604003906,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1254.3349266052246,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 507.098913192749,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 0.8,
+      "r_sast": 0.0,
+      "r_dast": 0.0,
+      "r_comp": 15.976214683446132,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "",
+      "ground_truth_vulns": [
+        "access_control"
+      ],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "business_risk_score": 16.000000000000004,
+      "error": ""
+    }
+  ]
+}

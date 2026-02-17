@@ -33,7 +33,7 @@
       },
       "source_lines": 772,
       "source_chars": 26708,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_001_smart_billions.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_001_smart_billions.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 0.413,
@@ -99,7 +99,7 @@
       },
       "source_lines": 192,
       "source_chars": 5513,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_002_lucky_doubler.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 1.0,
@@ -157,7 +157,7 @@
       },
       "source_lines": 35,
       "source_chars": 712,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_003_incorrect_constructor_name1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_003_incorrect_constructor_name1.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.8,
@@ -215,7 +215,7 @@
       },
       "source_lines": 2470,
       "source_chars": 96751,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_004_0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_004_0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 0.695,
@@ -283,7 +283,7 @@
       },
       "source_lines": 183,
       "source_chars": 6934,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_005_king_of_the_ether_throne.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_005_king_of_the_ether_throne.sol",
       "classifier_result": {
         "category": "staking_rewards",
         "confidence": 1.0,
@@ -340,7 +340,7 @@
       },
       "source_lines": 748,
       "source_chars": 32715,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_006_24.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_006_24.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -393,7 +393,7 @@
       },
       "source_lines": 317,
       "source_chars": 9921,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_007_29.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_007_29.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -450,7 +450,7 @@
       },
       "source_lines": 470,
       "source_chars": 15731,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_008_40.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_008_40.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 0.944,
@@ -516,7 +516,7 @@
       },
       "source_lines": 354,
       "source_chars": 14402,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_009_21.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_009_21.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.744,
@@ -578,7 +578,7 @@
       },
       "source_lines": 313,
       "source_chars": 9903,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_010_20.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_010_20.sol",
       "classifier_result": {
         "category": "amm_dex",
         "confidence": 0.867,
@@ -643,7 +643,7 @@
       },
       "source_lines": 309,
       "source_chars": 8537,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_011_blackjack.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_011_blackjack.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -688,7 +688,7 @@
       },
       "source_lines": 27,
       "source_chars": 899,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_012_random_number_generator.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_012_random_number_generator.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -733,7 +733,7 @@
       },
       "source_lines": 175,
       "source_chars": 5069,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_013_etheraffle.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_013_etheraffle.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -786,7 +786,7 @@
       },
       "source_lines": 30,
       "source_chars": 732,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_014_guess_the_random_number.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_014_guess_the_random_number.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -839,7 +839,7 @@
       },
       "source_lines": 69,
       "source_chars": 1782,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_015_lottery.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_015_lottery.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -884,7 +884,7 @@
       },
       "source_lines": 43,
       "source_chars": 1337,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_016_old_blockhash.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_016_old_blockhash.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -939,7 +939,7 @@
       },
       "source_lines": 28,
       "source_chars": 578,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_017_integer_overflow_multitx_multifunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_017_integer_overflow_multitx_multifunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -986,7 +986,7 @@
       },
       "source_lines": 33,
       "source_chars": 847,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_018_timelock.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_018_timelock.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.615,
@@ -1048,7 +1048,7 @@
       },
       "source_lines": 36,
       "source_chars": 1063,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_019_tokensalechallenge.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_019_tokensalechallenge.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -1103,7 +1103,7 @@
       },
       "source_lines": 25,
       "source_chars": 552,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_020_integer_overflow_multitx_onefunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_020_integer_overflow_multitx_onefunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -1150,7 +1150,7 @@
       },
       "source_lines": 19,
       "source_chars": 453,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_021_integer_overflow_mapping_sym_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_021_integer_overflow_mapping_sym_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -1197,7 +1197,7 @@
       },
       "source_lines": 20,
       "source_chars": 498,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_022_integer_overflow_benign_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_022_integer_overflow_benign_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -1244,7 +1244,7 @@
       },
       "source_lines": 25,
       "source_chars": 626,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_023_integer_overflow_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_023_integer_overflow_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -1291,7 +1291,7 @@
       },
       "source_lines": 17,
       "source_chars": 346,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_024_overflow_simple_add.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_024_overflow_simple_add.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 1.0,
@@ -1347,7 +1347,7 @@
       },
       "source_lines": 31,
       "source_chars": 736,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/amm_dex_025_token.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/amm_dex_025_token.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -1404,7 +1404,7 @@
       },
       "source_lines": 125,
       "source_chars": 4903,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_026_list_dos.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_026_list_dos.sol",
       "classifier_result": {
         "category": "lending",
         "confidence": 1.0,
@@ -1461,7 +1461,7 @@
       },
       "source_lines": 377,
       "source_chars": 12515,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_027_0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_027_0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.667,
@@ -1519,7 +1519,7 @@
       },
       "source_lines": 411,
       "source_chars": 16975,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_028_18.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_028_18.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 0.459,
@@ -1585,7 +1585,7 @@
       },
       "source_lines": 230,
       "source_chars": 8974,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_029_37.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_029_37.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 0.862,
@@ -1648,7 +1648,7 @@
       },
       "source_lines": 237,
       "source_chars": 10280,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_030_48.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_030_48.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 0.862,
@@ -1711,7 +1711,7 @@
       },
       "source_lines": 309,
       "source_chars": 8537,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_031_blackjack.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_031_blackjack.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -1756,7 +1756,7 @@
       },
       "source_lines": 27,
       "source_chars": 899,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_032_random_number_generator.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_032_random_number_generator.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -1801,7 +1801,7 @@
       },
       "source_lines": 175,
       "source_chars": 5069,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_033_etheraffle.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_033_etheraffle.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -1854,7 +1854,7 @@
       },
       "source_lines": 30,
       "source_chars": 732,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_034_guess_the_random_number.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_034_guess_the_random_number.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -1907,7 +1907,7 @@
       },
       "source_lines": 69,
       "source_chars": 1782,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_035_lottery.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_035_lottery.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -1952,7 +1952,7 @@
       },
       "source_lines": 43,
       "source_chars": 1337,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_036_old_blockhash.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_036_old_blockhash.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -2007,7 +2007,7 @@
       },
       "source_lines": 28,
       "source_chars": 578,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_037_integer_overflow_multitx_multifunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_037_integer_overflow_multitx_multifunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2054,7 +2054,7 @@
       },
       "source_lines": 33,
       "source_chars": 847,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_038_timelock.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_038_timelock.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.615,
@@ -2116,7 +2116,7 @@
       },
       "source_lines": 36,
       "source_chars": 1063,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_039_tokensalechallenge.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_039_tokensalechallenge.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -2171,7 +2171,7 @@
       },
       "source_lines": 25,
       "source_chars": 552,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_040_integer_overflow_multitx_onefunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_040_integer_overflow_multitx_onefunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2218,7 +2218,7 @@
       },
       "source_lines": 19,
       "source_chars": 453,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_041_integer_overflow_mapping_sym_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_041_integer_overflow_mapping_sym_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2265,7 +2265,7 @@
       },
       "source_lines": 20,
       "source_chars": 498,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_042_integer_overflow_benign_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_042_integer_overflow_benign_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2312,7 +2312,7 @@
       },
       "source_lines": 25,
       "source_chars": 626,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_043_integer_overflow_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_043_integer_overflow_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2359,7 +2359,7 @@
       },
       "source_lines": 17,
       "source_chars": 346,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_044_overflow_simple_add.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_044_overflow_simple_add.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 1.0,
@@ -2415,7 +2415,7 @@
       },
       "source_lines": 31,
       "source_chars": 736,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_045_token.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_045_token.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -2472,7 +2472,7 @@
       },
       "source_lines": 307,
       "source_chars": 9214,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_046_BECToken.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_046_BECToken.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -2537,7 +2537,7 @@
       },
       "source_lines": 20,
       "source_chars": 501,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_047_integer_overflow_minimal.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_047_integer_overflow_minimal.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2584,7 +2584,7 @@
       },
       "source_lines": 20,
       "source_chars": 466,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_048_integer_overflow_add.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_048_integer_overflow_add.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2631,7 +2631,7 @@
       },
       "source_lines": 52,
       "source_chars": 1415,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_049_overflow_single_tx.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_049_overflow_single_tx.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2678,7 +2678,7 @@
       },
       "source_lines": 20,
       "source_chars": 493,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/lending_050_integer_overflow_mul.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/lending_050_integer_overflow_mul.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -2725,7 +2725,7 @@
       },
       "source_lines": 77,
       "source_chars": 1404,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_051_0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_051_0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 1.0,
@@ -2781,7 +2781,7 @@
       },
       "source_lines": 77,
       "source_chars": 1405,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_052_0x8c7777c45481dba411450c228cb692ac3d550344.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_052_0x8c7777c45481dba411450c228cb692ac3d550344.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 1.0,
@@ -2837,7 +2837,7 @@
       },
       "source_lines": 94,
       "source_chars": 3058,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_053_0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_053_0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.5,
@@ -2895,7 +2895,7 @@
       },
       "source_lines": 42,
       "source_chars": 1063,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_054_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_054_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.941,
@@ -2957,7 +2957,7 @@
       },
       "source_lines": 42,
       "source_chars": 1064,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_055_0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_055_0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.941,
@@ -3019,7 +3019,7 @@
       },
       "source_lines": 148,
       "source_chars": 4135,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_056_0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_056_0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.444,
@@ -3079,7 +3079,7 @@
       },
       "source_lines": 42,
       "source_chars": 1065,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_057_0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_057_0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.941,
@@ -3139,7 +3139,7 @@
       },
       "source_lines": 309,
       "source_chars": 8537,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_058_blackjack.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_058_blackjack.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3184,7 +3184,7 @@
       },
       "source_lines": 27,
       "source_chars": 899,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_059_random_number_generator.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_059_random_number_generator.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3229,7 +3229,7 @@
       },
       "source_lines": 175,
       "source_chars": 5069,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_060_etheraffle.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_060_etheraffle.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -3282,7 +3282,7 @@
       },
       "source_lines": 30,
       "source_chars": 732,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_061_guess_the_random_number.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_061_guess_the_random_number.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -3335,7 +3335,7 @@
       },
       "source_lines": 69,
       "source_chars": 1782,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_062_lottery.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_062_lottery.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3380,7 +3380,7 @@
       },
       "source_lines": 43,
       "source_chars": 1337,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_063_old_blockhash.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_063_old_blockhash.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -3435,7 +3435,7 @@
       },
       "source_lines": 28,
       "source_chars": 578,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_064_integer_overflow_multitx_multifunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_064_integer_overflow_multitx_multifunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3482,7 +3482,7 @@
       },
       "source_lines": 33,
       "source_chars": 847,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_065_timelock.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_065_timelock.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.615,
@@ -3544,7 +3544,7 @@
       },
       "source_lines": 36,
       "source_chars": 1063,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_066_tokensalechallenge.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_066_tokensalechallenge.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -3599,7 +3599,7 @@
       },
       "source_lines": 25,
       "source_chars": 552,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_067_integer_overflow_multitx_onefunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_067_integer_overflow_multitx_onefunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3646,7 +3646,7 @@
       },
       "source_lines": 19,
       "source_chars": 453,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_068_integer_overflow_mapping_sym_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_068_integer_overflow_mapping_sym_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3693,7 +3693,7 @@
       },
       "source_lines": 20,
       "source_chars": 498,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_069_integer_overflow_benign_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_069_integer_overflow_benign_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3740,7 +3740,7 @@
       },
       "source_lines": 25,
       "source_chars": 626,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/vault_yield_070_integer_overflow_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/vault_yield_070_integer_overflow_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3787,7 +3787,7 @@
       },
       "source_lines": 32,
       "source_chars": 1035,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_071_reentrancy_bonus.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_071_reentrancy_bonus.sol",
       "classifier_result": {
         "category": "staking_rewards",
         "confidence": 0.5,
@@ -3846,7 +3846,7 @@
       },
       "source_lines": 35,
       "source_chars": 798,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_072_eth_tx_order_dependence_minimal.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_072_eth_tx_order_dependence_minimal.sol",
       "classifier_result": {
         "category": "staking_rewards",
         "confidence": 0.889,
@@ -3905,7 +3905,7 @@
       },
       "source_lines": 163,
       "source_chars": 5709,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_073_etherpot_lotto.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_073_etherpot_lotto.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3952,7 +3952,7 @@
       },
       "source_lines": 21,
       "source_chars": 490,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_074_0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_074_0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -3997,7 +3997,7 @@
       },
       "source_lines": 133,
       "source_chars": 4052,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_075_42.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_075_42.sol",
       "classifier_result": {
         "category": "staking_rewards",
         "confidence": 0.889,
@@ -4058,7 +4058,7 @@
       },
       "source_lines": 201,
       "source_chars": 8225,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_076_25.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_076_25.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.508,
@@ -4121,7 +4121,7 @@
       },
       "source_lines": 352,
       "source_chars": 14369,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_077_35.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_077_35.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.783,
@@ -4185,7 +4185,7 @@
       },
       "source_lines": 210,
       "source_chars": 6068,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_078_17.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_078_17.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -4248,7 +4248,7 @@
       },
       "source_lines": 134,
       "source_chars": 4129,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_079_33.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_079_33.sol",
       "classifier_result": {
         "category": "staking_rewards",
         "confidence": 0.889,
@@ -4309,7 +4309,7 @@
       },
       "source_lines": 309,
       "source_chars": 8537,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_080_blackjack.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_080_blackjack.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -4354,7 +4354,7 @@
       },
       "source_lines": 27,
       "source_chars": 899,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_081_random_number_generator.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_081_random_number_generator.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -4399,7 +4399,7 @@
       },
       "source_lines": 175,
       "source_chars": 5069,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_082_etheraffle.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_082_etheraffle.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -4452,7 +4452,7 @@
       },
       "source_lines": 30,
       "source_chars": 732,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_083_guess_the_random_number.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_083_guess_the_random_number.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -4505,7 +4505,7 @@
       },
       "source_lines": 69,
       "source_chars": 1782,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_084_lottery.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_084_lottery.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -4550,7 +4550,7 @@
       },
       "source_lines": 43,
       "source_chars": 1337,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/staking_rewards_085_old_blockhash.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/staking_rewards_085_old_blockhash.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -4603,7 +4603,7 @@
       },
       "source_lines": 309,
       "source_chars": 8537,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_086_blackjack.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_086_blackjack.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -4648,7 +4648,7 @@
       },
       "source_lines": 27,
       "source_chars": 899,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_087_random_number_generator.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_087_random_number_generator.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -4693,7 +4693,7 @@
       },
       "source_lines": 175,
       "source_chars": 5069,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_088_etheraffle.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_088_etheraffle.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -4746,7 +4746,7 @@
       },
       "source_lines": 30,
       "source_chars": 732,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_089_guess_the_random_number.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_089_guess_the_random_number.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -4799,7 +4799,7 @@
       },
       "source_lines": 69,
       "source_chars": 1782,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_090_lottery.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_090_lottery.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -4844,7 +4844,7 @@
       },
       "source_lines": 43,
       "source_chars": 1337,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_091_old_blockhash.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_091_old_blockhash.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -4899,7 +4899,7 @@
       },
       "source_lines": 28,
       "source_chars": 578,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_092_integer_overflow_multitx_multifunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_092_integer_overflow_multitx_multifunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -4946,7 +4946,7 @@
       },
       "source_lines": 33,
       "source_chars": 847,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_093_timelock.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_093_timelock.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 0.615,
@@ -5008,7 +5008,7 @@
       },
       "source_lines": 36,
       "source_chars": 1063,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_094_tokensalechallenge.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_094_tokensalechallenge.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,
@@ -5063,7 +5063,7 @@
       },
       "source_lines": 25,
       "source_chars": 552,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_095_integer_overflow_multitx_onefunc_feasible.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_095_integer_overflow_multitx_onefunc_feasible.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -5110,7 +5110,7 @@
       },
       "source_lines": 19,
       "source_chars": 453,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_096_integer_overflow_mapping_sym_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_096_integer_overflow_mapping_sym_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -5157,7 +5157,7 @@
       },
       "source_lines": 20,
       "source_chars": 498,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_097_integer_overflow_benign_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_097_integer_overflow_benign_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -5204,7 +5204,7 @@
       },
       "source_lines": 25,
       "source_chars": 626,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_098_integer_overflow_1.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_098_integer_overflow_1.sol",
       "classifier_result": {
         "category": "other",
         "confidence": 1.0,
@@ -5251,7 +5251,7 @@
       },
       "source_lines": 17,
       "source_chars": 346,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_099_overflow_simple_add.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_099_overflow_simple_add.sol",
       "classifier_result": {
         "category": "vault_yield",
         "confidence": 1.0,
@@ -5307,7 +5307,7 @@
       },
       "source_lines": 31,
       "source_chars": 736,
-      "selected_path": "/root/clawd/projects/AuditQuant/evaluation/datasets/selected/other_100_token.sol",
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/other_100_token.sol",
       "classifier_result": {
         "category": "token",
         "confidence": 1.0,

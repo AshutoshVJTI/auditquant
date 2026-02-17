@@ -1,0 +1,109 @@
+{
+  "run_id": "20260217_074421",
+  "timestamp": "2026-02-17T07:44:37.807921",
+  "mode": "comparative",
+  "metrics": {
+    "total_contracts": 2,
+    "hybrid_precision": 0.0,
+    "hybrid_recall": 0.0,
+    "hybrid_f1": 0.0,
+    "hybrid_fp_rate": 0.0,
+    "hybrid_avg_time": 1.9436,
+    "standalone_metrics": {
+      "slither": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fp_rate": 0.0,
+        "avg_time": 0.464
+      },
+      "mythril": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fp_rate": 0.0,
+        "avg_time": 1.1845
+      },
+      "oyente": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fp_rate": 0.0,
+        "avg_time": 0.3932
+      }
+    },
+    "chatgpt_precision": 0.0,
+    "chatgpt_recall": 0.0,
+    "chatgpt_f1": 0.0,
+    "chatgpt_fp_rate": 1.0,
+    "chatgpt_avg_time": 4.1562
+  },
+  "per_contract": [
+    {
+      "contract_id": "amm_dex_001",
+      "filename": "smart_billions.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 2.602509021759033,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.43207406997680664
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.2018852233886719
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3853309154510498
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 8,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 6.022024154663086
+    },
+    {
+      "contract_id": "amm_dex_002",
+      "filename": "lucky_doubler.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.284651756286621,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.495898962020874
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.167022943496704
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4009859561920166
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 8,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.2903671264648438
+    }
+  ]
+}

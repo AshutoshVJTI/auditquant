@@ -1,0 +1,138 @@
+{
+  "run_id": "20260217_074421",
+  "timestamp": "2026-02-17T07:44:37.806772",
+  "mode": "real",
+  "metrics": {
+    "total_contracts": 2,
+    "successful": 2,
+    "failed": 0,
+    "total_time_seconds": 3.8871607780456543,
+    "avg_time_per_contract": 1.9435803890228271,
+    "tool_metrics": {
+      "slither": {
+        "total_findings": 0,
+        "avg_time_ms": 796.6505289077759,
+        "success_rate": 1.0,
+        "error_count": 0
+      },
+      "mythril": {
+        "total_findings": 0,
+        "avg_time_ms": 1934.9019527435303,
+        "success_rate": 1.0,
+        "error_count": 0
+      },
+      "oyente": {
+        "total_findings": 0,
+        "avg_time_ms": 746.9258308410645,
+        "success_rate": 1.0,
+        "error_count": 0
+      }
+    },
+    "total_findings": 0,
+    "total_cross_validated": 0,
+    "total_llm_claims": 0,
+    "total_verified": 0,
+    "total_rejected": 0,
+    "overall_hallucination_rate": 0.0,
+    "true_positives": 0,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0
+  },
+  "results": [
+    {
+      "contract_id": "amm_dex_001",
+      "filename": "smart_billions.sol",
+      "status": "completed",
+      "start_time": 1771314261.517812,
+      "end_time": 1771314264.120321,
+      "total_seconds": 2.602509021759033,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 954.6759128570557,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 2595.5259799957275,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 926.5086650848389,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "token",
+      "classifier_confidence": 0.413,
+      "r_sast": 0.0,
+      "r_dast": 0.0,
+      "r_comp": 99.66982523823002,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "",
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "business_risk_score": 8.000000000000002,
+      "error": ""
+    },
+    {
+      "contract_id": "amm_dex_002",
+      "filename": "lucky_doubler.sol",
+      "status": "completed",
+      "start_time": 1771314272.16248,
+      "end_time": 1771314273.4471319,
+      "total_seconds": 1.284651756286621,
+      "tool_results": {
+        "slither": {
+          "findings": [],
+          "time_ms": 638.6251449584961,
+          "success": true,
+          "error": null
+        },
+        "mythril": {
+          "findings": [],
+          "time_ms": 1274.277925491333,
+          "success": true,
+          "error": null
+        },
+        "oyente": {
+          "findings": [],
+          "time_ms": 567.34299659729,
+          "success": true,
+          "error": null
+        }
+      },
+      "total_findings": 0,
+      "cross_validated": 0,
+      "defi_category": "vault_yield",
+      "classifier_confidence": 1.0,
+      "r_sast": 0.0,
+      "r_dast": 0.0,
+      "r_comp": 47.751519031227964,
+      "llm_claims": 0,
+      "verified_claims": 0,
+      "rejected_claims": 0,
+      "hallucination_rate": 0.0,
+      "llm_summary": "",
+      "ground_truth_vulns": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "business_risk_score": 16.000000000000004,
+      "error": ""
+    }
+  ]
+}

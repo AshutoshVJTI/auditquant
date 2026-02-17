@@ -1,0 +1,3343 @@
+{
+  "run_id": "20260217_075305",
+  "timestamp": "2026-02-17T08:13:27.618780",
+  "mode": "comparative",
+  "metrics": {
+    "total_contracts": 100,
+    "hybrid_precision": 0.0,
+    "hybrid_recall": 0.0,
+    "hybrid_f1": 0.0,
+    "hybrid_fp_rate": 1.0,
+    "hybrid_avg_time": 7.1969,
+    "standalone_metrics": {
+      "slither": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fp_rate": 1.0,
+        "avg_time": 0.5135
+      },
+      "mythril": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fp_rate": 0.0,
+        "avg_time": 2.7917
+      },
+      "oyente": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fp_rate": 0.0,
+        "avg_time": 0.3847
+      }
+    },
+    "chatgpt_precision": 0.0096,
+    "chatgpt_recall": 0.0545,
+    "chatgpt_f1": 0.0163,
+    "chatgpt_fp_rate": 0.9904,
+    "chatgpt_avg_time": 1.3323
+  },
+  "per_contract": [
+    {
+      "contract_id": "amm_dex_001",
+      "filename": "smart_billions.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 16.990554094314575,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.08768892288208
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 2.4361941814422607
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.40160107612609863
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 8,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.6004302501678467
+    },
+    {
+      "contract_id": "amm_dex_002",
+      "filename": "lucky_doubler.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 14.90394115447998,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.8291459083557129
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.47971510887146
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.42165398597717285
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.413841962814331
+    },
+    {
+      "contract_id": "amm_dex_003",
+      "filename": "incorrect_constructor_name1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.431258201599121,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41767215728759766
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1615302562713623
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.36502623558044434
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.4929161071777344
+    },
+    {
+      "contract_id": "amm_dex_004",
+      "filename": "0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 17,
+      "hybrid_fn": 1,
+      "hybrid_time": 15.966092109680176,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 17,
+          "fn": 1,
+          "time": 2.4823429584503174
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.3073480129241943
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3746061325073242
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 8,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 2.9995179176330566
+    },
+    {
+      "contract_id": "amm_dex_005",
+      "filename": "king_of_the_ether_throne.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 7,
+      "hybrid_fn": 1,
+      "hybrid_time": 11.876254081726074,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 7,
+          "fn": 1,
+          "time": 0.6174590587615967
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.3152329921722412
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3639380931854248
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 2,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.9343280792236328
+    },
+    {
+      "contract_id": "amm_dex_006",
+      "filename": "24.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.3626019954681396,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4190099239349365
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1184699535369873
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3709537982940674
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.2720818519592285
+    },
+    {
+      "contract_id": "amm_dex_007",
+      "filename": "29.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.3052887916564941,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4187889099121094
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1128499507904053
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3493039608001709
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.7916889190673828
+    },
+    {
+      "contract_id": "amm_dex_008",
+      "filename": "40.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.303718090057373,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4136042594909668
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1422138214111328
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3606128692626953
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.9301540851593018
+    },
+    {
+      "contract_id": "amm_dex_009",
+      "filename": "21.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 2.1851141452789307,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.41823720932006836
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1522908210754395
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.37412190437316895
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 7,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.3556997776031494
+    },
+    {
+      "contract_id": "amm_dex_010",
+      "filename": "20.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.247779130935669,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.416536808013916
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1009268760681152
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.35727477073669434
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.8447916507720947
+    },
+    {
+      "contract_id": "amm_dex_011",
+      "filename": "blackjack.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 14.450320959091187,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.7681581974029541
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.4011471271514893
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.37574005126953125
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.0461699962615967
+    },
+    {
+      "contract_id": "amm_dex_012",
+      "filename": "random_number_generator.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 2.8289108276367188,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4419548511505127
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.2432570457458496
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3684113025665283
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.5002281665802002
+    },
+    {
+      "contract_id": "amm_dex_013",
+      "filename": "etheraffle.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 3.393399715423584,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.5042612552642822
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1463868618011475
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.36957406997680664
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.8505220413208008
+    },
+    {
+      "contract_id": "amm_dex_014",
+      "filename": "guess_the_random_number.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 8.694015979766846,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.47477078437805176
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.4053490161895752
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.40262913703918457
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.905491828918457
+    },
+    {
+      "contract_id": "amm_dex_015",
+      "filename": "lottery.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 7.462926864624023,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4634382724761963
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.226942777633667
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.39064979553222656
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.2280330657958984
+    },
+    {
+      "contract_id": "amm_dex_016",
+      "filename": "old_blockhash.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.2468950748443604,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4346029758453369
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1541540622711182
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.37512922286987305
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.858924150466919
+    },
+    {
+      "contract_id": "amm_dex_017",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.257011890411377,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.42113304138183594
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1045572757720947
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.35735511779785156
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.5431368350982666
+    },
+    {
+      "contract_id": "amm_dex_018",
+      "filename": "timelock.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 3.1885969638824463,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.4359769821166992
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1404798030853271
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3684229850769043
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.2765388488769531
+    },
+    {
+      "contract_id": "amm_dex_019",
+      "filename": "tokensalechallenge.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.5120790004730225,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4419851303100586
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1982417106628418
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3724031448364258
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.8901031017303467
+    },
+    {
+      "contract_id": "amm_dex_020",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2902662754058838,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.42920708656311035
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.176724910736084
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.38256001472473145
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.5752077102661133
+    },
+    {
+      "contract_id": "amm_dex_021",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2389588356018066,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41015195846557617
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.155155897140503
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3693051338195801
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.5823419094085693
+    },
+    {
+      "contract_id": "amm_dex_022",
+      "filename": "integer_overflow_benign_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 4.015056848526001,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.4303548336029053
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1340861320495605
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.37134504318237305
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.6838870048522949
+    },
+    {
+      "contract_id": "amm_dex_023",
+      "filename": "integer_overflow_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2539877891540527,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4173009395599365
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1038260459899902
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.36035609245300293
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.5752019882202148
+    },
+    {
+      "contract_id": "amm_dex_024",
+      "filename": "overflow_simple_add.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2338991165161133,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4123392105102539
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.143315076828003
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.36342597007751465
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.5704021453857422
+    },
+    {
+      "contract_id": "amm_dex_025",
+      "filename": "token.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 4.404681921005249,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.5160410404205322
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.142730951309204
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3816370964050293
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.7040061950683594
+    },
+    {
+      "contract_id": "lending_026",
+      "filename": "list_dos.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 5,
+      "hybrid_fn": 1,
+      "hybrid_time": 85.57662200927734,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 5,
+          "fn": 1,
+          "time": 0.722743034362793
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 2.3514182567596436
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.48546504974365234
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 8,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.9256460666656494
+    },
+    {
+      "contract_id": "lending_027",
+      "filename": "0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 9,
+      "hybrid_fn": 1,
+      "hybrid_time": 10.426366806030273,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 9,
+          "fn": 1,
+          "time": 0.6859478950500488
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.5860910415649414
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.49633312225341797
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 8,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 2.4837849140167236
+    },
+    {
+      "contract_id": "lending_028",
+      "filename": "18.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.8588368892669678,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.40002894401550293
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1674678325653076
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.37039899826049805
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 5,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.490830659866333
+    },
+    {
+      "contract_id": "lending_029",
+      "filename": "37.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.3448669910430908,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.39911699295043945
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.2084019184112549
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3918898105621338
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 2,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.7545461654663086
+    },
+    {
+      "contract_id": "lending_030",
+      "filename": "48.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.4876060485839844,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3966968059539795
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1941041946411133
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.36125707626342773
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.9283251762390137
+    },
+    {
+      "contract_id": "lending_031",
+      "filename": "blackjack.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 9.098582983016968,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.6051299571990967
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1265630722045898
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3510000705718994
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 5,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.1726500988006592
+    },
+    {
+      "contract_id": "lending_032",
+      "filename": "random_number_generator.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 3.5790469646453857,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4249601364135742
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.6942100524902344
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.369340181350708
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.5921630859375
+    },
+    {
+      "contract_id": "lending_033",
+      "filename": "etheraffle.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 6.053344964981079,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.5091392993927002
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.2144801616668701
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.37041401863098145
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.4294660091400146
+    },
+    {
+      "contract_id": "lending_034",
+      "filename": "guess_the_random_number.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 10.915794849395752,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.5632801055908203
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.3424131870269775
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.36753368377685547
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.0292069911956787
+    },
+    {
+      "contract_id": "lending_035",
+      "filename": "lottery.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 8.679924964904785,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4448831081390381
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1774771213531494
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3765451908111572
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 5,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.371908187866211
+    },
+    {
+      "contract_id": "lending_036",
+      "filename": "old_blockhash.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 2.2298669815063477,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.44013524055480957
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 76.32200384140015
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4098348617553711
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.5237579345703125
+    },
+    {
+      "contract_id": "lending_037",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.265260934829712,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41599106788635254
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 2.4005579948425293
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.37840723991394043
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.8128719329833984
+    },
+    {
+      "contract_id": "lending_038",
+      "filename": "timelock.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 5.330314874649048,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.7481162548065186
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.6534290313720703
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.40415477752685547
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.5924768447875977
+    },
+    {
+      "contract_id": "lending_039",
+      "filename": "tokensalechallenge.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.3566110134124756,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.42880892753601074
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1006877422332764
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3914213180541992
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.437988042831421
+    },
+    {
+      "contract_id": "lending_040",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2420220375061035,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.43769097328186035
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.2498490810394287
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.403702974319458
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.560028076171875
+    },
+    {
+      "contract_id": "lending_041",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2303502559661865,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41701769828796387
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1739790439605713
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.37001872062683105
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.6082313060760498
+    },
+    {
+      "contract_id": "lending_042",
+      "filename": "integer_overflow_benign_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 4.34346604347229,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.427976131439209
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1447510719299316
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.38682079315185547
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.7215418815612793
+    },
+    {
+      "contract_id": "lending_043",
+      "filename": "integer_overflow_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2831430435180664,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.42194223403930664
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.3000938892364502
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.38649702072143555
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.6596660614013672
+    },
+    {
+      "contract_id": "lending_044",
+      "filename": "overflow_simple_add.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.352964162826538,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4177529811859131
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.148813009262085
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3695218563079834
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.6803858280181885
+    },
+    {
+      "contract_id": "lending_045",
+      "filename": "token.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 4.5557780265808105,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.4497342109680176
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1610350608825684
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.38787198066711426
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 2,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.715648889541626
+    },
+    {
+      "contract_id": "lending_046",
+      "filename": "BECToken.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 2,
+      "hybrid_fn": 1,
+      "hybrid_time": 4.647735834121704,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 1,
+          "time": 0.581960916519165
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1832048892974854
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3755221366882324
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 5,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.4301557540893555
+    },
+    {
+      "contract_id": "lending_047",
+      "filename": "integer_overflow_minimal.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.258281946182251,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4233698844909668
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1665630340576172
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.37502098083496094
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.7412958145141602
+    },
+    {
+      "contract_id": "lending_048",
+      "filename": "integer_overflow_add.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2612080574035645,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.427340030670166
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1287281513214111
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3868551254272461
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.8362858295440674
+    },
+    {
+      "contract_id": "lending_049",
+      "filename": "overflow_single_tx.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2844631671905518,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.42301297187805176
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1618120670318604
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4512801170349121
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.8870141506195068
+    },
+    {
+      "contract_id": "lending_050",
+      "filename": "integer_overflow_mul.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2491028308868408,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4256258010864258
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1375341415405273
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.38698387145996094
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.1660161018371582
+    },
+    {
+      "contract_id": "vault_yield_051",
+      "filename": "0xbaf51e761510c1a11bf48dd87c0307ac8a8c8a4f.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 4,
+      "hybrid_fn": 1,
+      "hybrid_time": 12.164742946624756,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 4,
+          "fn": 1,
+          "time": 0.6057689189910889
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.4146449565887451
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3982217311859131
+        }
+      },
+      "chatgpt_tp": 1,
+      "chatgpt_fp": 0,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.6758081912994385
+    },
+    {
+      "contract_id": "vault_yield_052",
+      "filename": "0x8c7777c45481dba411450c228cb692ac3d550344.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 4,
+      "hybrid_fn": 1,
+      "hybrid_time": 12.570042848587036,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 4,
+          "fn": 1,
+          "time": 0.5791599750518799
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.4324560165405273
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.39771103858947754
+        }
+      },
+      "chatgpt_tp": 1,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.500135898590088
+    },
+    {
+      "contract_id": "vault_yield_053",
+      "filename": "0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 6,
+      "hybrid_fn": 1,
+      "hybrid_time": 16.301131010055542,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 1,
+          "time": 0.5536491870880127
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.3474349975585938
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4023020267486572
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.9655108451843262
+    },
+    {
+      "contract_id": "vault_yield_054",
+      "filename": "0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 6,
+      "hybrid_fn": 1,
+      "hybrid_time": 16.333685159683228,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 1,
+          "time": 0.601067066192627
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.4380097389221191
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.39069581031799316
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 2.3031229972839355
+    },
+    {
+      "contract_id": "vault_yield_055",
+      "filename": "0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 6,
+      "hybrid_fn": 1,
+      "hybrid_time": 19.97936487197876,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 1,
+          "time": 0.5919990539550781
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.4367759227752686
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3859221935272217
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.7183191776275635
+    },
+    {
+      "contract_id": "vault_yield_056",
+      "filename": "0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 5,
+      "hybrid_fn": 1,
+      "hybrid_time": 15.09589695930481,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 5,
+          "fn": 1,
+          "time": 0.6377899646759033
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 2.4259591102600098
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.39662623405456543
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.9327750205993652
+    },
+    {
+      "contract_id": "vault_yield_057",
+      "filename": "0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 6,
+      "hybrid_fn": 1,
+      "hybrid_time": 27.132200241088867,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 1,
+          "time": 0.5689301490783691
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.545975923538208
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.38513612747192383
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 5,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.4245202541351318
+    },
+    {
+      "contract_id": "vault_yield_058",
+      "filename": "blackjack.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 13.091949224472046,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.7206239700317383
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.3181653022766113
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3795042037963867
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.1339969635009766
+    },
+    {
+      "contract_id": "vault_yield_059",
+      "filename": "random_number_generator.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 4.022043704986572,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4340221881866455
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1448850631713867
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3744688034057617
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.5409080982208252
+    },
+    {
+      "contract_id": "vault_yield_060",
+      "filename": "etheraffle.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 4.027910947799683,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.5098998546600342
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1955342292785645
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.42949581146240234
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 8,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 6.850856065750122
+    },
+    {
+      "contract_id": "vault_yield_061",
+      "filename": "guess_the_random_number.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 16.550801038742065,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.5461418628692627
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.605194091796875
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.41634297370910645
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.0851540565490723
+    },
+    {
+      "contract_id": "vault_yield_062",
+      "filename": "lottery.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 11.452464818954468,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.44721412658691406
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.4473280906677246
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3556537628173828
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 7,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.134235143661499
+    },
+    {
+      "contract_id": "vault_yield_063",
+      "filename": "old_blockhash.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.2467799186706543,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4311971664428711
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1616370677947998
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.355654239654541
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 3.0089619159698486
+    },
+    {
+      "contract_id": "vault_yield_064",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2523999214172363,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4207448959350586
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 76.32934188842773
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41907191276550293
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.7417793273925781
+    },
+    {
+      "contract_id": "vault_yield_065",
+      "filename": "timelock.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 4.421278953552246,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.44030284881591797
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.229179859161377
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.36840176582336426
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 2.343116044998169
+    },
+    {
+      "contract_id": "vault_yield_066",
+      "filename": "tokensalechallenge.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2876946926116943,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41768908500671387
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1135179996490479
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3661210536956787
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.2036688327789307
+    },
+    {
+      "contract_id": "vault_yield_067",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.231597661972046,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.42250895500183105
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.2369639873504639
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3869297504425049
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.868407964706421
+    },
+    {
+      "contract_id": "vault_yield_068",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2914159297943115,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4484899044036865
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1778719425201416
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.35555291175842285
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.7234508991241455
+    },
+    {
+      "contract_id": "vault_yield_069",
+      "filename": "integer_overflow_benign_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 6.14142918586731,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.42841482162475586
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1211490631103516
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3800339698791504
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.7699220180511475
+    },
+    {
+      "contract_id": "vault_yield_070",
+      "filename": "integer_overflow_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.231679916381836,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.42377686500549316
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1200311183929443
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.36395692825317383
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.6216278076171875
+    },
+    {
+      "contract_id": "staking_rewards_071",
+      "filename": "reentrancy_bonus.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2449519634246826,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41948890686035156
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1449320316314697
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.37090373039245605
+        }
+      },
+      "chatgpt_tp": 1,
+      "chatgpt_fp": 0,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.9462740421295166
+    },
+    {
+      "contract_id": "staking_rewards_072",
+      "filename": "eth_tx_order_dependence_minimal.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 4.330597162246704,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.43277883529663086
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.3542687892913818
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3944568634033203
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 2,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.884547233581543
+    },
+    {
+      "contract_id": "staking_rewards_073",
+      "filename": "etherpot_lotto.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 2,
+      "hybrid_fn": 1,
+      "hybrid_time": 11.740516662597656,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 1,
+          "time": 0.6145761013031006
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.3565611839294434
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3706381320953369
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 7,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.8945960998535156
+    },
+    {
+      "contract_id": "staking_rewards_074",
+      "filename": "0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 3,
+      "hybrid_fn": 1,
+      "hybrid_time": 12.900323867797852,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 1,
+          "time": 0.5661411285400391
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.410262107849121
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3895900249481201
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.7267558574676514
+    },
+    {
+      "contract_id": "staking_rewards_075",
+      "filename": "42.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.3312063217163086,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4400649070739746
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.149522066116333
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3723580837249756
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.7632920742034912
+    },
+    {
+      "contract_id": "staking_rewards_076",
+      "filename": "25.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.2909910678863525,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4761829376220703
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1498889923095703
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3680579662322998
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 7,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.942972183227539
+    },
+    {
+      "contract_id": "staking_rewards_077",
+      "filename": "35.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.243943214416504,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.41340184211730957
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.135836124420166
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.38285207748413086
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.261754274368286
+    },
+    {
+      "contract_id": "staking_rewards_078",
+      "filename": "17.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.347174882888794,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4149191379547119
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.3168401718139648
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3644990921020508
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 7,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.3360888957977295
+    },
+    {
+      "contract_id": "staking_rewards_079",
+      "filename": "33.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 1.3370187282562256,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4226350784301758
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1377639770507812
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3852877616882324
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 5,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.0982608795166016
+    },
+    {
+      "contract_id": "staking_rewards_080",
+      "filename": "blackjack.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 15.10043478012085,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.7418217658996582
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.4446828365325928
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.39975500106811523
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.352687120437622
+    },
+    {
+      "contract_id": "staking_rewards_081",
+      "filename": "random_number_generator.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 4.268066167831421,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.43590283393859863
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1521899700164795
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.39425086975097656
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.542172908782959
+    },
+    {
+      "contract_id": "staking_rewards_082",
+      "filename": "etheraffle.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 4.300650596618652,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.5022728443145752
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1190290451049805
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.38437509536743164
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.002987861633301
+    },
+    {
+      "contract_id": "staking_rewards_083",
+      "filename": "guess_the_random_number.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 11.203627109527588,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4810497760772705
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.2562448978424072
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3768270015716553
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.5513651371002197
+    },
+    {
+      "contract_id": "staking_rewards_084",
+      "filename": "lottery.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 7.676302909851074,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.44957470893859863
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.253066062927246
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.46446681022644043
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 2.279970169067383
+    },
+    {
+      "contract_id": "staking_rewards_085",
+      "filename": "old_blockhash.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 3.180377244949341,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.486605167388916
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.4060039520263672
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4071831703186035
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.6201999187469482
+    },
+    {
+      "contract_id": "other_086",
+      "filename": "blackjack.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 18.41621208190918,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.7733449935913086
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.5493111610412598
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.3960268497467041
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 4,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 1.0578827857971191
+    },
+    {
+      "contract_id": "other_087",
+      "filename": "random_number_generator.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 4.688549995422363,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4266228675842285
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.2598488330841064
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.39185214042663574
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.7872672080993652
+    },
+    {
+      "contract_id": "other_088",
+      "filename": "etheraffle.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 4.8793089389801025,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.49926304817199707
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.6143133640289307
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.43687915802001953
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 7,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 3.6054601669311523
+    },
+    {
+      "contract_id": "other_089",
+      "filename": "guess_the_random_number.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 12.681277990341187,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4601891040802002
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1746699810028076
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4093751907348633
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.972357988357544
+    },
+    {
+      "contract_id": "other_090",
+      "filename": "lottery.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 7.157837152481079,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4822499752044678
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1874549388885498
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.39269423484802246
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 6,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 3.228464126586914
+    },
+    {
+      "contract_id": "other_091",
+      "filename": "old_blockhash.sol",
+      "ground_truth_count": 0,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 0,
+      "hybrid_time": 2.2183310985565186,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.4528660774230957
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 1.1591322422027588
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "time": 0.38126707077026367
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 0,
+      "chatgpt_time": 0.7030270099639893
+    },
+    {
+      "contract_id": "other_092",
+      "filename": "integer_overflow_multitx_multifunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.3317482471466064,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4202549457550049
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1725130081176758
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.37285304069519043
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.2265419960021973
+    },
+    {
+      "contract_id": "other_093",
+      "filename": "timelock.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 6.229836940765381,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.4741959571838379
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.2188830375671387
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3868696689605713
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 3,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.0847179889678955
+    },
+    {
+      "contract_id": "other_094",
+      "filename": "tokensalechallenge.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.3485429286956787,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4514892101287842
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1437811851501465
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.37881994247436523
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.8416728973388672
+    },
+    {
+      "contract_id": "other_095",
+      "filename": "integer_overflow_multitx_onefunc_feasible.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2492039203643799,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.4575080871582031
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1475660800933838
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3514750003814697
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.9030759334564209
+    },
+    {
+      "contract_id": "other_096",
+      "filename": "integer_overflow_mapping_sym_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.3048441410064697,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41456174850463867
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.1648750305175781
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3666067123413086
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.6918129920959473
+    },
+    {
+      "contract_id": "other_097",
+      "filename": "integer_overflow_benign_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 81.8137559890747,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.6451869010925293
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.2465548515319824
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.39524102210998535
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.7235829830169678
+    },
+    {
+      "contract_id": "other_098",
+      "filename": "integer_overflow_1.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.82216215133667,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.432506799697876
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.127856731414795
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.362886905670166
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.911625862121582
+    },
+    {
+      "contract_id": "other_099",
+      "filename": "overflow_simple_add.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 0,
+      "hybrid_fn": 1,
+      "hybrid_time": 1.2695939540863037,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.41782116889953613
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.137592077255249
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3813900947570801
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 1,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 0.5875191688537598
+    },
+    {
+      "contract_id": "other_100",
+      "filename": "token.sol",
+      "ground_truth_count": 1,
+      "hybrid_tp": 0,
+      "hybrid_fp": 1,
+      "hybrid_fn": 1,
+      "hybrid_time": 5.002688884735107,
+      "standalone": {
+        "slither": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "time": 0.45299696922302246
+        },
+        "mythril": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 1.137495994567871
+        },
+        "oyente": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "time": 0.3755309581756592
+        }
+      },
+      "chatgpt_tp": 0,
+      "chatgpt_fp": 2,
+      "chatgpt_fn": 1,
+      "chatgpt_time": 1.1736199855804443
+    }
+  ]
+}
