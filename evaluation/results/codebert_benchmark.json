@@ -1,0 +1,2564 @@
+{
+  "source_benchmark": "benchmark_real_recomputed_20260403_162129.json",
+  "checkpoint": "evaluation/llm_training/checkpoints/checkpoint_best.pt",
+  "n_total_contracts": 164,
+  "n_labeled_contracts": 99,
+  "aggregate": {
+    "tools_only": {
+      "tp": 17,
+      "fp": 408,
+      "fn": 158,
+      "precision": 0.04,
+      "recall": 0.0971,
+      "f1": 0.0567,
+      "fp_rate": 0.96
+    },
+    "codebert_only": {
+      "tp": 161,
+      "fp": 151,
+      "fn": 14,
+      "precision": 0.516,
+      "recall": 0.92,
+      "f1": 0.6612,
+      "fp_rate": 0.484
+    },
+    "combined": {
+      "tp": 17,
+      "fp": 408,
+      "fn": 158,
+      "precision": 0.04,
+      "recall": 0.0971,
+      "f1": 0.0567,
+      "fp_rate": 0.96
+    }
+  },
+  "per_contract": [
+    {
+      "contract_id": "amm_dex_003",
+      "ground_truth": [
+        "access_control"
+      ],
+      "tool_preds": [
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "access_control"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_004",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "arithmetic",
+        "assembly",
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_send",
+        "backend.app.services.data.sol_unchecked_transfer",
+        "constable_states",
+        "constant_function_asm",
+        "dead_code",
+        "denial_of_service",
+        "deprecated_standards",
+        "events_access",
+        "external_function",
+        "front_running",
+        "naming_convention",
+        "pess_magic_number",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "pess_readonly_reentrancy",
+        "pess_token_fallback",
+        "reentrancy",
+        "reentrancy_unlimited_gas",
+        "similar_names",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "front_running"
+      ],
+      "cb_verified": [
+        "front_running"
+      ],
+      "combined_preds": [
+        "access_control",
+        "arithmetic",
+        "assembly",
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_send",
+        "backend.app.services.data.sol_unchecked_transfer",
+        "constable_states",
+        "constant_function_asm",
+        "dead_code",
+        "denial_of_service",
+        "deprecated_standards",
+        "events_access",
+        "external_function",
+        "front_running",
+        "naming_convention",
+        "pess_magic_number",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "pess_readonly_reentrancy",
+        "pess_token_fallback",
+        "reentrancy",
+        "reentrancy_unlimited_gas",
+        "similar_names",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_005",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "arithmetic",
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_send",
+        "denial_of_service",
+        "events_access",
+        "front_running",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "similar_names",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "bad_randomness",
+        "unchecked_low_level_calls"
+      ],
+      "cb_verified": [
+        "unchecked_low_level_calls"
+      ],
+      "combined_preds": [
+        "access_control",
+        "arithmetic",
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_send",
+        "denial_of_service",
+        "events_access",
+        "front_running",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "similar_names",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_017",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_018",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [
+        "front_running"
+      ],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_019",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_020",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_021",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_022",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_023",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_024",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add"
+      ]
+    },
+    {
+      "contract_id": "amm_dex_025",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [
+        "arithmetic"
+      ],
+      "combined_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_026",
+      "ground_truth": [
+        "denial_of_service"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_unchecked_send",
+        "denial_of_service",
+        "front_running",
+        "pess_magic_number",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [
+        "denial_of_service",
+        "front_running"
+      ],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_unchecked_send",
+        "denial_of_service",
+        "front_running",
+        "pess_magic_number",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "lending_027",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "arithmetic",
+        "backend.app.services.data.sol_blockhash_randomness",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_selfdestruct",
+        "backend.app.services.data.sol_unchecked_send",
+        "backend.app.services.data.sol_unchecked_transfer",
+        "events_access",
+        "events_maths",
+        "low_level_calls",
+        "naming_convention",
+        "pess_event_setter",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "pess_readonly_reentrancy",
+        "reentrancy",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "arithmetic",
+        "backend.app.services.data.sol_blockhash_randomness",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_selfdestruct",
+        "backend.app.services.data.sol_unchecked_send",
+        "backend.app.services.data.sol_unchecked_transfer",
+        "events_access",
+        "events_maths",
+        "low_level_calls",
+        "naming_convention",
+        "pess_event_setter",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "pess_readonly_reentrancy",
+        "reentrancy",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "lending_037",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_038",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [
+        "front_running"
+      ],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_039",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_040",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_041",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_042",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_043",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_044",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add"
+      ]
+    },
+    {
+      "contract_id": "lending_045",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [
+        "arithmetic"
+      ],
+      "combined_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_046",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_unchecked_transfer",
+        "constable_states",
+        "dead_code",
+        "external_function",
+        "naming_convention",
+        "pess_public_vs_external",
+        "pess_token_fallback",
+        "solc_version",
+        "too_many_digits"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_unchecked_transfer",
+        "constable_states",
+        "dead_code",
+        "external_function",
+        "naming_convention",
+        "pess_public_vs_external",
+        "pess_token_fallback",
+        "solc_version",
+        "too_many_digits"
+      ]
+    },
+    {
+      "contract_id": "lending_047",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_048",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_049",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_mul",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_mul",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "lending_050",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_mul",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_mul",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_051",
+      "ground_truth": [
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "constable_states",
+        "denial_of_service",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "reentrancy"
+      ],
+      "cb_verified": [
+        "reentrancy"
+      ],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "constable_states",
+        "denial_of_service",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_052",
+      "ground_truth": [
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "constable_states",
+        "denial_of_service",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "denial_of_service",
+        "reentrancy"
+      ],
+      "cb_verified": [
+        "denial_of_service",
+        "reentrancy"
+      ],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "constable_states",
+        "denial_of_service",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_053",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "constable_states",
+        "denial_of_service",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_local",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "unchecked_low_level_calls"
+      ],
+      "cb_verified": [
+        "unchecked_low_level_calls"
+      ],
+      "combined_preds": [
+        "access_control",
+        "constable_states",
+        "denial_of_service",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_local",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_054",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_tx_origin_auth",
+        "events_access",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_state",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "denial_of_service"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_tx_origin_auth",
+        "events_access",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_state",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_055",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_tx_origin_auth",
+        "events_access",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_state",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "denial_of_service"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_tx_origin_auth",
+        "events_access",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_state",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_056",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "deprecated_standards",
+        "external_function",
+        "front_running",
+        "low_level_calls",
+        "naming_convention",
+        "pess_event_setter",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "unchecked_low_level_calls"
+      ],
+      "cb_verified": [
+        "unchecked_low_level_calls"
+      ],
+      "combined_preds": [
+        "access_control",
+        "deprecated_standards",
+        "external_function",
+        "front_running",
+        "low_level_calls",
+        "naming_convention",
+        "pess_event_setter",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_057",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_tx_origin_auth",
+        "events_access",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_state",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "denial_of_service"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_tx_origin_auth",
+        "events_access",
+        "external_function",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "shadowing_state",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_064",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_065",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [
+        "front_running"
+      ],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_066",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_067",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_068",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_069",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "vault_yield_070",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "staking_rewards_071",
+      "ground_truth": [
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "reentrancy",
+        "solc_version",
+        "unused_state"
+      ],
+      "codebert_preds": [
+        "denial_of_service",
+        "front_running",
+        "reentrancy"
+      ],
+      "cb_verified": [
+        "reentrancy"
+      ],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "low_level_calls",
+        "naming_convention",
+        "pess_public_vs_external",
+        "reentrancy",
+        "solc_version",
+        "unused_state"
+      ]
+    },
+    {
+      "contract_id": "staking_rewards_072",
+      "ground_truth": [
+        "front_running"
+      ],
+      "tool_preds": [
+        "events_maths",
+        "pess_event_setter",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "front_running",
+        "governance"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "events_maths",
+        "pess_event_setter",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "staking_rewards_073",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_send",
+        "deprecated_standards",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "too_many_digits",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "unchecked_low_level_calls"
+      ],
+      "cb_verified": [
+        "unchecked_low_level_calls"
+      ],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_send",
+        "deprecated_standards",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "reentrancy_unlimited_gas",
+        "solc_version",
+        "too_many_digits",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "staking_rewards_074",
+      "ground_truth": [
+        "unchecked_low_level_calls"
+      ],
+      "tool_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_unchecked_lowlevel_call",
+        "constable_states",
+        "denial_of_service",
+        "deprecated_standards",
+        "low_level_calls",
+        "pess_public_vs_external",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ],
+      "codebert_preds": [
+        "unchecked_low_level_calls"
+      ],
+      "cb_verified": [
+        "unchecked_low_level_calls"
+      ],
+      "combined_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_unchecked_lowlevel_call",
+        "constable_states",
+        "denial_of_service",
+        "deprecated_standards",
+        "low_level_calls",
+        "pess_public_vs_external",
+        "solc_version",
+        "unchecked_low_level_calls"
+      ]
+    },
+    {
+      "contract_id": "other_092",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "other_093",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service",
+        "front_running"
+      ],
+      "cb_verified": [
+        "front_running"
+      ],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "front_running",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "other_094",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "other_095",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "denial_of_service"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "other_096",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "other_097",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_sub_assign",
+        "constable_states",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "other_098",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "other_099",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add"
+      ]
+    },
+    {
+      "contract_id": "other_100",
+      "ground_truth": [
+        "arithmetic"
+      ],
+      "tool_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "arithmetic",
+        "front_running"
+      ],
+      "cb_verified": [
+        "arithmetic"
+      ],
+      "combined_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_01",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "price_manipulation",
+        "reentrancy",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_02",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "price_manipulation",
+        "reentrancy",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_03",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_04",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "dead_code",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "denial_of_service",
+        "front_running",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "arithmetic",
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "dead_code",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_05",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_sub_assign"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_sub_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_06",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_07",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "price_manipulation",
+        "reentrancy",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_08",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_09",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_uniswap-v3_10",
+      "ground_truth": [
+        "flash_loan",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "similar_names",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "similar_names",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_01",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_02",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_03",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_04",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_05",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_06",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_07",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_08",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_09",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_aave-v3_10",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_compound-v2_01",
+      "ground_truth": [
+        "governance",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "front_running",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_compound-v2_02",
+      "ground_truth": [
+        "governance",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ],
+      "codebert_preds": [
+        "governance",
+        "price_manipulation",
+        "reentrancy",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_compound-v2_03",
+      "ground_truth": [
+        "governance",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "front_running",
+        "governance",
+        "price_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_vault_yield_yearn-vaults_01",
+      "ground_truth": [
+        "flash_loan",
+        "reentrancy",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "price_manipulation",
+        "reentrancy",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_01",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ],
+      "codebert_preds": [
+        "access_control",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_02",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign"
+      ],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_03",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "access_control",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_04",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "access_control",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_05",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_06",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_07",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_08",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "front_running",
+        "governance",
+        "price_manipulation",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_09",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_staking_rewards_convex-staking_10",
+      "ground_truth": [
+        "access_control",
+        "reward_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ],
+      "codebert_preds": [
+        "access_control",
+        "denial_of_service",
+        "front_running",
+        "governance",
+        "reward_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_block_timestamp",
+        "backend.app.services.data.sol_integer_mul_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_curve-stableswap_01",
+      "ground_truth": [
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_transfer"
+      ],
+      "codebert_preds": [
+        "front_running",
+        "governance",
+        "price_manipulation",
+        "reentrancy",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_transfer"
+      ]
+    },
+    {
+      "contract_id": "defi_amm_dex_curve-stableswap_02",
+      "ground_truth": [
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "tool_preds": [
+        "access_control",
+        "arbitrary_send_erc20",
+        "erc20_interface",
+        "locked_ether",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_nft_approve_warning",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "front_running",
+        "governance",
+        "price_manipulation",
+        "reentrancy"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "arbitrary_send_erc20",
+        "erc20_interface",
+        "locked_ether",
+        "naming_convention",
+        "pess_multiple_storage_read",
+        "pess_nft_approve_warning",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_01",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_02",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [],
+      "codebert_preds": [],
+      "cb_verified": [],
+      "combined_preds": []
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_03",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "access_control",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_04",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "access_control",
+        "arithmetic",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "arithmetic",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_05",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "access_control",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "access_control",
+        "naming_convention",
+        "pess_public_vs_external",
+        "solc_version"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_06",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_block"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_add",
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_integer_sub_assign",
+        "backend.app.services.data.sol_unchecked_block"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_07",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_unchecked_block"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_overflow_sub",
+        "backend.app.services.data.sol_unchecked_block"
+      ]
+    },
+    {
+      "contract_id": "defi_lending_euler-finance_08",
+      "ground_truth": [
+        "flash_loan",
+        "liquidation",
+        "share_manipulation"
+      ],
+      "tool_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ],
+      "codebert_preds": [
+        "flash_loan",
+        "front_running",
+        "governance",
+        "liquidation",
+        "price_manipulation",
+        "reward_manipulation",
+        "share_manipulation"
+      ],
+      "cb_verified": [],
+      "combined_preds": [
+        "backend.app.services.data.sol_integer_add_assign",
+        "backend.app.services.data.sol_integer_mul_assign",
+        "backend.app.services.data.sol_integer_sub_assign"
+      ]
+    }
+  ],
+  "note": "Recomputed from cached CodeBERT per-contract predictions against latest benchmark_real_recomputed results."
+}

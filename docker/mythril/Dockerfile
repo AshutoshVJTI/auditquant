@@ -1,21 +1,21 @@
-FROM python:3.10-slim
+FROM python:3.10-slim-bookworm
 
-# Install solc directly to avoid solc-select 403 errors in Docker/CI.
+# Pin z3-solver: 4.13+ often falls back to building Z3 from source, which needs GCC 13+
+# (C++20 <format>). Debian bookworm ships GCC 12 - use a release that ships manylinux wheels.
 ARG TARGETARCH
-RUN case "${TARGETARCH}" in \
-    amd64) SOLC_VERSION="0.8.20+commit.a1b79de6"; SOLC_ARCH="amd64" ;; \
-    arm64) SOLC_VERSION="0.8.31+commit.fd3a2265"; SOLC_ARCH="arm64" ;; \
-    *) echo "Unsupported arch: ${TARGETARCH}"; exit 1 ;; \
-    esac \
-    && apt-get update \
+ENV TARGETARCH=${TARGETARCH}
+COPY docker/prefetch_solc.py /tmp/prefetch_solc.py
+RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
         curl \
         git \
-    # Install Mythril and let it manage its own Python 3.10-compatible dependencies
-    && pip install --no-cache-dir "mythril==0.23.15" \
-    && curl -fSL "https://binaries.soliditylang.org/linux-${SOLC_ARCH}/solc-linux-${SOLC_ARCH}-v${SOLC_VERSION}" -o /usr/local/bin/solc \
-    && chmod +x /usr/local/bin/solc \
+    && pip install --no-cache-dir \
+        --only-binary=z3-solver \
+        "z3-solver==4.12.2.0" \
+        "mythril==0.23.15" \
+        "solc-select==1.0.4" \
+    && python3 /tmp/prefetch_solc.py && rm /tmp/prefetch_solc.py \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

@@ -1,21 +1,33 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
 .venv/
 venv/
+.pytest_cache/
+
+# Env
 .env
-backend/.analysis/
-node_modules/
-frontend/dist/
+
+# OS
 .DS_Store
 
-codet5-solidity-repair.zip
+# Frontend
+node_modules/
+frontend/dist/
 
-# Large model weights (downloaded or fine-tuned)
+# Runtime
+backend/.analysis/
+
+# Model weights (large binary files)
 *.safetensors
 *.bin
 !requirements*.txt
 
-# Cloned vulnerability database repos (re-fetchable)
-backend/remediation/training/repos/
+# Evaluation caches (regeneratable)
+evaluation/results/test_split_llm_cache.json
+evaluation/results/test_split_tool_cache.json
+evaluation/llm_training/cache/
+evaluation/llm_training/checkpoints/
+
+contracts/

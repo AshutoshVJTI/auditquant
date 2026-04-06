@@ -1,10 +1,16 @@
 import asyncio
 import json
 import logging
+import shlex
 from dataclasses import dataclass
 from pathlib import Path
 
+from app.services.slither_runner import parse_stdout_json
+from app.services.solidity_version import infer_solc_version
+
 logger = logging.getLogger(__name__)
+
+_SHELL_PREFIX = "export PATH=/usr/local/bin:$PATH; set -e; "
 
 
 SEVERITY_SCORES = {
@@ -73,34 +79,50 @@ def parse_mythril_output(payload: dict) -> list[MythrilFinding]:
     return findings
 
 
+def _container_path(compose_path: str, solidity_path: Path) -> str:
+    project_root = Path(compose_path).resolve().parent.parent
+    return "/work/" + str(solidity_path.resolve().relative_to(project_root))
+
+
 async def run_mythril(
     compose_path: str, solidity_path: Path, timeout: int = 300
 ) -> list[MythrilFinding]:
-    project_root = Path(__file__).resolve().parents[3]
-    compose_file = Path(compose_path)
-    if not compose_file.is_absolute():
-        compose_file = project_root / compose_file
+    container_sol = _container_path(compose_path, solidity_path)
+    target_solc = infer_solc_version(solidity_path)
+    compose_file = str(Path(compose_path).resolve())
 
-    relative_target = solidity_path.resolve().relative_to(project_root)
-
-    command = [
-        "docker",
-        "compose",
-        "-f",
-        str(compose_file),
-        "run",
-        "--rm",
-        "mythril",
-        "analyze",
-        f"/work/{relative_target.as_posix()}",
-        "-o",
-        "json",
-        "--execution-timeout",
-        "120",
-    ]
+    if target_solc and not target_solc.startswith("0.8."):
+        quoted_target = shlex.quote(target_solc)
+        quoted_file = shlex.quote(container_sol)
+        script = (
+            f"{_SHELL_PREFIX}"
+            f"if ! /usr/local/bin/solc-select use {quoted_target} >/dev/null; then "
+            f"  /usr/local/bin/solc-select install {quoted_target}; "
+            f"  /usr/local/bin/solc-select use {quoted_target} >/dev/null; "
+            f"fi; "
+            f"myth analyze {quoted_file} -o json --execution-timeout 120 --max-depth 22 --solv {quoted_target}"
+        )
+        command = [
+            "docker", "compose",
+            "-f", compose_file,
+            "run", "--rm", "--no-deps", "--entrypoint", "sh", "mythril",
+            "-lc", script,
+        ]
+    else:
+        command = [
+            "docker", "compose",
+            "-f", compose_file,
+            "run", "--rm", "--no-deps", "mythril",
+            "analyze",
+            container_sol,
+            "-o", "json",
+            "--execution-timeout", "120",
+            "--max-depth", "22",
+        ]
+        if target_solc:
+            command.extend(["--solv", target_solc])
     process = await asyncio.create_subprocess_exec(
         *command,
-        cwd=str(project_root),
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
     )
@@ -113,13 +135,20 @@ async def run_mythril(
     out_dec = stdout.decode().strip()
     err_dec = stderr.decode().strip()
 
-    try:
-        payload = json.loads(stdout.decode())
-    except json.JSONDecodeError:
-        payload = None
+    payload = parse_stdout_json(stdout)
 
-    # mythril can exit 1 even when it found issues (valid JSON)
-    if process.returncode != 0 and (not payload or not payload.get("success")):
+    def _mythril_ok(p: dict | None) -> bool:
+        if not p:
+            return False
+        err = p.get("error")
+        if err:
+            return False
+        if p.get("success") is False:
+            return False
+        return p.get("success") is True or isinstance(p.get("issues"), list)
+
+    # mythril exits non-zero when it finds issues, annoyingly
+    if process.returncode != 0 and not _mythril_ok(payload):
         msg = f"Mythril failed with exit code {process.returncode}: {err_dec or out_dec}"
         logger.warning("Mythril failed. stdout: %s | stderr: %s", out_dec[:2000], err_dec[:2000])
         raise RuntimeError(msg)

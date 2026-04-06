@@ -1,4 +1,4 @@
-# Converts raw Slither output to NormalizedFinding objects.
+# Slither → NormalizedFinding conversion
 
 from app.services.normalized_finding import (
     AnalysisType,
@@ -8,6 +8,7 @@ from app.services.normalized_finding import (
     ToolSource,
     normalize_vuln_type,
 )
+from app.services.confidence_loader import slither_tier
 from app.services.slither_runner import SlitherFinding
 
 
@@ -36,20 +37,13 @@ SLITHER_SWC_MAP = {
     "locked-ether": "SWC-132",
 }
 
-CONFIDENCE_MAP = {
-    "High": 0.95,
-    "Medium": 0.75,
-    "Low": 0.5,
-}
-
-
 def slither_to_normalized(findings: list[SlitherFinding]) -> list[NormalizedFinding]:
     normalized: list[NormalizedFinding] = []
-    
+
     for idx, finding in enumerate(findings, start=1):
-        location = _parse_slither_location(finding.location)
+        location = _parse_slither_location(finding)
         severity = SLITHER_SEVERITY_MAP.get(finding.impact, Severity.MEDIUM)
-        confidence = CONFIDENCE_MAP.get(finding.confidence, 0.5)
+        confidence = slither_tier(finding.confidence)
         
         normalized.append(
             NormalizedFinding(
@@ -60,7 +54,7 @@ def slither_to_normalized(findings: list[SlitherFinding]) -> list[NormalizedFind
                 title=finding.title,
                 description=finding.description,
                 severity=severity,
-                severity_score=0.0,  # Will be auto-calculated
+                severity_score=0.0,  # gets set in __post_init__
                 confidence=confidence,
                 location=location,
                 swc_id=SLITHER_SWC_MAP.get(finding.title.lower()),
@@ -73,18 +67,33 @@ def slither_to_normalized(findings: list[SlitherFinding]) -> list[NormalizedFind
     return normalized
 
 
-def _parse_slither_location(location_str: str | None) -> Location | None:
+def _parse_slither_location(finding: SlitherFinding) -> Location | None:
+    # source_mapping.start is a byte offset; use source_mapping.lines for real line numbers
+    raw = finding.raw
+    if isinstance(raw, dict):
+        elements = raw.get("elements") or []
+        if elements:
+            source = elements[0].get("source_mapping") or {}
+            lines = source.get("lines")
+            fn = source.get("filename_relative") or source.get("filename")
+            if isinstance(lines, list) and lines:
+                numeric = [x for x in lines if isinstance(x, int)]
+                if numeric:
+                    loc = Location(filename=fn if fn else None, line_start=min(numeric))
+                    return loc
+    location_str = finding.location
     if not location_str:
         return None
-    
     location = Location()
     parts = location_str.split(":")
     if len(parts) >= 1:
         location.filename = parts[0]
     if len(parts) >= 2:
         try:
-            location.line_start = int(parts[1])
+            offset = int(parts[1])
+            # Heuristic: Slither start offsets are usually large; line numbers stay small.
+            if offset < 5000:
+                location.line_start = offset
         except ValueError:
             pass
-    
-    return location
+    return location if location.filename or location.line_start is not None else None

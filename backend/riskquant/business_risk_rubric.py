@@ -1,34 +1,62 @@
-# 4-part business risk rubric (Exploitability, Financial Impact, Exposure,
-# Evidence Strength).  Each dimension is 0-5, aggregated to 0-100.
-
-from __future__ import annotations
-
+# Business risk rubric - 4 dimensions scored 0-5, weighted per DeFi category.
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any
+# weights tuned based on DeFi incident analysis - financial_impact is highest for most categories
+# since most real exploits target protocol funds directly
+ARCHETYPE_WEIGHTS: dict[str, dict[str, float]] = {
+    "amm_dex": {
+        "exploitability": 0.25,
+        "financial_impact": 0.40,
+        "exposure": 0.20,
+        "evidence_strength": 0.15,
+    },
+    "lending": {
+        "exploitability": 0.30,
+        "financial_impact": 0.40,
+        "exposure": 0.15,
+        "evidence_strength": 0.15,
+    },
+    "vault_yield": {
+        "exploitability": 0.30,
+        "financial_impact": 0.35,
+        "exposure": 0.20,
+        "evidence_strength": 0.15,
+    },
+    "staking_rewards": {
+        "exploitability": 0.30,
+        "financial_impact": 0.25,
+        "exposure": 0.30,
+        "evidence_strength": 0.15,
+    },
+    "other": {
+        "exploitability": 0.30,
+        "financial_impact": 0.35,
+        "exposure": 0.20,
+        "evidence_strength": 0.15,
+    },
+}
 
-
+DEFAULT_WEIGHTS: dict[str, float] = ARCHETYPE_WEIGHTS["other"]
 @dataclass
 class RubricScores:
     exploitability: float = 0.0
     financial_impact: float = 0.0
     exposure: float = 0.0
     evidence_strength: float = 0.0
+    defi_category: str = "other"
+
+    def _weights(self) -> dict[str, float]:
+        return ARCHETYPE_WEIGHTS.get(self.defi_category.lower(), DEFAULT_WEIGHTS)
 
     @property
     def business_risk_score(self) -> float:
-        """Weighted aggregation to 0-100."""
-        weights = {
-            "exploitability": 0.30,
-            "financial_impact": 0.35,
-            "exposure": 0.20,
-            "evidence_strength": 0.15,
-        }
+        w = self._weights()
         raw = (
-            (self.exploitability / 5.0) * weights["exploitability"]
-            + (self.financial_impact / 5.0) * weights["financial_impact"]
-            + (self.exposure / 5.0) * weights["exposure"]
-            + (self.evidence_strength / 5.0) * weights["evidence_strength"]
+            (self.exploitability / 5.0) * w["exploitability"]
+            + (self.financial_impact / 5.0) * w["financial_impact"]
+            + (self.exposure / 5.0) * w["exposure"]
+            + (self.evidence_strength / 5.0) * w["evidence_strength"]
         )
         return round(min(100.0, max(0.0, raw * 100.0)), 2)
 
@@ -38,25 +66,20 @@ class RubricScores:
             "financial_impact": self.financial_impact,
             "exposure": self.exposure,
             "evidence_strength": self.evidence_strength,
+            "defi_category": self.defi_category,
+            "weights": self._weights(),
             "business_risk_score": self.business_risk_score,
         }
-
-
-
 class LossAgreement(str, Enum):
     STRONG = "strong"        # Both agree on severity band
     MODERATE = "moderate"    # Within one band
     WEAK = "weak"            # Two bands apart
     DISAGREE = "disagree"    # Completely different
-
-
 class LossBucket(str, Enum):
     NEGLIGIBLE = "negligible"
     LOW_10 = "~10%"
     MEDIUM_50 = "~50%"
     HIGH_100 = "~100%"
-
-
 def classify_loss_bucket(loss_percentage: float | None) -> LossBucket:
     if loss_percentage is None or loss_percentage <= 5:
         return LossBucket.NEGLIGIBLE
@@ -65,8 +88,6 @@ def classify_loss_bucket(loss_percentage: float | None) -> LossBucket:
     if loss_percentage <= 74:
         return LossBucket.MEDIUM_50
     return LossBucket.HIGH_100
-
-
 def _bucket_order(bucket: LossBucket) -> int:
     return {
         LossBucket.NEGLIGIBLE: 0,
@@ -74,8 +95,6 @@ def _bucket_order(bucket: LossBucket) -> int:
         LossBucket.MEDIUM_50: 2,
         LossBucket.HIGH_100: 3,
     }.get(bucket, 0)
-
-
 @dataclass
 class RubricLLMComparison:
     vulnerability_type: str
@@ -104,8 +123,6 @@ class RubricLLMComparison:
             "llm_loss_bucket": self.llm_loss_bucket,
             "bucket_agreement": self.bucket_agreement,
         }
-
-
 _EXPLOITABILITY_BASE: dict[str, float] = {
     "reentrancy": 5.0,
     "access-control": 5.0,
@@ -119,8 +136,6 @@ _EXPLOITABILITY_BASE: dict[str, float] = {
     "reward-inflation": 3.5,
     "liquidation": 4.0,
 }
-
-
 def score_exploitability(
     vulnerability_type: str,
     has_exploit_proof: bool = False,
@@ -135,10 +150,30 @@ def score_exploitability(
         base = min(5.0, base + 0.5)
 
     return round(base, 1)
-
-
+DRAIN_PROBABILITY: dict[str, float] = {
+    "reentrancy": 1.0,
+    "access control": 1.0,
+    "access-control": 1.0,
+    "integer overflow": 0.5,
+    "integer-overflow": 0.5,
+    "unchecked return": 0.5,
+    "unchecked-return": 0.5,
+    "naming convention": 0.0,
+    "gas": 0.0,
+}
+def _resolve_drain_probability(vuln_type: str) -> float:
+    key = vuln_type.strip().lower()
+    for label, prob in DRAIN_PROBABILITY.items():
+        if label in key:
+            return prob
+    return 0.0
+def compute_loss_percentage(vulnerabilities: list[tuple[str, float]]) -> float:
+    total = 0.0
+    for vuln_type, v_vuln in vulnerabilities:
+        p_drain = _resolve_drain_probability(vuln_type)
+        total += v_vuln * p_drain
+    return min(100.0, total)
 def score_financial_impact(loss_percentage: float | None) -> float:
-    """Map loss percentage to 0-5 impact score."""
     if loss_percentage is None or loss_percentage <= 0:
         return 0.0
     if loss_percentage >= 80:
@@ -150,8 +185,6 @@ def score_financial_impact(loss_percentage: float | None) -> float:
     if loss_percentage >= 20:
         return 2.0
     return 1.0
-
-
 _CATEGORY_EXPOSURE: dict[str, float] = {
     "amm_dex": 5.0,
     "lending": 5.0,
@@ -159,12 +192,8 @@ _CATEGORY_EXPOSURE: dict[str, float] = {
     "staking_rewards": 3.5,
     "other": 2.0,
 }
-
-
 def score_exposure(defi_category: str) -> float:
     return _CATEGORY_EXPOSURE.get(defi_category.lower(), 2.0)
-
-
 def score_evidence_strength(
     tools_reporting: int,
     total_tools_run: int,
@@ -178,11 +207,11 @@ def score_evidence_strength(
         return 5.0
     if is_cross_validated:
         return 4.0
-    if tools_reporting >= 2:
+
+    ratio = tools_reporting / max(total_tools_run, 1)
+    if ratio >= 0.5:
         return 3.0
     return 1.5
-
-
 def compute_business_risk_rubric(
     vulnerability_type: str,
     loss_percentage: float | None,
@@ -207,9 +236,8 @@ def compute_business_risk_rubric(
             is_cross_validated=is_cross_validated,
             has_dynamic_proof=has_exploit_proof,
         ),
+        defi_category=defi_category,
     )
-
-
 def _risk_to_band(score: float) -> str:
     if score >= 75:
         return "critical"
@@ -220,8 +248,6 @@ def _risk_to_band(score: float) -> str:
     if score > 0:
         return "low"
     return "none"
-
-
 def _loss_pct_to_band(loss: float | None) -> str:
     if loss is None:
         return "unknown"
@@ -234,15 +260,9 @@ def _loss_pct_to_band(loss: float | None) -> str:
     if loss > 0:
         return "low"
     return "none"
-
-
 _BAND_ORDER = {"none": 0, "unknown": 0, "low": 1, "medium": 2, "high": 3, "critical": 4}
-
-
 def _band_distance(band_a: str, band_b: str) -> int:
     return abs(_BAND_ORDER.get(band_a, 0) - _BAND_ORDER.get(band_b, 0))
-
-
 def compare_rubric_vs_llm(
     vulnerability_type: str,
     rubric: RubricScores,
@@ -267,7 +287,7 @@ def compare_rubric_vs_llm(
         notes = "Rubric and LLM differ by two severity bands"
     else:
         agreement = LossAgreement.DISAGREE
-        notes = "Rubric and LLM strongly disagree — manual review recommended"
+        notes = "Rubric and LLM strongly disagree - manual review recommended"
 
     rubric_bucket = classify_loss_bucket(rubric.business_risk_score)
     llm_bucket = classify_loss_bucket(llm_loss_percentage)
@@ -286,8 +306,6 @@ def compare_rubric_vs_llm(
         llm_loss_bucket=llm_bucket.value,
         bucket_agreement=bucket_agree,
     )
-
-
 @dataclass
 class BusinessRiskReport:
     per_finding: list[RubricLLMComparison] = field(default_factory=list)
@@ -320,7 +338,6 @@ class BusinessRiskReport:
 
     @property
     def consensus_rate(self) -> float:
-        """Fraction of findings where rubric & LLM agree (strong or moderate)."""
         if not self.per_finding:
             return 0.0
         agree = self.strong_agreement_count + self.moderate_agreement_count

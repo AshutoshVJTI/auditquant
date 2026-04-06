@@ -1,13 +1,13 @@
 import pytest
 from fastapi.testclient import TestClient
 
+import app.api.multi_tool as multi_tool_module
 from app.config import settings
 from app.main import app
-from app.services.store import store
 
 
 @pytest.fixture()
 def client(tmp_path):
-    store.analyses.clear()
+    multi_tool_module._analysis_store.clear()
     settings.analysis_storage_path = str(tmp_path / "analysis")
     return TestClient(app)

@@ -35,12 +35,12 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
   };
 
   return (
-    <section className="grid gap-6 lg:grid-cols-[2fr,1fr]">
+    <section className="mx-auto max-w-3xl">
       <div
-        className={`card flex min-h-[320px] flex-col items-center justify-center rounded-3xl border-2 border-dashed px-10 text-center transition ${
+        className={`card relative flex min-h-[320px] flex-col items-center justify-center rounded-xl border border-dashed px-10 text-center transition ${
           dragging
-            ? "border-sky-400 bg-sky-500/10"
-            : "border-slate-700"
+            ? "border-slate-400 bg-slate-100/70"
+            : "border-slate-300"
         }`}
         onDragOver={(event) => {
           event.preventDefault();
@@ -56,16 +56,12 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
           }
         }}
       >
-        <p className="text-sm uppercase tracking-[0.3em] text-sky-300">
+        <p className="text-sm text-slate-600">
           Drop Solidity File
         </p>
-        <h2 className="mt-3 text-2xl font-semibold">Upload Zone</h2>
-        <p className="mt-3 text-sm text-slate-300">
-          Upload a .sol file to run Slither (static), Mythril (symbolic), and
-          Oyente (bytecode) with cross-tool validation.
-        </p>
+        <h2 className="mt-3 text-2xl font-semibold text-slate-900">Upload File</h2>
         <button
-          className="mt-6 rounded-full bg-sky-500 px-6 py-2 text-sm font-semibold text-white disabled:opacity-50"
+          className="mt-6 rounded-md border border-slate-300 bg-slate-100 px-6 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200 disabled:opacity-50"
           disabled={uploading}
           onClick={() => inputRef.current?.click()}
         >
@@ -85,22 +81,21 @@ export default function Dashboard({ apiBase, onAnalysisQueued }: DashboardProps)
             event.target.value = "";
           }}
         />
-        {status && <p className="mt-4 text-xs text-slate-400">{status}</p>}
-      </div>
-
-      <div className="card rounded-3xl p-6">
-        <h3 className="text-lg font-semibold">Operational Checklist</h3>
-        <ul className="mt-4 space-y-3 text-sm text-slate-300">
-          <li>1. Slither — AST-level static analysis.</li>
-          <li>2. Mythril — Symbolic execution (dynamic).</li>
-          <li>3. Oyente — Bytecode analysis.</li>
-          <li>4. Cross-tool validation & normalized findings.</li>
-          <li>5. LLM summarisation & claim verification.</li>
-          <li>6. Business risk rubric & risk scores.</li>
-        </ul>
-        <div className="mt-6 rounded-2xl border border-slate-700 bg-slate-900/60 p-4 text-xs text-slate-400">
-          Build tools: docker compose -f docker/docker-compose.yml build slither mythril oyente
-        </div>
+        {status && <p className="mt-4 text-xs text-slate-600">{status}</p>}
+        {uploading && (
+          <div
+            className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 rounded-xl bg-white/90 backdrop-blur-[2px]"
+            role="status"
+            aria-live="polite"
+            aria-label="Uploading"
+          >
+            <div
+              className="h-10 w-10 rounded-full border-2 border-slate-200 border-t-slate-700 animate-spin"
+              aria-hidden
+            />
+            <p className="text-sm font-medium text-slate-800">Uploading and queueing analysis…</p>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,10 +1,34 @@
 import asyncio
 import json
 import logging
+import shlex
 from dataclasses import dataclass
 from pathlib import Path
 
+from app.services.solidity_version import infer_solc_version
+
 logger = logging.getLogger(__name__)
+
+_CONTAINER_SOLC = "/usr/local/bin/solc"
+_SHELL_PREFIX = "export PATH=/usr/local/bin:$PATH; set -e; "
+
+
+def parse_stdout_json(stdout: bytes) -> dict | None:
+    text = stdout.decode(errors="replace").strip()
+    if not text:
+        return None
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    start = text.find("{")
+    end = text.rfind("}")
+    if start >= 0 and end > start:
+        try:
+            return json.loads(text[start : end + 1])
+        except json.JSONDecodeError:
+            return None
+    return None
 
 
 @dataclass
@@ -44,31 +68,49 @@ def parse_slither_output(payload: dict) -> list[SlitherFinding]:
     return findings
 
 
+def _container_path(compose_path: str, solidity_path: Path) -> str:
+    project_root = Path(compose_path).resolve().parent.parent
+    return "/work/" + str(solidity_path.resolve().relative_to(project_root))
+
+
 async def run_slither(
     compose_path: str, solidity_path: Path, timeout: int = 120
 ) -> list[SlitherFinding]:
-    project_root = Path(__file__).resolve().parents[3]
-    compose_file = Path(compose_path)
-    if not compose_file.is_absolute():
-        compose_file = project_root / compose_file
+    container_sol = _container_path(compose_path, solidity_path)
+    compose_file = str(Path(compose_path).resolve())
+    target_solc = infer_solc_version(solidity_path)
 
-    relative_target = solidity_path.resolve().relative_to(project_root)
-
-    command = [
-        "docker",
-        "compose",
-        "-f",
-        str(compose_file),
-        "run",
-        "--rm",
-        "slither",
-        f"/work/{relative_target.as_posix()}",
-        "--json",
-        "-",
-    ]
+    if target_solc and not target_solc.startswith("0.8."):
+        # Legacy pragma handling: install/select matching solc inside container.
+        quoted_target = shlex.quote(target_solc)
+        quoted_file = shlex.quote(container_sol)
+        script = (
+            f"{_SHELL_PREFIX}"
+            f"if ! /usr/local/bin/solc-select use {quoted_target} >/dev/null; then "
+            f"  /usr/local/bin/solc-select install {quoted_target}; "
+            f"  /usr/local/bin/solc-select use {quoted_target} >/dev/null; "
+            f"fi; "
+            f"slither {quoted_file} --solc {_CONTAINER_SOLC} --json - --solc-disable-warnings"
+        )
+        command = [
+            "docker", "compose",
+            "-f", compose_file,
+            "run", "--rm", "--no-deps", "--entrypoint", "sh", "slither",
+            "-lc", script,
+        ]
+    else:
+        command = [
+            "docker", "compose",
+            "-f", compose_file,
+            "run", "--rm", "--no-deps", "slither",
+            container_sol,
+            "--solc",
+            _CONTAINER_SOLC,
+            "--json", "-",
+            "--solc-disable-warnings",
+        ]
     process = await asyncio.create_subprocess_exec(
         *command,
-        cwd=str(project_root),
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
     )
@@ -81,12 +123,9 @@ async def run_slither(
     out_dec = stdout.decode().strip()
     err_dec = stderr.decode().strip()
 
-    try:
-        payload = json.loads(stdout.decode())
-    except json.JSONDecodeError:
-        payload = None
+    payload = parse_stdout_json(stdout)
 
-    # slither sometimes exits 255 even when JSON is valid
+    # slither exits 255 sometimes when it finds issues - JSON may still be valid
     if process.returncode != 0 and (not payload or not payload.get("success")):
         msg = f"Slither failed with exit code {process.returncode}: {err_dec or out_dec}"
         logger.warning("Slither failed. stdout: %s | stderr: %s", out_dec[:2000], err_dec[:2000])

@@ -1,32 +1,24 @@
-# Shared data structures for findings that all tool adapters convert into.
-
-from __future__ import annotations
-
+# Common finding format that all tool adapters produce.
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any
-
-
 class ToolSource(str, Enum):
     SLITHER = "slither"
+    SLITHERIN = "slitherin"
+    SEMGREP = "semgrep"
     MYTHRIL = "mythril"
-    OYENTE = "oyente"
-
-
+    OYENTE = "oyente"  # kept for historical benchmark data
 class AnalysisType(str, Enum):
     STATIC = "static"
+    PATTERN = "pattern"
     SYMBOLIC = "symbolic"
     BYTECODE = "bytecode"
-
-
 class Severity(str, Enum):
     CRITICAL = "Critical"
     HIGH = "High"
     MEDIUM = "Medium"
     LOW = "Low"
     INFO = "Informational"
-
-
 SEVERITY_SCORES = {
     Severity.CRITICAL: 100.0,
     Severity.HIGH: 90.0,
@@ -34,8 +26,6 @@ SEVERITY_SCORES = {
     Severity.LOW: 30.0,
     Severity.INFO: 10.0,
 }
-
-
 @dataclass
 class Location:
     filename: str | None = None
@@ -57,22 +47,15 @@ class Location:
         if self.function_name:
             parts.append(f"fn:{self.function_name}")
         return ":".join(parts) if parts else "unknown"
-
-
 @dataclass
 class ExploitTrace:
     steps: list[dict[str, Any]] = field(default_factory=list)
-    input_sequence: list[str] = field(default_factory=list)
-    transaction_data: list[dict[str, Any]] = field(default_factory=list)
-    
+
     @property
     def has_proof(self) -> bool:
-        return len(self.steps) > 0 or len(self.input_sequence) > 0
-
-
+        return len(self.steps) > 0
 @dataclass
 class NormalizedFinding:
-    """Unified finding that all tool adapters produce."""
     id: str
     tool: ToolSource
     analysis_type: AnalysisType
@@ -100,27 +83,7 @@ class NormalizedFinding:
         if self.exploit_trace and self.exploit_trace.has_proof:
             self.has_exploit_proof = True
             self.is_reachable = True
-
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "id": self.id,
-            "tool": self.tool.value,
-            "analysis_type": self.analysis_type.value,
-            "vulnerability_type": self.vulnerability_type,
-            "title": self.title,
-            "description": self.description,
-            "severity": self.severity.value,
-            "severity_score": self.severity_score,
-            "confidence": self.confidence,
-            "location": str(self.location) if self.location else None,
-            "swc_id": self.swc_id,
-            "cwe_id": self.cwe_id,
-            "is_reachable": self.is_reachable,
-            "has_exploit_proof": self.has_exploit_proof,
-        }
-
-
-# maps tool-specific vuln names to canonical types
+# map tool-specific names to our canonical types
 VULN_TYPE_ALIASES = {
     "reentrancy": "reentrancy",
     "reentrancy-eth": "reentrancy",
@@ -128,6 +91,9 @@ VULN_TYPE_ALIASES = {
     "reentrancy-benign": "reentrancy",
     "reentrancy-events": "reentrancy",
     "external-call": "reentrancy",
+    "external-call-to-user-supplied-address": "reentrancy",
+    "external-call-to-user-supplied-addresses": "reentrancy",
+    "unchecked-return-value-from-external-call": "unchecked-return",
     "dao": "reentrancy",
     "access-control": "access-control",
     "unprotected-function": "access-control",
@@ -151,9 +117,26 @@ VULN_TYPE_ALIASES = {
     "front-running": "front-running",
     "transaction-order-dependency": "front-running",
     "tod": "front-running",
+    # Slitherin DeFi-specific
+    "readonly-reentrancy": "reentrancy",
+    "erc4626-inflation-attack": "share-manipulation",
+    "price-manipulation-vulnerable-functions": "oracle",
+    "unprotected-initialize": "access-control",
+    "permit-dos": "denial-of-service",
+    "arbitrary-call": "access-control",
+    # Semgrep
+    "arbitrary-send-eth": "access-control",
+    "tx-origin-auth": "access-control",
+    "unchecked-return-value": "unchecked-return",
+    "unsafe-delegatecall": "access-control",
+    "unchecked-low-level-calls": "unchecked-return",
+    "arithmetic": "integer-overflow",
+    "flash-loan": "access-control",
+    "price-manipulation": "oracle",
+    "liquidation": "oracle",
+    "reward-manipulation": "share-manipulation",
+    "governance": "access-control",
 }
-
-
 def normalize_vuln_type(raw_type: str) -> str:
     key = raw_type.lower().strip().replace(" ", "-").replace("_", "-")
     return VULN_TYPE_ALIASES.get(key, key)

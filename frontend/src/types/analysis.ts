@@ -4,6 +4,7 @@ export interface AnalysisScores {
   r_sast: number;
   r_dast: number;
   r_comp: number;
+  composite: number;
 }
 
 export interface AnalysisFinding {
@@ -29,12 +30,11 @@ export interface ToolResultSummary {
   execution_time_ms: number;
 }
 
-export interface RemediationPatch {
-  finding_id: string;
-  vuln_type: string;
-  original: string;
-  patch: string;
-  explanation: string;
+export interface BusinessRiskInfo {
+  avg_rubric_score: number;
+  max_rubric_score: number;
+  total_findings_assessed: number;
+  consensus_rate: number;
 }
 
 export interface AnalysisPayload {
@@ -48,9 +48,11 @@ export interface AnalysisPayload {
   findings?: AnalysisFinding[];
   verification?: VerificationInfo;
   summary?: string;
-  remediation?: RemediationPatch[];
+  /** Set when the LLM summary was skipped or failed (e.g. missing OPENAI_API_KEY). */
+  summary_error?: string | null;
   loss_percentage?: number;
   tool_results?: ToolResultSummary[];
   total_execution_time_ms?: number;
+  business_risk?: BusinessRiskInfo;
   error?: string | null;
 }

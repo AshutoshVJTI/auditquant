@@ -1,15 +1,9 @@
 import { useCallback, useMemo, useState } from "react";
 import Dashboard from "./components/Dashboard";
 import Results from "./components/Results";
-import Remediation from "./components/Remediation";
 import type { AnalysisPayload } from "./types/analysis";
 
-const tabs = ["Dashboard", "Results", "Remediation"] as const;
-
-export type TabName = (typeof tabs)[number];
-
 export default function App() {
-  const [active, setActive] = useState<TabName>("Dashboard");
   const [analysisId, setAnalysisId] = useState<string | null>(null);
   const [analysisData, setAnalysisData] = useState<AnalysisPayload | null>(null);
 
@@ -20,65 +14,31 @@ export default function App() {
 
   const onData = useCallback((payload: any) => setAnalysisData(payload), []);
   const onAnalysisQueued = useCallback((id: string) => {
+    // Reset stale payload so new analysis always starts in a loading state.
+    setAnalysisData(null);
     setAnalysisId(id);
-    setActive("Results");
   }, []);
 
   return (
     <div className="min-h-screen px-6 py-10">
-      <header className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="text-sm uppercase tracking-[0.35em] text-sky-300">
-            Hybrid Smart Contract Auditing
-          </p>
-          <h1 className="text-4xl font-semibold text-white">
-            AuditQuant Control Room
-          </h1>
-          <p className="mt-2 max-w-xl text-sm text-slate-300">
-            Quantify risk, validate findings, and stage remediation with a unified
-            workflow.
-          </p>
-        </div>
-        <div className="flex items-center gap-3 rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2 text-xs text-slate-300">
-          <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
-          Live Systems Online
-        </div>
-      </header>
-
-      <nav className="mb-8 flex flex-wrap gap-3">
-        {tabs.map((tab) => (
+      {!analysisId ? (
+        <Dashboard apiBase={apiBase} onAnalysisQueued={onAnalysisQueued} />
+      ) : (
+        <div className="space-y-4">
           <button
-            key={tab}
-            onClick={() => setActive(tab)}
-            className={`rounded-full px-4 py-2 text-sm transition ${
-              active === tab
-                ? "bg-sky-500 text-white shadow-lg shadow-sky-500/30"
-                : "border border-slate-700 text-slate-300 hover:border-sky-400"
-            }`}
+            onClick={() => setAnalysisId(null)}
+            className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 transition hover:bg-slate-100"
           >
-            {tab}
+            Upload Another File
           </button>
-        ))}
-      </nav>
-
-      {active === "Dashboard" && (
-        <Dashboard
-          apiBase={apiBase}
-          onAnalysisQueued={onAnalysisQueued}
-        />
+          <Results
+            apiBase={apiBase}
+            analysisId={analysisId}
+            data={analysisData}
+            onData={onData}
+          />
+        </div>
       )}
-
-      {active === "Results" && (
-        <Results
-          apiBase={apiBase}
-          analysisId={analysisId}
-          data={analysisData}
-          onData={onData}
-          onNext={() => setActive("Remediation")}
-        />
-      )}
-
-      {active === "Remediation" && <Remediation data={analysisData} />}
     </div>
   );
 }

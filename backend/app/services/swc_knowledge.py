@@ -1,8 +1,4 @@
-# Loads swc_context.json and provides lookups by SWC-ID or vuln type name.
-# Used by the LLM prompt builder and the anti-hallucination verifier.
-
-from __future__ import annotations
-
+# SWC registry knowledge base - loads swc_context.json for lookups.
 import json
 import logging
 from pathlib import Path
@@ -11,11 +7,7 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 _CONTEXT_PATH = (
-    Path(__file__).resolve().parents[2]
-    / "remediation"
-    / "training"
-    / "data"
-    / "swc_context.json"
+    Path(__file__).resolve().parent / "data" / "swc_context.json"
 )
 
 _VULN_TO_SWC: dict[str, str] = {
@@ -55,8 +47,6 @@ _VULN_TO_SWC: dict[str, str] = {
     "assert-violation": "SWC-110",
     "uninitialized-storage": "SWC-109",
 }
-
-
 class SWCKnowledgeBase:
 
     def __init__(self, context_path: Path | None = None) -> None:
@@ -68,7 +58,7 @@ class SWCKnowledgeBase:
 
     def _load(self) -> None:
         if not self._path.exists():
-            logger.warning("SWC context file not found at %s — knowledge base empty", self._path)
+            logger.warning("SWC context file not found at %s - knowledge base empty", self._path)
             return
         try:
             with open(self._path) as f:
@@ -109,7 +99,6 @@ class SWCKnowledgeBase:
         finding_types: list[str],
         swc_ids: list[str | None] | None = None,
     ) -> str:
-        """Build a prompt snippet with SWC reference info for these findings."""
         seen: set[str] = set()
         parts: list[str] = []
 
@@ -166,11 +155,7 @@ class SWCKnowledgeBase:
         if rem:
             lines.append(f"  Remediation: {rem}")
         return "\n".join(lines)
-
-
 _instance: SWCKnowledgeBase | None = None
-
-
 def get_swc_knowledge_base() -> SWCKnowledgeBase:
     global _instance
     if _instance is None:

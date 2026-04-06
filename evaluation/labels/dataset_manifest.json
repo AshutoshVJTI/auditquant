@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "total_contracts": 100,
+  "total_contracts": 164,
   "target_distribution": {
     "amm_dex": 25,
     "lending": 25,
@@ -9,10 +9,10 @@
     "other": 15
   },
   "actual_distribution": {
-    "amm_dex": 25,
-    "lending": 25,
-    "vault_yield": 20,
-    "staking_rewards": 15,
+    "amm_dex": 47,
+    "lending": 56,
+    "vault_yield": 21,
+    "staking_rewards": 25,
     "other": 15
   },
   "contracts": [
@@ -5344,6 +5344,1706 @@
           "transfer"
         ]
       }
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_01_UniswapV3Pool.sol",
+      "dataset": "defi",
+      "filename": "UniswapV3Pool.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.9109999999999999,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 869,
+      "source_chars": 35501,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_01_UniswapV3Pool.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.9109999999999999
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_02_UniswapV3Factory.sol",
+      "dataset": "defi",
+      "filename": "UniswapV3Factory.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 73,
+      "source_chars": 2848,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_02_UniswapV3Factory.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_03",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_03_UniswapV3PoolDeployer.sol",
+      "dataset": "defi",
+      "filename": "UniswapV3PoolDeployer.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 38,
+      "source_chars": 1408,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_03_UniswapV3PoolDeployer.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_04",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_04_LiquidityMath.sol",
+      "dataset": "defi",
+      "filename": "LiquidityMath.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 17,
+      "source_chars": 622,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_04_LiquidityMath.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_05",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_05_SwapMath.sol",
+      "dataset": "defi",
+      "filename": "SwapMath.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 98,
+      "source_chars": 4633,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_05_SwapMath.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_06",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_06_IUniswapV3PoolDeployer.sol",
+      "dataset": "defi",
+      "filename": "IUniswapV3PoolDeployer.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 26,
+      "source_chars": 1300,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_06_IUniswapV3PoolDeployer.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_07",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_07_IUniswapV3Pool.sol",
+      "dataset": "defi",
+      "filename": "IUniswapV3Pool.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.978,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 24,
+      "source_chars": 809,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_07_IUniswapV3Pool.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.978
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_08",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_08_IUniswapV3Factory.sol",
+      "dataset": "defi",
+      "filename": "IUniswapV3Factory.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 78,
+      "source_chars": 4040,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_08_IUniswapV3Factory.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_09",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_09_IUniswapV3PoolImmutables.sol",
+      "dataset": "defi",
+      "filename": "IUniswapV3PoolImmutables.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 35,
+      "source_chars": 1811,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_09_IUniswapV3PoolImmutables.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_uniswap-v3_10",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_10_IUniswapV3PoolOwnerActions.sol",
+      "dataset": "defi",
+      "filename": "IUniswapV3PoolOwnerActions.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.929,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "flash_loan",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 23,
+      "source_chars": 1188,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_uniswap-v3_10_IUniswapV3PoolOwnerActions.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.929
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_01_AaveOracle.sol",
+      "dataset": "defi",
+      "filename": "AaveOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.875,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 146,
+      "source_chars": 5067,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_01_AaveOracle.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.875
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_02_IDelegationToken.sol",
+      "dataset": "defi",
+      "filename": "IDelegationToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.667,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 15,
+      "source_chars": 388,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_02_IDelegationToken.sol",
+      "classifier_result": {
+        "category": "governance",
+        "confidence": 0.667
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_03",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_03_IPoolDataProvider.sol",
+      "dataset": "defi",
+      "filename": "IPoolDataProvider.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.605,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 243,
+      "source_chars": 8981,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_03_IPoolDataProvider.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.605
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_04",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_04_IScaledBalanceToken.sol",
+      "dataset": "defi",
+      "filename": "IScaledBalanceToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.6509999999999999,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 72,
+      "source_chars": 2740,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_04_IScaledBalanceToken.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.6509999999999999
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_05",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_05_IInitializableDebtToken.sol",
+      "dataset": "defi",
+      "filename": "IInitializableDebtToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.6,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 52,
+      "source_chars": 1931,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_05_IInitializableDebtToken.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.6
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_06",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_06_ISequencerOracle.sol",
+      "dataset": "defi",
+      "filename": "ISequencerOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 29,
+      "source_chars": 982,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_06_ISequencerOracle.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_07",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_07_IPoolAddressesProviderRegistry.sol",
+      "dataset": "defi",
+      "filename": "IPoolAddressesProviderRegistry.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.667,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 60,
+      "source_chars": 2428,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_07_IPoolAddressesProviderRegistry.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.667
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_08",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_08_IPriceOracleSentinel.sol",
+      "dataset": "defi",
+      "filename": "IPriceOracleSentinel.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 67,
+      "source_chars": 2198,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_08_IPriceOracleSentinel.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_09",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_09_IPoolConfigurator.sol",
+      "dataset": "defi",
+      "filename": "IPoolConfigurator.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.513,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 486,
+      "source_chars": 19304,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_09_IPoolConfigurator.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.513
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_aave-v3_10",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_10_IAaveOracle.sol",
+      "dataset": "defi",
+      "filename": "IAaveOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "price_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 71,
+      "source_chars": 2394,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_aave-v3_10_IAaveOracle.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_compound-v2_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_compound-v2_01_SimplePriceOracle.sol",
+      "dataset": "defi",
+      "filename": "SimplePriceOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "price_manipulation",
+        "reentrancy",
+        "governance"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 44,
+      "source_chars": 1629,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_compound-v2_01_SimplePriceOracle.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_compound-v2_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_compound-v2_02_CToken.sol",
+      "dataset": "defi",
+      "filename": "CToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.779,
+      "known_vulnerabilities": [
+        "price_manipulation",
+        "reentrancy",
+        "governance"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 1156,
+      "source_chars": 49183,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_compound-v2_02_CToken.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.779
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_compound-v2_03",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_compound-v2_03_PriceOracle.sol",
+      "dataset": "defi",
+      "filename": "PriceOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "price_manipulation",
+        "reentrancy",
+        "governance"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 17,
+      "source_chars": 593,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_compound-v2_03_PriceOracle.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_vault_yield_yearn-vaults_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_vault_yield_yearn-vaults_01_BaseStrategy.sol",
+      "dataset": "defi",
+      "filename": "BaseStrategy.sol",
+      "defi_category": "vault_yield",
+      "defi_category_confidence": 0.851,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "share_manipulation",
+        "flash_loan"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 995,
+      "source_chars": 38101,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_vault_yield_yearn-vaults_01_BaseStrategy.sol",
+      "classifier_result": {
+        "category": "vault_yield",
+        "confidence": 0.851
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_01_vlCvxExtraRewardDistribution.sol",
+      "dataset": "defi",
+      "filename": "vlCvxExtraRewardDistribution.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.9520000000000001,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 189,
+      "source_chars": 8121,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_01_vlCvxExtraRewardDistribution.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.9520000000000001
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_02_RewardFactory.sol",
+      "dataset": "defi",
+      "filename": "RewardFactory.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.541,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 99,
+      "source_chars": 3875,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_02_RewardFactory.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.541
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_03",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_03_CvxStakingProxyV2.sol",
+      "dataset": "defi",
+      "filename": "CvxStakingProxyV2.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.696,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 200,
+      "source_chars": 6283,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_03_CvxStakingProxyV2.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.696
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_04",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_04_CvxStakingProxy.sol",
+      "dataset": "defi",
+      "filename": "CvxStakingProxy.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.696,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 180,
+      "source_chars": 5636,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_04_CvxStakingProxy.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.696
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_05",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_05_ExtraRewardStashV2.sol",
+      "dataset": "defi",
+      "filename": "ExtraRewardStashV2.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.7040000000000001,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 226,
+      "source_chars": 9106,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_05_ExtraRewardStashV2.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.7040000000000001
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_06",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_06_VirtualBalanceRewardPool.sol",
+      "dataset": "defi",
+      "filename": "VirtualBalanceRewardPool.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.907,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 216,
+      "source_chars": 7041,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_06_VirtualBalanceRewardPool.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.907
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_07",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_07_PoolRewardHook.sol",
+      "dataset": "defi",
+      "filename": "PoolRewardHook.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.5379999999999999,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 85,
+      "source_chars": 2897,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_07_PoolRewardHook.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.5379999999999999
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_08",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_08_RewardHook.sol",
+      "dataset": "defi",
+      "filename": "RewardHook.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.667,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 37,
+      "source_chars": 841,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_08_RewardHook.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.667
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_09",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_09_ChefRewardHook.sol",
+      "dataset": "defi",
+      "filename": "ChefRewardHook.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.444,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 63,
+      "source_chars": 1966,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_09_ChefRewardHook.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.444
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_staking_rewards_convex-staking_10",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_10_ExtraRewardStashV1.sol",
+      "dataset": "defi",
+      "filename": "ExtraRewardStashV1.sol",
+      "defi_category": "staking_rewards",
+      "defi_category_confidence": 0.737,
+      "known_vulnerabilities": [
+        "reward_manipulation",
+        "access_control"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 154,
+      "source_chars": 5931,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_staking_rewards_convex-staking_10_ExtraRewardStashV1.sol",
+      "classifier_result": {
+        "category": "staking_rewards",
+        "confidence": 0.737
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_curve-stableswap_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_curve-stableswap_01_aERC20.sol",
+      "dataset": "defi",
+      "filename": "aERC20.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.5820000000000001,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 152,
+      "source_chars": 4484,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_curve-stableswap_01_aERC20.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.5820000000000001
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_curve-stableswap_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_curve-stableswap_02_AaveLendingPoolMock.sol",
+      "dataset": "defi",
+      "filename": "AaveLendingPoolMock.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.316,
+      "known_vulnerabilities": [
+        "reentrancy",
+        "price_manipulation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 41,
+      "source_chars": 1394,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_curve-stableswap_02_AaveLendingPoolMock.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.316
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_01_WeightedPoolProtocolFees.sol",
+      "dataset": "defi",
+      "filename": "WeightedPoolProtocolFees.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.711,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 360,
+      "source_chars": 16937,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_01_WeightedPoolProtocolFees.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.711
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_02_BaseWeightedPool.sol",
+      "dataset": "defi",
+      "filename": "BaseWeightedPool.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.65,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 479,
+      "source_chars": 18811,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_02_BaseWeightedPool.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.65
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_03",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_03_WeightedPoolFactory.sol",
+      "dataset": "defi",
+      "filename": "WeightedPoolFactory.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.5,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 78,
+      "source_chars": 2696,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_03_WeightedPoolFactory.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.5
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_04",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_04_WeightedPool.sol",
+      "dataset": "defi",
+      "filename": "WeightedPool.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.544,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 416,
+      "source_chars": 17773,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_04_WeightedPool.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.544
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_05",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_05_LiquidityBootstrappingPoolSettings.sol",
+      "dataset": "defi",
+      "filename": "LiquidityBootstrappingPoolSettings.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.8420000000000001,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 371,
+      "source_chars": 14408,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_05_LiquidityBootstrappingPoolSettings.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.8420000000000001
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_06",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_06_LiquidityBootstrappingPoolStorageLib.sol",
+      "dataset": "defi",
+      "filename": "LiquidityBootstrappingPoolStorageLib.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 163,
+      "source_chars": 7133,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_06_LiquidityBootstrappingPoolStorageLib.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_07",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_07_LiquidityBootstrappingPool.sol",
+      "dataset": "defi",
+      "filename": "LiquidityBootstrappingPool.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.738,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 340,
+      "source_chars": 13349,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_07_LiquidityBootstrappingPool.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.738
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_08",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_08_LiquidityBootstrappingPoolFactory.sol",
+      "dataset": "defi",
+      "filename": "LiquidityBootstrappingPoolFactory.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.5,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 74,
+      "source_chars": 2396,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_08_LiquidityBootstrappingPoolFactory.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.5
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_09",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_09_ManagedPoolAddRemoveTokenLib.sol",
+      "dataset": "defi",
+      "filename": "ManagedPoolAddRemoveTokenLib.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.645,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 225,
+      "source_chars": 12931,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_09_ManagedPoolAddRemoveTokenLib.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.645
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_amm_dex_balancer-v2_10",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_10_ManagedPoolAmmLib.sol",
+      "dataset": "defi",
+      "filename": "ManagedPoolAmmLib.sol",
+      "defi_category": "amm_dex",
+      "defi_category_confidence": 0.765,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 282,
+      "source_chars": 11308,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_amm_dex_balancer-v2_10_ManagedPoolAmmLib.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.765
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_01_PToken.sol",
+      "dataset": "defi",
+      "filename": "PToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.5710000000000001,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 146,
+      "source_chars": 5340,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_01_PToken.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.5710000000000001
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_02_JunkETokenUpgrade.sol",
+      "dataset": "defi",
+      "filename": "JunkETokenUpgrade.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 14,
+      "source_chars": 308,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_02_JunkETokenUpgrade.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_03",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_03_WBTCOracle.sol",
+      "dataset": "defi",
+      "filename": "WBTCOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 54,
+      "source_chars": 2286,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_03_WBTCOracle.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_04",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_04_WSTETHOracle.sol",
+      "dataset": "defi",
+      "filename": "WSTETHOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 58,
+      "source_chars": 2124,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_04_WSTETHOracle.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_05",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_05_chainlinkBasedOracle.sol",
+      "dataset": "defi",
+      "filename": "chainlinkBasedOracle.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 54,
+      "source_chars": 2309,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_05_chainlinkBasedOracle.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_06",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_06_EToken.sol",
+      "dataset": "defi",
+      "filename": "EToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.40700000000000003,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 387,
+      "source_chars": 16843,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_06_EToken.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.40700000000000003
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_07",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_07_DToken.sol",
+      "dataset": "defi",
+      "filename": "DToken.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.6859999999999999,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 240,
+      "source_chars": 10299,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_07_DToken.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.6859999999999999
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_euler-finance_08",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_08_Liquidation.sol",
+      "dataset": "defi",
+      "filename": "Liquidation.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.85,
+      "known_vulnerabilities": [
+        "flash_loan",
+        "share_manipulation",
+        "liquidation"
+      ],
+      "has_ground_truth": true,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 288,
+      "source_chars": 12261,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_euler-finance_08_Liquidation.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.85
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_01",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_01_NotionalV2ManualLiquidator.sol",
+      "dataset": "defi",
+      "filename": "NotionalV2ManualLiquidator.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.8,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 283,
+      "source_chars": 9113,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_01_NotionalV2ManualLiquidator.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.8
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_02",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_02_NotionalV2BaseLiquidator.sol",
+      "dataset": "defi",
+      "filename": "NotionalV2BaseLiquidator.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.826,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 348,
+      "source_chars": 12212,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_02_NotionalV2BaseLiquidator.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.826
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_03",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_03_NotionalV2FlashLiquidatorBase.sol",
+      "dataset": "defi",
+      "filename": "NotionalV2FlashLiquidatorBase.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.87,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 163,
+      "source_chars": 6037,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_03_NotionalV2FlashLiquidatorBase.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.87
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_04",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_04_NotionalV2FlashLiquidator.sol",
+      "dataset": "defi",
+      "filename": "NotionalV2FlashLiquidator.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.47100000000000003,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 116,
+      "source_chars": 3916,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_04_NotionalV2FlashLiquidator.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.47100000000000003
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_05",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_05_NotionalV2LiquidatorStorageLayoutV1.sol",
+      "dataset": "defi",
+      "filename": "NotionalV2LiquidatorStorageLayoutV1.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 1.0,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 8,
+      "source_chars": 238,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_05_NotionalV2LiquidatorStorageLayoutV1.sol",
+      "classifier_result": {
+        "category": "other",
+        "confidence": 1.0
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_06",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_06_MigrateCTokens.sol",
+      "dataset": "defi",
+      "filename": "MigrateCTokens.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.541,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 126,
+      "source_chars": 5477,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_06_MigrateCTokens.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.541
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_07",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_07_LiquidatefCashAction.sol",
+      "dataset": "defi",
+      "filename": "LiquidatefCashAction.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.986,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 255,
+      "source_chars": 9690,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_07_LiquidatefCashAction.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.986
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_08",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_08_nTokenRedeemAction.sol",
+      "dataset": "defi",
+      "filename": "nTokenRedeemAction.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.615,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 372,
+      "source_chars": 16057,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_08_nTokenRedeemAction.sol",
+      "classifier_result": {
+        "category": "amm_dex",
+        "confidence": 0.615
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_09",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_09_nTokenAction.sol",
+      "dataset": "defi",
+      "filename": "nTokenAction.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.486,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 307,
+      "source_chars": 12202,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_09_nTokenAction.sol",
+      "classifier_result": {
+        "category": "token",
+        "confidence": 0.486
+      },
+      "business_context": {}
+    },
+    {
+      "id": "defi_lending_notional-v2_10",
+      "original_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_10_LiquidateCurrencyAction.sol",
+      "dataset": "defi",
+      "filename": "LiquidateCurrencyAction.sol",
+      "defi_category": "lending",
+      "defi_category_confidence": 0.9470000000000001,
+      "known_vulnerabilities": [],
+      "has_ground_truth": false,
+      "manual_labels": {
+        "confirmed_category": null,
+        "exploitability": null,
+        "loss_percentage": null,
+        "notes": null
+      },
+      "source_lines": 436,
+      "source_chars": 15925,
+      "selected_path": "/Users/ashutosh/SacState/290/auditquant-latest/auditquant/evaluation/datasets/selected/defi_lending_notional-v2_10_LiquidateCurrencyAction.sol",
+      "classifier_result": {
+        "category": "lending",
+        "confidence": 0.9470000000000001
+      },
+      "business_context": {}
     }
   ],
   "defi_contracts_added": 64

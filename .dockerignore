@@ -1,0 +1,13 @@
+# Compose build context is the repo root (`context: ..` in docker/docker-compose.yml).
+.git
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.mypy_cache
+node_modules
+frontend/node_modules
+evaluation/results
+*.md
+.env
+.env.*

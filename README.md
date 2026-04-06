@@ -1,45 +1,73 @@
 # AuditQuant
 
-Hybrid smart contract auditing framework that combines static/dynamic analysis tools with LLM summarization and quantitative risk scoring.
+AuditQuant is a hybrid smart contract auditing system built for my Master's project at Sacramento State. It runs four static/symbolic analysis tools in parallel, cross-validates findings, runs a fine-tuned CodeBERT model for vulnerability classification, and computes a DeFi-aware business risk score.
 
 ## What it does
 
-- Runs **Slither**, **Mythril**, and **Oyente** (all Dockerized) in parallel on uploaded `.sol` files
-- Normalizes and cross-validates findings across tools
-- Uses an LLM (OpenAI) to generate structured summaries, then verifies claims against actual tool evidence (anti-hallucination layer)
-- Computes risk scores: R_SAST (static density), R_DAST (dynamic certainty), R_COMP (complexity)
-- Business risk rubric with 4 dimensions (Exploitability, Financial Impact, Exposure, Evidence Strength) scored 0-5, aggregated to 0-100
-- Generates remediation patches using a fine-tuned CodeT5 model
-- React frontend with risk gauges, findings list, and a diff viewer for patches
+- Runs **Slither**, **Slitherin**, **Semgrep**, and **Mythril** via Docker
+- Normalizes all tool outputs into a common finding format
+- Cross-validates findings by vuln type + location, applies confidence boosts when multiple tools agree
+- Runs a fine-tuned **CodeBERT** classifier to catch vuln types tools miss
+- Computes risk scores: R_SAST (static), R_DAST (symbolic), R_COMP (complexity), composite
+- Classifies contracts by DeFi category and computes a business risk rubric
+- Optionally generates an executive summary via OpenAI and verifies claims against tool findings
 
-## Tech Stack
+## Stack
 
-- **Backend:** Python 3.11+, FastAPI
-- **Analysis:** Slither, Mythril, Oyente (Docker)
-- **LLM:** OpenAI API (GPT-4o-mini by default)
-- **ML:** CodeT5 (Salesforce/codet5-base), PyTorch, Transformers
-- **Frontend:** React 19, Vite, TypeScript, Tailwind, Monaco Editor
+- **Backend:** Python 3.11+, FastAPI, Pydantic v2
+- **Tools:** Slither, Slitherin, Semgrep, Mythril (Docker Compose)
+- **ML model:** Fine-tuned CodeBERT (multi-label vulnerability classifier)
+- **Frontend:** React 19, TypeScript, Vite, Tailwind CSS
+
+## Prerequisites
+
+- Python 3.11+
+- Node.js 18+
+- Docker Desktop (must be running for analysis)
 
 ## Setup
 
-### Backend
+From the repo root:
+
+### 1. Python environment
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r backend/requirements.txt
+```
+
+### 2. Environment variables
+
+```bash
+cp .env.example .env
+# edit .env and add your API keys
+```
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `OPENAI_API_KEY` | No | If set, enables LLM executive summary + claim verification |
+| `OPENAI_MODEL` | No | Default: `gpt-4o-mini` |
+| `OPENAI_BASE_URL` | No | Custom OpenAI-compatible endpoint |
+| `CODEBERT_CHECKPOINT_PATH` | No | Path to fine-tuned checkpoint. Default: `evaluation/llm_training/checkpoints/checkpoint_best.pt` |
+| `DOCKER_COMPOSE_PATH` | No | Default: `docker/docker-compose.yml` |
+| `ANALYSIS_STORAGE_PATH` | No | Default: `backend/.analysis` |
+
+### 3. Build Docker images
+
+```bash
+docker compose -f docker/docker-compose.yml build slither slitherin semgrep mythril
+```
+
+### 4. Start backend
+
+```bash
 uvicorn app.main:app --reload --app-dir backend
 ```
 
-### Docker images (analysis tools)
+API: `http://localhost:8000` — Swagger docs: `http://localhost:8000/docs`
 
-```bash
-docker compose -f docker/docker-compose.yml build slither mythril oyente
-```
-
-On Apple Silicon Oyente runs via emulation (`platform: linux/amd64`).
-
-### Frontend
+### 5. Start frontend
 
 ```bash
 cd frontend
@@ -47,41 +75,53 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:5173.
+Frontend: `http://localhost:5173`
 
-## Environment Variables
+### 6. Run analysis
 
-Copy `.env.example` to `.env` and fill in:
-
-- `OPENAI_API_KEY` -- required
-- `OPENAI_MODEL` -- defaults to `gpt-4o-mini`
-- `ANALYSIS_STORAGE_PATH` -- where uploaded contracts go
-- `DOCKER_COMPOSE_PATH` -- path to `docker/docker-compose.yml`
+Upload a `.sol` file from the Dashboard. The frontend polls `/api/analysis/{id}` until done.
 
 ## API
 
-- `GET /api/health`
-- `POST /api/analyze` -- upload `.sol` file, returns `analysis_id`
-- `GET /api/analysis/{id}` -- poll for results
-- `GET /api/analysis/{id}/business-risk` -- detailed rubric breakdown
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/health` | Health check |
+| `POST` | `/api/analyze` | Upload `.sol` file, returns `analysis_id` |
+| `GET` | `/api/analysis/{id}` | Get results (`202` while pending) |
+| `GET` | `/api/analysis/{id}/business-risk` | Business risk report |
 
-## Sample Contracts
+The analysis response includes `scores`, `findings`, `tool_results`, `model_prediction`, `business_risk`, and optionally `summary` + `verification`.
 
-`contracts/` has some intentionally vulnerable Solidity files for testing:
-VulnerableBank (reentrancy), VulnerableVault (access control), UncheckedCall, SimpleStorage.
+## Sample contracts
+
+`contracts/` has a few test contracts: `VulnerableBank.sol`, `VulnerableVault.sol`, `UncheckedCall.sol`, `SimpleStorage.sol`.
 
 ## Evaluation
 
+Re-run the 5-system comparison (AuditQuant tools, AuditQuant+CodeBERT, GPT-4o, Claude, Gemini):
+
 ```bash
-cd evaluation/scripts
-python run_benchmark.py --limit 10
-python run_benchmark.py --mode compare   # hybrid vs standalone vs ChatGPT-only
+python evaluation/scripts/run_test_split_comparison.py
 ```
 
-Add `--real` for actual Docker/API runs instead of mocked results.
+Regenerate comparison graphs:
 
-## Notes
+```bash
+python evaluation/scripts/generate_comparison_graphs.py
+```
 
-- Make sure Docker is running before uploading contracts
-- If analysis stays "pending", check Docker and backend logs
-- CodeT5 uses a local fine-tuned checkpoint if present, otherwise downloads the base model from HuggingFace
+Rebuild the training dataset from SmartBugs:
+
+```bash
+python evaluation/scripts/prepare_dataset_v2.py
+```
+
+Results are written to `evaluation/results/` and graphs to `evaluation/graphs/`.
+
+## Troubleshooting
+
+- **Analysis stuck:** make sure Docker Desktop is running and images are built
+- **Tool failures:** check that `DOCKER_COMPOSE_PATH` is correct
+- **No CodeBERT predictions:** checkpoint file is missing — check `CODEBERT_CHECKPOINT_PATH`
+- **No LLM summary:** expected when `OPENAI_API_KEY` is not set
+- **Results gone after restart:** analysis state is in-memory, not persisted to disk

@@ -1,0 +1,178 @@
+[
+  {
+    "swc_id": "SWC-100",
+    "title": "Function Default Visibility",
+    "vuln_type": "default-visibility",
+    "cwe_id": "CWE-710",
+    "description": "Functions that do not have a function visibility type specified are public by default. This can lead to a vulnerability if a developer forgot to set the visibility and a malicious user is able to make unauthorized or unintended state changes.",
+    "remediation": "Functions can be specified as being external, public, internal, or private. It is recommended to make a conscious decision on which visibility type is appropriate for a function. This can dramatically reduce the attack surface of a contract system."
+  },
+  {
+    "swc_id": "SWC-101",
+    "title": "Integer Overflow and Underflow",
+    "vuln_type": "integer-overflow",
+    "cwe_id": "CWE-682",
+    "description": "An overflow/underflow happens when an arithmetic operation reaches the maximum or minimum size of a type. For instance, if a number is stored in the uint8 type, it means that the number is stored in an 8-bit unsigned number ranging from 0 to 255. Trying to store 256 into a uint8 will result in 0. If not carefully checked, this can lead to unexpected behavior and potential loss of funds.",
+    "remediation": "Use SafeMath libraries or Solidity >=0.8.0 which has built-in overflow checks. Validate all arithmetic operations, especially those involving user-supplied inputs. Use require statements to check for overflow conditions before performing operations."
+  },
+  {
+    "swc_id": "SWC-102",
+    "title": "Outdated Compiler Version",
+    "vuln_type": "outdated-compiler",
+    "cwe_id": "CWE-937",
+    "description": "Using an outdated compiler version can be problematic especially if there are publicly disclosed bugs and issues that affect the current compiler version.",
+    "remediation": "It is recommended to use a recent version of the Solidity compiler. Regularly check for new compiler versions and review the changelog for security-related fixes."
+  },
+  {
+    "swc_id": "SWC-103",
+    "title": "Floating Pragma",
+    "vuln_type": "floating-pragma",
+    "cwe_id": "CWE-664",
+    "description": "Contracts should be deployed with the same compiler version and flags that they have been tested with thoroughly. Locking the pragma helps to ensure that contracts do not accidentally get deployed using an outdated or different compiler version.",
+    "remediation": "Lock the pragma version to a specific compiler version. Avoid using floating pragmas like ^0.8.0 and instead use fixed versions like 0.8.17."
+  },
+  {
+    "swc_id": "SWC-104",
+    "title": "Unchecked Call Return Value",
+    "vuln_type": "unchecked-return",
+    "cwe_id": "CWE-252",
+    "description": "The return value of a message call is not checked. Execution will resume even if the called contract throws an exception. If the call fails accidentally or an attacker forces the call to fail, this may cause unexpected behavior in the subsequent program logic.",
+    "remediation": "Check the return value of all low-level call methods. Use require to ensure call success. Alternatively, use transfer() or send() with proper error handling, or use the Checks-Effects-Interactions pattern."
+  },
+  {
+    "swc_id": "SWC-105",
+    "title": "Unprotected Ether Withdrawal",
+    "vuln_type": "access-control",
+    "cwe_id": "CWE-284",
+    "description": "Due to missing or insufficient access controls, malicious parties can withdraw some or all Ether from the contract account. This bug is sometimes caused by unintentionally exposing initialization functions. By wrongly naming a function intended to be a constructor, the constructor code ends up in the runtime byte code and can be called by anyone to re-initialize the contract.",
+    "remediation": "Implement proper access controls using modifiers such as onlyOwner. Use OpenZeppelin's Ownable or AccessControl contracts. Verify that all sensitive functions have appropriate authorization checks. Use the modifier pattern consistently across all state-changing functions."
+  },
+  {
+    "swc_id": "SWC-106",
+    "title": "Unprotected SELFDESTRUCT Instruction",
+    "vuln_type": "selfdestruct",
+    "cwe_id": "CWE-284",
+    "description": "Due to missing or insufficient access controls, malicious parties can self-destruct the contract.",
+    "remediation": "Consider removing the selfdestruct functionality unless it is absolutely required. If it is required, add appropriate access control modifiers to restrict the function to authorized users only."
+  },
+  {
+    "swc_id": "SWC-107",
+    "title": "Reentrancy",
+    "vuln_type": "reentrancy",
+    "cwe_id": "CWE-841",
+    "description": "One of the major dangers of calling external contracts is that they can take over the control flow. In the reentrancy attack, a malicious contract calls back into the calling contract before the first invocation of the function is finished. This may cause the different invocations of the function to interact in undesirable ways, allowing an attacker to drain funds by repeatedly calling the withdraw function before balances are updated.",
+    "remediation": "Use the Checks-Effects-Interactions pattern: perform all checks first, then make state changes, and finally interact with external contracts. Use a reentrancy guard modifier (e.g., OpenZeppelin ReentrancyGuard). Avoid using call.value() when possible; prefer transfer() or send() which limit gas forwarded."
+  },
+  {
+    "swc_id": "SWC-109",
+    "title": "Uninitialized Storage Pointer",
+    "vuln_type": "uninitialized-storage",
+    "cwe_id": "CWE-824",
+    "description": "Uninitialized local storage variables may point to unexpected storage locations in the contract, which can lead to vulnerabilities.",
+    "remediation": "Check if the right storage location is used. Initialize all storage variables explicitly. Use memory keyword for local variables when storage persistence is not needed."
+  },
+  {
+    "swc_id": "SWC-110",
+    "title": "Assert Violation",
+    "vuln_type": "assert-violation",
+    "cwe_id": "CWE-670",
+    "description": "The assert() function is meant to assert invariants. Properly functioning code should never reach a failing assert statement. A reachable assert can mean a bug in the contract or a missing validation.",
+    "remediation": "Consider whether the assert condition is actually an invariant. If not, replace the assert statement with a require statement. If the exception is indeed caused by unexpected behavior, fix the underlying bug."
+  },
+  {
+    "swc_id": "SWC-111",
+    "title": "Use of Deprecated Solidity Functions",
+    "vuln_type": "deprecated-functions",
+    "cwe_id": "CWE-477",
+    "description": "Several functions and operators in Solidity are deprecated. Using them leads to reduced code quality. With new major versions of the Solidity compiler, deprecated functions and operators may result in side effects and compile errors.",
+    "remediation": "Use alternatives for deprecated constructs. Replace suicide with selfdestruct, sha3 with keccak256, callcode with delegatecall, throw with revert, msg.gas with gasleft, constant for functions with view or pure."
+  },
+  {
+    "swc_id": "SWC-112",
+    "title": "Delegatecall to Untrusted Callee",
+    "vuln_type": "delegatecall",
+    "cwe_id": "CWE-829",
+    "description": "There exists a special variant of a message call, named delegatecall which is identical to a message call apart from the fact that the code at the target address is executed in the context of the calling contract. An attacker might be able to use this to execute malicious code in the context of the victim contract.",
+    "remediation": "Use delegatecall with caution and make sure to never call into untrusted contracts. If the target address is derived from user input ensure to check it against a whitelist of trusted contracts."
+  },
+  {
+    "swc_id": "SWC-113",
+    "title": "DoS with Failed Call",
+    "vuln_type": "dos-failed-call",
+    "cwe_id": "CWE-703",
+    "description": "External calls can fail accidentally or deliberately. To minimize the damage caused by such failures, it is better to isolate each external call into its own transaction that can be initiated by the recipient of the call.",
+    "remediation": "Avoid combining multiple calls in a single transaction when possible. Use a pull payment pattern instead of push payments. Implement proper error handling for each external call independently."
+  },
+  {
+    "swc_id": "SWC-114",
+    "title": "Transaction Order Dependence",
+    "vuln_type": "front-running",
+    "cwe_id": "CWE-362",
+    "description": "The transaction ordering dependence (TOD) vulnerability occurs when a smart contract's behavior depends on the order of transactions in a block. Miners or MEV bots can observe pending transactions and front-run them by submitting their own transactions with higher gas prices, leading to sandwich attacks and other forms of value extraction.",
+    "remediation": "Implement commit-reveal schemes for sensitive operations. Use submarine sends. Add maximum slippage parameters for swap operations. Consider using Flashbots or private transaction pools. Design contracts to be independent of transaction ordering where possible."
+  },
+  {
+    "swc_id": "SWC-115",
+    "title": "Authorization through tx.origin",
+    "vuln_type": "tx-origin",
+    "cwe_id": "CWE-477",
+    "description": "tx.origin is a global variable in Solidity which returns the address of the account that sent the transaction. Using the variable for authorization could make a contract vulnerable if an authorized account calls into a malicious contract.",
+    "remediation": "Use msg.sender instead of tx.origin for authorization. tx.origin should not be used for authentication as another contract can have a method which calls your contract and since tx.origin is always the original sender of the full call chain, it would authenticate the malicious contract."
+  },
+  {
+    "swc_id": "SWC-116",
+    "title": "Block values as a proxy for time",
+    "vuln_type": "timestamp-dependency",
+    "cwe_id": "CWE-829",
+    "description": "Contracts often need access to time values to perform certain types of functionality. Values such as block.timestamp and block.number can give you a sense of the current time or a time delta; however, they are not safe to use for most purposes. Miners can manipulate block.timestamp within a roughly 15-second window.",
+    "remediation": "Avoid using block.timestamp or block.number for critical logic. If time-dependent logic is required, use a time oracle or accept a degree of miner manipulation. For randomness, use Chainlink VRF or similar oracle-based solutions."
+  },
+  {
+    "swc_id": "SWC-119",
+    "title": "Shadowing State Variables",
+    "vuln_type": "shadowing-state",
+    "cwe_id": "CWE-710",
+    "description": "Solidity allows for ambiguous naming of state variables when inheritance is used. Contract A with a variable x could inherit from contract B that also has a state variable x defined. This would result in two separate versions of x, one of them being accessed from contract A and the other one from contract B.",
+    "remediation": "Review storage variable layouts for your contract systems carefully and remove any ambiguity. Always check for compiler warnings as they can flag the issue within a single contract."
+  },
+  {
+    "swc_id": "SWC-120",
+    "title": "Weak Sources of Randomness from Chain Attributes",
+    "vuln_type": "weak-randomness",
+    "cwe_id": "CWE-330",
+    "description": "Using block attributes such as block.timestamp, blockhash, or block.difficulty as sources of randomness is insecure because miners have the ability to manipulate these values.",
+    "remediation": "Use Chainlink VRF or a commit-reveal scheme for generating random numbers. Do not rely on block.timestamp, blockhash, or block.difficulty for randomness in any security-critical application."
+  },
+  {
+    "swc_id": "SWC-124",
+    "title": "Write to Arbitrary Storage Location",
+    "vuln_type": "arbitrary-storage-write",
+    "cwe_id": "CWE-123",
+    "description": "A smart contract's data is persistently stored at some storage location on the EVM level. It is the task of the smart contract to ensure that only authorized users or smart contract accounts can write to sensitive storage locations.",
+    "remediation": "Use proper access control mechanisms. Validate all indices before performing array or mapping writes. Be cautious with dynamic arrays and inline assembly that directly accesses storage."
+  },
+  {
+    "swc_id": "SWC-128",
+    "title": "DoS With Block Gas Limit",
+    "vuln_type": "denial-of-service",
+    "cwe_id": "CWE-400",
+    "description": "When smart contracts are deployed or functions inside them are called, the execution of these actions requires a certain amount of gas. If the amount of computation required exceeds the block gas limit, the transaction will fail. This can be exploited by an attacker who forces the contract to iterate over a large data structure.",
+    "remediation": "Avoid looping over dynamic arrays. Implement pagination or batch processing patterns. Use pull over push patterns for distributing funds to multiple recipients. Set reasonable upper bounds for any loops."
+  },
+  {
+    "swc_id": "SWC-131",
+    "title": "Presence of Unused Variables",
+    "vuln_type": "unused-variables",
+    "cwe_id": "CWE-1164",
+    "description": "Unused variables are allowed in Solidity and they do not pose a direct security issue. It is best practice though to avoid them as they can cause an increase in computations, indicate bugs or malformed data structures, and decrease code readability.",
+    "remediation": "Remove all unused state and local variables from the contract code. Review the code for any variables that were declared but never referenced."
+  },
+  {
+    "swc_id": "SWC-132",
+    "title": "Unexpected Ether balance",
+    "vuln_type": "locked-ether",
+    "cwe_id": "CWE-667",
+    "description": "Contracts can behave erroneously when they strictly assume a specific Ether balance. It is always possible to forcibly send ether to a contract via selfdestruct or by mining a block with the contract as the coinbase.",
+    "remediation": "Avoid strict equality checks against the contract Ether balance. If exact values are required, use a state variable to track deposited Ether rather than relying on address.balance."
+  }
+]

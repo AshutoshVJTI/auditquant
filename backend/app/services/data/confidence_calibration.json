@@ -1,0 +1,39 @@
+{
+  "_generated_by": "evaluation/scripts/calibrate_boosts.py",
+  "tool_base_confidence": {
+    "slither": 0.16,
+    "mythril": 0.6731,
+    "semgrep": 0.512,
+    "slitherin": 0.174
+  },
+  "slither_tier_confidence": {
+    "High": 0.32,
+    "Medium": 0.16,
+    "Low": 0.08
+  },
+  "slitherin_tier_confidence": {
+    "High": 0.348,
+    "Medium": 0.174,
+    "Low": 0.087
+  },
+  "mythril_confidence": {
+    "reachable": 0.9423,
+    "not_reachable": 0.6731
+  },
+  "semgrep_tier_confidence": {
+    "HIGH": 0.99,
+    "MEDIUM": 0.512,
+    "LOW": 0.256,
+    "default": 0.512
+  },
+  "cross_validation_boosts": {
+    "BOOST_HIGH_CONFIDENCE": 0.2593,
+    "BOOST_MEDIUM_CONFIDENCE": 0.1297
+  },
+  "tool_precision_weights": {
+    "slither": 0.16,
+    "mythril": 0.6731,
+    "semgrep": 0.512,
+    "slitherin": 0.174
+  }
+}

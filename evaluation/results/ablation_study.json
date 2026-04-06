@@ -1,0 +1,78 @@
+{
+  "source": "benchmark_real_recomputed_20260323_103027.json",
+  "n_contracts": 100,
+  "configurations": {
+    "Slither only": {
+      "tp": 16,
+      "fp": 84,
+      "fn": 39,
+      "precision": 0.16,
+      "recall": 0.2909,
+      "f1": 0.2065,
+      "fp_rate": 0.84,
+      "cross_validated": 0
+    },
+    "Mythril only": {
+      "tp": 35,
+      "fp": 17,
+      "fn": 20,
+      "precision": 0.6731,
+      "recall": 0.6364,
+      "f1": 0.6542,
+      "fp_rate": 0.3269,
+      "cross_validated": 0
+    },
+    "Slither + Mythril\n(union, no filter)": {
+      "tp": 46,
+      "fp": 93,
+      "fn": 9,
+      "precision": 0.3309,
+      "recall": 0.8364,
+      "f1": 0.4742,
+      "fp_rate": 0.6691,
+      "cross_validated": 0
+    },
+    "Slither + Mythril\n(cross-validated)": {
+      "tp": 39,
+      "fp": 55,
+      "fn": 16,
+      "precision": 0.4149,
+      "recall": 0.7091,
+      "f1": 0.5235,
+      "fp_rate": 0.5851,
+      "cross_validated": 13
+    },
+    "AuditQuant (full)\n(all tools + filter)": {
+      "tp": 39,
+      "fp": 55,
+      "fn": 16,
+      "precision": 0.4149,
+      "recall": 0.7091,
+      "f1": 0.5235,
+      "fp_rate": 0.5851,
+      "cross_validated": 13
+    }
+  },
+  "key_comparison": {
+    "union_no_filter": {
+      "precision": 0.3309,
+      "recall": 0.8364,
+      "f1": 0.4742,
+      "fp_rate": 0.6691
+    },
+    "with_crossval": {
+      "precision": 0.4149,
+      "recall": 0.7091,
+      "f1": 0.5235,
+      "fp_rate": 0.5851
+    },
+    "full_auditquant": {
+      "precision": 0.4149,
+      "recall": 0.7091,
+      "f1": 0.5235,
+      "fp_rate": 0.5851
+    },
+    "f1_gain_from_cv": 0.0493,
+    "fpr_reduction_from_cv": 0.084
+  }
+}

@@ -1,31 +1,25 @@
-"""
-Main orchestrator for the AuditQuant analysis pipeline.
-Ties together tool runners, LLM summarization, verification, and risk scoring.
-"""
-
 import asyncio
 import uuid
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 from app.config import settings
 from app.models.schemas import (
-    AnalysisResult,
     Finding,
-    RemediationPatch,
+    ModelPrediction,
     RiskScores,
+    VerificationInfo,
 )
 from app.services.anti_hallucination import (
     AntiHallucinationVerifier,
-    LLMClaim,
-    VerificationStatus,
-    extract_claims_from_llm_output,
+    vulnerability_types_compatible,
 )
+from app.services.codebert_runner import CodeBERTResult, run_codebert
+from app.services.llm_summary import generate_summary
 from app.services.defi_classifier import (
     ClassificationResult,
-    DeFiCategory,
     classify_contract,
     get_business_context,
 )
@@ -34,136 +28,140 @@ from app.services.multi_tool_orchestrator import (
     MultiToolResult,
     get_finding_stats,
 )
-from app.services.normalized_finding import AnalysisType, NormalizedFinding, Severity
-from app.services.store import store
-from app.services.swc_knowledge import get_swc_knowledge_base
-from llm.client import LLMClient, LLMConfig
-from remediation.code_t5 import generate_patch
+from app.services.normalized_finding import (
+    AnalysisType,
+    NormalizedFinding,
+    normalize_vuln_type,
+)
 from riskquant.business_risk_rubric import (
     BusinessRiskReport,
-    RubricScores,
     compare_rubric_vs_llm,
     compute_business_risk_rubric,
+    compute_loss_percentage,
 )
 from riskquant.complexity import estimate_cyclomatic_complexity
-from riskquant.engine import compute_r_comp, compute_r_dast, compute_r_sast
-from riskquant.financial import compute_loss_percentage, map_loss_percentage
+from riskquant.engine import compute_composite, compute_r_comp, compute_r_dast, compute_r_sast
 
 
 @dataclass
 class EnhancedAnalysisResult:
-    """Everything the pipeline produces for a single contract analysis."""
-
     analysis_id: str
     filename: str
     created_at: datetime
     status: str
-
     defi_category: str | None = None
     defi_confidence: float = 0.0
     business_context: dict[str, Any] = field(default_factory=dict)
-
     scores: RiskScores | None = None
-
     total_findings: int = 0
     cross_validated_count: int = 0
     findings: list[Finding] = field(default_factory=list)
-
-    verification_status: str = "pending"
-    hallucination_rate: float = 0.0
-    verified_findings: list[Finding] = field(default_factory=list)
-
     tool_stats: dict[str, Any] = field(default_factory=dict)
     business_risk_report: dict[str, Any] = field(default_factory=dict)
-    summary: str | None = None
-    remediation: list[RemediationPatch] = field(default_factory=list)
     loss_percentage: float = 0.0
+    model_prediction: ModelPrediction | None = None
+    verification: VerificationInfo | None = None
+    summary: str | None = None
+    summary_error: str | None = None
     error: str | None = None
 
 
 class Orchestrator:
 
-    def __init__(
-        self,
-        enable_oyente: bool = True,
-        enable_llm_validation: bool = True,
-        require_dynamic_proof: bool = True,
-    ):
+    def __init__(self):
         self.multi_tool = MultiToolOrchestrator(
-            compose_path=settings.docker_compose_path or settings.slither_compose_path,
-            enable_oyente=enable_oyente,
+            compose_path=settings.docker_compose_path,
         )
-        self.verifier = AntiHallucinationVerifier(
-            require_dynamic_proof=require_dynamic_proof,
-        )
-        self.enable_llm_validation = enable_llm_validation
-
-        if settings.openai_api_key:
-            self.llm = LLMClient(
-                LLMConfig(
-                    api_key=settings.openai_api_key,
-                    model=settings.openai_model,
-                    base_url=settings.openai_base_url,
-                )
-            )
-        else:
-            self.llm = None
+        self.verifier = AntiHallucinationVerifier(require_dynamic_proof=True)
+        self._summary_verifier = AntiHallucinationVerifier(require_dynamic_proof=False)
 
     async def analyze(
         self,
         file_path: Path,
         analysis_id: str | None = None,
     ) -> EnhancedAnalysisResult:
-        """Run the full pipeline on a single .sol file."""
         analysis_id = analysis_id or str(uuid.uuid4())
         created_at = datetime.utcnow()
-
-        if not store.get(analysis_id):
-            store.create(analysis_id, file_path.name)
 
         try:
             source_code = file_path.read_text(encoding="utf-8")
 
-            # classify the contract so risk scoring has business context
+            ckpt_path = Path(settings.codebert_checkpoint_path)
+            codebert_result: CodeBERTResult = await asyncio.to_thread(
+                run_codebert, source_code, ckpt_path
+            )
+            model_prediction = ModelPrediction(
+                available=codebert_result.available,
+                vuln_types=codebert_result.vuln_types,
+                risk_score=codebert_result.risk_score,
+                probabilities=codebert_result.probabilities,
+                error=codebert_result.error,
+            )
+
             classification = classify_contract(source_code)
             business_context = get_business_context(classification)
 
-            # run all tools in parallel
             tool_result = await self.multi_tool.analyze(file_path, analysis_id)
             findings = self._convert_findings(tool_result, classification)
 
-            # LLM summary + verification
-            verified_findings = findings
-            verification_report: dict[str, Any] = {}
-            summary = None
+            findings = self._annotate_model_verified(findings, codebert_result)
 
-            if self.llm and self.enable_llm_validation:
-                summary, claims = await self._generate_verified_summary(
-                    tool_result.all_findings,
-                    classification,
-                    source_code,
+            summary_text: str | None = None
+            summary_error: str | None = None
+            summary_verification: VerificationInfo | None = None
+            if not settings.openai_api_key:
+                summary_error = (
+                    "Executive summary is not configured. Set OPENAI_API_KEY in the API environment "
+                    "(or backend/.env). Optionally set OPENAI_BASE_URL for compatible providers."
                 )
-                if claims:
-                    expected_losses = self._get_expected_losses(classification)
-                    verification_report = self.verifier.verify_summary(
-                        claims,
-                        tool_result.all_findings,
-                        expected_losses,
+            else:
+                llm_result = await asyncio.to_thread(
+                    generate_summary,
+                    findings,
+                    classification.primary_category.value,
+                    file_path.name,
+                )
+                if llm_result.error:
+                    summary_error = llm_result.error
+                elif llm_result.summary:
+                    summary_text = llm_result.summary
+                else:
+                    summary_error = (
+                        "OpenAI returned no summary markdown. Check the model response or try again."
                     )
-                    if verification_report.get("overall_status") != "rejected":
-                        verified_findings = self._filter_verified_findings(
-                            findings,
-                            verification_report,
-                        )
+                if llm_result.claims:
+                    expected_losses = {
+                        c.vulnerability_type: classification.get_loss_impact(c.vulnerability_type)
+                        for c in llm_result.claims
+                        if c.vulnerability_type
+                    }
+                    verification_report = self._summary_verifier.verify_summary(
+                        llm_result.claims,
+                        tool_result.all_findings,
+                        category_expected_losses=expected_losses,
+                    )
+                    summary_verification = VerificationInfo(
+                        status=verification_report.get("overall_status", "unverified"),
+                        hallucination_rate=verification_report.get("hallucination_rate", 0.0),
+                        total_claims=verification_report.get("total_claims", 0),
+                        verified_count=verification_report.get("verified_count", 0),
+                        rejected_count=verification_report.get("rejected_count", 0),
+                        unverified_count=verification_report.get("unverified_count", 0),
+                        needs_review_count=verification_report.get("needs_review_count", 0),
+                    )
 
-            scores = self._compute_risk_scores(tool_result, classification, source_code)
-            business_risk_report = self._compute_business_risk(
-                tool_result, classification, verified_findings,
+            scores = self._compute_risk_scores(
+                tool_result, classification, source_code, codebert_result
             )
-            loss_pct = self._compute_loss_percentage(verified_findings)
-            patches = self._generate_remediation(source_code, verified_findings)
 
-            result = EnhancedAnalysisResult(
+            business_risk_report = self._compute_business_risk(
+                tool_result, classification, findings
+            )
+
+            vulns = [(f.metadata.get("vulnerability_type", f.title), 1.0) for f in findings]
+            loss_pct = compute_loss_percentage(vulns)
+
+            return EnhancedAnalysisResult(
                 analysis_id=analysis_id,
                 filename=file_path.name,
                 created_at=created_at,
@@ -175,45 +173,94 @@ class Orchestrator:
                 total_findings=len(findings),
                 cross_validated_count=len(tool_result.cross_validated),
                 findings=findings,
-                verification_status=verification_report.get(
-                    "overall_status", "skipped"
-                ),
-                hallucination_rate=verification_report.get(
-                    "hallucination_rate", 0.0
-                ),
-                verified_findings=verified_findings,
                 tool_stats=get_finding_stats(tool_result),
                 business_risk_report=business_risk_report,
-                summary=summary,
-                remediation=patches,
                 loss_percentage=loss_pct,
+                model_prediction=model_prediction,
+                verification=summary_verification,
+                summary=summary_text,
+                summary_error=summary_error,
             )
 
-            self._update_store(analysis_id, result)
-            return result
-
         except Exception as exc:
-            result = EnhancedAnalysisResult(
+            return EnhancedAnalysisResult(
                 analysis_id=analysis_id,
                 filename=file_path.name,
                 created_at=created_at,
                 status="failed",
                 error=str(exc),
             )
-            return result
+
+    def _codebert_canonical_predicted_types(self, cr: CodeBERTResult | None) -> set[str]:
+        out: set[str] = set()
+        if not cr or not cr.available:
+            return out
+        for v in cr.vuln_types or []:
+            c = normalize_vuln_type(v).lower().replace("_", "-")
+            if c:
+                out.add(c)
+        if out:
+            return out
+        probs = cr.probabilities or {}
+        thr_map = cr.thresholds or {}
+        if not probs:
+            return out
+        for lab, p in probs.items():
+            thr = float(thr_map.get(lab, 0.5))
+            if p >= max(0.28, thr * 0.75):  # slightly relaxed threshold to catch borderline cases
+                c = normalize_vuln_type(lab).lower().replace("_", "-")
+                if c:
+                    out.add(c)
+        return out
+
+    def _annotate_model_verified(
+        self,
+        findings: list[Finding],
+        codebert_result: CodeBERTResult | None,
+    ) -> list[Finding]:
+        predicted = self._codebert_canonical_predicted_types(codebert_result)
+        annotated: list[Finding] = []
+        for f in findings:
+            raw_vt = f.metadata.get("vulnerability_type") or f.title or ""
+            finding_vt = (
+                normalize_vuln_type(raw_vt).lower().replace("_", "-") if raw_vt else ""
+            )
+            model_verified = bool(finding_vt) and bool(predicted) and any(
+                vulnerability_types_compatible(pc, finding_vt) for pc in predicted
+            )
+            annotated.append(Finding(
+                id=f.id,
+                title=f.title,
+                impact=f.impact,
+                confidence=f.confidence,
+                description=f.description,
+                source=f.source,
+                location=f.location,
+                vulnerable=f.vulnerable,
+                loss_percentage=f.loss_percentage,
+                metadata={**f.metadata, "model_verified": model_verified},
+            ))
+        return annotated
 
     def _convert_findings(
         self,
         tool_result: MultiToolResult,
         classification: ClassificationResult,
     ) -> list[Finding]:
+        tier_by_id: dict[str, str] = {}
+        for f in tool_result.high_confidence:
+            tier_by_id[f.id] = "HIGH_CONFIDENCE"
+        for f in tool_result.medium_confidence:
+            tier_by_id[f.id] = "MEDIUM_CONFIDENCE"
+        for f in tool_result.lone_signals:
+            tier_by_id.setdefault(f.id, "LONE_SIGNAL")
+
         findings: list[Finding] = []
         for nf in tool_result.all_findings:
             loss_pct = classification.get_loss_impact(nf.vulnerability_type)
-            is_cross_validated = any(
-                cv.id == nf.id for cv in tool_result.cross_validated
-            )
-            finding = Finding(
+            tier = tier_by_id.get(nf.id, "LONE_SIGNAL")
+            is_cross_validated = tier in ("HIGH_CONFIDENCE", "MEDIUM_CONFIDENCE")
+            findings.append(Finding(
                 id=nf.id,
                 title=nf.title,
                 impact=nf.severity.value,
@@ -230,124 +277,25 @@ class Orchestrator:
                     "is_reachable": nf.is_reachable,
                     "has_exploit_proof": nf.has_exploit_proof,
                     "cross_validated": is_cross_validated,
+                    "confidence_tier": tier,
                 },
-            )
-            findings.append(finding)
+            ))
         return findings
-
-    async def _generate_verified_summary(
-        self,
-        findings: list[NormalizedFinding],
-        classification: ClassificationResult,
-        source_code: str,
-    ) -> tuple[str, list[LLMClaim]]:
-        if not self.llm:
-            return "", []
-
-        business_ctx = get_business_context(classification)
-        findings_text = "\n".join(
-            f"- [{f.tool.value}] {f.title}: {f.description} "
-            f"(Severity: {f.severity.value}, Reachable: {f.is_reachable})"
-            for f in findings[:15]
-        )
-
-        # Enrich prompt with authoritative SWC knowledge
-        swc_kb = get_swc_knowledge_base()
-        finding_types = [f.vulnerability_type for f in findings[:15]]
-        swc_ids = [f.swc_id for f in findings[:15]]
-        swc_context = swc_kb.get_context_for_findings(finding_types, swc_ids)
-
-        prompt = f"""You are a smart contract security auditor analyzing a {business_ctx['description']}.
-
-Contract Category: {classification.primary_category.value}
-Assets at Risk: {business_ctx['assets_at_risk']}
-Known Attack Vectors: {', '.join(business_ctx['attack_vectors'])}
-
-Tool Findings:
-{findings_text}
-
-{swc_context}
-For each REAL vulnerability (ignore false positives), provide:
-
-VULNERABILITY: <type>
-LOCATION: <file:line or function name>
-EXPLOITABLE: <yes/no — only yes if tools provided proof>
-LOSS_PERCENTAGE: <0-100 based on category and severity>
-DESCRIPTION: <what the vulnerability is and why it exists — use the SWC description above for accuracy>
-EXPLOIT_SCENARIO: <step-by-step attack scenario — ground this in the SWC reference>
-TECHNICAL_IMPACT: <code-level technical consequences>
-FIX_RECOMMENDATION: <specific, actionable remediation steps — use the SWC remediation guidance above>
-
-Rules:
-- Only report vulnerabilities actually found by tools
-- Do not invent new vulnerabilities not in the tool output
-- EXPLOITABLE=yes requires proof from Mythril or Oyente
-- Loss percentage should match the DeFi category
-- Base your DESCRIPTION and FIX_RECOMMENDATION on the SWC reference when available
-
-Summary:"""
-
-        try:
-            summary = await self.llm.generate_summary_async(
-                [{"prompt": prompt, "findings": [f.to_dict() for f in findings]}]
-            )
-            claims = extract_claims_from_llm_output(summary)
-            return summary, claims
-        except Exception:
-            return "", []
-
-    def _get_expected_losses(
-        self,
-        classification: ClassificationResult,
-    ) -> dict[str, float]:
-        from app.services.defi_classifier import CATEGORY_LOSS_IMPACT
-
-        expected: dict[str, float] = {}
-        for (cat, vuln), loss in CATEGORY_LOSS_IMPACT.items():
-            if cat == classification.primary_category:
-                expected[vuln] = loss
-        return expected
-
-    def _filter_verified_findings(
-        self,
-        findings: list[Finding],
-        verification_report: dict[str, Any],
-    ) -> list[Finding]:
-        verified_vulns: set[str] = set()
-        for claim_result in verification_report.get("per_claim_results", []):
-            if claim_result.get("status") in ("verified", "needs_review"):
-                if claim_result.get("vulnerability_type"):
-                    verified_vulns.add(claim_result["vulnerability_type"].lower())
-
-        if not verified_vulns:
-            return [
-                f
-                for f in findings
-                if f.metadata.get("has_exploit_proof")
-                or f.metadata.get("cross_validated")
-            ]
-
-        return [
-            f
-            for f in findings
-            if f.metadata.get("vulnerability_type", "").lower() in verified_vulns
-            or f.metadata.get("has_exploit_proof")
-        ]
 
     def _compute_risk_scores(
         self,
         tool_result: MultiToolResult,
         classification: ClassificationResult,
         source_code: str,
+        codebert_result: CodeBERTResult | None = None,
     ) -> RiskScores:
         static_findings = [
             f
             for f in tool_result.all_findings
-            if f.analysis_type == AnalysisType.STATIC
+            if f.analysis_type in (AnalysisType.STATIC, AnalysisType.PATTERN)
         ]
         dynamic_findings = [
-            f
-            for f in tool_result.all_findings
+            f for f in tool_result.all_findings
             if f.analysis_type in (AnalysisType.SYMBOLIC, AnalysisType.BYTECODE)
         ]
 
@@ -355,27 +303,28 @@ Summary:"""
         for f in static_findings:
             try:
                 conf_val = int(f"{f.confidence:.0%}".replace("%", ""))
-                conf_cat = (
-                    "High" if conf_val >= 80 else "Medium" if conf_val >= 50 else "Low"
-                )
+                conf_cat = "High" if conf_val >= 80 else "Medium" if conf_val >= 50 else "Low"
             except ValueError:
                 conf_cat = "Medium"
             sast_issues.append((f.severity.value, conf_cat))
         r_sast = compute_r_sast(sast_issues)
 
-        dast_severities = [
-            (f.severity_score, f.is_reachable) for f in dynamic_findings
-        ]
+        dast_severities = [(f.severity_score, f.is_reachable) for f in dynamic_findings]
         r_dast = compute_r_dast(dast_severities)
-
-        # bump R_DAST when cross-validated findings include an exploit proof
-        if any(f.has_exploit_proof for f in tool_result.cross_validated):
-            r_dast = min(100.0, r_dast * 1.2)
 
         cc = estimate_cyclomatic_complexity(source_code)
         r_comp = compute_r_comp(cc)
 
-        return RiskScores(r_sast=r_sast, r_dast=r_dast, r_comp=r_comp)
+        r_model: float | None = None
+        if codebert_result and codebert_result.available and not codebert_result.error:
+            r_model = codebert_result.risk_score
+            composite = round(
+                0.35 * r_sast + 0.25 * r_dast + 0.15 * r_comp + 0.25 * r_model, 4
+            )
+        else:
+            composite = compute_composite(r_sast, r_dast, r_comp)
+
+        return RiskScores(r_sast=r_sast, r_dast=r_dast, r_comp=r_comp, composite=composite, r_model=r_model)
 
     def _compute_business_risk(
         self,
@@ -383,7 +332,6 @@ Summary:"""
         classification: ClassificationResult,
         findings: list[Finding],
     ) -> dict[str, Any]:
-        """Score each finding on a 4-part rubric and compare vs LLM loss bucket."""
         defi_cat = classification.primary_category.value
         total_tools_run = len(tool_result.tool_results)
         cross_validated_ids = {cv.id for cv in tool_result.cross_validated}
@@ -417,62 +365,8 @@ Summary:"""
             comparison = compare_rubric_vs_llm(
                 vulnerability_type=vuln_type,
                 rubric=rubric,
-                llm_loss_percentage=finding.loss_percentage,
+                llm_loss_percentage=None,
             )
             report.per_finding.append(comparison)
 
         return report.to_dict()
-
-    def _compute_loss_percentage(self, findings: list[Finding]) -> float:
-        vulns: list[tuple[str, float]] = []
-        for f in findings:
-            vuln_type = f.metadata.get("vulnerability_type", f.title)
-            vulns.append((vuln_type, 1.0))
-        return compute_loss_percentage(vulns)
-
-    def _generate_remediation(
-        self,
-        source_code: str,
-        findings: list[Finding],
-    ) -> list[RemediationPatch]:
-        patches: list[RemediationPatch] = []
-        for finding in findings:
-            patch_code = generate_patch(source_code, finding.title)
-            patches.append(
-                RemediationPatch(
-                    finding_id=finding.id,
-                    vuln_type=finding.title,
-                    original=source_code,
-                    patch=patch_code,
-                    explanation=f"Auto-generated patch for {finding.title} vulnerability.",
-                )
-            )
-        return patches
-
-    def _update_store(
-        self,
-        analysis_id: str,
-        result: EnhancedAnalysisResult,
-    ) -> None:
-        legacy_result = AnalysisResult(
-            analysis_id=result.analysis_id,
-            filename=result.filename,
-            created_at=result.created_at,
-            status=result.status,
-            scores=result.scores,
-            findings=result.verified_findings or result.findings,
-            remediation=result.remediation,
-            summary=result.summary,
-            error=result.error,
-        )
-        store.update(analysis_id, legacy_result)
-
-
-async def run_analysis(
-    file_path: Path,
-    analysis_id: str | None = None,
-) -> EnhancedAnalysisResult:
-    orchestrator = Orchestrator(
-        enable_oyente=settings.enable_oyente,
-    )
-    return await orchestrator.analyze(file_path, analysis_id)

@@ -1,0 +1,145 @@
+rules:
+  - id: sol-tx-origin-auth
+    pattern: tx.origin
+    message: tx.origin used for authorization - use msg.sender instead
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: access_control
+      swc: SWC-115
+
+  - id: sol-delegatecall
+    pattern: $X.delegatecall($Y)
+    message: delegatecall to potentially user-controlled address
+    languages: [solidity]
+    severity: ERROR
+    metadata:
+      vulnerability: access_control
+      swc: SWC-112
+
+  - id: sol-selfdestruct
+    pattern: selfdestruct($X)
+    message: selfdestruct present - ensure access is restricted
+    languages: [solidity]
+    severity: ERROR
+    metadata:
+      vulnerability: access_control
+      swc: SWC-106
+
+  - id: sol-unchecked-send
+    pattern: $X.send($Y)
+    message: Return value of send() not checked
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: unchecked_low_level_calls
+      swc: SWC-104
+
+  - id: sol-unchecked-transfer
+    pattern: $TOKEN.transfer($TO, $AMT)
+    message: Return value of transfer() not checked
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: unchecked_low_level_calls
+      swc: SWC-104
+
+  - id: sol-unchecked-lowlevel-call
+    pattern: $ADDR.call(...)
+    message: Low-level call() used; ensure return value is checked
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: unchecked_low_level_calls
+      swc: SWC-104
+
+  - id: sol-blockhash-randomness
+    pattern: blockhash($X)
+    message: blockhash used as randomness source - predictable
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: front_running
+      swc: SWC-120
+
+  - id: sol-block-timestamp
+    pattern: block.timestamp
+    message: block.timestamp used - can be manipulated by miners
+    languages: [solidity]
+    severity: INFO
+    metadata:
+      vulnerability: front_running
+      swc: SWC-116
+
+  - id: sol-suicide
+    pattern: suicide($X)
+    message: suicide() (deprecated selfdestruct) - ensure access is restricted
+    languages: [solidity]
+    severity: ERROR
+    metadata:
+      vulnerability: access_control
+      swc: SWC-106
+
+
+  - id: sol-integer-overflow-add
+    pattern: $X += $Y
+    message: Compound addition may overflow - use SafeMath or Solidity 0.8+
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: arithmetic
+      swc: SWC-101
+
+  - id: sol-integer-overflow-sub
+    pattern: $X -= $Y
+    message: Compound subtraction may underflow - use SafeMath or Solidity 0.8+
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: arithmetic
+      swc: SWC-101
+
+  - id: sol-integer-overflow-mul
+    pattern: $X *= $Y
+    message: Compound multiplication may overflow - use SafeMath or Solidity 0.8+
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: arithmetic
+      swc: SWC-101
+
+  - id: sol-integer-add-assign
+    pattern: $X = $A + $B
+    message: Addition result assigned without overflow check
+    languages: [solidity]
+    severity: INFO
+    metadata:
+      vulnerability: arithmetic
+      swc: SWC-101
+
+  - id: sol-integer-sub-assign
+    pattern: $X = $A - $B
+    message: Subtraction result assigned - possible underflow
+    languages: [solidity]
+    severity: INFO
+    metadata:
+      vulnerability: arithmetic
+      swc: SWC-101
+
+  - id: sol-integer-mul-assign
+    pattern: $X = $A * $B
+    message: Multiplication result assigned without overflow check
+    languages: [solidity]
+    severity: INFO
+    metadata:
+      vulnerability: arithmetic
+      swc: SWC-101
+
+  - id: sol-unchecked-block
+    pattern: unchecked { ... }
+    message: unchecked block - arithmetic overflow explicitly disabled
+    languages: [solidity]
+    severity: WARNING
+    metadata:
+      vulnerability: arithmetic
+      swc: SWC-101
