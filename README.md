@@ -118,6 +118,14 @@ python evaluation/scripts/prepare_dataset_v2.py
 
 Results are written to `evaluation/results/` and graphs to `evaluation/graphs/`.
 
+## Model Checkpoint
+
+The fine-tuned CodeBERT checkpoint (~476 MB) is not included in this repo. Download it from Google Drive and place it at `evaluation/llm_training/checkpoints/checkpoint_best.pt`:
+
+**[Download checkpoint_best.pt](https://drive.google.com/file/d/1Oh9_lOm8JwzZ66kRSwjoU4DZxWvVNMlO/view?usp=sharing)**
+
+Or set `CODEBERT_CHECKPOINT_PATH` in `.env` to point to wherever you saved it.
+
 ## Troubleshooting
 
 - **Analysis stuck:** make sure Docker Desktop is running and images are built
