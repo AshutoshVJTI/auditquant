@@ -160,31 +160,73 @@ def graph2_f1_heatmap(results: dict) -> None:
     print("  saved  2_f1_heatmap.png")
 
 def graph3_precision_recall(results: dict) -> None:
-    from adjustText import adjust_text
-
     systems = results["systems_evaluated"]
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(10, 7))
 
-    xs, ys, texts = [], [], []
+    xs, ys, labels = [], [], []
     for i, s in enumerate(systems):
         m   = results["system_metrics"][s]["metrics"]
         lbl = SYSTEM_LABELS[s].replace("\n", " ")
         ax.scatter(m["recall"], m["precision"], s=120, color=COLORS[i], zorder=3)
         xs.append(m["recall"])
         ys.append(m["precision"])
-        texts.append(ax.text(m["recall"], m["precision"], lbl, fontsize=8))
+        labels.append(lbl)
 
-    adjust_text(
-        texts, x=xs, y=ys, ax=ax,
-        arrowprops=dict(arrowstyle="-", color="grey", lw=0.6),
-        expand=(1.6, 1.8),
-        force_text=(0.5, 0.8),
-        force_points=(0.3, 0.5),
-    )
-
-    pad = 0.06
+    # Set axis limits first so pixel transforms are stable
+    pad = 0.08
     ax.set_xlim(max(0, min(xs) - pad), min(1.05, max(xs) + pad + 0.1))
-    ax.set_ylim(max(0, min(ys) - pad * 2), min(1.05, max(ys) + pad + 0.2))
+    ax.set_ylim(max(0, min(ys) - pad * 2), min(1.05, max(ys) + pad + 0.25))
+    fig.canvas.draw()
+
+    # Place labels centered above dots; nudge up on pixel-level collision.
+    order = sorted(range(len(xs)), key=lambda i: (ys[i], xs[i]))
+    placed_px = []  # (x0, y0, x1, y1) in display pixels
+
+    renderer = fig.canvas.get_renderer()
+    inv = ax.transData.inverted()
+    gap_px = 24   # pixels between dot center and label bottom
+    pad_px = 10   # minimum pixel gap between labels
+
+    for idx in order:
+        x, y, lbl = xs[idx], ys[idx], labels[idx]
+        dot_px = ax.transData.transform((x, y))
+        label_y_px = dot_px[1] + gap_px
+
+        # Measure text size via a temporary text object at (0,0)
+        tmp = ax.text(0, 0, lbl, fontsize=9, fontweight="bold",
+                      ha="center", va="bottom",
+                      transform=None)
+        fig.canvas.draw_idle()
+        bb_raw = tmp.get_window_extent(renderer=renderer)
+        tmp.remove()
+        tw, th = bb_raw.width, bb_raw.height
+
+        def _bbox(yp):
+            cx = dot_px[0]
+            return (cx - tw / 2, yp, cx + tw / 2, yp + th)
+
+        bb = _bbox(label_y_px)
+
+        # Nudge up past collisions
+        for _ in range(20):
+            collision = False
+            for pb in placed_px:
+                if (bb[0] < pb[2] + pad_px and bb[2] > pb[0] - pad_px and
+                        bb[1] < pb[3] + pad_px and bb[3] > pb[1] - pad_px):
+                    label_y_px = pb[3] + pad_px
+                    bb = _bbox(label_y_px)
+                    collision = True
+                    break
+            if not collision:
+                break
+
+        placed_px.append(bb)
+        data_pos = inv.transform((dot_px[0], label_y_px))
+        ax.annotate(
+            lbl, xy=(x, y), xytext=(data_pos[0], data_pos[1]),
+            fontsize=9, fontweight="bold", ha="center", va="bottom",
+            arrowprops=dict(arrowstyle="-", color="grey", lw=0.6),
+        )
 
     ax.set_xlabel("Recall")
     ax.set_ylabel("Precision")
